@@ -1,0 +1,8 @@
+{
+  "unauthorizedAccessTitle": "Accès non autorisé",
+  "unauthorizedAccessBody": "Clé d'API manquante ou invalide.",
+  "tooManyRequestsTitle": "Trop de requêtes",
+  "tooManyRequestsBody": "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.",
+  "unknownErrorTitle": "Erreur",
+  "unknownErrorBody": "Une erreur est survenue."
+}

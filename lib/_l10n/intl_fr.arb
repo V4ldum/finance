@@ -1,0 +1,8 @@
+{
+  "unauthorizedAccessTitle": "Unauthorized Access",
+  "unauthorizedAccessBody": "Invalid or missing API key",
+  "tooManyRequestsTitle": "Too many requests",
+  "tooManyRequestsBody": "You have sent too many simultaneous requests or have reached your monthly quota.",
+  "unknownErrorTitle": "Error",
+  "unknownErrorBody": "An error occurred."
+}
