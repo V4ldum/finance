@@ -1,10 +1,9 @@
 import 'package:finance/features/proof_of_concept/presentation/pages/coin_home/coin_home_navigator.dart';
+import 'package:finance/shared/constants/paddings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Page used to input a query for coins
 class CoinHomePage extends ConsumerWidget {
-  /// Constructor for the [CoinHomePage]
   CoinHomePage({super.key}) : _controller = TextEditingController();
 
   final TextEditingController _controller;
@@ -13,7 +12,7 @@ class CoinHomePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: Paddings.l),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,7 +20,7 @@ class CoinHomePage extends ConsumerWidget {
             const Center(
               child: Text('CoinPage'),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: Paddings.m),
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
@@ -30,10 +29,10 @@ class CoinHomePage extends ConsumerWidget {
                 filled: true,
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: Paddings.m),
             FilledButton(
               onPressed: () {
-                ref.read(coinHomeNavigatorProvider).openSearchCoin(_controller.text);
+                ref.watch(coinHomeNavigatorProvider).openSearchCoin(_controller.text);
               },
               child: const Text('Search'),
             ),

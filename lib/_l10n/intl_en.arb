@@ -1,8 +1,12 @@
 {
-  "unauthorizedAccessTitle": "Accès non autorisé",
-  "unauthorizedAccessBody": "Clé d'API manquante ou invalide.",
-  "tooManyRequestsTitle": "Trop de requêtes",
-  "tooManyRequestsBody": "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.",
-  "unknownErrorTitle": "Erreur",
-  "unknownErrorBody": "Une erreur est survenue."
+  "unauthorizedAccessTitle": "Unauthorized Access",
+  "unauthorizedAccessBody": "Invalid or missing API key",
+  "tooManyRequestsTitle": "Too many requests",
+  "tooManyRequestsBody": "You have sent too many simultaneous requests or have reached your monthly quota.",
+  "unknownErrorTitle": "Error",
+  "unknownErrorBody": "An error occurred.",
+  "invalidUsernameOrPasswordTitle": "Authentication failure",
+  "invalidUsernameOrPasswordBody": "Username or password incorrect.",
+  "sessionExpiredTitle": "Session expired",
+  "sessionExpiredBody": "Your session expired. Please reauthenticate yourself."
 }

@@ -50,61 +50,101 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Accès non autorisé`
+  /// `Unauthorized Access`
   String get unauthorizedAccessTitle {
     return Intl.message(
-      'Accès non autorisé',
+      'Unauthorized Access',
       name: 'unauthorizedAccessTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Clé d'API manquante ou invalide.`
+  /// `Invalid or missing API key`
   String get unauthorizedAccessBody {
     return Intl.message(
-      'Clé d\'API manquante ou invalide.',
+      'Invalid or missing API key',
       name: 'unauthorizedAccessBody',
       desc: '',
       args: [],
     );
   }
 
-  /// `Trop de requêtes`
+  /// `Too many requests`
   String get tooManyRequestsTitle {
     return Intl.message(
-      'Trop de requêtes',
+      'Too many requests',
       name: 'tooManyRequestsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.`
+  /// `You have sent too many simultaneous requests or have reached your monthly quota.`
   String get tooManyRequestsBody {
     return Intl.message(
-      'Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.',
+      'You have sent too many simultaneous requests or have reached your monthly quota.',
       name: 'tooManyRequestsBody',
       desc: '',
       args: [],
     );
   }
 
-  /// `Erreur`
+  /// `Error`
   String get unknownErrorTitle {
     return Intl.message(
-      'Erreur',
+      'Error',
       name: 'unknownErrorTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Une erreur est survenue.`
+  /// `An error occurred.`
   String get unknownErrorBody {
     return Intl.message(
-      'Une erreur est survenue.',
+      'An error occurred.',
       name: 'unknownErrorBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authentication failure`
+  String get invalidUsernameOrPasswordTitle {
+    return Intl.message(
+      'Authentication failure',
+      name: 'invalidUsernameOrPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username or password incorrect.`
+  String get invalidUsernameOrPasswordBody {
+    return Intl.message(
+      'Username or password incorrect.',
+      name: 'invalidUsernameOrPasswordBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Session expired`
+  String get sessionExpiredTitle {
+    return Intl.message(
+      'Session expired',
+      name: 'sessionExpiredTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your session expired. Please reauthenticate yourself.`
+  String get sessionExpiredBody {
+    return Intl.message(
+      'Your session expired. Please reauthenticate yourself.',
+      name: 'sessionExpiredBody',
       desc: '',
       args: [],
     );

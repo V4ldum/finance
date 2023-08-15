@@ -22,16 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "invalidUsernameOrPasswordBody": MessageLookupByLibrary.simpleMessage(
+            "Username or password incorrect."),
+        "invalidUsernameOrPasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Authentication failure"),
+        "sessionExpiredBody": MessageLookupByLibrary.simpleMessage(
+            "Your session expired. Please reauthenticate yourself."),
+        "sessionExpiredTitle":
+            MessageLookupByLibrary.simpleMessage("Session expired"),
         "tooManyRequestsBody": MessageLookupByLibrary.simpleMessage(
-            "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel."),
+            "You have sent too many simultaneous requests or have reached your monthly quota."),
         "tooManyRequestsTitle":
-            MessageLookupByLibrary.simpleMessage("Trop de requêtes"),
-        "unauthorizedAccessBody": MessageLookupByLibrary.simpleMessage(
-            "Clé d\'API manquante ou invalide."),
+            MessageLookupByLibrary.simpleMessage("Too many requests"),
+        "unauthorizedAccessBody":
+            MessageLookupByLibrary.simpleMessage("Invalid or missing API key"),
         "unauthorizedAccessTitle":
-            MessageLookupByLibrary.simpleMessage("Accès non autorisé"),
+            MessageLookupByLibrary.simpleMessage("Unauthorized Access"),
         "unknownErrorBody":
-            MessageLookupByLibrary.simpleMessage("Une erreur est survenue."),
-        "unknownErrorTitle": MessageLookupByLibrary.simpleMessage("Erreur")
+            MessageLookupByLibrary.simpleMessage("An error occurred."),
+        "unknownErrorTitle": MessageLookupByLibrary.simpleMessage("Error")
       };
 }

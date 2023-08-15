@@ -4,15 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/types.dart';
 
-/// Page showing the search result for coins for a given query passed as a parameter
 class SearchCoinPage extends ConsumerStatefulWidget {
-  /// Constructor for the [SearchCoinPage]
   const SearchCoinPage({
     required this.query,
     super.key,
   });
 
-  /// The query for coins
   final String query;
 
   @override
@@ -49,7 +46,7 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
                     final item = snapshot.data![index];
                     return InkWell(
                       onTap: () {
-                        ref.read(searchCoinNavigatorProvider).openCoinData(item.id);
+                        ref.watch(searchCoinNavigatorProvider).openCoinData(item.id);
                       },
                       child: Row(
                         children: [

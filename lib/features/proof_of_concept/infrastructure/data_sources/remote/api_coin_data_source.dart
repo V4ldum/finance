@@ -8,9 +8,6 @@ import 'package:finance/features/proof_of_concept/infrastructure/models/coins_qu
 import 'package:finance/shared/constants/strings.dart';
 import 'package:meta_package/types.dart';
 
-/// Concrete implementation of the data source related to coins.
-/// Uses Numista's REST API to get coin data
-/// API documentation can be found at https://en.numista.com/api/doc/index.php
 class ApiCoinDataSource implements CoinDataSource {
   final _dio = Dio(
     BaseOptions(

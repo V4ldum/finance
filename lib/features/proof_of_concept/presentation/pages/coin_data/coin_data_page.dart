@@ -6,18 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 
-/// Page showing a coin's details
 class CoinDataPage extends ConsumerWidget {
-  /// Constructor for the page
   const CoinDataPage({
     required this.coinId,
     super.key,
   });
 
-  /// The id the of coin displayed
   final int coinId;
 
-  /// Temporary function used to fuzz the coin Id in search of errors in the JSON serialization
   Future<CoinEntity> fuzzCoins(Future<CoinEntity> Function(int) getCoinData) async {
     late CoinEntity coin;
     for (var i = 0; i < 100; i++) {
@@ -36,8 +32,8 @@ class CoinDataPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Material(
       child: FutureWidget(
-        future: ref.read(getCoinDataUseCaseProvider)(coinId),
-        //future: fuzzCoins((int id) => ref.read(getCoinDataUseCaseProvider)(id)),
+        future: ref.watch(getCoinDataUseCaseProvider)(coinId),
+        //future: fuzzCoins((int id) => ref.watch(getCoinDataUseCaseProvider)(id)),
         success: (data) => _CoinPage(coin: data),
         waiting: () => const Center(
           child: CircularProgressIndicator(),
