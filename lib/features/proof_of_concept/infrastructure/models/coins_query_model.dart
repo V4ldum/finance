@@ -12,9 +12,9 @@ class CoinsQueryModel {
     required this.coins,
   });
 
-  factory CoinsQueryModel.fromJson(Map<String, dynamic> json) => _$CoinsQueryModelFromJson(json);
+  factory CoinsQueryModel.fromJson(JsonResponse json) => _$CoinsQueryModelFromJson(json);
 
-  factory CoinsQueryModel.fromHttpResponse(Response<Map<String, dynamic>> response) {
+  factory CoinsQueryModel.fromHttpResponse(Response<JsonResponse> response) {
     return CoinsQueryModel.fromJson(response.data!);
   }
 
@@ -24,7 +24,7 @@ class CoinsQueryModel {
   @JsonKey(name: 'types', defaultValue: [])
   final List<CoinQueryItemModel> coins;
 
-  Map<String, dynamic> toJson() => _$CoinsQueryModelToJson(this);
+  JsonResponse toJson() => _$CoinsQueryModelToJson(this);
 
   List<CoinSummaryEntity> toEntity() {
     return coins.map((e) => e.toEntity()).toList();
@@ -42,7 +42,7 @@ class CoinQueryItemModel {
     required this.reverseThumbnailUrl,
   });
 
-  factory CoinQueryItemModel.fromJson(Map<String, dynamic> json) => _$CoinQueryItemModelFromJson(json);
+  factory CoinQueryItemModel.fromJson(JsonResponse json) => _$CoinQueryItemModelFromJson(json);
 
   @JsonKey()
   final int id;
@@ -62,7 +62,7 @@ class CoinQueryItemModel {
   @JsonKey(name: 'reverse_thumbnail', defaultValue: '')
   final String? reverseThumbnailUrl;
 
-  Map<String, dynamic> toJson() => _$CoinQueryItemModelToJson(this);
+  JsonResponse toJson() => _$CoinQueryItemModelToJson(this);
 
   CoinSummaryEntity toEntity() {
     return CoinSummaryEntity(

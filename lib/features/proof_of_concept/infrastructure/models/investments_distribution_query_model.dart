@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:finance/features/proof_of_concept/domain/entities/entities.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta_package/types.dart';
 
 part 'generated/investments_distribution_query_model.g.dart';
 
@@ -10,17 +11,17 @@ class InvestmentsDistributionQueryModel {
     required this.items,
   });
 
-  factory InvestmentsDistributionQueryModel.fromJson(Map<String, dynamic> json) =>
+  factory InvestmentsDistributionQueryModel.fromJson(JsonResponse json) =>
       _$InvestmentsDistributionQueryModelFromJson(json);
 
-  factory InvestmentsDistributionQueryModel.fromHttpResponse(Response<Map<String, dynamic>> response) {
-    return InvestmentsDistributionQueryModel.fromJson(response.data!['result'] as Map<String, dynamic>);
+  factory InvestmentsDistributionQueryModel.fromHttpResponse(Response<JsonResponse> response) {
+    return InvestmentsDistributionQueryModel.fromJson(response.data!['result'] as JsonResponse);
   }
 
   @JsonKey(name: 'distribution', defaultValue: [])
   final List<InvestmentsDistributionItemModel> items;
 
-  Map<String, dynamic> toJson() => _$InvestmentsDistributionQueryModelToJson(this);
+  JsonResponse toJson() => _$InvestmentsDistributionQueryModelToJson(this);
 
   List<InvestmentsDistributionItemEntity> toEntity() {
     return items.map((e) => e.toEntity()).toList();
@@ -35,7 +36,7 @@ class InvestmentsDistributionItemModel {
     required this.share,
   });
 
-  factory InvestmentsDistributionItemModel.fromJson(Map<String, dynamic> json) =>
+  factory InvestmentsDistributionItemModel.fromJson(JsonResponse json) =>
       _$InvestmentsDistributionItemModelFromJson(json);
 
   @JsonKey()
@@ -47,7 +48,7 @@ class InvestmentsDistributionItemModel {
   @JsonKey()
   final double share;
 
-  Map<String, dynamic> toJson() => _$InvestmentsDistributionItemModelToJson(this);
+  JsonResponse toJson() => _$InvestmentsDistributionItemModelToJson(this);
 
   InvestmentsDistributionItemEntity toEntity() {
     return InvestmentsDistributionItemEntity(

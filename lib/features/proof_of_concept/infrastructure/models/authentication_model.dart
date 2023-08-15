@@ -13,9 +13,9 @@ class AuthenticationModel {
     this.refreshToken,
   });
 
-  factory AuthenticationModel.fromJson(Map<String, dynamic> json) => _$AuthenticationModelFromJson(json);
+  factory AuthenticationModel.fromJson(JsonResponse json) => _$AuthenticationModelFromJson(json);
 
-  factory AuthenticationModel.fromHttpResponse(Response<Map<String, dynamic>> response) {
+  factory AuthenticationModel.fromHttpResponse(Response<JsonResponse> response) {
     final cookies = response.headers['set-cookie'];
     // find the correct token and remove the first part (X_token=..) to
     final accessToken = cookies?.firstWhere((element) => element.startsWith('finary_access_token')).split('=')[1];
@@ -38,7 +38,7 @@ class AuthenticationModel {
   @JsonKey(name: 'refresh_token')
   final String? refreshToken;
 
-  Map<String, dynamic> toJson() => _$AuthenticationModelToJson(this);
+  JsonResponse toJson() => _$AuthenticationModelToJson(this);
 
   AuthenticationEntity toEntity() {
     return AuthenticationEntity(
@@ -60,9 +60,9 @@ class AuthenticationResultModel {
     this.refreshTokenExpiry,
   });
 
-  factory AuthenticationResultModel.fromJson(Map<String, dynamic> json) => _$AuthenticationResultModelFromJson(json);
+  factory AuthenticationResultModel.fromJson(JsonResponse json) => _$AuthenticationResultModelFromJson(json);
 
-  factory AuthenticationResultModel.fromHttpResponse(Response<Map<String, dynamic>> response) {
+  factory AuthenticationResultModel.fromHttpResponse(Response<JsonResponse> response) {
     return AuthenticationResultModel.fromJson(response.data!);
   }
 
@@ -75,5 +75,5 @@ class AuthenticationResultModel {
   @JsonKey(name: 'refresh_token_expiry')
   final int? refreshTokenExpiry;
 
-  Map<String, dynamic> toJson() => _$AuthenticationResultModelToJson(this);
+  JsonResponse toJson() => _$AuthenticationResultModelToJson(this);
 }

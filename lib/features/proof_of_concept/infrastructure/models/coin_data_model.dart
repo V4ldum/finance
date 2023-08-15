@@ -24,9 +24,9 @@ class CoinDataModel {
     required this.series,
   });
 
-  factory CoinDataModel.fromJson(Map<String, dynamic> json) => _$CoinDataModelFromJson(json);
+  factory CoinDataModel.fromJson(JsonResponse json) => _$CoinDataModelFromJson(json);
 
-  factory CoinDataModel.fromHttpResponse(Response<Map<String, dynamic>> response) {
+  factory CoinDataModel.fromHttpResponse(Response<JsonResponse> response) {
     return CoinDataModel.fromJson(response.data!);
   }
 
@@ -72,7 +72,7 @@ class CoinDataModel {
   @JsonKey()
   final String? series;
 
-  Map<String, dynamic> toJson() => _$CoinDataModelToJson(this);
+  JsonResponse toJson() => _$CoinDataModelToJson(this);
 
   CoinEntity toEntity() {
     return CoinEntity(
@@ -100,12 +100,12 @@ class CoinDataCompositionModel {
     required this.text,
   });
 
-  factory CoinDataCompositionModel.fromJson(Map<String, dynamic> json) => _$CoinDataCompositionModelFromJson(json);
+  factory CoinDataCompositionModel.fromJson(JsonResponse json) => _$CoinDataCompositionModelFromJson(json);
 
   @JsonKey()
   final String text;
 
-  Map<String, dynamic> toJson() => _$CoinDataCompositionModelToJson(this);
+  JsonResponse toJson() => _$CoinDataCompositionModelToJson(this);
 }
 
 @JsonSerializable()
@@ -115,8 +115,7 @@ class CoinDataDemonetizationModel {
     required this.demonetizationDate,
   });
 
-  factory CoinDataDemonetizationModel.fromJson(Map<String, dynamic> json) =>
-      _$CoinDataDemonetizationModelFromJson(json);
+  factory CoinDataDemonetizationModel.fromJson(JsonResponse json) => _$CoinDataDemonetizationModelFromJson(json);
 
   @JsonKey(name: 'is_demonetized')
   final bool isDemonetized;
@@ -124,7 +123,7 @@ class CoinDataDemonetizationModel {
   @JsonKey(name: 'demonetization_date')
   final String? demonetizationDate;
 
-  Map<String, dynamic> toJson() => _$CoinDataDemonetizationModelToJson(this);
+  JsonResponse toJson() => _$CoinDataDemonetizationModelToJson(this);
 }
 
 @JsonSerializable()
@@ -135,7 +134,7 @@ class CoinDataCoinFaceModel {
     required this.thumbnailUrl,
   });
 
-  factory CoinDataCoinFaceModel.fromJson(Map<String, dynamic> json) => _$CoinDataCoinFaceModelFromJson(json);
+  factory CoinDataCoinFaceModel.fromJson(JsonResponse json) => _$CoinDataCoinFaceModelFromJson(json);
 
   @JsonKey()
   final String? lettering;
@@ -146,7 +145,7 @@ class CoinDataCoinFaceModel {
   @JsonKey(name: 'thumbnail', defaultValue: '')
   final String? thumbnailUrl;
 
-  Map<String, dynamic> toJson() => _$CoinDataCoinFaceModelToJson(this);
+  JsonResponse toJson() => _$CoinDataCoinFaceModelToJson(this);
 
   CoinFaceEntity toEntity() {
     return CoinFaceEntity(

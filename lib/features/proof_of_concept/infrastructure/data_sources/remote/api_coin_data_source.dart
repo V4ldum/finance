@@ -23,7 +23,7 @@ class ApiCoinDataSource implements CoinDataSource {
     try {
       return Ok(
         CoinsQueryModel.fromHttpResponse(
-          await _dio.get<Map<String, dynamic>>('/types?lang=fr&category=coin&q=$query'),
+          await _dio.get<JsonResponse>('/types?lang=fr&category=coin&q=$query'),
         ).toEntity(),
       );
     } on DioException catch (e) {
@@ -42,7 +42,7 @@ class ApiCoinDataSource implements CoinDataSource {
     try {
       return Ok(
         CoinDataModel.fromHttpResponse(
-          await _dio.get<Map<String, dynamic>>('/types/$id?lang=fr'),
+          await _dio.get<JsonResponse>('/types/$id?lang=fr'),
         ).toEntity(),
       );
     } on DioException catch (e) {

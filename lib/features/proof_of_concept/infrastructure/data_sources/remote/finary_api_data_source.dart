@@ -24,7 +24,7 @@ class FinaryApiDataSource implements AbstractFinaryApiDataSource {
     try {
       return Ok(
         AuthenticationModel.fromHttpResponse(
-          await _dio.post<Map<String, dynamic>>(
+          await _dio.post<JsonResponse>(
             '/auth/signin',
             queryParameters: {
               'email': username,
@@ -57,7 +57,7 @@ class FinaryApiDataSource implements AbstractFinaryApiDataSource {
     try {
       return Ok(
         AuthenticationModel.fromHttpResponse(
-          await _dio.post<Map<String, dynamic>>(
+          await _dio.post<JsonResponse>(
             '/auth/signin',
             queryParameters: {
               'email': username,
@@ -89,7 +89,7 @@ class FinaryApiDataSource implements AbstractFinaryApiDataSource {
     try {
       return Ok(
         InvestmentsDistributionQueryModel.fromHttpResponse(
-          await _dio.get<Map<String, dynamic>>(
+          await _dio.get<JsonResponse>(
             '/users/me/portfolio/investments/distribution?type=${type.name}',
             options: Options(
               headers: {
