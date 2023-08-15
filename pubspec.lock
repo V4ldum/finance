@@ -421,7 +421,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "2d04d923d927248c5b9c9428db439a29b2605c54"
+      resolved-ref: "93384039a97dba9b8997bff2fce2b85eccf2332a"
       url: "https://github.com/V4ldum/meta-package"
     source: git
     version: "0.0.1"

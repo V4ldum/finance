@@ -3,30 +3,29 @@ import 'package:finance/features/proof_of_concept/presentation/pages/auth/auth_n
 import 'package:finance/navigation/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta_package/types.dart';
 
 final presenter = Provider.autoDispose((ref) => AuthPagePresenter());
 
-class AuthPagePresenter {
+class AuthPagePresenter extends BasePresenter {
   final TextEditingController usernameController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
 
   Future<void> onTapAuthenticationButton(WidgetRef ref) async {
     var authentication = await ref.watch(authFinaryUseCaseProvider)(usernameController.text, passwordController.text);
 
     if (authentication.isErr) {
-      if (!ref.context.mounted) return;
       // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(ref.context).showSnackBar(
-        SnackBar(
+      mountGuard(ref.context, (context) {
+        displaySnackBar(
+          context: context,
           content: Text(authentication.err().unwrap().message),
-        ),
-      );
+        );
+      });
       return;
     }
 
     if (authentication.ok().unwrap().otpRelayToken.isSome) {
-      // ignore: use_build_context_synchronously
       final otp = await _getOtp(ref);
       authentication = await ref.watch(authOtpFinaryUseCaseProvider)(
         username: usernameController.text,
