@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:finance/features/proof_of_concept/domain/entities/entities.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta_package/types.dart';
 
@@ -22,10 +21,6 @@ class InvestmentsDistributionQueryModel {
   final List<InvestmentsDistributionItemModel> items;
 
   JsonResponse toJson() => _$InvestmentsDistributionQueryModelToJson(this);
-
-  List<InvestmentsDistributionItemEntity> toEntity() {
-    return items.map((e) => e.toEntity()).toList();
-  }
 }
 
 @JsonSerializable()
@@ -49,12 +44,4 @@ class InvestmentsDistributionItemModel {
   final double share;
 
   JsonResponse toJson() => _$InvestmentsDistributionItemModelToJson(this);
-
-  InvestmentsDistributionItemEntity toEntity() {
-    return InvestmentsDistributionItemEntity(
-      label: label,
-      amount: amount,
-      share: share,
-    );
-  }
 }

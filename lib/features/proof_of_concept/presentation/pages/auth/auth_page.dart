@@ -22,7 +22,7 @@ class AuthPage extends ConsumerWidget {
             ),
             const SizedBox(height: Paddings.m),
             TextField(
-              controller: ref.watch(presenter).usernameController,
+              controller: ref.watch(authPageController).usernameController,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person),
                 hintText: 'Username',
@@ -31,7 +31,7 @@ class AuthPage extends ConsumerWidget {
             ),
             const SizedBox(height: Paddings.m),
             TextField(
-              controller: ref.watch(presenter).passwordController,
+              controller: ref.watch(authPageController).passwordController,
               obscureText: true,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.lock),
@@ -42,7 +42,7 @@ class AuthPage extends ConsumerWidget {
             const SizedBox(height: Paddings.m),
             FilledButton(
               onPressed: () {
-                ref.watch(presenter).onTapAuthenticationButton(ref);
+                ref.watch(authPageController).onTapAuthenticationButton(context);
               },
               child: const Text('Auth'),
             ),

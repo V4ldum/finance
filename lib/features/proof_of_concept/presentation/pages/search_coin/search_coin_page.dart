@@ -1,4 +1,4 @@
-import 'package:finance/features/proof_of_concept/application/providers.dart';
+import 'package:finance/features/proof_of_concept/domain/providers.dart';
 import 'package:finance/features/proof_of_concept/presentation/pages/search_coin/search_coin_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,7 +31,7 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: FutureBuilder(
-          future: ref.watch(searchCoinsUseCaseProvider)(widget.query),
+          future: ref.watch(coinRepositoryProvider).searchCoins(widget.query),
           builder: (context, snapshot) {
             return switch (snapshot.connectionState) {
               ConnectionState.none => const Text('none'),

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:finance/features/proof_of_concept/domain/entities/coin_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta_package/types.dart';
 
@@ -73,25 +72,6 @@ class CoinDataModel {
   final String? series;
 
   JsonResponse toJson() => _$CoinDataModelToJson(this);
-
-  CoinEntity toEntity() {
-    return CoinEntity(
-      id: id,
-      name: title,
-      minYear: Option.instance(minYear),
-      maxYear: Option.instance(maxYear),
-      isDemonetized: demonetization?.isDemonetized ?? false,
-      composition: Option.instance(composition?.text),
-      weight: Option.instance(weight),
-      size: Option.instance(size),
-      thickness: Option.instance(thickness),
-      obverse: Option.instance(obverse?.toEntity()),
-      reverse: Option.instance(reverse?.toEntity()),
-      edge: Option.instance(edge?.toEntity()),
-      watermark: Option.instance(watermark?.toEntity()),
-      series: Option.instance(series),
-    );
-  }
 }
 
 @JsonSerializable()
@@ -146,12 +126,4 @@ class CoinDataCoinFaceModel {
   final String? thumbnailUrl;
 
   JsonResponse toJson() => _$CoinDataCoinFaceModelToJson(this);
-
-  CoinFaceEntity toEntity() {
-    return CoinFaceEntity(
-      lettering: Option.instance(lettering),
-      pictureUrl: Option.instance(pictureUrl),
-      thumbnailUrl: Option.instance(thumbnailUrl),
-    );
-  }
 }

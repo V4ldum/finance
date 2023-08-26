@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:finance/features/proof_of_concept/domain/entities/entities.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta_package/types.dart';
 
@@ -39,17 +38,6 @@ class AuthenticationModel {
   final String? refreshToken;
 
   JsonResponse toJson() => _$AuthenticationModelToJson(this);
-
-  AuthenticationEntity toEntity() {
-    return AuthenticationEntity(
-      otpRequired: result.otpRelayToken != null,
-      otpRelayToken: Option.instance(result.otpRelayToken),
-      accessToken: Option.instance(accessToken),
-      accessTokenExpiry: Option.instance(result.accessTokenExpiry),
-      refreshToken: Option.instance(refreshToken),
-      refreshTokenExpiry: Option.instance(result.refreshTokenExpiry),
-    );
-  }
 }
 
 @JsonSerializable()

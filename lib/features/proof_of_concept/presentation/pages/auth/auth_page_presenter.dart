@@ -1,50 +1,60 @@
-import 'package:finance/features/proof_of_concept/application/providers.dart';
+import 'package:finance/features/proof_of_concept/domain/providers.dart';
+import 'package:finance/features/proof_of_concept/domain/service/finary_api_repository.dart';
 import 'package:finance/features/proof_of_concept/presentation/pages/auth/auth_navigator.dart';
 import 'package:finance/navigation/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/types.dart';
 
-final presenter = Provider.autoDispose((ref) => AuthPagePresenter());
+final authPageController = Provider.autoDispose((ref) {
+  final repository = ref.read(finaryApiRepositoryProvider);
+  final navigator = ref.read(authNavigatorProvider);
+
+  return AuthPagePresenter(repository, navigator);
+});
 
 class AuthPagePresenter extends BasePresenter {
+  AuthPagePresenter(this.repository, this.navigator);
+
+  final FinaryApiRepository repository;
+  final AuthNavigator navigator;
+
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  Future<void> onTapAuthenticationButton(WidgetRef ref) async {
-    var authentication = await ref.watch(authFinaryUseCaseProvider)(usernameController.text, passwordController.text);
+  Future<void> onTapAuthenticationButton(BuildContext context) async {
+    try {
+      var authentication = await repository.auth(usernameController.text, passwordController.text);
 
-    if (authentication.isErr) {
-      // ignore: use_build_context_synchronously
-      mountGuard(ref.context, (context) {
-        displaySnackBar(
-          context: context,
-          content: Text(authentication.err().unwrap().message),
-        );
-      });
-      return;
-    }
+      if (!context.mounted) {
+        return;
+      }
 
-    if (authentication.ok().unwrap().otpRelayToken.isSome) {
-      final otp = await _getOtp(ref);
-      authentication = await ref.watch(authOtpFinaryUseCaseProvider)(
-        username: usernameController.text,
-        password: passwordController.text,
-        otp: otp,
-        authenticationEntity: authentication.ok().unwrap(),
+      displaySnackBar(
+        context: context,
+        content: const Text('authentication error'),
       );
-    }
 
-    if (authentication.isOk) {
-      await ref.read(authNavigatorProvider).openApi();
-    } else {
-      debugPrint('no');
+      if (authentication.otpRelayToken.isSome) {
+        final otp = await _getOtp(context);
+        authentication = await repository.authOtp(
+          usernameController.text,
+          passwordController.text,
+          otp,
+          authentication.otpRelayToken.unwrap(),
+        );
+      }
+
+      await navigator.openApi();
+    } catch (e) {
+      // authentication failed
+      debugPrint(e.toString());
     }
   }
 
-  Future<String> _getOtp(WidgetRef ref) async {
+  Future<String> _getOtp(BuildContext context) async {
     final otp = await showDialog<String>(
-      context: ref.context,
+      context: context,
       builder: (BuildContext context) {
         final controller = TextEditingController();
         return AlertDialog(
@@ -59,7 +69,7 @@ class AuthPagePresenter extends BasePresenter {
             TextButton(
               onPressed: () => AppNavigator.closeWithResult(controller.text),
               child: const Text('OK'),
-            )
+            ),
           ],
         );
       },

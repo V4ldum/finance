@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:finance/features/proof_of_concept/domain/entities/coin_summary_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta_package/types.dart';
 
@@ -25,10 +24,6 @@ class CoinsQueryModel {
   final List<CoinQueryItemModel> coins;
 
   JsonResponse toJson() => _$CoinsQueryModelToJson(this);
-
-  List<CoinSummaryEntity> toEntity() {
-    return coins.map((e) => e.toEntity()).toList();
-  }
 }
 
 @JsonSerializable()
@@ -63,15 +58,4 @@ class CoinQueryItemModel {
   final String? reverseThumbnailUrl;
 
   JsonResponse toJson() => _$CoinQueryItemModelToJson(this);
-
-  CoinSummaryEntity toEntity() {
-    return CoinSummaryEntity(
-      id: id,
-      name: title,
-      minYear: Option.instance(minYear),
-      maxYear: Option.instance(maxYear),
-      obverseThumbnailUrl: Option.instance(obverseThumbnailUrl),
-      reverseThumbnailUrl: Option.instance(reverseThumbnailUrl),
-    );
-  }
 }

@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:finance/features/proof_of_concept/application/providers.dart';
-import 'package:finance/features/proof_of_concept/domain/entities/coin_entity.dart';
+import 'package:finance/features/proof_of_concept/domain/model/coin_entity.dart';
+import 'package:finance/features/proof_of_concept/domain/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
@@ -32,7 +32,7 @@ class CoinDataPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Material(
       child: FutureWidget(
-        future: ref.watch(getCoinDataUseCaseProvider)(coinId),
+        future: ref.watch(coinRepositoryProvider).getCoinData(coinId),
         //future: fuzzCoins((int id) => ref.watch(getCoinDataUseCaseProvider)(id)),
         success: (data) => _CoinPage(coin: data),
         waiting: () => const Center(

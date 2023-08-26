@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:finance/features/proof_of_concept/application/providers.dart';
+import 'package:finance/features/proof_of_concept/domain/providers.dart';
 import 'package:finance/shared/constants/paddings.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +16,12 @@ class ApiPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: FutureWidget(
-        future: ref.watch(investmentsDistributionUseCaseProvider)(),
+        future: ref.watch(finaryApiRepositoryProvider).investmentsDistribution(),
         waiting: () => const Center(child: CircularProgressIndicator()),
         error: (_, __) => const Text('error'),
         success: (result) {
           final data = {
-            for (var e in result.ok().unwrap()..sort((a, b) => (a.amount - b.amount).toInt())) e.label: e.share
+            for (final e in result..sort((a, b) => (a.amount - b.amount).toInt())) e.label: e.share,
           };
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: Paddings.xxl),
@@ -64,7 +64,7 @@ class ApiPage extends ConsumerWidget {
                       Text('Total'),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           );
