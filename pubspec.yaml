@@ -42,12 +42,12 @@ dependencies:
       ref: main
 
 dev_dependencies:
-  build_runner: ^2.4.4
-  custom_lint:
+  build_runner: ^2.4.6
+  custom_lint: ^0.5.2
   flutter_test:
     sdk: flutter
-  json_serializable: ^6.7.0
-  riverpod_lint:
+  json_serializable: ^6.7.1
+  riverpod_lint: ^2.0.1
   very_good_analysis: ^5.0.0+1
 
 # For information on the generic Dart part of this file, see the

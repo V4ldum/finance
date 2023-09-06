@@ -1,5 +1,5 @@
 import 'package:finance/_l10n/generated/l10n.dart';
-import 'package:finance/features/proof_of_concept/presentation/pages/home/home_page.dart';
+import 'package:finance/feature/proof_of_concept/presentation/pages/home/home_page.dart';
 import 'package:finance/navigation/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
