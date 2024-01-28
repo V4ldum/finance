@@ -1,0 +1,84 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of '../investment_summary_dto.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$InvestmentSummaryDtoImpl _$$InvestmentSummaryDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InvestmentSummaryDtoImpl(
+      result: InvestmentSummaryResultDto.fromJson(
+          json['result'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$InvestmentSummaryDtoImplToJson(
+        _$InvestmentSummaryDtoImpl instance) =>
+    <String, dynamic>{
+      'result': instance.result,
+    };
+
+_$InvestmentSummaryResultDtoImpl _$$InvestmentSummaryResultDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$InvestmentSummaryResultDtoImpl(
+      total: SummaryValuesDto.fromJson(
+          _readInvestmentSummaryResultTotal(json, 'total')
+              as Map<String, dynamic>),
+      distribution: InvestmentSummaryDistributionDto.fromJson(
+          json['gross'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$InvestmentSummaryResultDtoImplToJson(
+        _$InvestmentSummaryResultDtoImpl instance) =>
+    <String, dynamic>{
+      'total': instance.total,
+      'gross': instance.distribution,
+    };
+
+_$InvestmentSummaryDistributionDtoImpl
+    _$$InvestmentSummaryDistributionDtoImplFromJson(
+            Map<String, dynamic> json) =>
+        _$InvestmentSummaryDistributionDtoImpl(
+          checkingAccounts: SummaryValuesDto.fromJson(
+              json['checking_accounts'] as Map<String, dynamic>),
+          savingsAccounts: SummaryValuesDto.fromJson(
+              json['savings_accounts'] as Map<String, dynamic>),
+          stocksAccounts: SummaryValuesDto.fromJson(
+              json['investment_accounts'] as Map<String, dynamic>),
+          cryptos: SummaryValuesDto.fromJson(
+              json['cryptos'] as Map<String, dynamic>),
+          fondsEuro: SummaryValuesDto.fromJson(
+              json['fonds_euro'] as Map<String, dynamic>),
+          realEstates: SummaryValuesDto.fromJson(
+              json['real_estates'] as Map<String, dynamic>),
+          startups: SummaryValuesDto.fromJson(
+              json['startups'] as Map<String, dynamic>),
+          commodities: SummaryValuesDto.fromJson(
+              json['commodities'] as Map<String, dynamic>),
+          crowdlendings: SummaryValuesDto.fromJson(
+              json['crowdlendings'] as Map<String, dynamic>),
+          other: SummaryValuesDto.fromJson(
+              json['other_assets'] as Map<String, dynamic>),
+          loans:
+              SummaryValuesDto.fromJson(json['loans'] as Map<String, dynamic>),
+          creditAccounts: SummaryValuesDto.fromJson(
+              json['credit_accounts'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$$InvestmentSummaryDistributionDtoImplToJson(
+        _$InvestmentSummaryDistributionDtoImpl instance) =>
+    <String, dynamic>{
+      'checking_accounts': instance.checkingAccounts,
+      'savings_accounts': instance.savingsAccounts,
+      'investment_accounts': instance.stocksAccounts,
+      'cryptos': instance.cryptos,
+      'fonds_euro': instance.fondsEuro,
+      'real_estates': instance.realEstates,
+      'startups': instance.startups,
+      'commodities': instance.commodities,
+      'crowdlendings': instance.crowdlendings,
+      'other_assets': instance.other,
+      'loans': instance.loans,
+      'credit_accounts': instance.creditAccounts,
+    };

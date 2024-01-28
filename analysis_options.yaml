@@ -6,7 +6,10 @@ linter:
     public_member_api_docs: false
 
 analyzer:
+  errors:
+    invalid_annotation_target: ignore
   plugins:
     - custom_lint
   exclude:
     - lib/**/generated/** # Exclude all generated filed that you have no control over
+    - lib/**/_generated/** # Exclude all generated filed that you have no control over

@@ -6,4 +6,8 @@ targets:
           - lib/**.dart
         options:
           build_extensions:
-            '^lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.g.dart'
+            '^lib/{{path}}/{{file}}.dart': 'lib/{{path}}/_generated/{{file}}.g.dart'
+      freezed:
+        options:
+          build_extensions:
+            '^lib/{{path}}/{{file}}.dart': 'lib/{{path}}/_generated/{{file}}.freezed.dart'

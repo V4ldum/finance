@@ -1,0 +1,49 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta_package/meta_package.dart';
+
+part '_generated/geographical_repartition_dto.freezed.dart';
+part '_generated/geographical_repartition_dto.g.dart';
+
+@freezed
+sealed class GeographicalRepartitionDto with _$GeographicalRepartitionDto {
+  const factory GeographicalRepartitionDto({
+    required GeographicalRepartitionResultDto result,
+  }) = _GeographicalRepartitionDto;
+
+  factory GeographicalRepartitionDto.fromJson(JsonResponse json) => _$GeographicalRepartitionDtoFromJson(json);
+
+  factory GeographicalRepartitionDto.fromHttpResponse(JsonResponse response) {
+    return GeographicalRepartitionDto.fromJson(response);
+  }
+}
+
+@freezed
+sealed class GeographicalRepartitionResultDto with _$GeographicalRepartitionResultDto {
+  const factory GeographicalRepartitionResultDto({
+    required double total,
+    required List<GeographicalRepartitionDistributionItemDto> distribution,
+  }) = _GeographicalRepartitionResultDto;
+
+  factory GeographicalRepartitionResultDto.fromJson(JsonResponse json) =>
+      _$GeographicalRepartitionResultDtoFromJson(json);
+
+  factory GeographicalRepartitionResultDto.fromHttpResponse(JsonResponse response) {
+    return GeographicalRepartitionResultDto.fromJson(response);
+  }
+}
+
+@freezed
+sealed class GeographicalRepartitionDistributionItemDto with _$GeographicalRepartitionDistributionItemDto {
+  const factory GeographicalRepartitionDistributionItemDto({
+    required String label,
+    required double amount,
+    required double share,
+  }) = _GeographicalRepartitionDistributionItemDto;
+
+  factory GeographicalRepartitionDistributionItemDto.fromJson(JsonResponse json) =>
+      _$GeographicalRepartitionDistributionItemDtoFromJson(json);
+
+  factory GeographicalRepartitionDistributionItemDto.fromHttpResponse(JsonResponse response) {
+    return GeographicalRepartitionDistributionItemDto.fromJson(response);
+  }
+}

@@ -1,0 +1,87 @@
+import 'package:finance/shared/constant/durations.dart';
+import 'package:finance/shared/utils/helpers.dart';
+import 'package:fl_chart/fl_chart.dart' as chart;
+import 'package:flutter/material.dart';
+
+class PieChart extends StatelessWidget {
+  const PieChart({
+    super.key,
+    this.selectedIndex,
+    this.child,
+    this.colors = const [Colors.red],
+    this.data = const [],
+    this.onSectionTaped,
+  });
+
+  final Widget? child;
+  final List<Color> colors;
+  final List<PieData> data;
+  final void Function(int)? onSectionTaped;
+  final int? selectedIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    final chartWidget = chart.PieChart(
+      swapAnimationDuration: const MediumDuration(),
+      swapAnimationCurve: Curves.easeOutCubic,
+      chart.PieChartData(
+        sectionsSpace: 2,
+        startDegreeOffset: -90,
+        sections: [
+          ...List.generate(
+            data.length,
+            (index) {
+              return chart.PieChartSectionData(
+                radius: 25,
+                title: data[index].title,
+                value: data[index].value.toDouble(),
+                showTitle: false,
+                color: Helpers.getNextChartColor(
+                  colors: colors,
+                  current: index,
+                  max: data.length,
+                  selected: selectedIndex,
+                ),
+              );
+            },
+          ),
+        ],
+        pieTouchData: chart.PieTouchData(
+          enabled: onSectionTaped != null,
+          touchCallback: (event, response) {
+            if (event is chart.FlTapDownEvent) {
+              if (response!.touchedSection!.props[0] == null) {
+                return;
+              }
+
+              final title = (response.touchedSection!.props[0]! as chart.PieChartSectionData).title;
+
+              onSectionTaped?.call(data.indexWhere((element) => element.title == title));
+            }
+          },
+        ),
+      ),
+    );
+
+    if (child != null) {
+      return Stack(
+        children: [
+          chartWidget,
+          Center(
+            child: child,
+          ),
+        ],
+      );
+    }
+    return chartWidget;
+  }
+}
+
+class PieData {
+  const PieData({
+    required this.title,
+    required this.value,
+  });
+  final String title;
+  final int value;
+}

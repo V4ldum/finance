@@ -1,10 +1,10 @@
-import 'package:finance/_l10n/generated/l10n.dart';
-import 'package:finance/feature/proof_of_concept/presentation/pages/home/home_page.dart';
-import 'package:finance/navigation/app_navigator.dart';
+import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// TODO(val): Import/Export données
 void main() {
   runApp(
     const ProviderScope(
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       localizationsDelegates: const [
         S.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -26,13 +26,13 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blueAccent,
+          brightness: Brightness.dark,
+        ),
         useMaterial3: true,
       ),
-      // This is authorized here and only here
-      // ignore: invalid_use_of_protected_member
-      navigatorKey: AppNavigator.rootNavigationKey,
-      home: const HomePage(),
+      routerConfig: router,
     );
   }
 }
