@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accounts": MessageLookupByLibrary.simpleMessage("Comptes"),
         "appVersion": m0,
         "authenticationFailedBody": MessageLookupByLibrary.simpleMessage(
             "Nom d\'utilisateur ou mot de passe incorrect."),

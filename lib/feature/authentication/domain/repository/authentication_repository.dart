@@ -9,6 +9,7 @@ part '_generated/authentication_repository.g.dart';
 
 @riverpod
 FinaryAuthenticationRepository finaryAuthenticationRepository(FinaryAuthenticationRepositoryRef ref) {
+  print('build repo');
   final dataSource = ref.read(finaryAuthenticationDataSourceProvider);
   final appCache = ref.read(appCacheControllerProvider);
 

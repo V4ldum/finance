@@ -58,6 +58,11 @@ class DashboardPage extends ConsumerWidget {
             label: S.current.stocks,
           ),
           NavigationDestination(
+            icon: const Icon(Icons.account_balance_wallet_outlined),
+            selectedIcon: const Icon(Icons.account_balance_wallet),
+            label: S.current.accounts,
+          ),
+          NavigationDestination(
             icon: const Icon(Icons.data_usage_outlined),
             selectedIcon: const Icon(Icons.data_usage),
             label: S.current.distribution,

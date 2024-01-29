@@ -46,8 +46,8 @@ class DashboardTabController extends _$DashboardTabController {
   TabData getCurrentTabData() {
     return switch (state) {
       0 => _getStocksTabData(),
-      // TODO(val): (accounts details ?)
-      1 => _getDistributionTabData(),
+      1 => _getAccountsTabData(),
+      2 => _getDistributionTabData(),
       _ => throw UnimplementedError('There are no tab n°$state'),
     };
   }
@@ -61,6 +61,18 @@ class DashboardTabController extends _$DashboardTabController {
       data: (assets) =>
           assets.assets.where(stocksFinder).map((e) => PieData(title: e.name, value: e.total.toInt())).toList()
             ..sort((a, b) => b.value.compareTo(a.value)),
+    );
+  }
+
+  TabData _getAccountsTabData() {
+    return TabData(
+      title: S.current.accounts,
+      total: (assets) => assets.total,
+      data: (assets) => assets.assets
+          .where((e) => e.type == AssetTypeModel.account)
+          .map((e) => PieData(title: e.name, value: e.total.toInt()))
+          .toList()
+        ..sort((a, b) => b.value.compareTo(a.value)),
     );
   }
 

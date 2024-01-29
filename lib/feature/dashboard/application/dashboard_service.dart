@@ -8,6 +8,7 @@ part '_generated/dashboard_service.g.dart';
 
 @riverpod
 DashboardService dashboardService(DashboardServiceRef ref) {
+  print('build service');
   return DashboardService(
     ref.read(assetsRepositoryProvider),
     ref.read(finaryAuthenticationRepositoryProvider),

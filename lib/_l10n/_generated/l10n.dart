@@ -180,6 +180,16 @@ class S {
     );
   }
 
+  /// `Accounts`
+  String get accounts {
+    return Intl.message(
+      'Accounts',
+      name: 'accounts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Distribution`
   String get distribution {
     return Intl.message(

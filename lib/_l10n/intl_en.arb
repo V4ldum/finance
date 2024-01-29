@@ -12,6 +12,7 @@
   "dashboardDrawerItem": "Dashboard",
   "settingsDrawerItem": "Settings",
   "stocks": "Stocks",
+  "accounts": "Accounts",
   "distribution": "Distribution",
   "geography": "Stocks Geography",
   "total": "Total",
