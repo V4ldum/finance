@@ -1,27 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../dashboard_tab_controller.dart';
+part of '../assets_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dashboardTabControllerHash() =>
-    r'2efcf3a7c9225a3c88387cfe8b09ed6ceeec2c33';
+String _$assetsControllerHash() => r'9bd93e599819e050b8a157aae8b3f3406d0be176';
 
-/// See also [DashboardTabController].
-@ProviderFor(DashboardTabController)
-final dashboardTabControllerProvider =
-    AutoDisposeNotifierProvider<DashboardTabController, int>.internal(
-  DashboardTabController.new,
-  name: r'dashboardTabControllerProvider',
+/// See also [AssetsController].
+@ProviderFor(AssetsController)
+final assetsControllerProvider =
+    AutoDisposeAsyncNotifierProvider<AssetsController, AssetsModel>.internal(
+  AssetsController.new,
+  name: r'assetsControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$dashboardTabControllerHash,
+      : _$assetsControllerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$DashboardTabController = AutoDisposeNotifier<int>;
+typedef _$AssetsController = AutoDisposeAsyncNotifier<AssetsModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

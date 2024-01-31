@@ -63,7 +63,6 @@
   "emptyOtpError": "You must type a secret code.",
   "invalidOtpError": "You must type a valid secret code.",
   "genericError": "An unknown error occurred.",
-  "dashboardSettingsDistributionTargetsTitle": "Distribution targets",
   "dashboardSettingsStockCategorisationTitle": "Stock Categorisation",
   "dashboardSettingsStockCategorisationMessage": "By default, stocks are considered speculative. Select the ones you want to tag as investment in the following list.",
   "dashboardSettingsStockCategorisationEmptyError": "You don't have any stocks. Start investing in stocks to categorize them."

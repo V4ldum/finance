@@ -12,7 +12,7 @@ part '_generated/assets_repository.g.dart';
 @riverpod
 AssetsRepository assetsRepository(AssetsRepositoryRef ref) {
   final dataSource = ref.read(finaryDataSourceProvider);
-  final cache = ref.read(appCacheControllerProvider);
+  final cache = ref.watch(appCacheControllerProvider);
 
   return AssetsRepository(dataSource, cache);
 }

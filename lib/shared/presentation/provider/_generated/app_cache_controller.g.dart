@@ -7,7 +7,7 @@ part of '../app_cache_controller.dart';
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'0f024a379bbc0fa479da511798e23c04de514118';
+    r'bc039d03633eabf7b9fb907c6274c8ca3213e5bf';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

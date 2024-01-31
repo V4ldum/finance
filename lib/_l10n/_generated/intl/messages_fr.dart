@@ -55,8 +55,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "cryptos": MessageLookupByLibrary.simpleMessage("Crypto-monnaies"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Tableau de bord"),
-        "dashboardSettingsDistributionTargetsTitle":
-            MessageLookupByLibrary.simpleMessage("Objectifs de répartition"),
         "dashboardSettingsStockCategorisationEmptyError":
             MessageLookupByLibrary.simpleMessage(
                 "Vous n\'avez pas d\'actions. Commencez à investir pour les catégoriser."),

@@ -1,6 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/dashboard/domain/model/asset_category_model.dart';
-import 'package:finance/feature/dashboard/presentation/provider/assets_controller.dart';
 import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/dashboard/presentation/widget/asset_category_icon.dart';
 import 'package:finance/feature/dashboard/presentation/widget/last_sync_text.dart';
@@ -8,6 +7,7 @@ import 'package:finance/feature/dashboard/presentation/widget/linear_chart_item.
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart_center.dart';
 import 'package:finance/shared/constant/app_padding.dart';
+import 'package:finance/shared/presentation/provider/assets_controller.dart';
 import 'package:finance/shared/presentation/widget/app_navigation_drawer.dart';
 import 'package:finance/shared/presentation/widget/hide_values_icon_button.dart';
 import 'package:finance/shared/utils/helpers.dart';
@@ -32,7 +32,7 @@ class DashboardPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedChartSegment = ref.watch(selectedChartSegmentControllerProvider);
-    final assetsResult = ref.watch(assetsControllerProvider);
+    final dashboardAssetsResult = ref.watch(assetsControllerProvider);
     final tabData = ref.read(dashboardTabControllerProvider.notifier).getCurrentTabData();
 
     return Scaffold(
@@ -40,7 +40,7 @@ class DashboardPage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(tabData.title),
         actions: [
-          assetsResult.maybeWhen(
+          dashboardAssetsResult.maybeWhen(
             data: (data) => LastSyncText(sync: data.lastSync),
             orElse: () => const SizedBox(),
           ),
@@ -72,7 +72,7 @@ class DashboardPage extends ConsumerWidget {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: ref.read(assetsControllerProvider.notifier).refreshAssets,
-          child: assetsResult.when(
+          child: dashboardAssetsResult.when(
             error: (error, _) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,

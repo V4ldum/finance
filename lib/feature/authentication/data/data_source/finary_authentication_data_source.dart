@@ -33,7 +33,6 @@ FinaryAuthenticationDataSource finaryAuthenticationDataSource(FinaryAuthenticati
   return FinaryAuthenticationDataSource(dio, cookieJar);
 }
 
-// TODO(val): Store credentials & OTP for auto auth
 class FinaryAuthenticationDataSource {
   FinaryAuthenticationDataSource(this._dio, this._cookieJar);
 

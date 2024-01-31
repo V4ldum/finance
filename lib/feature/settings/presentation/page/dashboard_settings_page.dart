@@ -1,8 +1,9 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/dashboard/domain/model/asset_type_model.dart';
-import 'package:finance/feature/dashboard/presentation/provider/assets_controller.dart';
+import 'package:finance/shared/application/assets_service.dart';
 import 'package:finance/shared/constant/app_padding.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:finance/shared/presentation/provider/assets_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,23 +25,6 @@ class DashboardSettingsPage extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: AppPadding.l),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      S.current.dashboardSettingsDistributionTargetsTitle,
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const SizedBox(height: AppPadding.m),
-                    // TODO(val): distribution targets
-                    const SizedBox(height: AppPadding.xxl),
-                    const SizedBox(height: AppPadding.xxl),
-                    const SizedBox(height: AppPadding.m),
-                  ],
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.l),
                 child: Column(
@@ -92,8 +76,12 @@ class DashboardSettingsPage extends ConsumerWidget {
                           dense: true,
                           value: ref.watch(appCacheControllerProvider).investmentStocksSymbols.contains(stock.symbol),
                           onChanged: (value) {
-                            // TODO(val): Network calls and shit
-                            print('Changed ${stock.name} (${stock.symbol}) to $value');
+                            if (value case true) {
+                              ref.read(assetsServiceProvider).addInvestmentStockSymbol(stock.symbol);
+                            }
+                            if (value case false) {
+                              ref.read(assetsServiceProvider).removeInvestmentStockSymbol(stock.symbol);
+                            }
                           },
                           title: Text(
                             stock.name,

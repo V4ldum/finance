@@ -63,7 +63,6 @@
   "emptyOtpError": "Vous devez saisir un code secret.",
   "invalidOtpError": "Vous devez saisir un code secret valide.",
   "genericError": "Une erreur inconnue est survenue.",
-  "dashboardSettingsDistributionTargetsTitle": "Objectifs de répartition",
   "dashboardSettingsStockCategorisationTitle": "Categorisation des actions",
   "dashboardSettingsStockCategorisationMessage": "Par défault, les actions sont considérées comme spéculatives. Selectionnez celles que vous voulez catégoriser comme investissements dans la liste ci-dessous.",
   "dashboardSettingsStockCategorisationEmptyError": "Vous n'avez pas d'actions. Commencez à investir pour les catégoriser."

@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../assets_controller.dart';
+part of '../assets_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$assetsControllerHash() => r'267079f7a5d75ebf96efb9b497ba21c50e23a526';
+String _$assetsRepositoryHash() => r'43bdfb134d469ebf665a0d479b7be0da073e96a1';
 
-/// See also [AssetsController].
-@ProviderFor(AssetsController)
-final assetsControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AssetsController, AssetsModel>.internal(
-  AssetsController.new,
-  name: r'assetsControllerProvider',
+/// See also [assetsRepository].
+@ProviderFor(assetsRepository)
+final assetsRepositoryProvider = AutoDisposeProvider<AssetsRepository>.internal(
+  assetsRepository,
+  name: r'assetsRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$assetsControllerHash,
+      : _$assetsRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$AssetsController = AutoDisposeAsyncNotifier<AssetsModel>;
+typedef AssetsRepositoryRef = AutoDisposeProviderRef<AssetsRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

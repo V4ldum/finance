@@ -9,7 +9,6 @@ part '_generated/authentication_repository.g.dart';
 
 @riverpod
 FinaryAuthenticationRepository finaryAuthenticationRepository(FinaryAuthenticationRepositoryRef ref) {
-  print('build repo');
   final dataSource = ref.read(finaryAuthenticationDataSourceProvider);
   final appCache = ref.read(appCacheControllerProvider);
 
@@ -49,7 +48,6 @@ class FinaryAuthenticationRepository {
   Future<String> refreshToken(String sessionId) async {
     try {
       if (_appCache.finarySessionId.isEmpty) {
-        print('sessionId Repo : ${_appCache.finarySessionId}');
         return '';
       }
 

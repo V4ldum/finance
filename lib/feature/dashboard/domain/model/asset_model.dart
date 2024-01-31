@@ -38,14 +38,12 @@ class AssetModel {
       category: cache.investmentStocksSymbols.contains(security.security.symbol)
           ? AssetCategoryModel.investment // Override default behaviour
           : switch (security.security.type) {
-              StockDetailSecurityTypeDto.etf => AssetCategoryModel.investment,
-              StockDetailSecurityTypeDto.fund => AssetCategoryModel.investment,
+              StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetCategoryModel.investment,
               StockDetailSecurityTypeDto.equity => AssetCategoryModel.speculative, // Bare stock
               StockDetailSecurityTypeDto.unknown => AssetCategoryModel.other, // Liquidity account
             },
       type: switch (security.security.type) {
-        StockDetailSecurityTypeDto.etf => AssetTypeModel.fund,
-        StockDetailSecurityTypeDto.fund => AssetTypeModel.fund,
+        StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetTypeModel.fund,
         StockDetailSecurityTypeDto.equity => AssetTypeModel.stock, // Bare stock
         StockDetailSecurityTypeDto.unknown => AssetTypeModel.account, // Liquidity account
       },

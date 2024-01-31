@@ -692,16 +692,6 @@ class S {
     );
   }
 
-  /// `Distribution targets`
-  String get dashboardSettingsDistributionTargetsTitle {
-    return Intl.message(
-      'Distribution targets',
-      name: 'dashboardSettingsDistributionTargetsTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Stock Categorisation`
   String get dashboardSettingsStockCategorisationTitle {
     return Intl.message(

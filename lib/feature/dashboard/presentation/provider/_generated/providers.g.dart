@@ -7,7 +7,7 @@ part of '../providers.dart';
 // **************************************************************************
 
 String _$selectedChartSegmentControllerHash() =>
-    r'6638aa91f09f50c48959e52b85c65a24cf32ed1a';
+    r'82c2d882bbebd5d5a63fbdd59c91769c85eae347';
 
 /// See also [SelectedChartSegmentController].
 @ProviderFor(SelectedChartSegmentController)
@@ -24,7 +24,7 @@ final selectedChartSegmentControllerProvider =
 
 typedef _$SelectedChartSegmentController = AutoDisposeNotifier<int?>;
 String _$dashboardTabControllerHash() =>
-    r'c47b4e6fde666af081c1dd7c17dcb17d83d02d64';
+    r'e95e26baf9f5aa064a1c4d16d75460c136496d15';
 
 /// See also [DashboardTabController].
 @ProviderFor(DashboardTabController)
