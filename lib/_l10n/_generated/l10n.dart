@@ -150,6 +150,66 @@ class S {
     );
   }
 
+  /// `You must type an email.`
+  String get emptyEmailError {
+    return Intl.message(
+      'You must type an email.',
+      name: 'emptyEmailError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must type a valid email.`
+  String get invalidEmailError {
+    return Intl.message(
+      'You must type a valid email.',
+      name: 'invalidEmailError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must type a password.`
+  String get emptyPasswordError {
+    return Intl.message(
+      'You must type a password.',
+      name: 'emptyPasswordError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must type a secret code.`
+  String get emptyOtpError {
+    return Intl.message(
+      'You must type a secret code.',
+      name: 'emptyOtpError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must type a valid secret code.`
+  String get invalidOtpError {
+    return Intl.message(
+      'You must type a valid secret code.',
+      name: 'invalidOtpError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unknown error occurred.`
+  String get genericError {
+    return Intl.message(
+      'An unknown error occurred.',
+      name: 'genericError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Submit`
   String get submit {
     return Intl.message(
@@ -647,66 +707,6 @@ class S {
     return Intl.message(
       'Secret code',
       name: 'otpTextFieldLabel',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You must type an email.`
-  String get emptyEmailError {
-    return Intl.message(
-      'You must type an email.',
-      name: 'emptyEmailError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You must type a valid email.`
-  String get invalidEmailError {
-    return Intl.message(
-      'You must type a valid email.',
-      name: 'invalidEmailError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You must type a password.`
-  String get emptyPasswordError {
-    return Intl.message(
-      'You must type a password.',
-      name: 'emptyPasswordError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You must type a secret code.`
-  String get emptyOtpError {
-    return Intl.message(
-      'You must type a secret code.',
-      name: 'emptyOtpError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You must type a valid secret code.`
-  String get invalidOtpError {
-    return Intl.message(
-      'You must type a valid secret code.',
-      name: 'invalidOtpError',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `An unknown error occurred.`
-  String get genericError {
-    return Intl.message(
-      'An unknown error occurred.',
-      name: 'genericError',
       desc: '',
       args: [],
     );
