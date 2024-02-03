@@ -1,5 +1,5 @@
-class Strings {
-  Strings._();
+class AppString {
+  AppString._();
 
   static const numistaApiUrl = 'https://api.numista.com/api/v3';
   static const numistaKeyHeader = 'Numista-API-Key';

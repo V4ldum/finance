@@ -5,13 +5,13 @@ import 'package:finance/feature/_proof_of_concept/infrastructure/abstract_data_s
 import 'package:finance/feature/_proof_of_concept/infrastructure/dto/authentication_model.dart';
 import 'package:finance/feature/_proof_of_concept/infrastructure/dto/investments_distribution_query_model.dart';
 import 'package:finance/feature/_proof_of_concept/infrastructure/dto/investments_distribution_type.dart';
-import 'package:finance/shared/constant/strings.dart';
+import 'package:finance/shared/constant/app_string.dart';
 import 'package:meta_package/meta_package.dart';
 
 class FinaryApiDataSource implements AbstractFinaryApiDataSource {
   final _dio = Dio(
     BaseOptions(
-      baseUrl: Strings.finaryApiUrl,
+      baseUrl: AppString.finaryApiUrl,
     ),
   );
 

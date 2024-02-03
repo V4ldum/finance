@@ -5,7 +5,7 @@ import 'package:finance/feature/assets/data/dto/period_dto.dart';
 import 'package:finance/feature/assets/data/dto/stocks_detail_dto.dart';
 import 'package:finance/feature/assets/data/dto/type_dto.dart';
 import 'package:finance/feature/assets/data/dto/user_info_dto.dart';
-import 'package:finance/shared/constant/strings.dart';
+import 'package:finance/shared/constant/app_string.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -21,7 +21,7 @@ class FinaryDataSource {
 
   late final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: Strings.finaryApiUrl,
+      baseUrl: AppString.finaryApiUrl,
     ),
   );
 

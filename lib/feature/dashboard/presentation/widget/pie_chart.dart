@@ -1,4 +1,4 @@
-import 'package:finance/shared/constant/durations.dart';
+import 'package:finance/shared/constant/app_duration.dart';
 import 'package:finance/shared/utils/helpers.dart';
 import 'package:fl_chart/fl_chart.dart' as chart;
 import 'package:flutter/material.dart';

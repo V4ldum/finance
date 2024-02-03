@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Helpers {
+  Helpers._();
+
   /// Will get the correct next color to avoid having the same color on adjacent
   /// segments of a PieChart.
   static Color getNextChartColor({

@@ -1,14 +1,14 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/authentication/presentation/provider/finary_authentication_popup_controller.dart';
 import 'package:finance/feature/settings/presentation/widget/authentication_error_card.dart';
+import 'package:finance/shared/constant/app_duration.dart';
 import 'package:finance/shared/constant/app_padding.dart';
-import 'package:finance/shared/constant/durations.dart';
-import 'package:finance/shared/utils/extension/validate_form.dart';
 import 'package:finance/shared/utils/validator/email_validator.dart';
 import 'package:finance/shared/utils/validator/string_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meta_package/meta_package.dart';
 
 class FinaryAuthenticationPage extends ConsumerWidget {
   const FinaryAuthenticationPage({super.key});

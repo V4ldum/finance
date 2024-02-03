@@ -2,15 +2,15 @@ import 'package:dio/dio.dart';
 import 'package:finance/feature/_proof_of_concept/infrastructure/abstract_data_source/coin_data_source.dart';
 import 'package:finance/feature/_proof_of_concept/infrastructure/dto/coin_data_model.dart';
 import 'package:finance/feature/_proof_of_concept/infrastructure/dto/coins_query_model.dart';
-import 'package:finance/shared/constant/strings.dart';
+import 'package:finance/shared/constant/app_string.dart';
 import 'package:meta_package/meta_package.dart';
 
 class ApiCoinDataSource implements CoinDataSource {
   final _dio = Dio(
     BaseOptions(
-      baseUrl: Strings.numistaApiUrl,
+      baseUrl: AppString.numistaApiUrl,
       headers: {
-        Strings.numistaKeyHeader: Strings.numistaSecretKey,
+        AppString.numistaKeyHeader: AppString.numistaSecretKey,
       },
     ),
   );

@@ -4,7 +4,7 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:finance/feature/authentication/data/dto/authentication_dto.dart';
-import 'package:finance/shared/constant/strings.dart';
+import 'package:finance/shared/constant/app_string.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -21,11 +21,11 @@ FinaryAuthenticationDataSource finaryAuthenticationDataSource(FinaryAuthenticati
 
   final dio = Dio(
     BaseOptions(
-      baseUrl: Strings.finaryClerkApiUrl,
+      baseUrl: AppString.finaryClerkApiUrl,
       contentType: Headers.formUrlEncodedContentType,
       headers: {
-        'Origin': Strings.finaryAppUrl,
-        'Referer': Strings.finaryAppUrl,
+        'Origin': AppString.finaryAppUrl,
+        'Referer': AppString.finaryAppUrl,
       },
     ),
   )..interceptors.add(CookieManager(cookieJar));

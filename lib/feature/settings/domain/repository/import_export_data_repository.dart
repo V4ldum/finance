@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:finance/feature/authentication/data/data_source/finary_authentication_data_source.dart';
 import 'package:finance/feature/settings/data/data_source/file_picker_data_source.dart';
-import 'package:finance/shared/constant/strings.dart';
+import 'package:finance/shared/constant/app_string.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -110,11 +110,11 @@ class ImportExportDataRepository {
     await FinaryAuthenticationDataSource(
       Dio(
         BaseOptions(
-          baseUrl: Strings.finaryClerkApiUrl,
+          baseUrl: AppString.finaryClerkApiUrl,
           contentType: Headers.formUrlEncodedContentType,
           headers: {
-            'Origin': Strings.finaryAppUrl,
-            'Referer': Strings.finaryAppUrl,
+            'Origin': AppString.finaryAppUrl,
+            'Referer': AppString.finaryAppUrl,
           },
         ),
       )..interceptors.add(CookieManager(cookieJar)),
