@@ -8,7 +8,7 @@
   "authenticationOtpFailedTitle": "Code secret incorrect",
   "authenticationOtpFailedBody": "Le code secret saisi est incorrect",
   "sessionExpiredTitle": "Aucune session trouvée ou session expirée",
-  "sessionExpiredBody": "Une authentification manuelle est nécessaire",
+  "sessionExpiredBody": "Une authentification manuelle est nécessaire dans les paramètres de l'application",
   "dashboardDrawerItem": "Tableau de bord",
   "settingsDrawerItem": "Paramètres",
   "stocks": "Actions",
@@ -42,6 +42,8 @@
   "settingsAuthenticationSubtitle": "Se connecter aux services tiers",
   "settingsAlertsTitle": "Alertes",
   "settingsAlertsSubtitle": "Alertes sur la valeur d'actions",
+  "settingsImportExportTitle": "Import & Export",
+  "settingsImportExportSubtitle": "Importer une sauvegarde de l'application ou exporter pour un import futur",
   "appVersion": "version {version}",
   "settingsPageTitle": "Paramètres",
   "submit": "Envoyer",
@@ -65,5 +67,7 @@
   "genericError": "Une erreur inconnue est survenue.",
   "dashboardSettingsStockCategorisationTitle": "Categorisation des actions",
   "dashboardSettingsStockCategorisationMessage": "Par défault, les actions sont considérées comme spéculatives. Selectionnez celles que vous voulez catégoriser comme investissements dans la liste ci-dessous.",
-  "dashboardSettingsStockCategorisationEmptyError": "Vous n'avez pas d'actions. Commencez à investir pour les catégoriser."
+  "dashboardSettingsStockCategorisationEmptyError": "Vous n'avez pas d'actions. Commencez à investir pour les catégoriser.",
+  "importButton": "Importer les données",
+  "exportButton": "Exporter les données"
 }

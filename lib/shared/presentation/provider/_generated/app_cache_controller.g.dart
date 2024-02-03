@@ -3,11 +3,31 @@
 part of '../app_cache_controller.dart';
 
 // **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
+    _$AppCacheImpl(
+      finarySessionId: json['finarySessionId'] as String? ?? '',
+      investmentStocksSymbols:
+          (json['investmentStocksSymbols'] as List<dynamic>?)
+                  ?.map((e) => e as String)
+                  .toList() ??
+              const [],
+    );
+
+Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
+    <String, dynamic>{
+      'finarySessionId': instance.finarySessionId,
+      'investmentStocksSymbols': instance.investmentStocksSymbols,
+    };
+
+// **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'bc039d03633eabf7b9fb907c6274c8ca3213e5bf';
+    r'7ec9a2a1c5d8e86913ade4a137a3ac3e7c8f76e6';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

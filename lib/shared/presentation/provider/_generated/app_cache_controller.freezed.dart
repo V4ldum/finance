@@ -14,15 +14,23 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+AppCache _$AppCacheFromJson(Map<String, dynamic> json) {
+  return _AppCache.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AppCache {
+  @JsonKey(includeFromJson: false, includeToJson: false)
   String get applicationDirectory => throw _privateConstructorUsedError;
   String get finarySessionId => throw _privateConstructorUsedError;
   List<String> get investmentStocksSymbols =>
       throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   AssetsModel? get assets => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   set assets(AssetsModel? value) => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppCacheCopyWith<AppCache> get copyWith =>
       throw _privateConstructorUsedError;
@@ -34,9 +42,11 @@ abstract class $AppCacheCopyWith<$Res> {
       _$AppCacheCopyWithImpl<$Res, AppCache>;
   @useResult
   $Res call(
-      {String applicationDirectory,
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+      String applicationDirectory,
       String finarySessionId,
       List<String> investmentStocksSymbols,
+      @JsonKey(includeFromJson: false, includeToJson: false)
       AssetsModel? assets});
 }
 
@@ -88,9 +98,11 @@ abstract class _$$AppCacheImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String applicationDirectory,
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+      String applicationDirectory,
       String finarySessionId,
       List<String> investmentStocksSymbols,
+      @JsonKey(includeFromJson: false, includeToJson: false)
       AssetsModel? assets});
 }
 
@@ -132,16 +144,20 @@ class __$$AppCacheImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
   _$AppCacheImpl(
-      {this.applicationDirectory = '',
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+      this.applicationDirectory = '',
       this.finarySessionId = '',
       this.investmentStocksSymbols = const [],
-      this.assets});
+      @JsonKey(includeFromJson: false, includeToJson: false) this.assets});
+
+  factory _$AppCacheImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AppCacheImplFromJson(json);
 
   @override
-  @JsonKey()
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final String applicationDirectory;
   @override
   @JsonKey()
@@ -150,6 +166,7 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
   @JsonKey()
   final List<String> investmentStocksSymbols;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   AssetsModel? assets;
 
   @override
@@ -174,23 +191,38 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
   @pragma('vm:prefer-inline')
   _$$AppCacheImplCopyWith<_$AppCacheImpl> get copyWith =>
       __$$AppCacheImplCopyWithImpl<_$AppCacheImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AppCacheImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _AppCache implements AppCache {
   factory _AppCache(
-      {final String applicationDirectory,
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+      final String applicationDirectory,
       final String finarySessionId,
       final List<String> investmentStocksSymbols,
+      @JsonKey(includeFromJson: false, includeToJson: false)
       AssetsModel? assets}) = _$AppCacheImpl;
 
+  factory _AppCache.fromJson(Map<String, dynamic> json) =
+      _$AppCacheImpl.fromJson;
+
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   String get applicationDirectory;
   @override
   String get finarySessionId;
   @override
   List<String> get investmentStocksSymbols;
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   AssetsModel? get assets;
+  @JsonKey(includeFromJson: false, includeToJson: false)
   set assets(AssetsModel? value);
   @override
   @JsonKey(ignore: true)

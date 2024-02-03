@@ -1,5 +1,6 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/feature/dashboard/domain/model/asset_category_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
+import 'package:finance/feature/assets/presentation/provider/assets_controller.dart';
 import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/dashboard/presentation/widget/asset_category_icon.dart';
 import 'package:finance/feature/dashboard/presentation/widget/last_sync_text.dart';
@@ -7,7 +8,6 @@ import 'package:finance/feature/dashboard/presentation/widget/linear_chart_item.
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart_center.dart';
 import 'package:finance/shared/constant/app_padding.dart';
-import 'package:finance/shared/presentation/provider/assets_controller.dart';
 import 'package:finance/shared/presentation/widget/app_navigation_drawer.dart';
 import 'package:finance/shared/presentation/widget/hide_values_icon_button.dart';
 import 'package:finance/shared/utils/helpers.dart';
@@ -74,22 +74,25 @@ class DashboardPage extends ConsumerWidget {
           onRefresh: ref.read(assetsControllerProvider.notifier).refreshAssets,
           child: dashboardAssetsResult.when(
             error: (error, _) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    (error as DisplayableException).title,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: AppPadding.s),
-                  Text(
-                    error.message,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.xxl),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      (error as DisplayableException).title,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: AppPadding.s),
+                    Text(
+                      error.message,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               );
             },
             loading: () {

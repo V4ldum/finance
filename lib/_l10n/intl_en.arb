@@ -8,7 +8,7 @@
   "authenticationOtpFailedTitle": "Invalid secret code",
   "authenticationOtpFailedBody": "The provided secret code is incorrect",
   "sessionExpiredTitle": "No session found or session expired",
-  "sessionExpiredBody": "Manual authentication is required",
+  "sessionExpiredBody": "Manual authentication is required in the settings of the app",
   "dashboardDrawerItem": "Dashboard",
   "settingsDrawerItem": "Settings",
   "stocks": "Stocks",
@@ -42,6 +42,8 @@
   "settingsAuthenticationSubtitle": "Log in to the third-party services",
   "settingsAlertsTitle": "Alerts",
   "settingsAlertsSubtitle": "Stocks value alerts",
+  "settingsImportExportTitle": "Import & Export",
+  "settingsImportExportSubtitle": "Import backups of the app or export it for future import",
   "appVersion": "version {version}",
   "settingsPageTitle": "Settings",
   "submit": "Submit",
@@ -65,5 +67,7 @@
   "genericError": "An unknown error occurred.",
   "dashboardSettingsStockCategorisationTitle": "Stock Categorisation",
   "dashboardSettingsStockCategorisationMessage": "By default, stocks are considered speculative. Select the ones you want to tag as investment in the following list.",
-  "dashboardSettingsStockCategorisationEmptyError": "You don't have any stocks. Start investing in stocks to categorize them."
+  "dashboardSettingsStockCategorisationEmptyError": "You don't have any stocks. Start investing in stocks to categorize them.",
+  "importButton": "Import data",
+  "exportButton": "Export data"
 }

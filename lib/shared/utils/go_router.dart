@@ -3,6 +3,7 @@ import 'package:finance/feature/settings/presentation/page/alerts_settings_page.
 import 'package:finance/feature/settings/presentation/page/authentication_settings_page.dart';
 import 'package:finance/feature/settings/presentation/page/dashboard_settings_page.dart';
 import 'package:finance/feature/settings/presentation/page/finary_authentication_page.dart';
+import 'package:finance/feature/settings/presentation/page/import_export_page.dart';
 import 'package:finance/feature/settings/presentation/page/settings_page.dart';
 import 'package:finance/shared/presentation/page/loading_page.dart';
 import 'package:flutter/foundation.dart';
@@ -49,6 +50,11 @@ final router = GoRouter(
               path: Routes._dashboardSettingsPath,
               builder: (_, __) => const DashboardSettingsPage(),
             ),
+            GoRoute(
+              name: Routes.importExport,
+              path: Routes._importExportPath,
+              builder: (_, __) => const ImportExportPage(),
+            ),
           ],
         ),
       ],
@@ -76,6 +82,9 @@ class Routes {
 
   static const String finaryAuthentication = 'finary_authentication';
   static const String _finaryAuthenticationPath = 'finary_authentication';
+
+  static const String importExport = 'import_export';
+  static const String _importExportPath = 'import_export';
 
   static const String dashboardSettings = 'dashboard_settings';
   static const String _dashboardSettingsPath = 'dashboard_settings';

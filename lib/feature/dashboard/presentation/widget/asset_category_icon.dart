@@ -1,4 +1,4 @@
-import 'package:finance/feature/dashboard/domain/model/asset_category_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
 import 'package:flutter/material.dart';
 
 class AssetCategoryIcon extends StatelessWidget {

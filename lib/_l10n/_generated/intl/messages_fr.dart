@@ -70,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vous devez saisir un code secret."),
         "emptyPasswordError": MessageLookupByLibrary.simpleMessage(
             "Vous devez saisir un mot de passe."),
+        "exportButton":
+            MessageLookupByLibrary.simpleMessage("Exporter les données"),
         "finary": MessageLookupByLibrary.simpleMessage("Finary"),
         "finaryAuthenticationLoginMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -85,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Une erreur inconnue est survenue."),
         "geography":
             MessageLookupByLibrary.simpleMessage("Géographie des actions"),
+        "importButton":
+            MessageLookupByLibrary.simpleMessage("Importer les données"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Vous devez saisir un email valide."),
         "invalidOtpError": MessageLookupByLibrary.simpleMessage(
@@ -107,7 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "savingsAccounts":
             MessageLookupByLibrary.simpleMessage("Comptes d\'épargne"),
         "sessionExpiredBody": MessageLookupByLibrary.simpleMessage(
-            "Une authentification manuelle est nécessaire"),
+            "Une authentification manuelle est nécessaire dans les paramètres de l\'application"),
         "sessionExpiredTitle": MessageLookupByLibrary.simpleMessage(
             "Aucune session trouvée ou session expirée"),
         "settingsAlertsSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -123,6 +127,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Connexions"),
         "settingsDrawerItem":
             MessageLookupByLibrary.simpleMessage("Paramètres"),
+        "settingsImportExportSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Importer une sauvegarde de l\'application ou exporter pour un import futur"),
+        "settingsImportExportTitle":
+            MessageLookupByLibrary.simpleMessage("Import & Export"),
         "settingsPageTitle": MessageLookupByLibrary.simpleMessage("Paramètres"),
         "speculative": MessageLookupByLibrary.simpleMessage("Speculation"),
         "startups": MessageLookupByLibrary.simpleMessage("Startups"),

@@ -1,11 +1,12 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/feature/dashboard/domain/model/asset_type_model.dart';
-import 'package:finance/shared/application/assets_service.dart';
+import 'package:finance/feature/assets/application/assets_service.dart';
+import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
+import 'package:finance/feature/assets/presentation/provider/assets_controller.dart';
 import 'package:finance/shared/constant/app_padding.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
-import 'package:finance/shared/presentation/provider/assets_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meta_package/meta_package.dart';
 
 class DashboardSettingsPage extends ConsumerWidget {
   const DashboardSettingsPage({
@@ -43,9 +44,9 @@ class DashboardSettingsPage extends ConsumerWidget {
                   ],
                 ),
               ),
-              assetsResult.maybeMap(
+              assetsResult.when(
                 data: (data) {
-                  final stocks = data.value.assets.where((element) => element.type == AssetTypeModel.stock).toList()
+                  final stocks = data.assets.where((element) => element.type == AssetTypeModel.stock).toList()
                     ..sort(
                       (a, b) => a.name.compareTo(b.name),
                     );
@@ -92,15 +93,38 @@ class DashboardSettingsPage extends ConsumerWidget {
                     ),
                   );
                 },
-                orElse: () => Padding(
-                  padding: const EdgeInsets.symmetric(
+                error: (error, _) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppPadding.xxl,
+                      vertical: AppPadding.m,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          (error as DisplayableException).title,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: AppPadding.s),
+                        Text(
+                          error.message,
+                          style: Theme.of(context).textTheme.bodySmall,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                loading: () => const Padding(
+                  padding: EdgeInsets.symmetric(
                     horizontal: AppPadding.xxl,
                     vertical: AppPadding.l,
                   ),
-                  child: Text(
-                    S.current.genericError,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  child: Center(
+                    child: CircularProgressIndicator(),
                   ),
                 ),
               ),

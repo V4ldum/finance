@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "You must type a secret code."),
         "emptyPasswordError":
             MessageLookupByLibrary.simpleMessage("You must type a password."),
+        "exportButton": MessageLookupByLibrary.simpleMessage("Export data"),
         "finary": MessageLookupByLibrary.simpleMessage("Finary"),
         "finaryAuthenticationLoginMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -84,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "genericError":
             MessageLookupByLibrary.simpleMessage("An unknown error occurred."),
         "geography": MessageLookupByLibrary.simpleMessage("Stocks Geography"),
+        "importButton": MessageLookupByLibrary.simpleMessage("Import data"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "You must type a valid email."),
         "invalidOtpError": MessageLookupByLibrary.simpleMessage(
@@ -105,7 +107,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "savingsAccounts":
             MessageLookupByLibrary.simpleMessage("Savings accounts"),
         "sessionExpiredBody": MessageLookupByLibrary.simpleMessage(
-            "Manual authentication is required"),
+            "Manual authentication is required in the settings of the app"),
         "sessionExpiredTitle": MessageLookupByLibrary.simpleMessage(
             "No session found or session expired"),
         "settingsAlertsSubtitle":
@@ -120,6 +122,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "settingsAuthenticationTitle":
             MessageLookupByLibrary.simpleMessage("Connections"),
         "settingsDrawerItem": MessageLookupByLibrary.simpleMessage("Settings"),
+        "settingsImportExportSubtitle": MessageLookupByLibrary.simpleMessage(
+            "Import backups of the app or export it for future import"),
+        "settingsImportExportTitle":
+            MessageLookupByLibrary.simpleMessage("Import & Export"),
         "settingsPageTitle": MessageLookupByLibrary.simpleMessage("Settings"),
         "speculative": MessageLookupByLibrary.simpleMessage("Speculative"),
         "startups": MessageLookupByLibrary.simpleMessage("Startups"),

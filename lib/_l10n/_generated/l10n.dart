@@ -140,10 +140,10 @@ class S {
     );
   }
 
-  /// `Manual authentication is required`
+  /// `Manual authentication is required in the settings of the app`
   String get sessionExpiredBody {
     return Intl.message(
-      'Manual authentication is required',
+      'Manual authentication is required in the settings of the app',
       name: 'sessionExpiredBody',
       desc: '',
       args: [],
@@ -482,6 +482,26 @@ class S {
     );
   }
 
+  /// `Import & Export`
+  String get settingsImportExportTitle {
+    return Intl.message(
+      'Import & Export',
+      name: 'settingsImportExportTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import backups of the app or export it for future import`
+  String get settingsImportExportSubtitle {
+    return Intl.message(
+      'Import backups of the app or export it for future import',
+      name: 'settingsImportExportSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `version {version}`
   String appVersion(Object version) {
     return Intl.message(
@@ -717,6 +737,26 @@ class S {
     return Intl.message(
       'You don\'t have any stocks. Start investing in stocks to categorize them.',
       name: 'dashboardSettingsStockCategorisationEmptyError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import data`
+  String get importButton {
+    return Intl.message(
+      'Import data',
+      name: 'importButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Export data`
+  String get exportButton {
+    return Intl.message(
+      'Export data',
+      name: 'exportButton',
       desc: '',
       args: [],
     );

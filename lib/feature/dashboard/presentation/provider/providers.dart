@@ -1,8 +1,8 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/feature/dashboard/domain/model/asset_category_model.dart';
-import 'package:finance/feature/dashboard/domain/model/asset_model.dart';
-import 'package:finance/feature/dashboard/domain/model/asset_type_model.dart';
-import 'package:finance/feature/dashboard/domain/model/assets_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
+import 'package:finance/feature/assets/domain/model/assets_model.dart';
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

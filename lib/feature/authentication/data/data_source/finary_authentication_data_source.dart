@@ -24,8 +24,8 @@ FinaryAuthenticationDataSource finaryAuthenticationDataSource(FinaryAuthenticati
       baseUrl: Strings.finaryClerkApiUrl,
       contentType: Headers.formUrlEncodedContentType,
       headers: {
-        'Origin': 'https://app.finary.com',
-        'Referer': 'https://app.finary.com',
+        'Origin': Strings.finaryAppUrl,
+        'Referer': Strings.finaryAppUrl,
       },
     ),
   )..interceptors.add(CookieManager(cookieJar));

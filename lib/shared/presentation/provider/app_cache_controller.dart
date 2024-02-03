@@ -1,11 +1,12 @@
 // ignore_for_file: avoid_final_parameters
 import 'dart:async';
 
+import 'package:finance/feature/assets/application/assets_service.dart';
+import 'package:finance/feature/assets/domain/model/assets_model.dart';
 import 'package:finance/feature/authentication/application/finary_auth_service.dart';
-import 'package:finance/feature/dashboard/domain/model/assets_model.dart';
-import 'package:finance/shared/application/assets_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta_package/meta_package.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -15,11 +16,13 @@ part '_generated/app_cache_controller.g.dart';
 @unfreezed
 sealed class AppCache with _$AppCache {
   factory AppCache({
-    @Default('') final String applicationDirectory,
+    @JsonKey(includeFromJson: false, includeToJson: false) @Default('') final String applicationDirectory,
     @Default('') final String finarySessionId,
     @Default([]) final List<String> investmentStocksSymbols,
-    AssetsModel? assets,
+    @JsonKey(includeFromJson: false, includeToJson: false) AssetsModel? assets,
   }) = _AppCache;
+
+  factory AppCache.fromJson(JsonResponse json) => _$AppCacheFromJson(json);
 }
 
 @Riverpod(keepAlive: true)
@@ -61,6 +64,17 @@ class AppCacheController extends _$AppCacheController {
   void refreshStocksSymbol(List<String> stocksSymbols) {
     state = state.copyWith(
       investmentStocksSymbols: stocksSymbols,
+    );
+  }
+
+  void importData(AppCache importedCache) {
+    if (importedCache == state) {
+      return;
+    }
+
+    state = state.copyWith(
+      investmentStocksSymbols: importedCache.investmentStocksSymbols,
+      finarySessionId: importedCache.finarySessionId,
     );
   }
 }
