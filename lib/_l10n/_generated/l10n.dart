@@ -150,6 +150,36 @@ class S {
     );
   }
 
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Dashboard`
   String get dashboardDrawerItem {
     return Intl.message(
@@ -167,6 +197,16 @@ class S {
       name: 'settingsDrawerItem',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `version {version}`
+  String appVersion(Object version) {
+    return Intl.message(
+      'version $version',
+      name: 'appVersion',
+      desc: '',
+      args: [version],
     );
   }
 
@@ -502,51 +542,11 @@ class S {
     );
   }
 
-  /// `version {version}`
-  String appVersion(Object version) {
-    return Intl.message(
-      'version $version',
-      name: 'appVersion',
-      desc: '',
-      args: [version],
-    );
-  }
-
   /// `Settings`
   String get settingsPageTitle {
     return Intl.message(
       'Settings',
       name: 'settingsPageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Submit`
-  String get submit {
-    return Intl.message(
-      'Submit',
-      name: 'submit',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Cancel`
-  String get cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'cancel',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Ok`
-  String get ok {
-    return Intl.message(
-      'Ok',
-      name: 'ok',
       desc: '',
       args: [],
     );
