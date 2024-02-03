@@ -14,7 +14,7 @@ class AuthenticationSettingsPage extends ConsumerWidget {
   });
 
   Future<void> _logInButtonTapped(WidgetRef ref) async {
-    await ref.context.pushNamed(Routes.finaryAuthentication);
+    await ref.context.pushNamed(AppRoute.finaryAuthentication);
     ref.read(finaryAuthenticationControllerProvider.notifier).logIn();
   }
 

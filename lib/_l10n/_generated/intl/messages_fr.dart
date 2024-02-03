@@ -106,6 +106,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Code secret"),
         "passwordTextFieldLabel":
             MessageLookupByLibrary.simpleMessage("Mot de passe"),
+        "privacyShieldText":
+            MessageLookupByLibrary.simpleMessage("Contenu protégé"),
         "realEstates": MessageLookupByLibrary.simpleMessage("Immobilier"),
         "savings": MessageLookupByLibrary.simpleMessage("Epargne"),
         "savingsAccounts":

@@ -19,9 +19,9 @@ class AppNavigationDrawer extends ConsumerWidget {
     ref.read(drawerSelectedIndexProvider.notifier).state = value;
     switch (_DrawerItem.values[value]) {
       case _DrawerItem.dashboard:
-        ref.context.pushReplacementNamed(Routes.dashboard);
+        ref.context.pushReplacementNamed(AppRoute.dashboard);
       case _DrawerItem.settings:
-        ref.context.pushReplacementNamed(Routes.settings);
+        ref.context.pushReplacementNamed(AppRoute.settings);
     }
   }
 

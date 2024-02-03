@@ -1,4 +1,6 @@
 {
+  "@@@_PRIVACY_SHIELD": {},
+  "privacyShieldText": "Contenu protégé",
   "@@@_ERRORS_MESSAGES": {},
   "tooManyRequestsTitle": "Trop de requêtes",
   "tooManyRequestsBody": "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.",

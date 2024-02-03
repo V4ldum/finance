@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Content protected`
+  String get privacyShieldText {
+    return Intl.message(
+      'Content protected',
+      name: 'privacyShieldText',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Too many requests`
   String get tooManyRequestsTitle {
     return Intl.message(

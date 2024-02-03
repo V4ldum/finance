@@ -6,53 +6,62 @@ import 'package:finance/feature/settings/presentation/page/finary_authentication
 import 'package:finance/feature/settings/presentation/page/import_export_page.dart';
 import 'package:finance/feature/settings/presentation/page/settings_page.dart';
 import 'package:finance/shared/presentation/page/loading_page.dart';
-import 'package:flutter/foundation.dart';
+import 'package:finance/shared/presentation/page/privacy_shield_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 @protected
 final router = GoRouter(
-  initialLocation: Routes._loadingPath,
+  initialLocation: AppRoute._loadingPath,
   routes: [
     GoRoute(
-      name: Routes.loading,
-      path: Routes._loadingPath,
+      name: AppRoute.privacyShield,
+      path: AppRoute._privacyShield,
+      pageBuilder: (context, state) => CustomTransitionPage(
+        transitionsBuilder: (_, opacity, __, child) => FadeTransition(opacity: opacity, child: child),
+        child: const PrivacyShieldPage(),
+      ),
+    ),
+    GoRoute(
+      name: AppRoute.loading,
+      path: AppRoute._loadingPath,
       builder: (_, __) => const LoadingPage(),
       routes: [
         GoRoute(
-          name: Routes.dashboard,
-          path: Routes._dashboardPath,
+          name: AppRoute.dashboard,
+          path: AppRoute._dashboardPath,
           builder: (_, __) => const DashboardPage(),
         ),
         GoRoute(
-          name: Routes.settings,
-          path: Routes._settingsPath,
+          name: AppRoute.settings,
+          path: AppRoute._settingsPath,
           builder: (_, __) => const SettingsPage(),
           routes: [
             GoRoute(
-              name: Routes.alertsSettings,
-              path: Routes._alertsSettingsPath,
+              name: AppRoute.alertsSettings,
+              path: AppRoute._alertsSettingsPath,
               builder: (_, __) => const AlertsSettingsPage(),
             ),
             GoRoute(
-              name: Routes.authenticationSettings,
-              path: Routes._authenticationSettingsPath,
+              name: AppRoute.authenticationSettings,
+              path: AppRoute._authenticationSettingsPath,
               builder: (_, __) => const AuthenticationSettingsPage(),
               routes: [
                 GoRoute(
-                  name: Routes.finaryAuthentication,
-                  path: Routes._finaryAuthenticationPath,
+                  name: AppRoute.finaryAuthentication,
+                  path: AppRoute._finaryAuthenticationPath,
                   builder: (_, __) => const FinaryAuthenticationPage(),
                 ),
               ],
             ),
             GoRoute(
-              name: Routes.dashboardSettings,
-              path: Routes._dashboardSettingsPath,
+              name: AppRoute.dashboardSettings,
+              path: AppRoute._dashboardSettingsPath,
               builder: (_, __) => const DashboardSettingsPage(),
             ),
             GoRoute(
-              name: Routes.importExport,
-              path: Routes._importExportPath,
+              name: AppRoute.importExport,
+              path: AppRoute._importExportPath,
               builder: (_, __) => const ImportExportPage(),
             ),
           ],
@@ -62,11 +71,14 @@ final router = GoRouter(
   ],
 );
 
-class Routes {
-  Routes._();
+class AppRoute {
+  AppRoute._();
 
   static const String loading = 'loading';
   static const String _loadingPath = '/';
+
+  static const String privacyShield = 'privacy_shield';
+  static const String _privacyShield = '/hidden';
 
   static const String dashboard = 'dashboard';
   static const String _dashboardPath = 'dashboard';
