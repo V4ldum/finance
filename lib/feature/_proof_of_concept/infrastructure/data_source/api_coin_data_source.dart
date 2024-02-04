@@ -10,7 +10,7 @@ class ApiCoinDataSource implements CoinDataSource {
     BaseOptions(
       baseUrl: AppString.numistaApiUrl,
       headers: {
-        AppString.numistaKeyHeader: AppString.numistaSecretKey,
+        //AppString.numistaKeyHeader: AppString.numistaSecretKey,
       },
     ),
   );
