@@ -12,36 +12,8 @@ void main() {
   );
 }
 
-class MyApp extends ConsumerStatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  ConsumerState<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends ConsumerState<MyApp> {
-  late final AppLifecycleListener _listener;
-
-  @override
-  void initState() {
-    super.initState();
-    _listener = AppLifecycleListener(
-      onResume: () {
-        if (router.canPop()) {
-          router.pop();
-        }
-      },
-      onInactive: () {
-        router.pushNamed(AppRoute.privacyShield);
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    _listener.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

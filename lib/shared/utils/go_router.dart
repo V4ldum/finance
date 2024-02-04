@@ -6,7 +6,6 @@ import 'package:finance/feature/settings/presentation/page/finary_authentication
 import 'package:finance/feature/settings/presentation/page/import_export_page.dart';
 import 'package:finance/feature/settings/presentation/page/settings_page.dart';
 import 'package:finance/shared/presentation/page/loading_page.dart';
-import 'package:finance/shared/presentation/page/privacy_shield_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,14 +13,6 @@ import 'package:go_router/go_router.dart';
 final router = GoRouter(
   initialLocation: AppRoute._loadingPath,
   routes: [
-    GoRoute(
-      name: AppRoute.privacyShield,
-      path: AppRoute._privacyShield,
-      pageBuilder: (context, state) => CustomTransitionPage(
-        transitionsBuilder: (_, opacity, __, child) => FadeTransition(opacity: opacity, child: child),
-        child: const PrivacyShieldPage(),
-      ),
-    ),
     GoRoute(
       name: AppRoute.loading,
       path: AppRoute._loadingPath,
@@ -76,9 +67,6 @@ class AppRoute {
 
   static const String loading = 'loading';
   static const String _loadingPath = '/';
-
-  static const String privacyShield = 'privacy_shield';
-  static const String _privacyShield = '/hidden';
 
   static const String dashboard = 'dashboard';
   static const String _dashboardPath = 'dashboard';
