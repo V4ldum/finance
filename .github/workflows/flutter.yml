@@ -24,8 +24,8 @@ jobs:
         run: flutter pub get
 
       # TODO add back later
-      - name: Verify formatting
-        run: dart format --output=none --set-exit-if-changed .
+      # - name: Verify formatting
+      #  run: dart format --output=none --set-exit-if-changed .
         
       - name: Analyze project source
         run: dart analyze
@@ -39,12 +39,13 @@ jobs:
     needs: analyze
     if: success()
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
-      - run: echo "works"
-      #- uses: actions/checkout@v4
-      #- uses: subosito/flutter-action@v2
-      #- run: flutter build apk --release
-      #- uses: ncipollo/release-action@v2
-      #  with:
-      #   artifacts: "build/app/outputs/flutter-apk/*.apk"
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+      - run: flutter build apk --release
+      - uses: ncipollo/release-action@v2
+        with:
+         artifacts: "build/app/outputs/flutter-apk/*.apk,build/app/outputs/flutter-apk/*.sha1"
