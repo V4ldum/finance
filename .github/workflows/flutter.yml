@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v3
+      - uses: subosito/flutter-action@v2
       
       - name: Config Flutter
         run: flutter config --no-animations
