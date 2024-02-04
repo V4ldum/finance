@@ -7,7 +7,7 @@ part of '../finary_authentication_data_source.dart';
 // **************************************************************************
 
 String _$finaryAuthenticationDataSourceHash() =>
-    r'd6fb5c1469a6ad959a499f0da1955aebac0fdf0f';
+    r'98c173a0cf73611f5ed7003139912a4584d1cbb7';
 
 /// See also [finaryAuthenticationDataSource].
 @ProviderFor(finaryAuthenticationDataSource)
