@@ -11,7 +11,7 @@ on:
     - '*'
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,3 +35,16 @@ jobs:
       # want to change this to 'flutter test'.
       # - name: Run tests
       #   run: dart test
+  build:
+    needs: analyze
+    if: success()
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: echo "works"
+      #- uses: actions/checkout@v4
+      #- uses: subosito/flutter-action@v2
+      #- run: flutter build apk --release
+      #- uses: ncipollo/release-action@v2
+      #  with:
+      #   artifacts: "build/app/outputs/flutter-apk/*.apk"
