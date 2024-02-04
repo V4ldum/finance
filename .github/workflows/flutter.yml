@@ -25,14 +25,16 @@ jobs:
           flutter clean
           find lib/**/_generated/* -type f -delete
           find lib/**/_generated -type d -delete
+          
+      - name: Install dependencies
+        run: flutter pub get
         
       - name: Rebuild generated code
         run: |
+          rm .dart_tool
           dart run build_runner build --delete-conflicting-outputs
           flutter pub global run intl_utils:generate
         
-      - name: Install dependencies
-        run: flutter pub get
 
       # TODO add back later
       # - name: Verify formatting
@@ -46,6 +48,7 @@ jobs:
       # want to change this to 'flutter test'.
       # - name: Run tests
       #   run: dart test
+      
   build:
     needs: analyze
     if: success()
@@ -63,9 +66,13 @@ jobs:
           flutter clean
           find lib/**/_generated/* -type f -delete
           find lib/**/_generated -type d -delete
+          
+      - name: Install dependencies
+        run: flutter pub get
         
       - name: Rebuild generated code
         run: |
+          rm .dart_tool
           dart run build_runner build --delete-conflicting-outputs
           flutter pub global run intl_utils:generate
 
