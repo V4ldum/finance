@@ -33,7 +33,7 @@ jobs:
         run: |
           rm -rf .dart_tool
           dart run build_runner build --delete-conflicting-outputs
-          flutter pub global run intl_utils:generate
+          dart run intl_utils:generate
         
 
       # TODO add back later
@@ -74,7 +74,7 @@ jobs:
         run: |
           rm -rf .dart_tool
           dart run build_runner build --delete-conflicting-outputs
-          flutter pub global run intl_utils:generate
+          dart run intl_utils:generate
 
       - name: Build project
         run: flutter build apk --release
