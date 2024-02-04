@@ -24,13 +24,13 @@ jobs:
         run: |
           flutter clean
           find lib/**/_generated/* -type f -delete
-          find lib/**/_generated/* -type d -delete
-        
-      - name: Install dependencies
-        run: flutter pub get
+          find lib/**/_generated -type d -delete
         
       - name: Rebuild generated code
         run: dart run build_runner build
+        
+      - name: Install dependencies
+        run: flutter pub get
 
       # TODO add back later
       # - name: Verify formatting
