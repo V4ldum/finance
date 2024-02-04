@@ -105,6 +105,7 @@ class DashboardPage extends ConsumerWidget {
               final total = tabData.total(assets);
 
               return SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(vertical: AppPadding.s, horizontal: AppPadding.m),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
