@@ -27,7 +27,9 @@ jobs:
           find lib/**/_generated -type d -delete
         
       - name: Rebuild generated code
-        run: dart run build_runner build --delete-conflicting-outputs
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter pub global run intl_utils:generate
         
       - name: Install dependencies
         run: flutter pub get
@@ -63,7 +65,9 @@ jobs:
           find lib/**/_generated -type d -delete
         
       - name: Rebuild generated code
-        run: dart run build_runner build --delete-conflicting-outputs
+        run: |
+          dart run build_runner build --delete-conflicting-outputs
+          flutter pub global run intl_utils:generate
 
       - name: Build project
         run: flutter build apk --release
