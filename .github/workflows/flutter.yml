@@ -23,7 +23,8 @@ jobs:
       - name: Clean project
         run: |
           flutter clean
-          find ./*/_generated/* -type f -delete
+          find lib/**/_generated/* -type f -delete
+          find lib/**/_generated/* -type d -delete
         
       - name: Install dependencies
         run: flutter pub get
