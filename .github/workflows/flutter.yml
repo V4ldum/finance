@@ -17,7 +17,7 @@ jobs:
 
       - name: Compare version with tag
         run: |
-          PUBSPEC_VERSION=$(cat pubspec.yaml | grep version: | cut -d ':' -f 2 | xargs) || true
+          PUBSPEC_VERSION=$(cat pubspec.yaml | grep version: | cut -d ':' -f 2 | xargs)
           [[ "$PUBSPEC_VERSION" == "${{github.ref_name}}" ]] || false
 
       - uses: subosito/flutter-action@v2
