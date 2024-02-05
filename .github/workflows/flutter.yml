@@ -13,14 +13,13 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      #- uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
 
       - name: Compare version with tag
         run: |
           PUBSPEC_VERSION=$(cat pubspec.yaml | grep version: | cut -d ':' -f 2 | xargs)
           [[ "$PUBSPEC_VERSION" == "${{github.ref_name}}" ]] || exit 1
-
-      - uses: subosito/flutter-action@v2
 
       - name: Config Flutter
         run: flutter config --no-analytics
