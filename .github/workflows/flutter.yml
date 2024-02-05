@@ -86,9 +86,8 @@ jobs:
           KEYSTORE: ${{ secrets.KEYSTORE }}
           KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
         run: |
-          TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/android
-          echo $KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}/finance-signing-key.jks"
-          echo $KEY_PROPERTIES | base64 -di > "${TMP_KEYSTORE_FILE_PATH}/key.properties"
+          echo $KEYSTORE | base64 -di > "/android/finance-signing-key.jks"
+          echo $KEY_PROPERTIES | base64 -di > "/android/key.properties"
 
       - name: Build project
         run: flutter build apk --split-per-abi
