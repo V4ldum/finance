@@ -100,69 +100,77 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const SizedBox(height: AppPadding.s),
-          Text(S.current.finaryAuthenticationLoginMessage),
-          const SizedBox(height: AppPadding.l),
-          ref.watch(finaryAuthenticationProcessControllerProvider).maybeWhen(
-                error: (error, stackTrace) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    AuthenticationErrorCard(error: error),
-                    const SizedBox(height: AppPadding.m),
-                  ],
+      child: AutofillGroup(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: AppPadding.s),
+            Text(S.current.finaryAuthenticationLoginMessage),
+            const SizedBox(height: AppPadding.l),
+            ref.watch(finaryAuthenticationProcessControllerProvider).maybeWhen(
+                  error: (error, stackTrace) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      AuthenticationErrorCard(error: error),
+                      const SizedBox(height: AppPadding.m),
+                    ],
+                  ),
+                  orElse: () => const SizedBox(),
                 ),
-                orElse: () => const SizedBox(),
+            TextFormField(
+              autofocus: true,
+              controller: loginController,
+              validator: EmailValidator.validate,
+              textInputAction: TextInputAction.next,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.person),
+                labelText: S.current.loginTextFieldLabel,
+                helperText: '',
+                filled: true,
               ),
-          TextFormField(
-            autofocus: true,
-            controller: loginController,
-            validator: EmailValidator.validate,
-            textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.person),
-              labelText: S.current.loginTextFieldLabel,
-              helperText: '',
-              filled: true,
+              autofillHints: const {
+                AutofillHints.email,
+              },
             ),
-          ),
-          const SizedBox(height: AppPadding.s),
-          TextFormField(
-            controller: passwordController,
-            validator: StringValidator.validateEmpty,
-            textInputAction: TextInputAction.done,
-            keyboardType: TextInputType.emailAddress,
-            obscureText: passwordObscured,
-            decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.password),
-              suffixIcon: IconButton(
-                onPressed: _togglePasswordTapped,
-                icon: Icon(
-                  passwordObscured ? Icons.visibility : Icons.visibility_off,
+            const SizedBox(height: AppPadding.s),
+            TextFormField(
+              controller: passwordController,
+              validator: StringValidator.validateEmpty,
+              textInputAction: TextInputAction.done,
+              keyboardType: TextInputType.emailAddress,
+              obscureText: passwordObscured,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.password),
+                suffixIcon: IconButton(
+                  onPressed: _togglePasswordTapped,
+                  icon: Icon(
+                    passwordObscured ? Icons.visibility : Icons.visibility_off,
+                  ),
                 ),
+                labelText: S.current.passwordTextFieldLabel,
+                helperText: '',
+                filled: true,
               ),
-              labelText: S.current.passwordTextFieldLabel,
-              helperText: '',
-              filled: true,
+              autofillHints: const {
+                AutofillHints.password,
+              },
             ),
-          ),
-          Row(
-            children: [
-              const Expanded(
-                flex: 2,
-                child: SizedBox(),
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: _logInTapped,
-                  child: Text(S.current.submit),
+            Row(
+              children: [
+                const Expanded(
+                  flex: 2,
+                  child: SizedBox(),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Expanded(
+                  child: TextButton(
+                    onPressed: _logInTapped,
+                    child: Text(S.current.submit),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
