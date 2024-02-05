@@ -86,6 +86,8 @@ jobs:
           KEYSTORE: ${{ secrets.KEYSTORE }}
           KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
         run: |
+          echo $PWD
+          ls
           echo $KEYSTORE | base64 -di > "/android/finance-signing-key.jks"
           echo $KEY_PROPERTIES | base64 -di > "/android/key.properties"
 
