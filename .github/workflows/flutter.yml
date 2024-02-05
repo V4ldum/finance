@@ -81,9 +81,18 @@ jobs:
           dart run build_runner build --delete-conflicting-outputs
           dart run intl_utils:generate
 
+      - name: Decode files
+        env:
+          KEYSTORE: ${{ secrets.KEYSTORE }}
+          KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
+        run: |
+          TMP_KEYSTORE_FILE_PATH="${RUNNER_TEMP}"/android
+          echo $KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}/finance-signing-key.jks"
+          echo $KEY_PROPERTIES | base64 -di > "${TMP_KEYSTORE_FILE_PATH}/key.properties"
+
       - name: Build project
-        run: flutter build apk --release
+        run: flutter build apk --split-per-abi
       
       - uses: ncipollo/release-action@v1
         with:
-         artifacts: "build/app/outputs/flutter-apk/*.apk,build/app/outputs/flutter-apk/*.sha1"
+         artifacts: "build/app/outputs/flutter-apk/*-release.apk,build/app/outputs/flutter-apk/*-release.apk.sha1"
