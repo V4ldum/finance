@@ -65,14 +65,14 @@ class DashboardTabController extends _$DashboardTabController {
   }
 
   TabData _getAccountsTabData() {
+    bool accountsFinder(AssetModel e) => e.type == AssetTypeModel.account;
+
     return TabData(
       title: S.current.accounts,
-      total: (assets) => assets.total,
-      data: (assets) => assets.assets
-          .where((e) => e.type == AssetTypeModel.account)
-          .map((e) => PieData(title: e.name, value: e.total.toInt()))
-          .toList()
-        ..sort((a, b) => b.value.compareTo(a.value)),
+      total: (assets) => assets.assets.where(accountsFinder).fold(0, (prev, e) => prev += e.total.toInt()),
+      data: (assets) =>
+          assets.assets.where(accountsFinder).map((e) => PieData(title: e.name, value: e.total.toInt())).toList()
+            ..sort((a, b) => b.value.compareTo(a.value)),
     );
   }
 
