@@ -71,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emptyPasswordError":
             MessageLookupByLibrary.simpleMessage("You must type a password."),
         "exportButton": MessageLookupByLibrary.simpleMessage("Export data"),
+        "exportSuccessMessage":
+            MessageLookupByLibrary.simpleMessage("Export réussi"),
         "finary": MessageLookupByLibrary.simpleMessage("Finary"),
         "finaryAuthenticationLoginMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -86,6 +88,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("An unknown error occurred."),
         "geography": MessageLookupByLibrary.simpleMessage("Stocks Geography"),
         "importButton": MessageLookupByLibrary.simpleMessage("Import data"),
+        "importSuccessMessage":
+            MessageLookupByLibrary.simpleMessage("Import réussi"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "You must type a valid email."),
         "invalidOtpError": MessageLookupByLibrary.simpleMessage(
@@ -102,8 +106,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Secret code"),
         "passwordTextFieldLabel":
             MessageLookupByLibrary.simpleMessage("Password"),
-        "privacyShieldText":
-            MessageLookupByLibrary.simpleMessage("Content protected"),
         "realEstates": MessageLookupByLibrary.simpleMessage("Real estates"),
         "savings": MessageLookupByLibrary.simpleMessage("Savings"),
         "savingsAccounts":

@@ -1,6 +1,4 @@
 {
-  "@@@_PRIVACY_SHIELD": {},
-  "privacyShieldText": "Contenu protégé",
   "@@@_ERRORS_MESSAGES": {},
   "tooManyRequestsTitle": "Trop de requêtes",
   "tooManyRequestsBody": "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel.",
@@ -79,5 +77,7 @@
   "dashboardSettingsStockCategorisationEmptyError": "Vous n'avez pas d'actions. Commencez à investir pour les catégoriser.",
   "@@@_SETTINGS_IMPORT_EXPORT": {},
   "importButton": "Importer les données",
-  "exportButton": "Exporter les données"
+  "exportButton": "Exporter les données",
+  "importSuccessMessage": "Import successful",
+  "exportSuccessMessage": "Export successful"
 }

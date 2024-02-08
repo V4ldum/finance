@@ -1,6 +1,4 @@
 {
-  "@@@_PRIVACY_SHIELD": {},
-  "privacyShieldText": "Content protected",
   "@@@_ERRORS_MESSAGES": {},
   "tooManyRequestsTitle": "Too many requests",
   "tooManyRequestsBody": "You have sent too many simultaneous requests or have reached your monthly quota.",
@@ -79,5 +77,7 @@
   "dashboardSettingsStockCategorisationEmptyError": "You don't have any stocks. Start investing in stocks to categorize them.",
   "@@@_SETTINGS_IMPORT_EXPORT": {},
   "importButton": "Import data",
-  "exportButton": "Export data"
+  "exportButton": "Export data",
+  "importSuccessMessage": "Import réussi",
+  "exportSuccessMessage": "Export réussi"
 }

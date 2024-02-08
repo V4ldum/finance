@@ -72,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vous devez saisir un mot de passe."),
         "exportButton":
             MessageLookupByLibrary.simpleMessage("Exporter les données"),
+        "exportSuccessMessage":
+            MessageLookupByLibrary.simpleMessage("Export successful"),
         "finary": MessageLookupByLibrary.simpleMessage("Finary"),
         "finaryAuthenticationLoginMessage":
             MessageLookupByLibrary.simpleMessage(
@@ -89,6 +91,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Géographie des actions"),
         "importButton":
             MessageLookupByLibrary.simpleMessage("Importer les données"),
+        "importSuccessMessage":
+            MessageLookupByLibrary.simpleMessage("Import successful"),
         "invalidEmailError": MessageLookupByLibrary.simpleMessage(
             "Vous devez saisir un email valide."),
         "invalidOtpError": MessageLookupByLibrary.simpleMessage(
@@ -106,8 +110,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Code secret"),
         "passwordTextFieldLabel":
             MessageLookupByLibrary.simpleMessage("Mot de passe"),
-        "privacyShieldText":
-            MessageLookupByLibrary.simpleMessage("Contenu protégé"),
         "realEstates": MessageLookupByLibrary.simpleMessage("Immobilier"),
         "savings": MessageLookupByLibrary.simpleMessage("Epargne"),
         "savingsAccounts":

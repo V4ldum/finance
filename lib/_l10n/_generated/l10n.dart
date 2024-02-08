@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -18,17 +19,15 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+        _current != null, 'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -48,16 +47,6 @@ class S {
 
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
-  }
-
-  /// `Content protected`
-  String get privacyShieldText {
-    return Intl.message(
-      'Content protected',
-      name: 'privacyShieldText',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `Too many requests`
@@ -767,6 +756,26 @@ class S {
     return Intl.message(
       'Export data',
       name: 'exportButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import réussi`
+  String get importSuccessMessage {
+    return Intl.message(
+      'Import réussi',
+      name: 'importSuccessMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Export réussi`
+  String get exportSuccessMessage {
+    return Intl.message(
+      'Export réussi',
+      name: 'exportSuccessMessage',
       desc: '',
       args: [],
     );

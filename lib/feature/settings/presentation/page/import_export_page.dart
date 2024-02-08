@@ -6,6 +6,34 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class ImportExportPage extends ConsumerWidget {
   const ImportExportPage({super.key});
 
+  Future<void> _import(WidgetRef ref) async {
+    await ref.read(importExportDataServiceProvider).import();
+
+    final context = ref.context;
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(S.current.importSuccessMessage),
+        ),
+      );
+    }
+  }
+
+  Future<void> _export(WidgetRef ref) async {
+    await ref.read(importExportDataServiceProvider).export();
+
+    final context = ref.context;
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text(S.current.exportSuccessMessage),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -18,12 +46,12 @@ class ImportExportPage extends ConsumerWidget {
             ListTile(
               title: Text(S.current.exportButton),
               leading: const Icon(Icons.logout),
-              onTap: ref.read(importExportDataServiceProvider).export,
+              onTap: () => _export(ref),
             ),
             ListTile(
               title: Text(S.current.importButton),
               leading: const Icon(Icons.login),
-              onTap: ref.read(importExportDataServiceProvider).import,
+              onTap: () => _import(ref),
             ),
           ],
         ),
