@@ -1,16 +1,19 @@
-# finance
+# Finance
 
-A new Flutter project.
+[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
-## Getting Started
+App using [Finary](https://finary.com/)'s backend to provide an alternative dashboard visualisation to finance related data. This project was created for my specific needs and might not be useful to you.
+New features may come in the future, when my needs expand/change.
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+The recommended way to keep this app updated is through [Obtainium](https://github.com/ImranR98/Obtainium). 
+First, manually install the app by downloading the latest APK from the [releases](https://github.com/V4ldum/finance/releases). This is useful to guarantee the app is signed with the correct certificate (mine) and was not injected with malware.
+Then, you can download Obtainium and add my app inside using the GitHub link. Obtainium will see the app installed and will be able to update it from there.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Screenshots
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| <img src="./misc/screenshots/dashboard.png" alt="Dashboard Page" /> | 
+|---------------------------------------------------------------------| 
+| <img src="./misc/screenshots/settings.png" alt="Settings Page" />   | 
+
