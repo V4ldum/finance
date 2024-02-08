@@ -1,6 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
-import 'package:finance/feature/assets/domain/model/asset_model.dart';
 import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
 import 'package:finance/feature/assets/domain/model/assets_model.dart';
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
@@ -53,33 +52,30 @@ class DashboardTabController extends _$DashboardTabController {
   }
 
   TabData _getStocksTabData() {
-    bool stocksFinder(AssetModel e) => e.type == AssetTypeModel.stock || e.type == AssetTypeModel.fund;
-
     return TabData(
       title: S.current.stocks,
-      total: (assets) => assets.assets.where(stocksFinder).fold(0, (prev, e) => prev += e.total.toInt()),
-      data: (assets) =>
-          assets.assets.where(stocksFinder).map((e) => PieData(title: e.name, value: e.total.toInt())).toList()
-            ..sort((a, b) => b.value.compareTo(a.value)),
+      data: (assets) => assets.assets
+          .where((e) => e.type == AssetTypeModel.stock || e.type == AssetTypeModel.fund)
+          .map((e) => PieData(title: e.name, value: e.total.toInt()))
+          .toList()
+        ..sort((a, b) => b.value.compareTo(a.value)),
     );
   }
 
   TabData _getAccountsTabData() {
-    bool accountsFinder(AssetModel e) => e.type == AssetTypeModel.account;
-
     return TabData(
       title: S.current.accounts,
-      total: (assets) => assets.assets.where(accountsFinder).fold(0, (prev, e) => prev += e.total.toInt()),
-      data: (assets) =>
-          assets.assets.where(accountsFinder).map((e) => PieData(title: e.name, value: e.total.toInt())).toList()
-            ..sort((a, b) => b.value.compareTo(a.value)),
+      data: (assets) => assets.assets
+          .where((e) => e.type == AssetTypeModel.account)
+          .map((e) => PieData(title: e.name, value: e.total.toInt()))
+          .toList()
+        ..sort((a, b) => b.value.compareTo(a.value)),
     );
   }
 
   TabData _getDistributionTabData() {
     return TabData(
       title: S.current.distribution,
-      total: (assets) => assets.total,
       data: (assets) => AssetCategoryModel.values
           .map(
             (category) => PieData(
@@ -98,10 +94,8 @@ class TabData {
   const TabData({
     required this.title,
     required this.data,
-    required this.total,
   });
 
   final String title;
   final List<PieData> Function(AssetsModel) data;
-  final int Function(AssetsModel) total;
 }

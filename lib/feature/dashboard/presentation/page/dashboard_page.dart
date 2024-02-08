@@ -102,7 +102,7 @@ class DashboardPage extends ConsumerWidget {
             },
             data: (assets) {
               final data = tabData.data(assets);
-              final total = tabData.total(assets);
+              final total = data.fold(0, (prev, e) => prev += e.value);
 
               return SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
