@@ -13,7 +13,6 @@ Then, you can download Obtainium and add my app inside using the GitHub link. Ob
 
 ## Screenshots
 
-| <img src="./misc/screenshots/dashboard.png" alt="Dashboard Page" /> | 
-|---------------------------------------------------------------------| 
-| <img src="./misc/screenshots/settings.png" alt="Settings Page" />   | 
+| <img src="./misc/screenshots/dashboard.png" alt="Dashboard Page" /> | <img src="./misc/screenshots/settings.png" alt="Settings Page" /> |
+|---------------------------------------------------------------------|-------------------------------------------------------------------| 
 
