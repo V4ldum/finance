@@ -14,9 +14,14 @@ part '_generated/import_export_data_repository.g.dart';
 
 @riverpod
 ImportExportDataRepository importExportDataRepository(ImportExportDataRepositoryRef ref) {
+  final cache = ref.read(appCacheControllerProvider);
+
   return ImportExportDataRepository(
     ref.read(filePickerDataSourceProvider),
-    ref.read(appCacheControllerProvider),
+    cache,
+    PersistCookieJar(
+      storage: FileStorage('${cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies'),
+    ),
   );
 }
 
@@ -24,6 +29,7 @@ class ImportExportDataRepository {
   ImportExportDataRepository(
     this._filePickerDataSource,
     this._cache,
+    this._cookieJar,
   );
 
   static const String _domainCookiesKey = 'domainCookies';
@@ -31,17 +37,15 @@ class ImportExportDataRepository {
 
   final FilePickerDataSource _filePickerDataSource;
   final AppCache _cache;
+  final PersistCookieJar _cookieJar;
 
   Future<void> export() async {
     final filename = 'export_${DateTime.now().toIso8601String()}.json';
-    final cookieJar = PersistCookieJar(
-      storage: FileStorage('${_cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies'),
-    );
-    await cookieJar.forceInit();
+    await _cookieJar.forceInit();
 
     final cacheMap = _cache.toJson();
-    final domainCookiesMap = cookieJar.domainCookies;
-    final hostCookiesMap = cookieJar.hostCookies;
+    final domainCookiesMap = _cookieJar.domainCookies;
+    final hostCookiesMap = _cookieJar.hostCookies;
     final data = jsonEncode({
       ...cacheMap,
       _domainCookiesKey: domainCookiesMap,
@@ -63,19 +67,15 @@ class ImportExportDataRepository {
 
     final fileContent = Map<String, dynamic>.from(jsonDecode(await file.readAsString()) as Map);
     final cache = AppCache.fromJson(fileContent);
-
-    final cookieJar = PersistCookieJar(
-      storage: FileStorage('${_cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies'),
-    );
-    await cookieJar.forceInit();
+    await _cookieJar.forceInit();
 
     final domainCookies = await _mapCookies(fileContent[_domainCookiesKey] as Map<String, dynamic>);
     final hostCookies = await _mapCookies(fileContent[_hostCookiesKey] as Map<String, dynamic>);
 
-    cookieJar.domainCookies.addAll(domainCookies);
-    cookieJar.hostCookies.addAll(hostCookies);
+    _cookieJar.domainCookies.addAll(domainCookies);
+    _cookieJar.hostCookies.addAll(hostCookies);
 
-    await _refreshAuth(cookieJar, cache.finarySessionId);
+    await _refreshAuth(_cookieJar, cache.finarySessionId);
 
     return cache;
   }

@@ -57,7 +57,7 @@ Map<String, dynamic> _$$StockDetailAccountDtoImplToJson(
 _$StockDetailSecurityDtoImpl _$$StockDetailSecurityDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$StockDetailSecurityDtoImpl(
-      currentValue: (json['current_value'] as num).toDouble(),
+      total: (json['current_value'] as num).toDouble(),
       periodEvolution: (json['period_evolution'] as num).toDouble(),
       periodEvolutionPercent:
           (json['period_evolution_percent'] as num?)?.toDouble() ?? 0,
@@ -70,7 +70,7 @@ _$StockDetailSecurityDtoImpl _$$StockDetailSecurityDtoImplFromJson(
 Map<String, dynamic> _$$StockDetailSecurityDtoImplToJson(
         _$StockDetailSecurityDtoImpl instance) =>
     <String, dynamic>{
-      'current_value': instance.currentValue,
+      'current_value': instance.total,
       'period_evolution': instance.periodEvolution,
       'period_evolution_percent': instance.periodEvolutionPercent,
       'buying_price': instance.buyingPrice,
@@ -85,7 +85,7 @@ _$StockDetailSecurityInformationDtoImpl
           symbol: json['symbol'] as String,
           name: json['name'] as String,
           logoUrl: json['logo_url'] as String,
-          currentPrice: (json['current_price'] as num).toDouble(),
+          unitPrice: (json['current_price'] as num).toDouble(),
           type: $enumDecode(
               _$StockDetailSecurityTypeDtoEnumMap, json['security_type'],
               unknownValue: StockDetailSecurityTypeDto.unknown),
@@ -97,7 +97,7 @@ Map<String, dynamic> _$$StockDetailSecurityInformationDtoImplToJson(
       'symbol': instance.symbol,
       'name': instance.name,
       'logo_url': instance.logoUrl,
-      'current_price': instance.currentPrice,
+      'current_price': instance.unitPrice,
       'security_type': _$StockDetailSecurityTypeDtoEnumMap[instance.type]!,
     };
 

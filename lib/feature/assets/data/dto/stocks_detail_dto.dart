@@ -42,7 +42,7 @@ sealed class StockDetailAccountDto with _$StockDetailAccountDto {
 @freezed
 sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
   const factory StockDetailSecurityDto({
-    @JsonKey(name: 'current_value') required double currentValue,
+    @JsonKey(name: 'current_value') required double total,
     @JsonKey(name: 'period_evolution') required double periodEvolution,
     @JsonKey(name: 'period_evolution_percent', defaultValue: 0) required double periodEvolutionPercent,
     @JsonKey(name: 'buying_price', defaultValue: 0) required double buyingPrice,
@@ -59,7 +59,7 @@ sealed class StockDetailSecurityInformationDto with _$StockDetailSecurityInforma
     required String symbol,
     required String name,
     @JsonKey(name: 'logo_url') required String logoUrl,
-    @JsonKey(name: 'current_price') required double currentPrice,
+    @JsonKey(name: 'current_price') required double unitPrice,
     @JsonKey(name: 'security_type', unknownEnumValue: StockDetailSecurityTypeDto.unknown)
     required StockDetailSecurityTypeDto type,
   }) = _StockDetailSecurityInformationDto;

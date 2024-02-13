@@ -24,7 +24,7 @@ final selectedChartSegmentControllerProvider =
 
 typedef _$SelectedChartSegmentController = AutoDisposeNotifier<int?>;
 String _$dashboardTabControllerHash() =>
-    r'e95e26baf9f5aa064a1c4d16d75460c136496d15';
+    r'd6d40ff7f9c617e961559090984bba96aec95064';
 
 /// See also [DashboardTabController].
 @ProviderFor(DashboardTabController)

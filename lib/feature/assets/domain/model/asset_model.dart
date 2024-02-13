@@ -34,14 +34,15 @@ class AssetModel {
       name: security.security.name,
       symbol: security.security.symbol,
       amount: security.quantity,
-      value: security.security.currentPrice,
-      category: cache.investmentStocksSymbols.contains(security.security.symbol)
-          ? AssetCategoryModel.investment // Override default behaviour
-          : switch (security.security.type) {
-              StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetCategoryModel.investment,
-              StockDetailSecurityTypeDto.equity => AssetCategoryModel.speculative, // Bare stock
-              StockDetailSecurityTypeDto.unknown => AssetCategoryModel.other, // Liquidity account
-            },
+      value: security.security.unitPrice,
+      category: switch (security.security.type) {
+        StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetCategoryModel.investment,
+        StockDetailSecurityTypeDto.equity => cache.investmentStocksSymbols.contains(security.security.symbol)
+            // Bare stock
+            ? AssetCategoryModel.investment // Override default behaviour:
+            : AssetCategoryModel.speculative,
+        StockDetailSecurityTypeDto.unknown => AssetCategoryModel.other, // Liquidity account
+      },
       type: switch (security.security.type) {
         StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetTypeModel.fund,
         StockDetailSecurityTypeDto.equity => AssetTypeModel.stock, // Bare stock

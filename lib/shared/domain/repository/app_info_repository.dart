@@ -5,19 +5,19 @@ part '_generated/app_info_repository.g.dart';
 
 @riverpod
 AppInfoRepository appInfoRepository(AppInfoRepositoryRef ref) {
-  return AppInfoRepository();
+  return AppInfoRepository(PackageInfo.fromPlatform());
 }
 
 class AppInfoRepository {
-  Future<String> getBuildNumber() async {
-    return (await PackageInfo.fromPlatform()).buildNumber;
-  }
+  AppInfoRepository(this._dataSource);
+
+  final Future<PackageInfo> _dataSource;
 
   Future<String> getPackageName() async {
-    return (await PackageInfo.fromPlatform()).packageName;
+    return (await _dataSource).packageName;
   }
 
   Future<String> getVersion() async {
-    return (await PackageInfo.fromPlatform()).version;
+    return (await _dataSource).version;
   }
 }
