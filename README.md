@@ -1,6 +1,7 @@
 # Finance
 
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
 App using [Finary](https://finary.com/)'s backend to provide an alternative dashboard visualisation to finance related data. This project was created for my specific needs and might not be useful to you.
 New features may come in the future, when my needs expand/change.
