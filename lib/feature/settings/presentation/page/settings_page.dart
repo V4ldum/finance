@@ -33,12 +33,6 @@ class SettingsPage extends ConsumerWidget {
               leading: const Icon(Icons.login),
               onTap: () => context.pushNamed(AppRoute.authenticationSettings),
             ),
-            // ListTile(
-            //   title: Text(S.current.settingsAlertsTitle),
-            //   subtitle: Text(S.current.settingsAlertsSubtitle),
-            //   leading: const Icon(Icons.add_alert),
-            //   onTap: () => context.pushNamed(Routes.alertsSettings),
-            // ),
             ListTile(
               title: Text(S.current.settingsImportExportTitle),
               subtitle: Text(S.current.settingsImportExportSubtitle),

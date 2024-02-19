@@ -114,9 +114,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Manual authentication is required in the settings of the app"),
         "sessionExpiredTitle": MessageLookupByLibrary.simpleMessage(
             "No session found or session expired"),
-        "settingsAlertsSubtitle":
-            MessageLookupByLibrary.simpleMessage("Stocks value alerts"),
-        "settingsAlertsTitle": MessageLookupByLibrary.simpleMessage("Alerts"),
         "settingsAssetsSubtitle": MessageLookupByLibrary.simpleMessage(
             "Distribution targets, stocks categorisation"),
         "settingsAssetsTitle":

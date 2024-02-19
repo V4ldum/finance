@@ -12,7 +12,7 @@ part of '../stocks_detail_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 StocksDetailDto _$StocksDetailDtoFromJson(Map<String, dynamic> json) {
   return _StocksDetailDto.fromJson(json);
@@ -829,8 +829,11 @@ StockDetailSecurityInformationDto _$StockDetailSecurityInformationDtoFromJson(
 
 /// @nodoc
 mixin _$StockDetailSecurityInformationDto {
-  String get symbol => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get symbol => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
+  String get isin =>
+      throw _privateConstructorUsedError; // International Security Identifier Number (ISIN)
   @JsonKey(name: 'logo_url')
   String get logoUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'current_price')
@@ -855,8 +858,9 @@ abstract class $StockDetailSecurityInformationDtoCopyWith<$Res> {
           StockDetailSecurityInformationDto>;
   @useResult
   $Res call(
-      {String symbol,
-      String name,
+      {String name,
+      String symbol,
+      @JsonKey(defaultValue: '') String isin,
       @JsonKey(name: 'logo_url') String logoUrl,
       @JsonKey(name: 'current_price') double unitPrice,
       @JsonKey(
@@ -879,20 +883,25 @@ class _$StockDetailSecurityInformationDtoCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = null,
     Object? name = null,
+    Object? symbol = null,
+    Object? isin = null,
     Object? logoUrl = null,
     Object? unitPrice = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      isin: null == isin
+          ? _value.isin
+          : isin // ignore: cast_nullable_to_non_nullable
               as String,
       logoUrl: null == logoUrl
           ? _value.logoUrl
@@ -920,8 +929,9 @@ abstract class _$$StockDetailSecurityInformationDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String symbol,
-      String name,
+      {String name,
+      String symbol,
+      @JsonKey(defaultValue: '') String isin,
       @JsonKey(name: 'logo_url') String logoUrl,
       @JsonKey(name: 'current_price') double unitPrice,
       @JsonKey(
@@ -943,20 +953,25 @@ class __$$StockDetailSecurityInformationDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? symbol = null,
     Object? name = null,
+    Object? symbol = null,
+    Object? isin = null,
     Object? logoUrl = null,
     Object? unitPrice = null,
     Object? type = null,
   }) {
     return _then(_$StockDetailSecurityInformationDtoImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       symbol: null == symbol
           ? _value.symbol
           : symbol // ignore: cast_nullable_to_non_nullable
               as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      isin: null == isin
+          ? _value.isin
+          : isin // ignore: cast_nullable_to_non_nullable
               as String,
       logoUrl: null == logoUrl
           ? _value.logoUrl
@@ -979,8 +994,9 @@ class __$$StockDetailSecurityInformationDtoImplCopyWithImpl<$Res>
 class _$StockDetailSecurityInformationDtoImpl
     implements _StockDetailSecurityInformationDto {
   const _$StockDetailSecurityInformationDtoImpl(
-      {required this.symbol,
-      required this.name,
+      {required this.name,
+      required this.symbol,
+      @JsonKey(defaultValue: '') required this.isin,
       @JsonKey(name: 'logo_url') required this.logoUrl,
       @JsonKey(name: 'current_price') required this.unitPrice,
       @JsonKey(
@@ -993,9 +1009,13 @@ class _$StockDetailSecurityInformationDtoImpl
       _$$StockDetailSecurityInformationDtoImplFromJson(json);
 
   @override
+  final String name;
+  @override
   final String symbol;
   @override
-  final String name;
+  @JsonKey(defaultValue: '')
+  final String isin;
+// International Security Identifier Number (ISIN)
   @override
   @JsonKey(name: 'logo_url')
   final String logoUrl;
@@ -1010,7 +1030,7 @@ class _$StockDetailSecurityInformationDtoImpl
 
   @override
   String toString() {
-    return 'StockDetailSecurityInformationDto(symbol: $symbol, name: $name, logoUrl: $logoUrl, unitPrice: $unitPrice, type: $type)';
+    return 'StockDetailSecurityInformationDto(name: $name, symbol: $symbol, isin: $isin, logoUrl: $logoUrl, unitPrice: $unitPrice, type: $type)';
   }
 
   @override
@@ -1018,8 +1038,9 @@ class _$StockDetailSecurityInformationDtoImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StockDetailSecurityInformationDtoImpl &&
-            (identical(other.symbol, symbol) || other.symbol == symbol) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.symbol, symbol) || other.symbol == symbol) &&
+            (identical(other.isin, isin) || other.isin == isin) &&
             (identical(other.logoUrl, logoUrl) || other.logoUrl == logoUrl) &&
             (identical(other.unitPrice, unitPrice) ||
                 other.unitPrice == unitPrice) &&
@@ -1029,7 +1050,7 @@ class _$StockDetailSecurityInformationDtoImpl
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, symbol, name, logoUrl, unitPrice, type);
+      Object.hash(runtimeType, name, symbol, isin, logoUrl, unitPrice, type);
 
   @JsonKey(ignore: true)
   @override
@@ -1050,8 +1071,9 @@ class _$StockDetailSecurityInformationDtoImpl
 abstract class _StockDetailSecurityInformationDto
     implements StockDetailSecurityInformationDto {
   const factory _StockDetailSecurityInformationDto(
-          {required final String symbol,
-          required final String name,
+          {required final String name,
+          required final String symbol,
+          @JsonKey(defaultValue: '') required final String isin,
           @JsonKey(name: 'logo_url') required final String logoUrl,
           @JsonKey(name: 'current_price') required final double unitPrice,
           @JsonKey(
@@ -1065,10 +1087,13 @@ abstract class _StockDetailSecurityInformationDto
       _$StockDetailSecurityInformationDtoImpl.fromJson;
 
   @override
-  String get symbol;
-  @override
   String get name;
   @override
+  String get symbol;
+  @override
+  @JsonKey(defaultValue: '')
+  String get isin;
+  @override // International Security Identifier Number (ISIN)
   @JsonKey(name: 'logo_url')
   String get logoUrl;
   @override

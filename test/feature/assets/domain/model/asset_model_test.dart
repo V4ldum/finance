@@ -93,6 +93,7 @@ void main() {
           logoUrl: 'url',
           unitPrice: 12,
           type: StockDetailSecurityTypeDto.unknown,
+          isin: 'isin_123',
         ),
       );
       sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -101,6 +102,7 @@ void main() {
       expect(sut.amount, 15);
       expect(sut.value, 12);
       expect(sut.symbol, 'ABC');
+      expect(sut.isin, 'isin_123');
       expect(sut.total, stockDetailSecurity.security.unitPrice * stockDetailSecurity.quantity);
     });
     group('AssetTypeModel', () {
@@ -117,6 +119,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.etf,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -136,6 +139,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.fund,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -155,6 +159,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.equity,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -174,6 +179,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.unknown, // Liquidity account
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -195,6 +201,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.etf,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -214,6 +221,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.fund,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -233,6 +241,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.equity,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -252,6 +261,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.unknown,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache());
@@ -271,6 +281,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.equity,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache(investmentStocksSymbols: ['ABC']));
@@ -290,6 +301,7 @@ void main() {
             logoUrl: 'url',
             unitPrice: 12,
             type: StockDetailSecurityTypeDto.equity,
+            isin: 'isin_123',
           ),
         );
         sut = AssetModel.fromStocksSecurityDto(stockDetailSecurity, AppCache(investmentStocksSymbols: ['XYZ']));

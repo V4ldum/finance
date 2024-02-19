@@ -1,5 +1,4 @@
 import 'package:finance/feature/dashboard/presentation/page/dashboard_page.dart';
-import 'package:finance/feature/settings/presentation/page/alerts_settings_page.dart';
 import 'package:finance/feature/settings/presentation/page/authentication_settings_page.dart';
 import 'package:finance/feature/settings/presentation/page/dashboard_settings_page.dart';
 import 'package:finance/feature/settings/presentation/page/finary_authentication_page.dart';
@@ -28,11 +27,6 @@ final router = GoRouter(
           path: AppRoute._settingsPath,
           builder: (_, __) => const SettingsPage(),
           routes: [
-            GoRoute(
-              name: AppRoute.alertsSettings,
-              path: AppRoute._alertsSettingsPath,
-              builder: (_, __) => const AlertsSettingsPage(),
-            ),
             GoRoute(
               name: AppRoute.authenticationSettings,
               path: AppRoute._authenticationSettingsPath,
@@ -73,9 +67,6 @@ class AppRoute {
 
   static const String settings = 'settings';
   static const String _settingsPath = 'settings';
-
-  static const String alertsSettings = 'alerts_settings';
-  static const String _alertsSettingsPath = 'alerts_settings';
 
   static const String authenticationSettings = 'authentication_settings';
   static const String _authenticationSettingsPath = 'authentication_settings';

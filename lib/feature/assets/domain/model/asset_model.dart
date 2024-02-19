@@ -13,6 +13,7 @@ class AssetModel {
     required this.category,
     required this.type,
     this.symbol = '',
+    this.isin = '',
   });
 
   factory AssetModel.fromSummaryDto(
@@ -33,6 +34,7 @@ class AssetModel {
     return AssetModel(
       name: security.security.name,
       symbol: security.security.symbol,
+      isin: security.security.isin,
       amount: security.quantity,
       value: security.security.unitPrice,
       category: switch (security.security.type) {
@@ -53,6 +55,7 @@ class AssetModel {
 
   final String name;
   final String symbol;
+  final String isin;
   final double amount;
   final double value;
   final AssetCategoryModel category;

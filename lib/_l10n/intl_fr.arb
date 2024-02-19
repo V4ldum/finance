@@ -55,8 +55,6 @@
   "settingsAssetsSubtitle": "Répartitions ciblées, catégorisation des actions",
   "settingsAuthenticationTitle": "Connexions",
   "settingsAuthenticationSubtitle": "Se connecter aux services tiers",
-  "settingsAlertsTitle": "Alertes",
-  "settingsAlertsSubtitle": "Alertes sur la valeur d'actions",
   "settingsImportExportTitle": "Import & Export",
   "settingsImportExportSubtitle": "Importer une sauvegarde de l'application ou exporter pour un import futur",
   "settingsPageTitle": "Paramètres",

@@ -56,8 +56,9 @@ sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
 @freezed
 sealed class StockDetailSecurityInformationDto with _$StockDetailSecurityInformationDto {
   const factory StockDetailSecurityInformationDto({
-    required String symbol,
     required String name,
+    required String symbol,
+    @JsonKey(defaultValue: '') required String isin, // International Security Identifier Number (ISIN)
     @JsonKey(name: 'logo_url') required String logoUrl,
     @JsonKey(name: 'current_price') required double unitPrice,
     @JsonKey(name: 'security_type', unknownEnumValue: StockDetailSecurityTypeDto.unknown)

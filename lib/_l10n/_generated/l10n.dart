@@ -561,26 +561,6 @@ class S {
     );
   }
 
-  /// `Alerts`
-  String get settingsAlertsTitle {
-    return Intl.message(
-      'Alerts',
-      name: 'settingsAlertsTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Stocks value alerts`
-  String get settingsAlertsSubtitle {
-    return Intl.message(
-      'Stocks value alerts',
-      name: 'settingsAlertsSubtitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Import & Export`
   String get settingsImportExportTitle {
     return Intl.message(

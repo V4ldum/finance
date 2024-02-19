@@ -82,8 +82,9 @@ _$StockDetailSecurityInformationDtoImpl
     _$$StockDetailSecurityInformationDtoImplFromJson(
             Map<String, dynamic> json) =>
         _$StockDetailSecurityInformationDtoImpl(
-          symbol: json['symbol'] as String,
           name: json['name'] as String,
+          symbol: json['symbol'] as String,
+          isin: json['isin'] as String? ?? '',
           logoUrl: json['logo_url'] as String,
           unitPrice: (json['current_price'] as num).toDouble(),
           type: $enumDecode(
@@ -94,8 +95,9 @@ _$StockDetailSecurityInformationDtoImpl
 Map<String, dynamic> _$$StockDetailSecurityInformationDtoImplToJson(
         _$StockDetailSecurityInformationDtoImpl instance) =>
     <String, dynamic>{
-      'symbol': instance.symbol,
       'name': instance.name,
+      'symbol': instance.symbol,
+      'isin': instance.isin,
       'logo_url': instance.logoUrl,
       'current_price': instance.unitPrice,
       'security_type': _$StockDetailSecurityTypeDtoEnumMap[instance.type]!,

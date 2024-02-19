@@ -55,8 +55,6 @@
   "settingsAssetsSubtitle": "Distribution targets, stocks categorisation",
   "settingsAuthenticationTitle": "Connections",
   "settingsAuthenticationSubtitle": "Log in to the third-party services",
-  "settingsAlertsTitle": "Alerts",
-  "settingsAlertsSubtitle": "Stocks value alerts",
   "settingsImportExportTitle": "Import & Export",
   "settingsImportExportSubtitle": "Import backups of the app or export it for future import",
   "settingsPageTitle": "Settings",

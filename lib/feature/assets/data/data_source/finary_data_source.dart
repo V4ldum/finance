@@ -19,7 +19,7 @@ FinaryDataSource finaryDataSource(FinaryDataSourceRef ref) {
 class FinaryDataSource {
   FinaryDataSource();
 
-  late final Dio _dio = Dio(
+  final Dio _dio = Dio(
     BaseOptions(
       baseUrl: AppString.finaryApiUrl,
     ),
