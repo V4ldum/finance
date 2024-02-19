@@ -1,3 +1,4 @@
+import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/assets/data/dto/stocks_detail_dto.dart';
 import 'package:finance/feature/assets/data/dto/summary_values_dto.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
@@ -32,7 +33,9 @@ class AssetModel {
 
   factory AssetModel.fromStocksSecurityDto(StockDetailSecurityDto security, AppCache cache) {
     return AssetModel(
-      name: security.security.name,
+      name: security.security.type == StockDetailSecurityTypeDto.unknown
+          ? S.current.stocksLiquidity
+          : security.security.name,
       symbol: security.security.symbol,
       isin: security.security.isin,
       amount: security.quantity,

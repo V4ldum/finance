@@ -84,7 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Connexion à Finary"),
         "finarySuccessfulAuthentication":
             MessageLookupByLibrary.simpleMessage("Connexion réussie"),
-        "fondsEuro": MessageLookupByLibrary.simpleMessage("Fonds euro"),
+        "fondsEuro": MessageLookupByLibrary.simpleMessage("Assurance vie"),
         "genericError": MessageLookupByLibrary.simpleMessage(
             "Une erreur inconnue est survenue."),
         "geography":
@@ -136,6 +136,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "speculative": MessageLookupByLibrary.simpleMessage("Speculation"),
         "startups": MessageLookupByLibrary.simpleMessage("Startups"),
         "stocks": MessageLookupByLibrary.simpleMessage("Actions"),
+        "stocksLiquidity":
+            MessageLookupByLibrary.simpleMessage("Compte liquidité actions"),
         "submit": MessageLookupByLibrary.simpleMessage("Envoyer"),
         "syncDaysAgo": m1,
         "syncHoursAgo": m2,

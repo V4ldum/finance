@@ -319,6 +319,16 @@ class S {
     );
   }
 
+  /// `Stocks liquidity accounts`
+  String get stocksLiquidity {
+    return Intl.message(
+      'Stocks liquidity accounts',
+      name: 'stocksLiquidity',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Checking accounts`
   String get checkingAccounts {
     return Intl.message(
@@ -349,10 +359,10 @@ class S {
     );
   }
 
-  /// `Fonds euro`
+  /// `Life insurance`
   String get fondsEuro {
     return Intl.message(
-      'Fonds euro',
+      'Life insurance',
       name: 'fondsEuro',
       desc: '',
       args: [],
