@@ -66,7 +66,6 @@ class DashboardTabController extends _$DashboardTabController {
     return TabData(
       title: S.current.accounts,
       data: (assets) => assets.assets.where((e) => e.type == AssetTypeModel.account).map((e) {
-        print(e.name);
         return PieData(title: e.name, value: e.total.toInt());
       }).toList()
         ..sort((a, b) => b.value.compareTo(a.value)),

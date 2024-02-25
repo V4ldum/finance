@@ -51,6 +51,24 @@ sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
   }) = _StockDetailSecurityDto;
 
   factory StockDetailSecurityDto.fromJson(JsonResponse json) => _$StockDetailSecurityDtoFromJson(json);
+
+  factory StockDetailSecurityDto.fromLiquidityArray(Iterable<StockDetailSecurityDto> array) {
+    return StockDetailSecurityDto(
+      total: array.fold(0, (prev, e) => prev += e.total),
+      periodEvolution: array.fold<double>(0, (prev, e) => prev += e.periodEvolution),
+      periodEvolutionPercent: array.fold<double>(0, (prev, e) => prev += e.periodEvolutionPercent) / array.length,
+      buyingPrice: array.fold(0, (prev, e) => prev += e.buyingPrice),
+      quantity: 1,
+      security: StockDetailSecurityInformationDto(
+        name: array.first.security.name,
+        symbol: array.first.security.symbol,
+        isin: array.first.security.isin,
+        logoUrl: array.first.security.logoUrl,
+        unitPrice: array.fold(0, (prev, e) => prev += e.security.unitPrice),
+        type: StockDetailSecurityTypeDto.unknown,
+      ),
+    );
+  }
 }
 
 @freezed

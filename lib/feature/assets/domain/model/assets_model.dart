@@ -21,6 +21,16 @@ class AssetsModel {
     StocksDetailDto stocks,
     AppCache cache,
   ) {
+    // Filtering stocks array to merge all instances of stocks liquidity accounts
+    final stocksLiquidityArray = stocks.result.accounts
+        .expand((e) => e.securities)
+        .where((e) => e.security.type == StockDetailSecurityTypeDto.unknown);
+    final mergedLiquidity = StockDetailSecurityDto.fromLiquidityArray(stocksLiquidityArray);
+
+    final filteredStocks = stocks.result.accounts.expand((e) => e.securities).toList()
+      ..removeWhere((e) => e.security.type == StockDetailSecurityTypeDto.unknown)
+      ..add(mergedLiquidity);
+
     return AssetsModel(
       total: summary.result.total.amount.toInt(),
       evolution: summary.result.total.evolution.toInt(),
@@ -28,9 +38,7 @@ class AssetsModel {
       lastSync: DateTime.parse(userInfo.result.lastSync),
       assets: [
         // Stocks
-        ...stocks.result.accounts
-            .expand((element) => element.securities)
-            .map((e) => AssetModel.fromStocksSecurityDto(e, cache)),
+        ...filteredStocks.map((e) => AssetModel.fromStocksSecurityDto(e, cache)),
         // Accounts
         if (summary.result.distribution.checkingAccounts.amount > 0)
           AssetModel.fromSummaryDto(
