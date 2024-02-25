@@ -5,3 +5,9 @@ bricks:
     path: ../template-code-generation/dart/dto
   page:
     path: ../template-code-generation/dart/page
+  source:
+    path: ../template-code-generation/dart/source
+  repo:
+    path: ../template-code-generation/dart/repo
+  service:
+    path: ../template-code-generation/dart/service
