@@ -384,24 +384,24 @@ InvestmentSummaryDistributionDto _$InvestmentSummaryDistributionDtoFromJson(
 /// @nodoc
 mixin _$InvestmentSummaryDistributionDto {
   @JsonKey(name: 'checking_accounts')
-  SummaryValuesDto get checkingAccounts => throw _privateConstructorUsedError;
+  SummaryValuesDto? get checkingAccounts => throw _privateConstructorUsedError;
   @JsonKey(name: 'savings_accounts')
-  SummaryValuesDto get savingsAccounts => throw _privateConstructorUsedError;
+  SummaryValuesDto? get savingsAccounts => throw _privateConstructorUsedError;
   @JsonKey(name: 'investment_accounts')
-  SummaryValuesDto get stocksAccounts => throw _privateConstructorUsedError;
-  SummaryValuesDto get cryptos => throw _privateConstructorUsedError;
+  SummaryValuesDto? get stocksAccounts => throw _privateConstructorUsedError;
+  SummaryValuesDto? get cryptos => throw _privateConstructorUsedError;
   @JsonKey(name: 'fonds_euro')
-  SummaryValuesDto get fondsEuro => throw _privateConstructorUsedError;
+  SummaryValuesDto? get fondsEuro => throw _privateConstructorUsedError;
   @JsonKey(name: 'real_estates')
-  SummaryValuesDto get realEstates => throw _privateConstructorUsedError;
-  SummaryValuesDto get startups => throw _privateConstructorUsedError;
-  SummaryValuesDto get commodities => throw _privateConstructorUsedError;
-  SummaryValuesDto get crowdlendings => throw _privateConstructorUsedError;
+  SummaryValuesDto? get realEstates => throw _privateConstructorUsedError;
+  SummaryValuesDto? get startups => throw _privateConstructorUsedError;
+  SummaryValuesDto? get commodities => throw _privateConstructorUsedError;
+  SummaryValuesDto? get crowdlendings => throw _privateConstructorUsedError;
   @JsonKey(name: 'other_assets')
-  SummaryValuesDto get other => throw _privateConstructorUsedError;
-  SummaryValuesDto get loans => throw _privateConstructorUsedError;
+  SummaryValuesDto? get other => throw _privateConstructorUsedError;
+  SummaryValuesDto? get loans => throw _privateConstructorUsedError;
   @JsonKey(name: 'credit_accounts')
-  SummaryValuesDto get creditAccounts => throw _privateConstructorUsedError;
+  SummaryValuesDto? get creditAccounts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -418,31 +418,31 @@ abstract class $InvestmentSummaryDistributionDtoCopyWith<$Res> {
           InvestmentSummaryDistributionDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'checking_accounts') SummaryValuesDto checkingAccounts,
-      @JsonKey(name: 'savings_accounts') SummaryValuesDto savingsAccounts,
-      @JsonKey(name: 'investment_accounts') SummaryValuesDto stocksAccounts,
-      SummaryValuesDto cryptos,
-      @JsonKey(name: 'fonds_euro') SummaryValuesDto fondsEuro,
-      @JsonKey(name: 'real_estates') SummaryValuesDto realEstates,
-      SummaryValuesDto startups,
-      SummaryValuesDto commodities,
-      SummaryValuesDto crowdlendings,
-      @JsonKey(name: 'other_assets') SummaryValuesDto other,
-      SummaryValuesDto loans,
-      @JsonKey(name: 'credit_accounts') SummaryValuesDto creditAccounts});
+      {@JsonKey(name: 'checking_accounts') SummaryValuesDto? checkingAccounts,
+      @JsonKey(name: 'savings_accounts') SummaryValuesDto? savingsAccounts,
+      @JsonKey(name: 'investment_accounts') SummaryValuesDto? stocksAccounts,
+      SummaryValuesDto? cryptos,
+      @JsonKey(name: 'fonds_euro') SummaryValuesDto? fondsEuro,
+      @JsonKey(name: 'real_estates') SummaryValuesDto? realEstates,
+      SummaryValuesDto? startups,
+      SummaryValuesDto? commodities,
+      SummaryValuesDto? crowdlendings,
+      @JsonKey(name: 'other_assets') SummaryValuesDto? other,
+      SummaryValuesDto? loans,
+      @JsonKey(name: 'credit_accounts') SummaryValuesDto? creditAccounts});
 
-  $SummaryValuesDtoCopyWith<$Res> get checkingAccounts;
-  $SummaryValuesDtoCopyWith<$Res> get savingsAccounts;
-  $SummaryValuesDtoCopyWith<$Res> get stocksAccounts;
-  $SummaryValuesDtoCopyWith<$Res> get cryptos;
-  $SummaryValuesDtoCopyWith<$Res> get fondsEuro;
-  $SummaryValuesDtoCopyWith<$Res> get realEstates;
-  $SummaryValuesDtoCopyWith<$Res> get startups;
-  $SummaryValuesDtoCopyWith<$Res> get commodities;
-  $SummaryValuesDtoCopyWith<$Res> get crowdlendings;
-  $SummaryValuesDtoCopyWith<$Res> get other;
-  $SummaryValuesDtoCopyWith<$Res> get loans;
-  $SummaryValuesDtoCopyWith<$Res> get creditAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get checkingAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get savingsAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get stocksAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get cryptos;
+  $SummaryValuesDtoCopyWith<$Res>? get fondsEuro;
+  $SummaryValuesDtoCopyWith<$Res>? get realEstates;
+  $SummaryValuesDtoCopyWith<$Res>? get startups;
+  $SummaryValuesDtoCopyWith<$Res>? get commodities;
+  $SummaryValuesDtoCopyWith<$Res>? get crowdlendings;
+  $SummaryValuesDtoCopyWith<$Res>? get other;
+  $SummaryValuesDtoCopyWith<$Res>? get loans;
+  $SummaryValuesDtoCopyWith<$Res>? get creditAccounts;
 }
 
 /// @nodoc
@@ -459,163 +459,211 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? checkingAccounts = null,
-    Object? savingsAccounts = null,
-    Object? stocksAccounts = null,
-    Object? cryptos = null,
-    Object? fondsEuro = null,
-    Object? realEstates = null,
-    Object? startups = null,
-    Object? commodities = null,
-    Object? crowdlendings = null,
-    Object? other = null,
-    Object? loans = null,
-    Object? creditAccounts = null,
+    Object? checkingAccounts = freezed,
+    Object? savingsAccounts = freezed,
+    Object? stocksAccounts = freezed,
+    Object? cryptos = freezed,
+    Object? fondsEuro = freezed,
+    Object? realEstates = freezed,
+    Object? startups = freezed,
+    Object? commodities = freezed,
+    Object? crowdlendings = freezed,
+    Object? other = freezed,
+    Object? loans = freezed,
+    Object? creditAccounts = freezed,
   }) {
     return _then(_value.copyWith(
-      checkingAccounts: null == checkingAccounts
+      checkingAccounts: freezed == checkingAccounts
           ? _value.checkingAccounts
           : checkingAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      savingsAccounts: null == savingsAccounts
+              as SummaryValuesDto?,
+      savingsAccounts: freezed == savingsAccounts
           ? _value.savingsAccounts
           : savingsAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      stocksAccounts: null == stocksAccounts
+              as SummaryValuesDto?,
+      stocksAccounts: freezed == stocksAccounts
           ? _value.stocksAccounts
           : stocksAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      cryptos: null == cryptos
+              as SummaryValuesDto?,
+      cryptos: freezed == cryptos
           ? _value.cryptos
           : cryptos // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      fondsEuro: null == fondsEuro
+              as SummaryValuesDto?,
+      fondsEuro: freezed == fondsEuro
           ? _value.fondsEuro
           : fondsEuro // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      realEstates: null == realEstates
+              as SummaryValuesDto?,
+      realEstates: freezed == realEstates
           ? _value.realEstates
           : realEstates // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      startups: null == startups
+              as SummaryValuesDto?,
+      startups: freezed == startups
           ? _value.startups
           : startups // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      commodities: null == commodities
+              as SummaryValuesDto?,
+      commodities: freezed == commodities
           ? _value.commodities
           : commodities // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      crowdlendings: null == crowdlendings
+              as SummaryValuesDto?,
+      crowdlendings: freezed == crowdlendings
           ? _value.crowdlendings
           : crowdlendings // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      other: null == other
+              as SummaryValuesDto?,
+      other: freezed == other
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      loans: null == loans
+              as SummaryValuesDto?,
+      loans: freezed == loans
           ? _value.loans
           : loans // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      creditAccounts: null == creditAccounts
+              as SummaryValuesDto?,
+      creditAccounts: freezed == creditAccounts
           ? _value.creditAccounts
           : creditAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
+              as SummaryValuesDto?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get checkingAccounts {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.checkingAccounts, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get checkingAccounts {
+    if (_value.checkingAccounts == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.checkingAccounts!, (value) {
       return _then(_value.copyWith(checkingAccounts: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get savingsAccounts {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.savingsAccounts, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get savingsAccounts {
+    if (_value.savingsAccounts == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.savingsAccounts!, (value) {
       return _then(_value.copyWith(savingsAccounts: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get stocksAccounts {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.stocksAccounts, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get stocksAccounts {
+    if (_value.stocksAccounts == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.stocksAccounts!, (value) {
       return _then(_value.copyWith(stocksAccounts: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get cryptos {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.cryptos, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get cryptos {
+    if (_value.cryptos == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.cryptos!, (value) {
       return _then(_value.copyWith(cryptos: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get fondsEuro {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.fondsEuro, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get fondsEuro {
+    if (_value.fondsEuro == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.fondsEuro!, (value) {
       return _then(_value.copyWith(fondsEuro: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get realEstates {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.realEstates, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get realEstates {
+    if (_value.realEstates == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.realEstates!, (value) {
       return _then(_value.copyWith(realEstates: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get startups {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.startups, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get startups {
+    if (_value.startups == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.startups!, (value) {
       return _then(_value.copyWith(startups: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get commodities {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.commodities, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get commodities {
+    if (_value.commodities == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.commodities!, (value) {
       return _then(_value.copyWith(commodities: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get crowdlendings {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.crowdlendings, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get crowdlendings {
+    if (_value.crowdlendings == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.crowdlendings!, (value) {
       return _then(_value.copyWith(crowdlendings: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get other {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.other, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get other {
+    if (_value.other == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.other!, (value) {
       return _then(_value.copyWith(other: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get loans {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.loans, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get loans {
+    if (_value.loans == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.loans!, (value) {
       return _then(_value.copyWith(loans: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get creditAccounts {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.creditAccounts, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get creditAccounts {
+    if (_value.creditAccounts == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.creditAccounts!, (value) {
       return _then(_value.copyWith(creditAccounts: value) as $Val);
     });
   }
@@ -631,43 +679,43 @@ abstract class _$$InvestmentSummaryDistributionDtoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'checking_accounts') SummaryValuesDto checkingAccounts,
-      @JsonKey(name: 'savings_accounts') SummaryValuesDto savingsAccounts,
-      @JsonKey(name: 'investment_accounts') SummaryValuesDto stocksAccounts,
-      SummaryValuesDto cryptos,
-      @JsonKey(name: 'fonds_euro') SummaryValuesDto fondsEuro,
-      @JsonKey(name: 'real_estates') SummaryValuesDto realEstates,
-      SummaryValuesDto startups,
-      SummaryValuesDto commodities,
-      SummaryValuesDto crowdlendings,
-      @JsonKey(name: 'other_assets') SummaryValuesDto other,
-      SummaryValuesDto loans,
-      @JsonKey(name: 'credit_accounts') SummaryValuesDto creditAccounts});
+      {@JsonKey(name: 'checking_accounts') SummaryValuesDto? checkingAccounts,
+      @JsonKey(name: 'savings_accounts') SummaryValuesDto? savingsAccounts,
+      @JsonKey(name: 'investment_accounts') SummaryValuesDto? stocksAccounts,
+      SummaryValuesDto? cryptos,
+      @JsonKey(name: 'fonds_euro') SummaryValuesDto? fondsEuro,
+      @JsonKey(name: 'real_estates') SummaryValuesDto? realEstates,
+      SummaryValuesDto? startups,
+      SummaryValuesDto? commodities,
+      SummaryValuesDto? crowdlendings,
+      @JsonKey(name: 'other_assets') SummaryValuesDto? other,
+      SummaryValuesDto? loans,
+      @JsonKey(name: 'credit_accounts') SummaryValuesDto? creditAccounts});
 
   @override
-  $SummaryValuesDtoCopyWith<$Res> get checkingAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get checkingAccounts;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get savingsAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get savingsAccounts;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get stocksAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get stocksAccounts;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get cryptos;
+  $SummaryValuesDtoCopyWith<$Res>? get cryptos;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get fondsEuro;
+  $SummaryValuesDtoCopyWith<$Res>? get fondsEuro;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get realEstates;
+  $SummaryValuesDtoCopyWith<$Res>? get realEstates;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get startups;
+  $SummaryValuesDtoCopyWith<$Res>? get startups;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get commodities;
+  $SummaryValuesDtoCopyWith<$Res>? get commodities;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get crowdlendings;
+  $SummaryValuesDtoCopyWith<$Res>? get crowdlendings;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get other;
+  $SummaryValuesDtoCopyWith<$Res>? get other;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get loans;
+  $SummaryValuesDtoCopyWith<$Res>? get loans;
   @override
-  $SummaryValuesDtoCopyWith<$Res> get creditAccounts;
+  $SummaryValuesDtoCopyWith<$Res>? get creditAccounts;
 }
 
 /// @nodoc
@@ -683,68 +731,68 @@ class __$$InvestmentSummaryDistributionDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? checkingAccounts = null,
-    Object? savingsAccounts = null,
-    Object? stocksAccounts = null,
-    Object? cryptos = null,
-    Object? fondsEuro = null,
-    Object? realEstates = null,
-    Object? startups = null,
-    Object? commodities = null,
-    Object? crowdlendings = null,
-    Object? other = null,
-    Object? loans = null,
-    Object? creditAccounts = null,
+    Object? checkingAccounts = freezed,
+    Object? savingsAccounts = freezed,
+    Object? stocksAccounts = freezed,
+    Object? cryptos = freezed,
+    Object? fondsEuro = freezed,
+    Object? realEstates = freezed,
+    Object? startups = freezed,
+    Object? commodities = freezed,
+    Object? crowdlendings = freezed,
+    Object? other = freezed,
+    Object? loans = freezed,
+    Object? creditAccounts = freezed,
   }) {
     return _then(_$InvestmentSummaryDistributionDtoImpl(
-      checkingAccounts: null == checkingAccounts
+      checkingAccounts: freezed == checkingAccounts
           ? _value.checkingAccounts
           : checkingAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      savingsAccounts: null == savingsAccounts
+              as SummaryValuesDto?,
+      savingsAccounts: freezed == savingsAccounts
           ? _value.savingsAccounts
           : savingsAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      stocksAccounts: null == stocksAccounts
+              as SummaryValuesDto?,
+      stocksAccounts: freezed == stocksAccounts
           ? _value.stocksAccounts
           : stocksAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      cryptos: null == cryptos
+              as SummaryValuesDto?,
+      cryptos: freezed == cryptos
           ? _value.cryptos
           : cryptos // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      fondsEuro: null == fondsEuro
+              as SummaryValuesDto?,
+      fondsEuro: freezed == fondsEuro
           ? _value.fondsEuro
           : fondsEuro // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      realEstates: null == realEstates
+              as SummaryValuesDto?,
+      realEstates: freezed == realEstates
           ? _value.realEstates
           : realEstates // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      startups: null == startups
+              as SummaryValuesDto?,
+      startups: freezed == startups
           ? _value.startups
           : startups // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      commodities: null == commodities
+              as SummaryValuesDto?,
+      commodities: freezed == commodities
           ? _value.commodities
           : commodities // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      crowdlendings: null == crowdlendings
+              as SummaryValuesDto?,
+      crowdlendings: freezed == crowdlendings
           ? _value.crowdlendings
           : crowdlendings // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      other: null == other
+              as SummaryValuesDto?,
+      other: freezed == other
           ? _value.other
           : other // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      loans: null == loans
+              as SummaryValuesDto?,
+      loans: freezed == loans
           ? _value.loans
           : loans // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
-      creditAccounts: null == creditAccounts
+              as SummaryValuesDto?,
+      creditAccounts: freezed == creditAccounts
           ? _value.creditAccounts
           : creditAccounts // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
+              as SummaryValuesDto?,
     ));
   }
 }
@@ -773,35 +821,35 @@ class _$InvestmentSummaryDistributionDtoImpl
 
   @override
   @JsonKey(name: 'checking_accounts')
-  final SummaryValuesDto checkingAccounts;
+  final SummaryValuesDto? checkingAccounts;
   @override
   @JsonKey(name: 'savings_accounts')
-  final SummaryValuesDto savingsAccounts;
+  final SummaryValuesDto? savingsAccounts;
   @override
   @JsonKey(name: 'investment_accounts')
-  final SummaryValuesDto stocksAccounts;
+  final SummaryValuesDto? stocksAccounts;
   @override
-  final SummaryValuesDto cryptos;
+  final SummaryValuesDto? cryptos;
   @override
   @JsonKey(name: 'fonds_euro')
-  final SummaryValuesDto fondsEuro;
+  final SummaryValuesDto? fondsEuro;
   @override
   @JsonKey(name: 'real_estates')
-  final SummaryValuesDto realEstates;
+  final SummaryValuesDto? realEstates;
   @override
-  final SummaryValuesDto startups;
+  final SummaryValuesDto? startups;
   @override
-  final SummaryValuesDto commodities;
+  final SummaryValuesDto? commodities;
   @override
-  final SummaryValuesDto crowdlendings;
+  final SummaryValuesDto? crowdlendings;
   @override
   @JsonKey(name: 'other_assets')
-  final SummaryValuesDto other;
+  final SummaryValuesDto? other;
   @override
-  final SummaryValuesDto loans;
+  final SummaryValuesDto? loans;
   @override
   @JsonKey(name: 'credit_accounts')
-  final SummaryValuesDto creditAccounts;
+  final SummaryValuesDto? creditAccounts;
 
   @override
   String toString() {
@@ -873,22 +921,22 @@ abstract class _InvestmentSummaryDistributionDto
     implements InvestmentSummaryDistributionDto {
   const factory _InvestmentSummaryDistributionDto(
       {@JsonKey(name: 'checking_accounts')
-      required final SummaryValuesDto checkingAccounts,
+      required final SummaryValuesDto? checkingAccounts,
       @JsonKey(name: 'savings_accounts')
-      required final SummaryValuesDto savingsAccounts,
+      required final SummaryValuesDto? savingsAccounts,
       @JsonKey(name: 'investment_accounts')
-      required final SummaryValuesDto stocksAccounts,
-      required final SummaryValuesDto cryptos,
-      @JsonKey(name: 'fonds_euro') required final SummaryValuesDto fondsEuro,
+      required final SummaryValuesDto? stocksAccounts,
+      required final SummaryValuesDto? cryptos,
+      @JsonKey(name: 'fonds_euro') required final SummaryValuesDto? fondsEuro,
       @JsonKey(name: 'real_estates')
-      required final SummaryValuesDto realEstates,
-      required final SummaryValuesDto startups,
-      required final SummaryValuesDto commodities,
-      required final SummaryValuesDto crowdlendings,
-      @JsonKey(name: 'other_assets') required final SummaryValuesDto other,
-      required final SummaryValuesDto loans,
+      required final SummaryValuesDto? realEstates,
+      required final SummaryValuesDto? startups,
+      required final SummaryValuesDto? commodities,
+      required final SummaryValuesDto? crowdlendings,
+      @JsonKey(name: 'other_assets') required final SummaryValuesDto? other,
+      required final SummaryValuesDto? loans,
       @JsonKey(name: 'credit_accounts')
-      required final SummaryValuesDto
+      required final SummaryValuesDto?
           creditAccounts}) = _$InvestmentSummaryDistributionDtoImpl;
 
   factory _InvestmentSummaryDistributionDto.fromJson(
@@ -897,35 +945,35 @@ abstract class _InvestmentSummaryDistributionDto
 
   @override
   @JsonKey(name: 'checking_accounts')
-  SummaryValuesDto get checkingAccounts;
+  SummaryValuesDto? get checkingAccounts;
   @override
   @JsonKey(name: 'savings_accounts')
-  SummaryValuesDto get savingsAccounts;
+  SummaryValuesDto? get savingsAccounts;
   @override
   @JsonKey(name: 'investment_accounts')
-  SummaryValuesDto get stocksAccounts;
+  SummaryValuesDto? get stocksAccounts;
   @override
-  SummaryValuesDto get cryptos;
+  SummaryValuesDto? get cryptos;
   @override
   @JsonKey(name: 'fonds_euro')
-  SummaryValuesDto get fondsEuro;
+  SummaryValuesDto? get fondsEuro;
   @override
   @JsonKey(name: 'real_estates')
-  SummaryValuesDto get realEstates;
+  SummaryValuesDto? get realEstates;
   @override
-  SummaryValuesDto get startups;
+  SummaryValuesDto? get startups;
   @override
-  SummaryValuesDto get commodities;
+  SummaryValuesDto? get commodities;
   @override
-  SummaryValuesDto get crowdlendings;
+  SummaryValuesDto? get crowdlendings;
   @override
   @JsonKey(name: 'other_assets')
-  SummaryValuesDto get other;
+  SummaryValuesDto? get other;
   @override
-  SummaryValuesDto get loans;
+  SummaryValuesDto? get loans;
   @override
   @JsonKey(name: 'credit_accounts')
-  SummaryValuesDto get creditAccounts;
+  SummaryValuesDto? get creditAccounts;
   @override
   @JsonKey(ignore: true)
   _$$InvestmentSummaryDistributionDtoImplCopyWith<

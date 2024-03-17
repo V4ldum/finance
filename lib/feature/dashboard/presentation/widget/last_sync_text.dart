@@ -35,9 +35,7 @@ class LastSyncText extends StatelessWidget {
       children: [
         Text(
           S.current.syncLabel,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold),
         ),
         Text(_formatMessageReceivedTime(sync), style: Theme.of(context).textTheme.bodySmall),
       ],

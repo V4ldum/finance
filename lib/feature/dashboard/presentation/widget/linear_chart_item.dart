@@ -8,6 +8,7 @@ class LinearChartItem extends StatelessWidget {
     required this.title,
     required this.value,
     required this.percent,
+    required this.assetUnit,
     this.color = Colors.black87,
     super.key,
     this.leading,
@@ -16,6 +17,7 @@ class LinearChartItem extends StatelessWidget {
   final String title;
   final double value;
   final double percent;
+  final String assetUnit;
   final Color color;
   final Widget? leading;
 
@@ -50,7 +52,7 @@ class LinearChartItem extends StatelessWidget {
               flex: 3,
               child: HideableText(
                 NumberFormat().format(value),
-                suffix: ' €',
+                suffix: ' $assetUnit',
                 textAlign: TextAlign.end,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontWeight: FontWeight.w500,

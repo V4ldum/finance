@@ -6,7 +6,7 @@ part of '../finary_auth_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$finaryAuthServiceHash() => r'b53acb4a37cdd4681737f86148392919b59626be';
+String _$finaryAuthServiceHash() => r'64d2c2cc1afb2ff2ae9d2a720cd8382746450654';
 
 /// See also [finaryAuthService].
 @ProviderFor(finaryAuthService)

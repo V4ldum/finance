@@ -1,20 +1,19 @@
 import 'package:finance/shared/constant/app_duration.dart';
-import 'package:finance/shared/utils/helpers.dart';
 import 'package:fl_chart/fl_chart.dart' as chart;
 import 'package:flutter/material.dart';
 
 class PieChart extends StatelessWidget {
   const PieChart({
+    required this.colorManager,
     super.key,
     this.selectedIndex,
     this.child,
-    this.colors = const [Colors.red],
     this.data = const [],
     this.onSectionTaped,
   });
 
   final Widget? child;
-  final List<Color> colors;
+  final Color Function(List<PieData>, int) colorManager;
   final List<PieData> data;
   final void Function(int)? onSectionTaped;
   final int? selectedIndex;
@@ -36,12 +35,7 @@ class PieChart extends StatelessWidget {
                 title: data[index].title,
                 value: data[index].value.toDouble(),
                 showTitle: false,
-                color: Helpers.getNextChartColor(
-                  colors: colors,
-                  current: index,
-                  max: data.length,
-                  selected: selectedIndex,
-                ),
+                color: colorManager(data, index),
               );
             },
           ),

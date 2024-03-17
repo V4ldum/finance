@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:finance/feature/authentication/application/finary_auth_service.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -17,7 +15,7 @@ class FinaryAuthenticationController extends _$FinaryAuthenticationController {
 
   Future<void> logOut() async {
     await ref.read(finaryAuthServiceProvider).clearSession();
-    ref.read(appCacheControllerProvider).assets = null;
+    ref.read(appCacheControllerProvider).finaryAssets = null;
 
     state = ref.read(appCacheControllerProvider).finarySessionId.isNotEmpty;
   }

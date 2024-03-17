@@ -9,6 +9,19 @@ part of '../app_cache_controller.dart';
 _$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
     _$AppCacheImpl(
       finarySessionId: json['finarySessionId'] as String? ?? '',
+      numistaApiKey: json['numistaApiKey'] as String? ?? '',
+      gsrGoldFavorableRatio:
+          (json['gsrGoldFavorableRatio'] as num?)?.toDouble() ??
+              PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio,
+      gsrSilverFavorableRatio:
+          (json['gsrSilverFavorableRatio'] as num?)?.toDouble() ??
+              PhysicalAssetsSettingsPage.defaultGSRSilverFavorableRatio,
+      spgrSPFavorableRatio:
+          (json['spgrSPFavorableRatio'] as num?)?.toDouble() ??
+              PhysicalAssetsSettingsPage.defaultSPGRSPFavorableRatio,
+      spgrGoldFavorableRatio:
+          (json['spgrGoldFavorableRatio'] as num?)?.toDouble() ??
+              PhysicalAssetsSettingsPage.defaultSPGRGoldFavorableRatio,
       investmentStocksSymbols:
           (json['investmentStocksSymbols'] as List<dynamic>?)
                   ?.map((e) => e as String)
@@ -19,6 +32,11 @@ _$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
     <String, dynamic>{
       'finarySessionId': instance.finarySessionId,
+      'numistaApiKey': instance.numistaApiKey,
+      'gsrGoldFavorableRatio': instance.gsrGoldFavorableRatio,
+      'gsrSilverFavorableRatio': instance.gsrSilverFavorableRatio,
+      'spgrSPFavorableRatio': instance.spgrSPFavorableRatio,
+      'spgrGoldFavorableRatio': instance.spgrGoldFavorableRatio,
       'investmentStocksSymbols': instance.investmentStocksSymbols,
     };
 
@@ -27,7 +45,7 @@ Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'7ec9a2a1c5d8e86913ade4a137a3ac3e7c8f76e6';
+    r'880efa15bd30961d362cc57274d101d5c33d2ebf';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

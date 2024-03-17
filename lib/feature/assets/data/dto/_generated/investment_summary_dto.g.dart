@@ -40,30 +40,54 @@ _$InvestmentSummaryDistributionDtoImpl
     _$$InvestmentSummaryDistributionDtoImplFromJson(
             Map<String, dynamic> json) =>
         _$InvestmentSummaryDistributionDtoImpl(
-          checkingAccounts: SummaryValuesDto.fromJson(
-              json['checking_accounts'] as Map<String, dynamic>),
-          savingsAccounts: SummaryValuesDto.fromJson(
-              json['savings_accounts'] as Map<String, dynamic>),
-          stocksAccounts: SummaryValuesDto.fromJson(
-              json['investment_accounts'] as Map<String, dynamic>),
-          cryptos: SummaryValuesDto.fromJson(
-              json['cryptos'] as Map<String, dynamic>),
-          fondsEuro: SummaryValuesDto.fromJson(
-              json['fonds_euro'] as Map<String, dynamic>),
-          realEstates: SummaryValuesDto.fromJson(
-              json['real_estates'] as Map<String, dynamic>),
-          startups: SummaryValuesDto.fromJson(
-              json['startups'] as Map<String, dynamic>),
-          commodities: SummaryValuesDto.fromJson(
-              json['commodities'] as Map<String, dynamic>),
-          crowdlendings: SummaryValuesDto.fromJson(
-              json['crowdlendings'] as Map<String, dynamic>),
-          other: SummaryValuesDto.fromJson(
-              json['other_assets'] as Map<String, dynamic>),
-          loans:
-              SummaryValuesDto.fromJson(json['loans'] as Map<String, dynamic>),
-          creditAccounts: SummaryValuesDto.fromJson(
-              json['credit_accounts'] as Map<String, dynamic>),
+          checkingAccounts: json['checking_accounts'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['checking_accounts'] as Map<String, dynamic>),
+          savingsAccounts: json['savings_accounts'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['savings_accounts'] as Map<String, dynamic>),
+          stocksAccounts: json['investment_accounts'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['investment_accounts'] as Map<String, dynamic>),
+          cryptos: json['cryptos'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['cryptos'] as Map<String, dynamic>),
+          fondsEuro: json['fonds_euro'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['fonds_euro'] as Map<String, dynamic>),
+          realEstates: json['real_estates'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['real_estates'] as Map<String, dynamic>),
+          startups: json['startups'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['startups'] as Map<String, dynamic>),
+          commodities: json['commodities'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['commodities'] as Map<String, dynamic>),
+          crowdlendings: json['crowdlendings'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['crowdlendings'] as Map<String, dynamic>),
+          other: json['other_assets'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['other_assets'] as Map<String, dynamic>),
+          loans: json['loans'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['loans'] as Map<String, dynamic>),
+          creditAccounts: json['credit_accounts'] == null
+              ? null
+              : SummaryValuesDto.fromJson(
+                  json['credit_accounts'] as Map<String, dynamic>),
         );
 
 Map<String, dynamic> _$$InvestmentSummaryDistributionDtoImplToJson(

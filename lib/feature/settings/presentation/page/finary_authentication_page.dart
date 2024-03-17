@@ -134,8 +134,9 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
             ),
             const SizedBox(height: AppPadding.s),
             TextFormField(
+              autocorrect: false,
               controller: passwordController,
-              validator: StringValidator.validateEmpty,
+              validator: StringValidator.validatePasswordEmpty,
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.emailAddress,
               obscureText: passwordObscured,
@@ -235,6 +236,7 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
                 orElse: () => const SizedBox(),
               ),
           TextFormField(
+            autocorrect: false,
             autofocus: true,
             controller: otpController,
             validator: StringValidator.validateOnlyNumbers,

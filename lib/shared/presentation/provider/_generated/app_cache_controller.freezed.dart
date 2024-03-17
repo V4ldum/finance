@@ -23,12 +23,22 @@ mixin _$AppCache {
   @JsonKey(includeFromJson: false, includeToJson: false)
   String get applicationDirectory => throw _privateConstructorUsedError;
   String get finarySessionId => throw _privateConstructorUsedError;
+  String get numistaApiKey => throw _privateConstructorUsedError;
+  double get gsrGoldFavorableRatio => throw _privateConstructorUsedError;
+  double get gsrSilverFavorableRatio => throw _privateConstructorUsedError;
+  double get spgrSPFavorableRatio => throw _privateConstructorUsedError;
+  double get spgrGoldFavorableRatio => throw _privateConstructorUsedError;
   List<String> get investmentStocksSymbols =>
       throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
-  AssetsModel? get assets => throw _privateConstructorUsedError;
+  FinaryAssetsModel? get finaryAssets => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
-  set assets(AssetsModel? value) => throw _privateConstructorUsedError;
+  set finaryAssets(FinaryAssetsModel? value) =>
+      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  List<AssetModel> get localAssets => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set localAssets(List<AssetModel> value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,9 +55,16 @@ abstract class $AppCacheCopyWith<$Res> {
       {@JsonKey(includeFromJson: false, includeToJson: false)
       String applicationDirectory,
       String finarySessionId,
+      String numistaApiKey,
+      double gsrGoldFavorableRatio,
+      double gsrSilverFavorableRatio,
+      double spgrSPFavorableRatio,
+      double spgrGoldFavorableRatio,
       List<String> investmentStocksSymbols,
       @JsonKey(includeFromJson: false, includeToJson: false)
-      AssetsModel? assets});
+      FinaryAssetsModel? finaryAssets,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      List<AssetModel> localAssets});
 }
 
 /// @nodoc
@@ -65,8 +82,14 @@ class _$AppCacheCopyWithImpl<$Res, $Val extends AppCache>
   $Res call({
     Object? applicationDirectory = null,
     Object? finarySessionId = null,
+    Object? numistaApiKey = null,
+    Object? gsrGoldFavorableRatio = null,
+    Object? gsrSilverFavorableRatio = null,
+    Object? spgrSPFavorableRatio = null,
+    Object? spgrGoldFavorableRatio = null,
     Object? investmentStocksSymbols = null,
-    Object? assets = freezed,
+    Object? finaryAssets = freezed,
+    Object? localAssets = null,
   }) {
     return _then(_value.copyWith(
       applicationDirectory: null == applicationDirectory
@@ -77,14 +100,38 @@ class _$AppCacheCopyWithImpl<$Res, $Val extends AppCache>
           ? _value.finarySessionId
           : finarySessionId // ignore: cast_nullable_to_non_nullable
               as String,
+      numistaApiKey: null == numistaApiKey
+          ? _value.numistaApiKey
+          : numistaApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      gsrGoldFavorableRatio: null == gsrGoldFavorableRatio
+          ? _value.gsrGoldFavorableRatio
+          : gsrGoldFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      gsrSilverFavorableRatio: null == gsrSilverFavorableRatio
+          ? _value.gsrSilverFavorableRatio
+          : gsrSilverFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      spgrSPFavorableRatio: null == spgrSPFavorableRatio
+          ? _value.spgrSPFavorableRatio
+          : spgrSPFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      spgrGoldFavorableRatio: null == spgrGoldFavorableRatio
+          ? _value.spgrGoldFavorableRatio
+          : spgrGoldFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
       investmentStocksSymbols: null == investmentStocksSymbols
           ? _value.investmentStocksSymbols
           : investmentStocksSymbols // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      assets: freezed == assets
-          ? _value.assets
-          : assets // ignore: cast_nullable_to_non_nullable
-              as AssetsModel?,
+      finaryAssets: freezed == finaryAssets
+          ? _value.finaryAssets
+          : finaryAssets // ignore: cast_nullable_to_non_nullable
+              as FinaryAssetsModel?,
+      localAssets: null == localAssets
+          ? _value.localAssets
+          : localAssets // ignore: cast_nullable_to_non_nullable
+              as List<AssetModel>,
     ) as $Val);
   }
 }
@@ -101,9 +148,16 @@ abstract class _$$AppCacheImplCopyWith<$Res>
       {@JsonKey(includeFromJson: false, includeToJson: false)
       String applicationDirectory,
       String finarySessionId,
+      String numistaApiKey,
+      double gsrGoldFavorableRatio,
+      double gsrSilverFavorableRatio,
+      double spgrSPFavorableRatio,
+      double spgrGoldFavorableRatio,
       List<String> investmentStocksSymbols,
       @JsonKey(includeFromJson: false, includeToJson: false)
-      AssetsModel? assets});
+      FinaryAssetsModel? finaryAssets,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      List<AssetModel> localAssets});
 }
 
 /// @nodoc
@@ -119,8 +173,14 @@ class __$$AppCacheImplCopyWithImpl<$Res>
   $Res call({
     Object? applicationDirectory = null,
     Object? finarySessionId = null,
+    Object? numistaApiKey = null,
+    Object? gsrGoldFavorableRatio = null,
+    Object? gsrSilverFavorableRatio = null,
+    Object? spgrSPFavorableRatio = null,
+    Object? spgrGoldFavorableRatio = null,
     Object? investmentStocksSymbols = null,
-    Object? assets = freezed,
+    Object? finaryAssets = freezed,
+    Object? localAssets = null,
   }) {
     return _then(_$AppCacheImpl(
       applicationDirectory: null == applicationDirectory
@@ -131,14 +191,38 @@ class __$$AppCacheImplCopyWithImpl<$Res>
           ? _value.finarySessionId
           : finarySessionId // ignore: cast_nullable_to_non_nullable
               as String,
+      numistaApiKey: null == numistaApiKey
+          ? _value.numistaApiKey
+          : numistaApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      gsrGoldFavorableRatio: null == gsrGoldFavorableRatio
+          ? _value.gsrGoldFavorableRatio
+          : gsrGoldFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      gsrSilverFavorableRatio: null == gsrSilverFavorableRatio
+          ? _value.gsrSilverFavorableRatio
+          : gsrSilverFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      spgrSPFavorableRatio: null == spgrSPFavorableRatio
+          ? _value.spgrSPFavorableRatio
+          : spgrSPFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      spgrGoldFavorableRatio: null == spgrGoldFavorableRatio
+          ? _value.spgrGoldFavorableRatio
+          : spgrGoldFavorableRatio // ignore: cast_nullable_to_non_nullable
+              as double,
       investmentStocksSymbols: null == investmentStocksSymbols
           ? _value.investmentStocksSymbols
           : investmentStocksSymbols // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      assets: freezed == assets
-          ? _value.assets
-          : assets // ignore: cast_nullable_to_non_nullable
-              as AssetsModel?,
+      finaryAssets: freezed == finaryAssets
+          ? _value.finaryAssets
+          : finaryAssets // ignore: cast_nullable_to_non_nullable
+              as FinaryAssetsModel?,
+      localAssets: null == localAssets
+          ? _value.localAssets
+          : localAssets // ignore: cast_nullable_to_non_nullable
+              as List<AssetModel>,
     ));
   }
 }
@@ -150,8 +234,19 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
       {@JsonKey(includeFromJson: false, includeToJson: false)
       this.applicationDirectory = '',
       this.finarySessionId = '',
+      this.numistaApiKey = '',
+      this.gsrGoldFavorableRatio =
+          PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio,
+      this.gsrSilverFavorableRatio =
+          PhysicalAssetsSettingsPage.defaultGSRSilverFavorableRatio,
+      this.spgrSPFavorableRatio =
+          PhysicalAssetsSettingsPage.defaultSPGRSPFavorableRatio,
+      this.spgrGoldFavorableRatio =
+          PhysicalAssetsSettingsPage.defaultSPGRGoldFavorableRatio,
       this.investmentStocksSymbols = const [],
-      @JsonKey(includeFromJson: false, includeToJson: false) this.assets});
+      @JsonKey(includeFromJson: false, includeToJson: false) this.finaryAssets,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.localAssets = const []});
 
   factory _$AppCacheImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppCacheImplFromJson(json);
@@ -164,14 +259,32 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
   final String finarySessionId;
   @override
   @JsonKey()
+  final String numistaApiKey;
+  @override
+  @JsonKey()
+  final double gsrGoldFavorableRatio;
+  @override
+  @JsonKey()
+  final double gsrSilverFavorableRatio;
+  @override
+  @JsonKey()
+  final double spgrSPFavorableRatio;
+  @override
+  @JsonKey()
+  final double spgrGoldFavorableRatio;
+  @override
+  @JsonKey()
   final List<String> investmentStocksSymbols;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  AssetsModel? assets;
+  FinaryAssetsModel? finaryAssets;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  List<AssetModel> localAssets;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppCache(applicationDirectory: $applicationDirectory, finarySessionId: $finarySessionId, investmentStocksSymbols: $investmentStocksSymbols, assets: $assets)';
+    return 'AppCache(applicationDirectory: $applicationDirectory, finarySessionId: $finarySessionId, numistaApiKey: $numistaApiKey, gsrGoldFavorableRatio: $gsrGoldFavorableRatio, gsrSilverFavorableRatio: $gsrSilverFavorableRatio, spgrSPFavorableRatio: $spgrSPFavorableRatio, spgrGoldFavorableRatio: $spgrGoldFavorableRatio, investmentStocksSymbols: $investmentStocksSymbols, finaryAssets: $finaryAssets, localAssets: $localAssets)';
   }
 
   @override
@@ -181,9 +294,17 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
       ..add(DiagnosticsProperty('type', 'AppCache'))
       ..add(DiagnosticsProperty('applicationDirectory', applicationDirectory))
       ..add(DiagnosticsProperty('finarySessionId', finarySessionId))
+      ..add(DiagnosticsProperty('numistaApiKey', numistaApiKey))
+      ..add(DiagnosticsProperty('gsrGoldFavorableRatio', gsrGoldFavorableRatio))
+      ..add(DiagnosticsProperty(
+          'gsrSilverFavorableRatio', gsrSilverFavorableRatio))
+      ..add(DiagnosticsProperty('spgrSPFavorableRatio', spgrSPFavorableRatio))
+      ..add(
+          DiagnosticsProperty('spgrGoldFavorableRatio', spgrGoldFavorableRatio))
       ..add(DiagnosticsProperty(
           'investmentStocksSymbols', investmentStocksSymbols))
-      ..add(DiagnosticsProperty('assets', assets));
+      ..add(DiagnosticsProperty('finaryAssets', finaryAssets))
+      ..add(DiagnosticsProperty('localAssets', localAssets));
   }
 
   @JsonKey(ignore: true)
@@ -205,9 +326,16 @@ abstract class _AppCache implements AppCache {
       {@JsonKey(includeFromJson: false, includeToJson: false)
       final String applicationDirectory,
       final String finarySessionId,
+      final String numistaApiKey,
+      final double gsrGoldFavorableRatio,
+      final double gsrSilverFavorableRatio,
+      final double spgrSPFavorableRatio,
+      final double spgrGoldFavorableRatio,
       final List<String> investmentStocksSymbols,
       @JsonKey(includeFromJson: false, includeToJson: false)
-      AssetsModel? assets}) = _$AppCacheImpl;
+      FinaryAssetsModel? finaryAssets,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      List<AssetModel> localAssets}) = _$AppCacheImpl;
 
   factory _AppCache.fromJson(Map<String, dynamic> json) =
       _$AppCacheImpl.fromJson;
@@ -218,12 +346,27 @@ abstract class _AppCache implements AppCache {
   @override
   String get finarySessionId;
   @override
+  String get numistaApiKey;
+  @override
+  double get gsrGoldFavorableRatio;
+  @override
+  double get gsrSilverFavorableRatio;
+  @override
+  double get spgrSPFavorableRatio;
+  @override
+  double get spgrGoldFavorableRatio;
+  @override
   List<String> get investmentStocksSymbols;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  AssetsModel? get assets;
+  FinaryAssetsModel? get finaryAssets;
   @JsonKey(includeFromJson: false, includeToJson: false)
-  set assets(AssetsModel? value);
+  set finaryAssets(FinaryAssetsModel? value);
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  List<AssetModel> get localAssets;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set localAssets(List<AssetModel> value);
   @override
   @JsonKey(ignore: true)
   _$$AppCacheImplCopyWith<_$AppCacheImpl> get copyWith =>

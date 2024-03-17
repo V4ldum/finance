@@ -20,6 +20,8 @@ class AppNavigationDrawer extends ConsumerWidget {
     switch (_DrawerItem.values[value]) {
       case _DrawerItem.dashboard:
         ref.context.pushReplacementNamed(AppRoute.dashboard);
+      case _DrawerItem.preciousMetals:
+        ref.context.pushReplacementNamed(AppRoute.preciousMetals);
       case _DrawerItem.settings:
         ref.context.pushReplacementNamed(AppRoute.settings);
     }
@@ -36,6 +38,11 @@ class AppNavigationDrawer extends ConsumerWidget {
           label: Text(S.current.dashboardDrawerItem),
           icon: const Icon(Icons.area_chart_outlined),
           selectedIcon: const Icon(Icons.area_chart),
+        ),
+        NavigationDrawerDestination(
+          label: Text(S.current.physicalAssetsDrawerItem),
+          icon: const Icon(Icons.shield_outlined),
+          selectedIcon: const Icon(Icons.shield),
         ),
         const Divider(indent: AppPadding.l, endIndent: AppPadding.l),
         NavigationDrawerDestination(
@@ -65,5 +72,6 @@ class AppNavigationDrawer extends ConsumerWidget {
 
 enum _DrawerItem {
   dashboard,
+  preciousMetals,
   settings,
 }

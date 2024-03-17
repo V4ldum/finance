@@ -31,18 +31,18 @@ sealed class InvestmentSummaryResultDto with _$InvestmentSummaryResultDto {
 @freezed
 sealed class InvestmentSummaryDistributionDto with _$InvestmentSummaryDistributionDto {
   const factory InvestmentSummaryDistributionDto({
-    @JsonKey(name: 'checking_accounts') required SummaryValuesDto checkingAccounts,
-    @JsonKey(name: 'savings_accounts') required SummaryValuesDto savingsAccounts,
-    @JsonKey(name: 'investment_accounts') required SummaryValuesDto stocksAccounts,
-    required SummaryValuesDto cryptos,
-    @JsonKey(name: 'fonds_euro') required SummaryValuesDto fondsEuro,
-    @JsonKey(name: 'real_estates') required SummaryValuesDto realEstates,
-    required SummaryValuesDto startups,
-    required SummaryValuesDto commodities,
-    required SummaryValuesDto crowdlendings,
-    @JsonKey(name: 'other_assets') required SummaryValuesDto other,
-    required SummaryValuesDto loans,
-    @JsonKey(name: 'credit_accounts') required SummaryValuesDto creditAccounts,
+    @JsonKey(name: 'checking_accounts') required SummaryValuesDto? checkingAccounts,
+    @JsonKey(name: 'savings_accounts') required SummaryValuesDto? savingsAccounts,
+    @JsonKey(name: 'investment_accounts') required SummaryValuesDto? stocksAccounts,
+    required SummaryValuesDto? cryptos,
+    @JsonKey(name: 'fonds_euro') required SummaryValuesDto? fondsEuro,
+    @JsonKey(name: 'real_estates') required SummaryValuesDto? realEstates,
+    required SummaryValuesDto? startups,
+    required SummaryValuesDto? commodities,
+    required SummaryValuesDto? crowdlendings,
+    @JsonKey(name: 'other_assets') required SummaryValuesDto? other,
+    required SummaryValuesDto? loans,
+    @JsonKey(name: 'credit_accounts') required SummaryValuesDto? creditAccounts,
   }) = _InvestmentSummaryDistributionDto;
 
   factory InvestmentSummaryDistributionDto.fromJson(JsonResponse json) =>

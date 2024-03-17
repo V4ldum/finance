@@ -1,4 +1,0 @@
-enum PreciousMetalTypeModel {
-  gold,
-  silver,
-}

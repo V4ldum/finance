@@ -1,9 +1,11 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/assets/application/assets_service.dart';
 import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
-import 'package:finance/feature/assets/presentation/provider/assets_controller.dart';
+import 'package:finance/feature/assets/presentation/provider/finary_assets_controller.dart';
 import 'package:finance/shared/constant/app_padding.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:finance/shared/presentation/widget/default_error_widget.dart';
+import 'package:finance/shared/presentation/widget/default_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
@@ -15,7 +17,7 @@ class DashboardSettingsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final assetsResult = ref.watch(assetsControllerProvider);
+    final assetsResult = ref.watch(finaryAssetsControllerProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -93,40 +95,11 @@ class DashboardSettingsPage extends ConsumerWidget {
                     ),
                   );
                 },
-                error: (error, _) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: AppPadding.xxl,
-                      vertical: AppPadding.m,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          (error as DisplayableException).title,
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: AppPadding.s),
-                        Text(
-                          error.message,
-                          style: Theme.of(context).textTheme.bodySmall,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                loading: () => const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppPadding.xxl,
-                    vertical: AppPadding.l,
-                  ),
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                error: (error, trace) => DefaultErrorWidget(
+                  error: error as DisplayableException,
+                  trace: trace,
                 ),
+                loading: () => const DefaultLoadingWidget(),
               ),
               const SizedBox(height: AppPadding.m),
             ],

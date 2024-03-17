@@ -8,23 +8,17 @@ part '_generated/finary_auth_service.g.dart';
 
 @riverpod
 FinaryAuthService finaryAuthService(FinaryAuthServiceRef ref) {
-  return FinaryAuthService(
-    ref.read(finaryAuthenticationRepositoryProvider),
-    ref.read(localStorageRepositoryProvider),
-    ref.read(appCacheControllerProvider.notifier),
-  );
+  return FinaryAuthService(ref);
 }
 
 class FinaryAuthService {
-  FinaryAuthService(
-    this._finaryAuthRepository,
-    this._localStorageRepository,
-    this._appCacheController,
-  );
+  FinaryAuthService(this._ref);
 
-  final FinaryAuthenticationRepository _finaryAuthRepository;
-  final LocalStorageRepository _localStorageRepository;
-  final AppCacheController _appCacheController;
+  final FinaryAuthServiceRef _ref;
+
+  FinaryAuthenticationRepository get _finaryAuthRepository => _ref.read(finaryAuthenticationRepositoryProvider);
+  LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);
+  AppCacheController get _appCacheController => _ref.read(appCacheControllerProvider.notifier);
 
   Future<void> _saveSessionId(String sessionId) async {
     await _localStorageRepository.saveSessionId(sessionId);

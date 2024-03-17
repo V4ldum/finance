@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Helpers {
-  Helpers._();
+class Utils {
+  Utils._();
 
   /// Will get the correct next color to avoid having the same color on adjacent
   /// segments of a PieChart.
@@ -35,4 +35,8 @@ class Helpers {
     }
     return Color.alphaBlend(Colors.black45, color);
   }
+
+  static const Color goldColor = Color(0xFFDAA520);
+  static const Color silverColor = Color(0xFFA8A9AD);
+  static const Color moneyColor = Color(0xFF118C4F);
 }

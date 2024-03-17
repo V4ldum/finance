@@ -7,7 +7,7 @@ part of '../finary_authentication_controller.dart';
 // **************************************************************************
 
 String _$finaryAuthenticationControllerHash() =>
-    r'3691634b31d5bc9d578f98c281b41d2b0ed63846';
+    r'64d958646f16c017a43ec147793acbfcfdeb8e06';
 
 /// See also [FinaryAuthenticationController].
 @ProviderFor(FinaryAuthenticationController)

@@ -7,7 +7,7 @@ part of '../import_export_data_service.dart';
 // **************************************************************************
 
 String _$importExportDataServiceHash() =>
-    r'f11084d3bc0b8e1b638f78148a4207edd374aaa7';
+    r'859647ad38950bfb082064e6079103c2446114b1';
 
 /// See also [importExportDataService].
 @ProviderFor(importExportDataService)

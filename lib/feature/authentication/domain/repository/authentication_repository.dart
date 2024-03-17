@@ -9,20 +9,16 @@ part '_generated/authentication_repository.g.dart';
 
 @riverpod
 FinaryAuthenticationRepository finaryAuthenticationRepository(FinaryAuthenticationRepositoryRef ref) {
-  final dataSource = ref.read(finaryAuthenticationDataSourceProvider);
-  final appCache = ref.read(appCacheControllerProvider);
-
-  return FinaryAuthenticationRepository(dataSource, appCache);
+  return FinaryAuthenticationRepository(ref);
 }
 
 class FinaryAuthenticationRepository {
-  FinaryAuthenticationRepository(
-    this._dataSource,
-    this._appCache,
-  );
+  FinaryAuthenticationRepository(this._ref);
 
-  final FinaryAuthenticationDataSource _dataSource;
-  final AppCache _appCache;
+  final FinaryAuthenticationRepositoryRef _ref;
+
+  FinaryAuthenticationDataSource get _dataSource => _ref.read(finaryAuthenticationDataSourceProvider);
+  AppCache get _appCache => _ref.read(appCacheControllerProvider);
 
   Future<FinaryAuthenticationModel> auth(String login, String password) async {
     try {

@@ -4,21 +4,26 @@ import 'dart:io';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:finance/feature/assets/data/dto/local_asset_dto.dart';
+import 'package:finance/feature/assets/data/dto/local_precious_metal_dto.dart';
+import 'package:finance/feature/assets/domain/model/asset_model.dart';
+import 'package:finance/feature/assets/domain/model/precious_metal_asset_model.dart';
 import 'package:finance/feature/authentication/data/data_source/finary_authentication_data_source.dart';
+import 'package:finance/feature/physical_assets/domain/model/precious_metals_trade_value_model.dart';
 import 'package:finance/feature/settings/data/data_source/file_picker_data_source.dart';
 import 'package:finance/shared/constant/app_string.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/import_export_data_repository.g.dart';
 
 @riverpod
 ImportExportDataRepository importExportDataRepository(ImportExportDataRepositoryRef ref) {
-  final cache = ref.read(appCacheControllerProvider);
+  final cache = ref.watch(appCacheControllerProvider);
 
   return ImportExportDataRepository(
-    ref.read(filePickerDataSourceProvider),
-    cache,
+    ref,
     PersistCookieJar(
       storage: FileStorage('${cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies'),
     ),
@@ -27,17 +32,18 @@ ImportExportDataRepository importExportDataRepository(ImportExportDataRepository
 
 class ImportExportDataRepository {
   ImportExportDataRepository(
-    this._filePickerDataSource,
-    this._cache,
+    this._ref,
     this._cookieJar,
   );
 
   static const String _domainCookiesKey = 'domainCookies';
   static const String _hostCookiesKey = 'hostCookies';
-
-  final FilePickerDataSource _filePickerDataSource;
-  final AppCache _cache;
+  static const String _localAssetsKey = 'localAssets';
   final PersistCookieJar _cookieJar;
+  final ImportExportDataRepositoryRef _ref;
+
+  FilePickerDataSource get _filePickerDataSource => _ref.read(filePickerDataSourceProvider);
+  AppCache get _cache => _ref.read(appCacheControllerProvider);
 
   Future<void> export() async {
     final filename = 'export_${DateTime.now().toIso8601String()}.json';
@@ -50,12 +56,24 @@ class ImportExportDataRepository {
       ...cacheMap,
       _domainCookiesKey: domainCookiesMap,
       _hostCookiesKey: hostCookiesMap,
+      // Manually add localAssets because it's a pain to generate
+      _localAssetsKey: jsonEncode(
+        _cache.localAssets.map((e) {
+          if (e is PreciousMetalAssetModel) {
+            return LocalPreciousMetalDto.fromModel(e);
+          }
+          return LocalAssetDto.fromModel(e);
+        }).toList(),
+      ),
     });
 
     await _filePickerDataSource.openDialogSaveFile(content: data, filename: filename);
   }
 
-  Future<AppCache?> import() async {
+  Future<AppCache?> import({
+    required Future<PreciousMetalTradeValueModel?> goldTradePriceFuture,
+    required Future<PreciousMetalTradeValueModel?> silverTradePriceFuture,
+  }) async {
     final file = await _filePickerDataSource.openDialogReadFile(
       fileExtensionsFilter: ['json'],
       mimeTypesFilter: ['application/json'],
@@ -65,8 +83,32 @@ class ImportExportDataRepository {
       return null;
     }
 
+    final goldTradePrice = (await goldTradePriceFuture)?.grams ?? 0;
+    final silverTradePrice = (await silverTradePriceFuture)?.grams ?? 0;
+
     final fileContent = Map<String, dynamic>.from(jsonDecode(await file.readAsString()) as Map);
     final cache = AppCache.fromJson(fileContent);
+    final localAssets = jsonDecode((fileContent[_localAssetsKey] as String?) ?? '[]') as List;
+
+    cache.localAssets = localAssets.map((e) {
+      // Precious Metal
+      if ((e as JsonResponse).keys.contains('metalType')) {
+        final dto = LocalPreciousMetalDto.fromJson(e);
+
+        return PreciousMetalAssetModel.fromDto(
+          dto,
+          switch (dto.metalType) {
+            PreciousMetalTypeDto.gold => goldTradePrice,
+            PreciousMetalTypeDto.silver => silverTradePrice,
+            PreciousMetalTypeDto.other => 0,
+          },
+        );
+      }
+
+      // Cash
+      return AssetModel.fromLocalDto(LocalAssetDto.fromJson(e));
+    }).toList();
+
     await _cookieJar.forceInit();
 
     final domainCookies = await _mapCookies(fileContent[_domainCookiesKey] as Map<String, dynamic>);

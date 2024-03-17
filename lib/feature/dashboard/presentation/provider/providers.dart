@@ -1,8 +1,13 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
-import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
-import 'package:finance/feature/assets/domain/model/assets_model.dart';
-import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
+import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';
+import 'package:finance/feature/dashboard/presentation/page/accounts_dashboard_page.dart';
+import 'package:finance/feature/dashboard/presentation/page/distribution_dashboard_page.dart';
+import 'package:finance/feature/dashboard/presentation/page/precious_metals_dashboard_page.dart';
+import 'package:finance/feature/dashboard/presentation/page/stocks_dashboard_page.dart';
+import 'package:finance/feature/dashboard/presentation/widget/last_sync_text.dart';
+import 'package:finance/shared/constant/app_padding.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/providers.g.dart';
@@ -31,9 +36,21 @@ class SelectedChartSegmentController extends _$SelectedChartSegmentController {
 }
 
 @riverpod
+class ShowPreciousMetalWeightController extends _$ShowPreciousMetalWeightController {
+  @override
+  bool build() => false;
+
+  void swap() {
+    state = !state;
+  }
+}
+
+@riverpod
 class DashboardTabController extends _$DashboardTabController {
   @override
-  int build() => 0;
+  int build() {
+    return 0;
+  }
 
   void onTabSelected(int value) {
     if (value != state) {
@@ -42,59 +59,76 @@ class DashboardTabController extends _$DashboardTabController {
     }
   }
 
-  TabData getCurrentTabData() {
+  TabInformation getCurrentPage(AsyncValue<FinaryAssetsModel> assetsResult) {
     return switch (state) {
-      0 => _getStocksTabData(),
-      1 => _getAccountsTabData(),
-      2 => _getDistributionTabData(),
-      _ => throw UnimplementedError('There are no tab n°$state'),
-    };
-  }
-
-  TabData _getStocksTabData() {
-    return TabData(
-      title: S.current.stocks,
-      data: (assets) => assets.assets
-          .where((e) => e.type == AssetTypeModel.stock || e.type == AssetTypeModel.fund)
-          .map((e) => PieData(title: e.name, value: e.total.toInt()))
-          .toList()
-        ..sort((a, b) => b.value.compareTo(a.value)),
-    );
-  }
-
-  TabData _getAccountsTabData() {
-    return TabData(
-      title: S.current.accounts,
-      data: (assets) => assets.assets.where((e) => e.type == AssetTypeModel.account).map((e) {
-        return PieData(title: e.name, value: e.total.toInt());
-      }).toList()
-        ..sort((a, b) => b.value.compareTo(a.value)),
-    );
-  }
-
-  TabData _getDistributionTabData() {
-    return TabData(
-      title: S.current.distribution,
-      data: (assets) => AssetCategoryModel.values
-          .map(
-            (category) => PieData(
-              title: category.toIntlString(),
-              value: assets.assets.fold(0, (prev, e) => prev += e.category == category ? e.total.toInt() : 0),
+      0 => TabInformation(
+          title: S.current.stocks,
+          body: StocksDashboardPage(assetsResult: assetsResult),
+          actions: [
+            assetsResult.maybeWhen(
+              data: (assets) => assets.lastSyncFinary != null //
+                  ? LastSyncText(sync: assets.lastSyncFinary!)
+                  : const SizedBox(),
+              orElse: () => const SizedBox(),
             ),
-          )
-          .toList()
-        ..removeWhere((e) => e.value == 0)
-        ..sort((a, b) => b.value.compareTo(a.value)),
-    );
+            const SizedBox(width: AppPadding.s),
+          ],
+        ),
+      1 => TabInformation(
+          title: S.current.accounts,
+          body: AccountsDashboardPage(assetsResult: assetsResult),
+          actions: [
+            assetsResult.maybeWhen(
+              data: (assets) => assets.lastSyncFinary != null //
+                  ? LastSyncText(sync: assets.lastSyncFinary!)
+                  : const SizedBox(),
+              orElse: () => const SizedBox(),
+            ),
+            const SizedBox(width: AppPadding.s),
+          ],
+        ),
+      2 => TabInformation(
+          title: S.current.preciousMetals,
+          body: const PreciousMetalsDashboardPage(),
+          actions: [
+            Consumer(
+              builder: (BuildContext context, WidgetRef ref, Widget? child) {
+                return IconButton(
+                  onPressed: ref.read(showPreciousMetalWeightControllerProvider.notifier).swap,
+                  icon: ref.watch(showPreciousMetalWeightControllerProvider)
+                      ? const Icon(Icons.attach_money)
+                      : const Icon(Icons.monitor_weight_outlined),
+                );
+              },
+            ),
+          ],
+        ),
+      3 => TabInformation(
+          title: S.current.distribution,
+          body: DistributionDashboardPage(assetsResult: assetsResult),
+          actions: [
+            assetsResult.maybeWhen(
+              data: (assets) => assets.lastSyncFinary != null //
+                  ? LastSyncText(sync: assets.lastSyncFinary!)
+                  : const SizedBox(),
+              orElse: () => const SizedBox(),
+            ),
+            const SizedBox(width: AppPadding.s),
+          ],
+        ),
+      _ => throw UnimplementedError('There are no page n°$state'),
+    };
   }
 }
 
-class TabData {
-  const TabData({
+class TabInformation {
+  const TabInformation({
     required this.title,
-    required this.data,
+    required this.body,
+    required this.actions,
   });
 
   final String title;
-  final List<PieData> Function(AssetsModel) data;
+  final Widget body;
+  final List<Widget> actions;
 }

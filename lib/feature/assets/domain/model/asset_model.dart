@@ -1,9 +1,9 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/feature/assets/data/dto/local_asset_dto.dart';
 import 'package:finance/feature/assets/data/dto/stocks_detail_dto.dart';
 import 'package:finance/feature/assets/data/dto/summary_values_dto.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
 import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
-import 'package:finance/feature/assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 
 class AssetModel {
@@ -56,6 +56,16 @@ class AssetModel {
     );
   }
 
+  factory AssetModel.fromLocalDto(LocalAssetDto dto) {
+    return AssetModel(
+      name: dto.name,
+      amount: dto.amount,
+      value: dto.value,
+      category: AssetCategoryModel.speculative,
+      type: AssetTypeModel.cash,
+    );
+  }
+
   final String name;
   final String symbol;
   final String isin;
@@ -65,17 +75,4 @@ class AssetModel {
   final AssetTypeModel type;
 
   double get total => amount * value;
-}
-
-class PreciousMetalAssetModel extends AssetModel {
-  PreciousMetalAssetModel({
-    required super.name,
-    required super.amount,
-    required super.value,
-    required this.purity,
-    required this.metalType,
-  }) : super(category: AssetCategoryModel.savings, type: AssetTypeModel.preciousMetal);
-
-  final double purity;
-  final PreciousMetalTypeModel metalType;
 }

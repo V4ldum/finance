@@ -199,11 +199,121 @@ class S {
     );
   }
 
+  /// `You must type a name.`
+  String get emptyNameError {
+    return Intl.message(
+      'You must type a name.',
+      name: 'emptyNameError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `An unknown error occurred.`
   String get genericError {
     return Intl.message(
       'An unknown error occurred.',
       name: 'genericError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bad Request`
+  String get numistaBadRequestTitle {
+    return Intl.message(
+      'Bad Request',
+      name: 'numistaBadRequestTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid value for a parameter or missing mandatory parameter`
+  String get numistaBadRequestBody {
+    return Intl.message(
+      'Invalid value for a parameter or missing mandatory parameter',
+      name: 'numistaBadRequestBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Missing or invalid API key`
+  String get numistaInvalidKeyTitle {
+    return Intl.message(
+      'Missing or invalid API key',
+      name: 'numistaInvalidKeyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your key in the settings`
+  String get numistaInvalidKeyBody {
+    return Intl.message(
+      'Check your key in the settings',
+      name: 'numistaInvalidKeyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coin not found`
+  String get numistaCoinNotFoundTitle {
+    return Intl.message(
+      'Coin not found',
+      name: 'numistaCoinNotFoundTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check that the provided ID is correct`
+  String get numistaCoinNotFoundBody {
+    return Intl.message(
+      'Check that the provided ID is correct',
+      name: 'numistaCoinNotFoundBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item already exists`
+  String get physicalAssetItemAlreadyExistsTitle {
+    return Intl.message(
+      'Item already exists',
+      name: 'physicalAssetItemAlreadyExistsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You should either change the name of the new item or edit the old one.`
+  String get physicalAssetItemAlreadyExistsContent {
+    return Intl.message(
+      'You should either change the name of the new item or edit the old one.',
+      name: 'physicalAssetItemAlreadyExistsContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coin already exists`
+  String get physicalAssetCoinAlreadyExistsTitle {
+    return Intl.message(
+      'Coin already exists',
+      name: 'physicalAssetCoinAlreadyExistsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must update the item instead of adding a new one.`
+  String get physicalAssetCoinAlreadyExistsContent {
+    return Intl.message(
+      'You must update the item instead of adding a new one.',
+      name: 'physicalAssetCoinAlreadyExistsContent',
       desc: '',
       args: [],
     );
@@ -239,11 +349,41 @@ class S {
     );
   }
 
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Dashboard`
   String get dashboardDrawerItem {
     return Intl.message(
       'Dashboard',
       name: 'dashboardDrawerItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Physical assets`
+  String get physicalAssetsDrawerItem {
+    return Intl.message(
+      'Physical assets',
+      name: 'physicalAssetsDrawerItem',
       desc: '',
       args: [],
     );
@@ -289,6 +429,16 @@ class S {
     );
   }
 
+  /// `Precious Metals`
+  String get preciousMetals {
+    return Intl.message(
+      'Precious Metals',
+      name: 'preciousMetals',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Distribution`
   String get distribution {
     return Intl.message(
@@ -299,11 +449,61 @@ class S {
     );
   }
 
-  /// `Stocks Geography`
-  String get geography {
+  /// `No data found`
+  String get genericEmptyTitle {
     return Intl.message(
-      'Stocks Geography',
-      name: 'geography',
+      'No data found',
+      name: 'genericEmptyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maybe you did not link your bank account with Finary`
+  String get genericEmptyBody {
+    return Intl.message(
+      'Maybe you did not link your bank account with Finary',
+      name: 'genericEmptyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any stocks`
+  String get stocksEmptyTitle {
+    return Intl.message(
+      'You don\'t have any stocks',
+      name: 'stocksEmptyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start investing and you will see the breakdown here`
+  String get stocksEmptyBody {
+    return Intl.message(
+      'Start investing and you will see the breakdown here',
+      name: 'stocksEmptyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any precious metals`
+  String get preciousMetalsEmptyTitle {
+    return Intl.message(
+      'You don\'t have any precious metals',
+      name: 'preciousMetalsEmptyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start adding precious metals into the app to see the breakdown here`
+  String get preciousMetalsEmptyBody {
+    return Intl.message(
+      'Start adding precious metals into the app to see the breakdown here',
+      name: 'preciousMetalsEmptyBody',
       desc: '',
       args: [],
     );
@@ -429,6 +629,16 @@ class S {
     );
   }
 
+  /// `Cash`
+  String get cash {
+    return Intl.message(
+      'Cash',
+      name: 'cash',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Speculative`
   String get speculative {
     return Intl.message(
@@ -546,6 +756,26 @@ class S {
     return Intl.message(
       'Distribution targets, stocks categorisation',
       name: 'settingsAssetsSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Physical assets`
+  String get settingsPhysicalAssetsTitle {
+    return Intl.message(
+      'Physical assets',
+      name: 'settingsPhysicalAssetsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ratios settings`
+  String get settingsPhysicalAssetsSubtitle {
+    return Intl.message(
+      'Ratios settings',
+      name: 'settingsPhysicalAssetsSubtitle',
       desc: '',
       args: [],
     );
@@ -701,6 +931,46 @@ class S {
     );
   }
 
+  /// `Numista`
+  String get numista {
+    return Intl.message(
+      'Numista',
+      name: 'numista',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `API Key`
+  String get numistaApiKeyField {
+    return Intl.message(
+      'API Key',
+      name: 'numistaApiKeyField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To obtain an API key, head over to\r\n`
+  String get numistaApiKeyTooltip {
+    return Intl.message(
+      'To obtain an API key, head over to\r\n',
+      name: 'numistaApiKeyTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `https://en.numista.com/api`
+  String get numistaWebsiteUrl {
+    return Intl.message(
+      'https://en.numista.com/api',
+      name: 'numistaWebsiteUrl',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Stock Categorisation`
   String get dashboardSettingsStockCategorisationTitle {
     return Intl.message(
@@ -731,6 +1001,96 @@ class S {
     );
   }
 
+  /// `Gold to Silver ratio (GSR)`
+  String get physicalAssetsSettingsGoldToSilverRatio {
+    return Intl.message(
+      'Gold to Silver ratio (GSR)',
+      name: 'physicalAssetsSettingsGoldToSilverRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gold favorable when lower than`
+  String get physicalAssetsSettingsGoldFavorableRatioGSR {
+    return Intl.message(
+      'Gold favorable when lower than',
+      name: 'physicalAssetsSettingsGoldFavorableRatioGSR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silver favorable when higher than`
+  String get physicalAssetsSettingsSilverFavorableRatioGSR {
+    return Intl.message(
+      'Silver favorable when higher than',
+      name: 'physicalAssetsSettingsSilverFavorableRatioGSR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SP500 to Gold ratio (SPGR)`
+  String get physicalAssetsSettingsSPToGoldRatio {
+    return Intl.message(
+      'SP500 to Gold ratio (SPGR)',
+      name: 'physicalAssetsSettingsSPToGoldRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SP500 favorable when lower than`
+  String get physicalAssetsSettingsSPFavorableRatioSPGR {
+    return Intl.message(
+      'SP500 favorable when lower than',
+      name: 'physicalAssetsSettingsSPFavorableRatioSPGR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gold favorable when higher than`
+  String get physicalAssetsSettingsGoldFavorableRatioSPGR {
+    return Intl.message(
+      'Gold favorable when higher than',
+      name: 'physicalAssetsSettingsGoldFavorableRatioSPGR',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gold ratio`
+  String get physicalAssetsSettingsGoldRatio {
+    return Intl.message(
+      'Gold ratio',
+      name: 'physicalAssetsSettingsGoldRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silver ratio`
+  String get physicalAssetsSettingsSilverRatio {
+    return Intl.message(
+      'Silver ratio',
+      name: 'physicalAssetsSettingsSilverRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SP500 ratio`
+  String get physicalAssetsSettingsSPRatio {
+    return Intl.message(
+      'SP500 ratio',
+      name: 'physicalAssetsSettingsSPRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Import data`
   String get importButton {
     return Intl.message(
@@ -751,23 +1111,463 @@ class S {
     );
   }
 
-  /// `Import réussi`
+  /// `Import successful`
   String get importSuccessMessage {
     return Intl.message(
-      'Import réussi',
+      'Import successful',
       name: 'importSuccessMessage',
       desc: '',
       args: [],
     );
   }
 
-  /// `Export réussi`
+  /// `Export successful`
   String get exportSuccessMessage {
     return Intl.message(
-      'Export réussi',
+      'Export successful',
       name: 'exportSuccessMessage',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Gold`
+  String get goldMetalType {
+    return Intl.message(
+      'Gold',
+      name: 'goldMetalType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silver`
+  String get silverMetalType {
+    return Intl.message(
+      'Silver',
+      name: 'silverMetalType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get otherMetalType {
+    return Intl.message(
+      'Other',
+      name: 'otherMetalType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Raw`
+  String get raw {
+    return Intl.message(
+      'Raw',
+      name: 'raw',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coin`
+  String get coin {
+    return Intl.message(
+      'Coin',
+      name: 'coin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My assets`
+  String get physicalAssetsPageTitle {
+    return Intl.message(
+      'My assets',
+      name: 'physicalAssetsPageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Item's details`
+  String get physicalAssetDetailTitle {
+    return Intl.message(
+      'Item\'s details',
+      name: 'physicalAssetDetailTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any physical assetss. Add some by pressing the button at the top right.`
+  String get noPhysicalAssets {
+    return Intl.message(
+      'You don\'t have any physical assetss. Add some by pressing the button at the top right.',
+      name: 'noPhysicalAssets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for a coin`
+  String get searchCoin {
+    return Intl.message(
+      'Search for a coin',
+      name: 'searchCoin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get metalDetailsTitle {
+    return Intl.message(
+      'Details',
+      name: 'metalDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Features`
+  String get metalFeaturesTitle {
+    return Intl.message(
+      'Features',
+      name: 'metalFeaturesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get metalFeaturesWeight {
+    return Intl.message(
+      'Weight',
+      name: 'metalFeaturesWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{weight} g`
+  String metalFeaturesWeightValue(double weight) {
+    return Intl.message(
+      '$weight g',
+      name: 'metalFeaturesWeightValue',
+      desc: '',
+      args: [weight],
+    );
+  }
+
+  /// `Size`
+  String get metalFeaturesSize {
+    return Intl.message(
+      'Size',
+      name: 'metalFeaturesSize',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{size} mm`
+  String metalFeaturesSizeValue(double size) {
+    return Intl.message(
+      '$size mm',
+      name: 'metalFeaturesSizeValue',
+      desc: '',
+      args: [size],
+    );
+  }
+
+  /// `Thickness`
+  String get metalFeaturesThickness {
+    return Intl.message(
+      'Thickness',
+      name: 'metalFeaturesThickness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{thickness} mm`
+  String metalFeaturesThicknessValue(double thickness) {
+    return Intl.message(
+      '$thickness mm',
+      name: 'metalFeaturesThicknessValue',
+      desc: '',
+      args: [thickness],
+    );
+  }
+
+  /// `Composition`
+  String get metalFeaturesComposition {
+    return Intl.message(
+      'Composition',
+      name: 'metalFeaturesComposition',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Demonetized`
+  String get coinFeaturesDemonetization {
+    return Intl.message(
+      'Demonetized',
+      name: 'coinFeaturesDemonetization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes ({date})`
+  String coinFeaturesDemonetizedCoinDate(String date) {
+    return Intl.message(
+      'Yes ($date)',
+      name: 'coinFeaturesDemonetizedCoinDate',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Series`
+  String get coinFeaturesSeries {
+    return Intl.message(
+      'Series',
+      name: 'coinFeaturesSeries',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pictures`
+  String get metalPicturesTitle {
+    return Intl.message(
+      'Pictures',
+      name: 'metalPicturesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ø`
+  String get coinFeaturesNoValue {
+    return Intl.message(
+      'ø',
+      name: 'coinFeaturesNoValue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No picture available for this coin`
+  String get coinPicturesNoPicturesAvailable {
+    return Intl.message(
+      'No picture available for this coin',
+      name: 'coinPicturesNoPicturesAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a coin`
+  String get addCoinTitle {
+    return Intl.message(
+      'Add a coin',
+      name: 'addCoinTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a raw metal`
+  String get addRawPreciousMetalTitle {
+    return Intl.message(
+      'Add a raw metal',
+      name: 'addRawPreciousMetalTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add cash`
+  String get addCashTitle {
+    return Intl.message(
+      'Add cash',
+      name: 'addCashTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update the asset`
+  String get updateAssetTitle {
+    return Intl.message(
+      'Update the asset',
+      name: 'updateAssetTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information has been autofilled. Double check that everything is correct before adding the coin.`
+  String get addCoinAutofillMessage {
+    return Intl.message(
+      'Information has been autofilled. Double check that everything is correct before adding the coin.',
+      name: 'addCoinAutofillMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information`
+  String get information {
+    return Intl.message(
+      'Information',
+      name: 'information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Possessed`
+  String get possessed {
+    return Intl.message(
+      'Possessed',
+      name: 'possessed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quantity`
+  String get quantity {
+    return Intl.message(
+      'Quantity',
+      name: 'quantity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unit value`
+  String get cashUnitValue {
+    return Intl.message(
+      'Unit value',
+      name: 'cashUnitValue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Label: '{label}'`
+  String coinCompositionLabel(String label) {
+    return Intl.message(
+      'Label: \'$label\'',
+      name: 'coinCompositionLabel',
+      desc: '',
+      args: [label],
+    );
+  }
+
+  /// `Metal type`
+  String get metalDropdown {
+    return Intl.message(
+      'Metal type',
+      name: 'metalDropdown',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Purity`
+  String get purity {
+    return Intl.message(
+      'Purity',
+      name: 'purity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total weight`
+  String get totalWeight {
+    return Intl.message(
+      'Total weight',
+      name: 'totalWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated price: `
+  String get estimatedPrice {
+    return Intl.message(
+      'Estimated price: ',
+      name: 'estimatedPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add to assets`
+  String get addToAssetsButton {
+    return Intl.message(
+      'Add to assets',
+      name: 'addToAssetsButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get updateAssetsButton {
+    return Intl.message(
+      'Update',
+      name: 'updateAssetsButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get deleteAssetButton {
+    return Intl.message(
+      'Delete',
+      name: 'deleteAssetButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm deletion`
+  String get deleteDialogTitle {
+    return Intl.message(
+      'Confirm deletion',
+      name: 'deleteDialogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete '{item}'`
+  String deleteDialogContent(String item) {
+    return Intl.message(
+      'Are you sure you want to delete \'$item\'',
+      name: 'deleteDialogContent',
+      desc: '',
+      args: [item],
     );
   }
 }

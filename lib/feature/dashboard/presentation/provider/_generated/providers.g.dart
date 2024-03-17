@@ -23,8 +23,25 @@ final selectedChartSegmentControllerProvider =
 );
 
 typedef _$SelectedChartSegmentController = AutoDisposeNotifier<int?>;
+String _$showPreciousMetalWeightControllerHash() =>
+    r'21e9a27d0a48504bd8c2a90420c603ac81252f7e';
+
+/// See also [ShowPreciousMetalWeightController].
+@ProviderFor(ShowPreciousMetalWeightController)
+final showPreciousMetalWeightControllerProvider = AutoDisposeNotifierProvider<
+    ShowPreciousMetalWeightController, bool>.internal(
+  ShowPreciousMetalWeightController.new,
+  name: r'showPreciousMetalWeightControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$showPreciousMetalWeightControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$ShowPreciousMetalWeightController = AutoDisposeNotifier<bool>;
 String _$dashboardTabControllerHash() =>
-    r'd6d40ff7f9c617e961559090984bba96aec95064';
+    r'9abdcb4d1bc41cfe10e10b1a57ba701380abfb5f';
 
 /// See also [DashboardTabController].
 @ProviderFor(DashboardTabController)

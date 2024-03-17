@@ -15,20 +15,40 @@
   "emptyPasswordError": "You must type a password.",
   "emptyOtpError": "You must type a secret code.",
   "invalidOtpError": "You must type a valid secret code.",
+  "emptyNameError": "You must type a name.",
   "genericError": "An unknown error occurred.",
+  "numistaBadRequestTitle": "Bad Request",
+  "numistaBadRequestBody": "Invalid value for a parameter or missing mandatory parameter",
+  "numistaInvalidKeyTitle": "Missing or invalid API key",
+  "numistaInvalidKeyBody": "Check your key in the settings",
+  "numistaCoinNotFoundTitle": "Coin not found",
+  "numistaCoinNotFoundBody": "Check that the provided ID is correct",
+  "physicalAssetItemAlreadyExistsTitle": "Item already exists",
+  "physicalAssetItemAlreadyExistsContent": "You should either change the name of the new item or edit the old one.",
+  "physicalAssetCoinAlreadyExistsTitle": "Coin already exists",
+  "physicalAssetCoinAlreadyExistsContent": "You must update the item instead of adding a new one.",
   "@@@_POPUP_ELEMENTS": {},
   "submit": "Submit",
   "cancel": "Cancel",
   "ok": "Ok",
+  "yes": "Yes",
+  "no": "No",
   "@@@_DRAWER": {},
   "dashboardDrawerItem": "Dashboard",
+  "physicalAssetsDrawerItem": "Physical assets",
   "settingsDrawerItem": "Settings",
   "appVersion": "version {version}",
   "@@@_DASHBOARD": {},
   "stocks": "Stocks",
   "accounts": "Accounts",
+  "preciousMetals": "Precious Metals",
   "distribution": "Distribution",
-  "geography": "Stocks Geography",
+  "genericEmptyTitle": "No data found",
+  "genericEmptyBody": "Maybe you did not link your bank account with Finary",
+  "stocksEmptyTitle": "You don't have any stocks",
+  "stocksEmptyBody": "Start investing and you will see the breakdown here",
+  "preciousMetalsEmptyTitle": "You don't have any precious metals",
+  "preciousMetalsEmptyBody": "Start adding precious metals into the app to see the breakdown here",
   "total": "Total",
   "stocksLiquidity": "Stocks liquidity accounts",
   "checkingAccounts": "Checking accounts",
@@ -41,6 +61,7 @@
   "otherAssets": "Other assets",
   "loans": "Loans",
   "creditAccounts": "Credit Accounts",
+  "cash": "Cash",
   "speculative": "Speculative",
   "investment": "Investment",
   "savings": "Savings",
@@ -54,6 +75,8 @@
   "@@@_SETTINGS": {},
   "settingsAssetsTitle": "Dashboard",
   "settingsAssetsSubtitle": "Distribution targets, stocks categorisation",
+  "settingsPhysicalAssetsTitle": "Physical assets",
+  "settingsPhysicalAssetsSubtitle": "Ratios settings",
   "settingsAuthenticationTitle": "Connections",
   "settingsAuthenticationSubtitle": "Log in to the third-party services",
   "settingsImportExportTitle": "Import & Export",
@@ -70,13 +93,114 @@
   "loginTextFieldLabel": "Login",
   "passwordTextFieldLabel": "Password",
   "otpTextFieldLabel": "Secret code",
+  "numista": "Numista",
+  "numistaApiKeyField": "API Key",
+  "numistaApiKeyTooltip": "To obtain an API key, head over to\r\n",
+  "numistaWebsiteUrl": "https://en.numista.com/api",
   "@@@_SETTINGS_DASHBOARD": {},
   "dashboardSettingsStockCategorisationTitle": "Stock Categorisation",
   "dashboardSettingsStockCategorisationMessage": "By default, stocks are considered speculative. Select the ones you want to tag as investment in the following list.",
   "dashboardSettingsStockCategorisationEmptyError": "You don't have any stocks. Start investing in stocks to categorize them.",
+  "@@@_SETTINGS_PHYSICAL_ASSETS": {},
+  "physicalAssetsSettingsGoldToSilverRatio": "Gold to Silver ratio (GSR)",
+  "physicalAssetsSettingsGoldFavorableRatioGSR": "Gold favorable when lower than",
+  "physicalAssetsSettingsSilverFavorableRatioGSR": "Silver favorable when higher than",
+  "physicalAssetsSettingsSPToGoldRatio": "SP500 to Gold ratio (SPGR)",
+  "physicalAssetsSettingsSPFavorableRatioSPGR": "SP500 favorable when lower than",
+  "physicalAssetsSettingsGoldFavorableRatioSPGR": "Gold favorable when higher than",
+  "physicalAssetsSettingsGoldRatio": "Gold ratio",
+  "physicalAssetsSettingsSilverRatio": "Silver ratio",
+  "physicalAssetsSettingsSPRatio": "SP500 ratio",
   "@@@_SETTINGS_IMPORT_EXPORT": {},
   "importButton": "Import data",
   "exportButton": "Export data",
-  "importSuccessMessage": "Import réussi",
-  "exportSuccessMessage": "Export réussi"
+  "importSuccessMessage": "Import successful",
+  "exportSuccessMessage": "Export successful",
+  "@@@_PHYSICAL_ASSETS": {},
+  "goldMetalType": "Gold",
+  "silverMetalType": "Silver",
+  "otherMetalType": "Other",
+  "raw": "Raw",
+  "coin": "Coin",
+  "physicalAssetsPageTitle": "My assets",
+  "physicalAssetDetailTitle": "Item's details",
+  "noPhysicalAssets": "You don't have any physical assetss. Add some by pressing the button at the top right.",
+  "searchCoin": "Search for a coin",
+  "metalDetailsTitle": "Details",
+  "metalFeaturesTitle": "Features",
+  "metalFeaturesWeight": "Weight",
+  "metalFeaturesWeightValue": "{weight} g",
+  "@metalFeaturesWeightValue": {
+    "placeholders": {
+      "weight": {
+        "type": "double"
+      }
+    }
+  },
+  "metalFeaturesSize": "Size",
+  "metalFeaturesSizeValue": "{size} mm",
+  "@metalFeaturesSizeValue": {
+    "placeholders": {
+      "size": {
+        "type": "double"
+      }
+    }
+  },
+  "metalFeaturesThickness": "Thickness",
+  "metalFeaturesThicknessValue": "{thickness} mm",
+  "@metalFeaturesThicknessValue": {
+    "placeholders": {
+      "thickness": {
+        "type": "double"
+      }
+    }
+  },
+  "metalFeaturesComposition": "Composition",
+  "coinFeaturesDemonetization": "Demonetized",
+  "coinFeaturesDemonetizedCoinDate": "Yes ({date})",
+  "@coinFeaturesDemonetizedCoinDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "coinFeaturesSeries": "Series",
+  "metalPicturesTitle": "Pictures",
+  "coinFeaturesNoValue": "ø",
+  "coinPicturesNoPicturesAvailable": "No picture available for this coin",
+  "addCoinTitle": "Add a coin",
+  "addRawPreciousMetalTitle": "Add a raw metal",
+  "addCashTitle": "Add cash",
+  "updateAssetTitle": "Update the asset",
+  "addCoinAutofillMessage": "Information has been autofilled. Double check that everything is correct before adding the coin.",
+  "information": "Information",
+  "possessed": "Possessed",
+  "name": "Name",
+  "quantity": "Quantity",
+  "cashUnitValue": "Unit value",
+  "coinCompositionLabel": "Label: '{label}'",
+  "@coinCompositionLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "metalDropdown": "Metal type",
+  "purity": "Purity",
+  "totalWeight": "Total weight",
+  "estimatedPrice": "Estimated price: ",
+  "addToAssetsButton": "Add to assets",
+  "updateAssetsButton": "Update",
+  "deleteAssetButton": "Delete",
+  "deleteDialogTitle": "Confirm deletion",
+  "deleteDialogContent": "Are you sure you want to delete '{item}'",
+  "@deleteDialogContent": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  }
 }
