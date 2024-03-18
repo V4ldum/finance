@@ -175,12 +175,13 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
       metalType: _dropdownValue ?? PreciousMetalTypeModel.other,
     );
 
-    if (ref
+    final assetAlreadyExists = ref
         .read(appCacheControllerProvider)
         .localAssets
         .where((e) => e is PreciousMetalAssetModel && e.numistaId == coinAsset.numistaId)
         .toList()
-        .isNotEmpty) {
+        .isNotEmpty;
+    if (assetAlreadyExists && widget.asset == null) {
       unawaited(
         showDialog<void>(
           context: context,

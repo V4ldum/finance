@@ -49,6 +49,8 @@
   "stocksEmptyBody": "Commencez à investir et vous verrez le détail ici",
   "preciousMetalsEmptyTitle": "Vous n'avez aucun métaux précieux",
   "preciousMetalsEmptyBody": "Ajouter des métaux précieux dans l'application et vous verrez le détail ici",
+  "preciousMetalsAPIFailedTitle": "Aucune valeur disponible",
+  "preciousMetalsAPIFailedBody": "Une erreur est survenue lors de la récupération de la valeur des métaux. Vous pouvez toujours afficher le diagramme par poids",
   "total": "Total",
   "stocksLiquidity": "Compte liquidité actions",
   "checkingAccounts": "Comptes courants",

@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -18,17 +19,15 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+        _current != null, 'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -505,6 +504,26 @@ class S {
     return Intl.message(
       'Start adding precious metals into the app to see the breakdown here',
       name: 'preciousMetalsEmptyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No value available`
+  String get preciousMetalsAPIFailedTitle {
+    return Intl.message(
+      'No value available',
+      name: 'preciousMetalsAPIFailedTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while getting the metals' value. You can still show the weight diagram`
+  String get preciousMetalsAPIFailedBody {
+    return Intl.message(
+      'An error occurred while getting the metals\' value. You can still show the weight diagram',
+      name: 'preciousMetalsAPIFailedBody',
       desc: '',
       args: [],
     );

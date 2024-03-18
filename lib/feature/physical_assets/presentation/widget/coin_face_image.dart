@@ -37,7 +37,7 @@ class CoinFaceImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageSize = MediaQuery.of(context).size.width * .42;
+    final imageSize = MediaQuery.of(context).size.width * .4;
     late final Widget image;
 
     if (coinFace.pictureUrl.isNotEmpty || coinFace.thumbnailUrl.isNotEmpty) {

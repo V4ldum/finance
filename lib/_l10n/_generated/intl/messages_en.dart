@@ -227,6 +227,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "possessed": MessageLookupByLibrary.simpleMessage("Possessed"),
         "preciousMetals":
             MessageLookupByLibrary.simpleMessage("Precious Metals"),
+        "preciousMetalsAPIFailedBody": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while getting the metals\' value. You can still show the weight diagram"),
+        "preciousMetalsAPIFailedTitle":
+            MessageLookupByLibrary.simpleMessage("No value available"),
         "preciousMetalsEmptyBody": MessageLookupByLibrary.simpleMessage(
             "Start adding precious metals into the app to see the breakdown here"),
         "preciousMetalsEmptyTitle": MessageLookupByLibrary.simpleMessage(

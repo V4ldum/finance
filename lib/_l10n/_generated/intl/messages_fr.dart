@@ -216,6 +216,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "possessed": MessageLookupByLibrary.simpleMessage("Détenu"),
         "preciousMetals":
             MessageLookupByLibrary.simpleMessage("Métaux Précieux"),
+        "preciousMetalsAPIFailedBody": MessageLookupByLibrary.simpleMessage(
+            "Une erreur est survenue lors de la récupération de la valeur des métaux. Vous pouvez toujours afficher le diagramme par poids"),
+        "preciousMetalsAPIFailedTitle":
+            MessageLookupByLibrary.simpleMessage("Aucune valeur disponible"),
         "preciousMetalsEmptyBody": MessageLookupByLibrary.simpleMessage(
             "Ajouter des métaux précieux dans l\'application et vous verrez le détail ici"),
         "preciousMetalsEmptyTitle": MessageLookupByLibrary.simpleMessage(

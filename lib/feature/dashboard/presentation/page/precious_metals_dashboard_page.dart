@@ -1,8 +1,8 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/feature/assets/application/assets_service.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
 import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
 import 'package:finance/feature/assets/domain/model/precious_metal_asset_model.dart';
-import 'package:finance/feature/assets/presentation/provider/finary_assets_controller.dart';
 import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/dashboard/presentation/widget/dashboard_chart.dart';
 import 'package:finance/feature/dashboard/presentation/widget/pie_chart.dart';
@@ -18,13 +18,21 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.read(appCacheControllerProvider).localAssets;
+    final tradeAPIFailed = data
+            .firstWhere(
+              (e) =>
+                  e.type == AssetTypeModel.preciousMetal &&
+                  (e as PreciousMetalAssetModel).metalType != PreciousMetalTypeModel.other,
+            )
+            .value ==
+        0;
 
     return SafeArea(
       child: RefreshIndicator(
-        onRefresh: ref.read(finaryAssetsControllerProvider.notifier).refreshAssets,
+        onRefresh: ref.read(assetsServiceProvider).getLocalAssets,
         child: DashboardChart(
-          emptyTitle: S.current.preciousMetalsEmptyTitle,
-          emptyBody: S.current.preciousMetalsEmptyBody,
+          emptyTitle: tradeAPIFailed ? 'toto' : S.current.preciousMetalsEmptyTitle,
+          emptyBody: tradeAPIFailed ? 'toto' : S.current.preciousMetalsEmptyBody,
           assetUnit: ref.watch(showPreciousMetalWeightControllerProvider) ? 'g' : '€',
           assetsFilter: () => PreciousMetalTypeModel.values
               .map(

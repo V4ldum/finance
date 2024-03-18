@@ -24,13 +24,12 @@ class PreciousMetalsTradeRepository {
   static const _silverSymbol = 'AG';
 
   Future<PreciousMetalTradeValueModel?> _getMetalValue(String symbol) async {
-    var retry = false;
+    var retry = true;
     var retryCount = 0;
 
     while (retry && retryCount < 5) {
       try {
         final value = await _preciousMetalsTradeDataSource.getMetalValue(symbol);
-
         retry = false;
 
         return PreciousMetalTradeValueModel.fromDto(value);
@@ -40,8 +39,6 @@ class PreciousMetalsTradeRepository {
         if (e.response?.statusCode != 400) {
           throw PreciousMetalsTradeValueException.fromStatusCode(e.response?.statusCode);
         }
-
-        retry = true;
         retryCount++;
       }
     }
@@ -57,12 +54,13 @@ class PreciousMetalsTradeRepository {
   }
 
   Future<SP500TradeValueModel?> getSP500TradePrice() async {
-    var retry = false;
+    var retry = true;
     var retryCount = 0;
 
     while (retry && retryCount < 5) {
       try {
         final value = await _preciousMetalsTradeDataSource.getSP500Value();
+        retry = false;
 
         return SP500TradeValueModel.fromDto(value);
       } on DioException catch (e) {
@@ -71,8 +69,6 @@ class PreciousMetalsTradeRepository {
         if (e.response?.statusCode != 400) {
           throw PreciousMetalsTradeValueException.fromStatusCode(e.response?.statusCode);
         }
-
-        retry = true;
         retryCount++;
       }
     }

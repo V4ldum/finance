@@ -49,6 +49,8 @@
   "stocksEmptyBody": "Start investing and you will see the breakdown here",
   "preciousMetalsEmptyTitle": "You don't have any precious metals",
   "preciousMetalsEmptyBody": "Start adding precious metals into the app to see the breakdown here",
+  "preciousMetalsAPIFailedTitle": "No value available",
+  "preciousMetalsAPIFailedBody": "An error occurred while getting the metals' value. You can still show the weight diagram",
   "total": "Total",
   "stocksLiquidity": "Stocks liquidity accounts",
   "checkingAccounts": "Checking accounts",

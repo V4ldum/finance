@@ -96,14 +96,13 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
       type: AssetTypeModel.cash,
     );
 
-    if (ref
+    final assetAlreadyExists = ref
         .read(appCacheControllerProvider)
         .localAssets
-        .where(
-          (e) => e.type == AssetTypeModel.cash && e.name.toLowerCase() == asset.name.toLowerCase(),
-        )
+        .where((e) => e.type == AssetTypeModel.cash && e.name.toLowerCase() == asset.name.toLowerCase())
         .toList()
-        .isNotEmpty) {
+        .isNotEmpty;
+    if (assetAlreadyExists && widget.asset == null) {
       unawaited(
         showDialog<void>(
           context: context,

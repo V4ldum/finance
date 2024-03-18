@@ -133,7 +133,7 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
       metalType: _dropdownValue ?? PreciousMetalTypeModel.other,
     );
 
-    if (ref
+    final assetAlreadyExists = ref
         .read(appCacheControllerProvider)
         .localAssets
         .where(
@@ -141,7 +141,8 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
               e is PreciousMetalAssetModel && e.numistaId.isEmpty && e.name.toLowerCase() == asset.name.toLowerCase(),
         )
         .toList()
-        .isNotEmpty) {
+        .isNotEmpty;
+    if (assetAlreadyExists && widget.asset == null) {
       unawaited(
         showDialog<void>(
           context: context,
