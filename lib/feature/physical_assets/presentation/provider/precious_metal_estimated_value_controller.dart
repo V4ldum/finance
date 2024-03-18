@@ -27,6 +27,6 @@ class PreciousMetalEstimatedValueController extends _$PreciousMetalEstimatedValu
         ),
     };
 
-    return tradeValue?.grams ?? 0 * purity * weight;
+    return (tradeValue?.grams ?? 0) * purity * weight;
   }
 }
