@@ -19,7 +19,7 @@ class CoinSearchTile extends StatelessWidget {
     final maxYear = coin.maxYear.isNotEmpty ? coin.maxYear : '????';
 
     return ListTile(
-      onTap: () => context.pushNamed(AppRoute.coinDetails, extra: coin.id),
+      onTap: () => context.pushNamed(AppRoute.coinDetails, extra: (coin.id, true)),
       leading: CoinImageLoader(url: coin.obverseThumbnailUrl),
       title: Text(
         coin.name,

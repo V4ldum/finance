@@ -136,7 +136,10 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
 
     if (context.mounted) {
       // ignore: use_build_context_synchronously
-      context.pop();
+      while (context.canPop()) {
+        // ignore: use_build_context_synchronously
+        context.pop();
+      }
     }
   }
 

@@ -1,6 +1,8 @@
 import 'package:finance/shared/constant/app_component_size.dart';
 import 'package:finance/shared/constant/app_padding.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:meta_package/meta_package.dart';
 
 class ShimmerCoinDetail extends StatelessWidget {
@@ -8,7 +10,7 @@ class ShimmerCoinDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shimmerImagesSize = MediaQuery.of(context).size.width * .4;
+    final shimmerImagesSize = MediaQuery.of(context).size.width * .43;
 
     return Shimmer(
       child: Column(
@@ -34,14 +36,16 @@ class ShimmerCoinDetail extends StatelessWidget {
 
           Row(
             children: [
-              ShimmerBlock(
-                height: shimmerImagesSize,
-                width: shimmerImagesSize,
+              Expanded(
+                child: ShimmerBlock(
+                  height: shimmerImagesSize,
+                ),
               ),
               const SizedBox(width: AppPadding.m),
-              ShimmerBlock(
-                height: shimmerImagesSize,
-                width: shimmerImagesSize,
+              Expanded(
+                child: ShimmerBlock(
+                  height: shimmerImagesSize,
+                ),
               ),
             ],
           ),

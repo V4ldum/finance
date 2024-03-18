@@ -21,7 +21,7 @@ class PhysicalAssetDetailsPage extends ConsumerWidget {
   final AssetModel asset;
 
   void _onTapDetails(BuildContext context) {
-    context.pushNamed(AppRoute.coinDetails, extra: (asset as PreciousMetalAssetModel).numistaId);
+    context.pushNamed(AppRoute.coinDetails, extra: ((asset as PreciousMetalAssetModel).numistaId, false));
   }
 
   void _onTapEdit(BuildContext context) {
@@ -48,12 +48,12 @@ class PhysicalAssetDetailsPage extends ConsumerWidget {
         content: Text(S.current.deleteDialogContent(asset.name)),
         actions: [
           TextButton(
-            onPressed: () => context.pop(true),
-            child: Text(S.current.yes),
-          ),
-          TextButton(
             onPressed: () => context.pop(false),
             child: Text(S.current.no),
+          ),
+          TextButton(
+            onPressed: () => context.pop(true),
+            child: Text(S.current.yes),
           ),
         ],
       ),

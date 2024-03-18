@@ -54,7 +54,10 @@ final router = GoRouter(
             GoRoute(
               name: AppRoute.coinDetails,
               path: AppRoute._coinDetailsPath,
-              builder: (_, state) => CoinDetailsPage(coinId: state.extra! as String),
+              builder: (_, state) {
+                final (String coinId, bool showAddButton) = state.extra! as (String, bool);
+                return CoinDetailsPage(coinId: coinId, showAddButton: showAddButton);
+              },
             ),
             GoRoute(
               name: AppRoute.editCoin,
