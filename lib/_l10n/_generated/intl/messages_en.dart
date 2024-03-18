@@ -159,7 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noPhysicalAssets": MessageLookupByLibrary.simpleMessage(
-            "You don\'t have any physical assetss. Add some by pressing the button at the top right."),
+            "You don\'t have any physical assets. Add some by pressing the button at the top right."),
         "numista": MessageLookupByLibrary.simpleMessage("Numista"),
         "numistaApiKeyField": MessageLookupByLibrary.simpleMessage("API Key"),
         "numistaApiKeyTooltip": MessageLookupByLibrary.simpleMessage(

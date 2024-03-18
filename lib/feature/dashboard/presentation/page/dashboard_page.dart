@@ -28,6 +28,7 @@ class DashboardPage extends ConsumerWidget {
       bottomNavigationBar: NavigationBar(
         selectedIndex: ref.watch(dashboardTabControllerProvider),
         onDestinationSelected: ref.read(dashboardTabControllerProvider.notifier).onTabSelected,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         destinations: [
           NavigationDestination(
             icon: const Icon(Icons.account_balance_outlined),
