@@ -24,7 +24,6 @@ class LocalStorageRepository {
 
   LocalStorageDataSource get _dataSource => _ref.read(localStorageDataSourceProvider);
 
-  static const _finarySessionIdKeyOld = 'FINARY_SESSION_ID_KEY';
   static const _finarySessionIdKey = 'FINARY_SESSION_ID';
   static const _numistaApiKeyKey = 'NUMISTA_API_KEY';
   static const _investmentStocksSymbolsKey = 'INVESTMENT_STOCKS_SYMBOL';
@@ -41,14 +40,6 @@ class LocalStorageRepository {
   }
 
   Future<String?> readSessionId() async {
-    final oldId = await _dataSource.read(_finarySessionIdKeyOld);
-
-    // TODO(val): remove soon
-    if (oldId != null) {
-      await saveSessionId(oldId);
-      await _dataSource.delete(_finarySessionIdKeyOld);
-    }
-
     return _dataSource.read(_finarySessionIdKey);
   }
 

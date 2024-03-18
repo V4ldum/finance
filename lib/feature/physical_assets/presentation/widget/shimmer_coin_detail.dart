@@ -8,7 +8,7 @@ class ShimmerCoinDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shimmerImagesSize = MediaQuery.of(context).size.width * .432;
+    final shimmerImagesSize = MediaQuery.of(context).size.width * .4;
 
     return Shimmer(
       child: Column(
