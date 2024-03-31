@@ -12,6 +12,8 @@ class RatioController extends _$RatioController {
     final goldTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getGoldTradePrice())?.troyOunces ?? 0;
     final spTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getSP500TradePrice())?.value ?? 0;
 
-    return (goldTradePrice / silverTradePrice, spTradePrice / goldTradePrice);
+    // TODO(val): query the real dollar to euro rate from backend
+    // ----------------------------------------------------- v here v
+    return (goldTradePrice / silverTradePrice, (spTradePrice * 0.92) / goldTradePrice);
   }
 }
