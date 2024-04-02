@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-Color _defaultColorManager(List<PieData> data, int index) {
+Color _defaultColorManager(List<PieData> data, int index, int? selectedIndex) {
   return Utils.getNextChartColor(
     colors: const [
       Colors.red,
@@ -22,6 +22,7 @@ Color _defaultColorManager(List<PieData> data, int index) {
     ],
     current: index,
     max: data.length,
+    selected: selectedIndex,
   );
 }
 
@@ -41,7 +42,7 @@ class DashboardChart extends ConsumerWidget {
   final String assetUnit;
   final String emptyTitle;
   final String emptyBody;
-  final Color Function(List<PieData>, int) colorManager;
+  final Color Function(List<PieData>, int, int?) colorManager;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -78,14 +79,14 @@ class DashboardChart extends ConsumerWidget {
             height: MediaQuery.of(context).size.width * .6,
             child: PieChart(
               data: data,
-              colorManager: colorManager,
+              colorManager: (data, index) => colorManager(data, index, selectedChartSegment),
               selectedIndex: selectedChartSegment,
               onSectionTaped: ref.read(selectedChartSegmentControllerProvider.notifier).onSelectedSegmentChanged,
               child: PieChartCenter(
                 top:
                     '${NumberFormat().format(selectedChartSegment == null ? total : data[selectedChartSegment].value)} $assetUnit',
                 bottom: selectedChartSegment == null ? S.current.total : data[selectedChartSegment].title,
-                size: 170,
+                size: MediaQuery.of(context).size.width * .4,
               ),
             ),
           ),
@@ -102,7 +103,7 @@ class DashboardChart extends ConsumerWidget {
                   value: item.value.toDouble(),
                   assetUnit: assetUnit,
                   percent: item.value / total,
-                  color: colorManager(data, index),
+                  color: colorManager(data, index, selectedChartSegment),
                   leading: AssetCategoryIcon(
                     category: categoryFilter(item),
                   ),

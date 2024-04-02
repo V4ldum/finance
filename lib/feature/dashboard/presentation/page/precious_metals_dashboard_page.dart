@@ -49,16 +49,22 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
               .toList()
             ..removeWhere((e) => e.value == 0),
           categoryFilter: (_) => AssetCategoryModel.savings,
-          colorManager: (data, index) {
+          colorManager: (data, index, selectedIndex) {
             final item = data[index];
+            late Color color;
 
             if (item.title == PreciousMetalTypeModel.gold.toIntlString()) {
-              return Utils.goldColor;
+              color = Utils.goldColor;
+            } else if (item.title == PreciousMetalTypeModel.silver.toIntlString()) {
+              color = Utils.silverColor;
+            } else {
+              color = Utils.moneyColor;
             }
-            if (item.title == PreciousMetalTypeModel.silver.toIntlString()) {
-              return Utils.silverColor;
+
+            if (selectedIndex != null && index != selectedIndex) {
+              return Color.alphaBlend(Colors.black45, color);
             }
-            return Utils.moneyColor;
+            return color;
           },
         ),
       ),
