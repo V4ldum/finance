@@ -103,7 +103,7 @@ class DashboardChart extends ConsumerWidget {
                   value: item.value.toDouble(),
                   assetUnit: assetUnit,
                   percent: item.value / total,
-                  color: colorManager(data, index, selectedChartSegment),
+                  color: colorManager(data, index, null),
                   leading: AssetCategoryIcon(
                     category: categoryFilter(item),
                   ),
