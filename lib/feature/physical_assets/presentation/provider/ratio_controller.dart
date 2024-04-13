@@ -7,13 +7,10 @@ part '_generated/ratio_controller.g.dart';
 class RatioController extends _$RatioController {
   @override
   Future<(double, double)> build() async {
-    final silverTradePrice =
-        (await ref.read(preciousMetalsTradeRepositoryProvider).getSilverTradePrice())?.troyOunces ?? 0;
-    final goldTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getGoldTradePrice())?.troyOunces ?? 0;
-    final spTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getSP500TradePrice())?.value ?? 0;
+    final silverTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getSilverTradeValue()).troyOunces;
+    final goldTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getGoldTradeValue()).troyOunces;
+    final spTradePrice = (await ref.read(preciousMetalsTradeRepositoryProvider).getSP500TradeValue()).value;
 
-    // TODO(val): query the real dollar to euro rate from backend
-    // ----------------------------------------------------- v here v
-    return (goldTradePrice / silverTradePrice, (spTradePrice * 0.92) / goldTradePrice);
+    return (goldTradePrice / silverTradePrice, spTradePrice / goldTradePrice);
   }
 }

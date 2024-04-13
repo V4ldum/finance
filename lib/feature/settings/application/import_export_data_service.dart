@@ -27,8 +27,8 @@ class ImportExportDataService {
 
   Future<void> import() async {
     final cache = await _importExportDataRepository.import(
-      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldTradePrice(),
-      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverTradePrice(),
+      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldTradeValue(),
+      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverTradeValue(),
     );
 
     if (cache == null) {

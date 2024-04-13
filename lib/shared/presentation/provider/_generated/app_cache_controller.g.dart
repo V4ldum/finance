@@ -45,7 +45,7 @@ Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'880efa15bd30961d362cc57274d101d5c33d2ebf';
+    r'ce060917ba7fd1a30664bdf83dd85b27142fa70e';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

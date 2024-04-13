@@ -71,8 +71,8 @@ class ImportExportDataRepository {
   }
 
   Future<AppCache?> import({
-    required Future<PreciousMetalTradeValueModel?> goldTradePriceFuture,
-    required Future<PreciousMetalTradeValueModel?> silverTradePriceFuture,
+    required Future<PreciousMetalTradeValueModel> goldTradePriceFuture,
+    required Future<PreciousMetalTradeValueModel> silverTradePriceFuture,
   }) async {
     final file = await _filePickerDataSource.openDialogReadFile(
       fileExtensionsFilter: ['json'],
@@ -83,10 +83,10 @@ class ImportExportDataRepository {
       return null;
     }
 
-    final goldTradePrice = (await goldTradePriceFuture)?.grams ?? 0;
-    final silverTradePrice = (await silverTradePriceFuture)?.grams ?? 0;
+    final goldTradePrice = (await goldTradePriceFuture).grams;
+    final silverTradePrice = (await silverTradePriceFuture).grams;
 
-    final fileContent = Map<String, dynamic>.from(jsonDecode(await file.readAsString()) as Map);
+    final fileContent = Map<String, dynamic>.from(jsonDecode(await file.readAsString(encoding: latin1)) as Map);
     final cache = AppCache.fromJson(fileContent);
     final localAssets = jsonDecode((fileContent[_localAssetsKey] as String?) ?? '[]') as List;
 

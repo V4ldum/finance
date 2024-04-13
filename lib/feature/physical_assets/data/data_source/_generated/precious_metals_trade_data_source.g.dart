@@ -7,7 +7,7 @@ part of '../precious_metals_trade_data_source.dart';
 // **************************************************************************
 
 String _$preciousMetalsTradeDataSourceHash() =>
-    r'de7e1336b919ca55b707c146ff763a325715e2f3';
+    r'fe655dced35ec55e3881cc661e6bb7aae5e83426';
 
 /// See also [preciousMetalsTradeDataSource].
 @ProviderFor(preciousMetalsTradeDataSource)

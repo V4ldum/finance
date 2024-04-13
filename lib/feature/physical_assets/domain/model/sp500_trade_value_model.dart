@@ -1,4 +1,4 @@
-import 'package:finance/feature/physical_assets/data/dto/sp500_trade_value_dto.dart';
+import 'package:finance/feature/physical_assets/data/dto/trade_values_dto.dart';
 
 class SP500TradeValueModel {
   SP500TradeValueModel({
@@ -6,10 +6,10 @@ class SP500TradeValueModel {
     required this.value,
   });
 
-  factory SP500TradeValueModel.fromDto(SP500TradeValueDto dto) {
+  factory SP500TradeValueModel.fromDto(TradeValueDto dto) {
     return SP500TradeValueModel(
-      name: dto.data.quote.result.name,
-      value: dto.data.quote.result.bid,
+      name: 'SP500',
+      value: dto.price,
     );
   }
 

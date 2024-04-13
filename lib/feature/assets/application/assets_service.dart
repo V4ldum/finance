@@ -48,8 +48,8 @@ class AssetsService {
   /// Local Assets
   Future<List<AssetModel>> getLocalAssets() async {
     return _appCache.localAssets = await _localStorageRepository.readLocalAssets(
-      goldTradePrice: (await _preciousMetalsTradeRepository.getGoldTradePrice())?.grams ?? 0,
-      silverTradePrice: (await _preciousMetalsTradeRepository.getSilverTradePrice())?.grams ?? 0,
+      goldTradePrice: (await _preciousMetalsTradeRepository.getGoldTradeValue()).grams,
+      silverTradePrice: (await _preciousMetalsTradeRepository.getSilverTradeValue()).grams,
     );
   }
 

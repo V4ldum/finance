@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:finance/feature/physical_assets/data/dto/precious_metal_trade_value_dto.dart';
-import 'package:finance/feature/physical_assets/data/dto/sp500_trade_value_dto.dart';
+import 'package:finance/feature/physical_assets/data/dto/trade_values_dto.dart';
 import 'package:finance/shared/constant/app_string.dart';
+import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -9,46 +9,43 @@ part '_generated/precious_metals_trade_data_source.g.dart';
 
 @riverpod
 PreciousMetalsTradeDataSource preciousMetalsTradeDataSource(PreciousMetalsTradeDataSourceRef ref) {
-  return PreciousMetalsTradeDataSource();
-}
+  final cache = ref.watch(appCacheControllerProvider);
 
-class PreciousMetalsTradeDataSource {
-  PreciousMetalsTradeDataSource();
-
-  final Dio _dio = Dio(
+  final dio = Dio(
     BaseOptions(
       baseUrl: AppString.preciousMetalTradeValueApi,
+      headers: {
+        // TODO(val): change hardcoded + settings
+        AppString.customBackHeader: '',
+      },
     ),
   );
 
-  Future<PreciousMetalTradeValueDto> getMetalValue(String metalSymbol) async {
-    final response = await _dio.post<JsonResponse>(
-      '',
-      data: {
-        'query':
-            r'fragment MetalFragment on Metal { name results { ...MetalQuoteFragment } } fragment MetalQuoteFragment on Quote { bid change changePercentage } query MetalQuote( $symbol: String! $currency: String! $timestamp: Int ) { GetMetalQuote( symbol: $symbol currency: $currency timestamp: $timestamp ) { ...MetalFragment } }',
-        'variables': {
-          'symbol': metalSymbol,
-          'currency': 'EUR',
-          'timestamp': DateTime.now().millisecondsSinceEpoch ~/ 1000,
-        },
-      },
-    );
-    return PreciousMetalTradeValueDto.fromHttpResponse(response.data!);
+  return PreciousMetalsTradeDataSource(dio);
+}
+
+class PreciousMetalsTradeDataSource {
+  PreciousMetalsTradeDataSource(this._dio);
+
+  late final Dio _dio;
+
+  Future<TradeValuesDto> getAllValues() async {
+    final response = await _dio.get<JsonResponse>('trade_values');
+    return TradeValuesDto.fromHttpResponse(response.data!);
   }
 
-  Future<SP500TradeValueDto> getSP500Value() async {
-    final response = await _dio.post<JsonResponse>(
-      '',
-      data: {
-        'query':
-            r'query BarchartsQuotes($timestamp: Int!, $symbols: String!) { GetBarchartQuotes(symbols: $symbols, timestamp: $timestamp) { results { lastPrice name } } }',
-        'variables': {
-          'symbols': r'$SPX',
-          'timestamp': DateTime.now().millisecondsSinceEpoch ~/ 1000,
-        },
-      },
-    );
-    return SP500TradeValueDto.fromHttpResponse(response.data!);
+  Future<TradeValueDto> getGoldValue() async {
+    final response = await _dio.get<JsonResponse>('trade_values/gold');
+    return TradeValueDto.fromHttpResponse(response.data!);
+  }
+
+  Future<TradeValueDto> getSilverValue() async {
+    final response = await _dio.get<JsonResponse>('trade_values/silver');
+    return TradeValueDto.fromHttpResponse(response.data!);
+  }
+
+  Future<TradeValueDto> getSP500Value() async {
+    final response = await _dio.get<JsonResponse>('trade_values/sp500');
+    return TradeValueDto.fromHttpResponse(response.data!);
   }
 }

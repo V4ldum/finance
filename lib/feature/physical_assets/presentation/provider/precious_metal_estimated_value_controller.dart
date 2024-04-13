@@ -16,17 +16,15 @@ class PreciousMetalEstimatedValueController extends _$PreciousMetalEstimatedValu
     assert(purity < 1 && purity >= 0, 'purity should be between 0 and 1');
 
     final tradeValue = switch (metal) {
-      PreciousMetalTypeModel.gold => await ref.read(preciousMetalsTradeRepositoryProvider).getGoldTradePrice(),
-      PreciousMetalTypeModel.silver => await ref.read(preciousMetalsTradeRepositoryProvider).getSilverTradePrice(),
+      PreciousMetalTypeModel.gold => await ref.read(preciousMetalsTradeRepositoryProvider).getGoldTradeValue(),
+      PreciousMetalTypeModel.silver => await ref.read(preciousMetalsTradeRepositoryProvider).getSilverTradeValue(),
       _ => PreciousMetalTradeValueModel(
           metal: PreciousMetalTypeModel.other,
           grams: 0,
           troyOunces: 0,
-          change: 0,
-          changePercent: 0,
         ),
     };
 
-    return (tradeValue?.grams ?? 0) * purity * weight;
+    return tradeValue.grams * purity * weight;
   }
 }

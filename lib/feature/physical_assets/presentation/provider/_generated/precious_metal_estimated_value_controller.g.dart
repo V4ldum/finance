@@ -7,7 +7,7 @@ part of '../precious_metal_estimated_value_controller.dart';
 // **************************************************************************
 
 String _$preciousMetalEstimatedValueControllerHash() =>
-    r'fa79af8bee10da7cdaa50d97254884597988feaf';
+    r'd30c9c8034af1c6b56506f0e02c094293bc76631';
 
 /// Copied from Dart SDK
 class _SystemHash {
