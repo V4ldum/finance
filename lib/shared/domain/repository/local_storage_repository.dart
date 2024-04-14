@@ -26,6 +26,7 @@ class LocalStorageRepository {
 
   static const _finarySessionIdKey = 'FINARY_SESSION_ID';
   static const _numistaApiKeyKey = 'NUMISTA_API_KEY';
+  static const _customBackApiKeyKey = 'CUSTOM_BACK_API_KEY';
   static const _investmentStocksSymbolsKey = 'INVESTMENT_STOCKS_SYMBOL';
   static const _preciousMetalsLocalAssetsKey = 'PRECIOUS_METAL_LOCAL_ASSETS';
   static const _cashLocalAssetsKey = 'CASH_LOCAL_ASSETS';
@@ -54,6 +55,15 @@ class LocalStorageRepository {
 
   Future<String?> readNumistaApiKey() async {
     return _dataSource.read(_numistaApiKeyKey);
+  }
+
+  /// Custom Back Api Key
+  Future<void> saveCustomBackApiKey(String apiKey) async {
+    await _dataSource.write(_customBackApiKeyKey, apiKey);
+  }
+
+  Future<String?> readCustomBackApiKey() async {
+    return _dataSource.read(_customBackApiKeyKey);
   }
 
   /// Investment Stocks Symbols

@@ -18,21 +18,22 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.read(appCacheControllerProvider).localAssets;
-    final tradeAPIFailed = data
-            .firstWhere(
-              (e) =>
-                  e.type == AssetTypeModel.preciousMetal &&
-                  (e as PreciousMetalAssetModel).metalType != PreciousMetalTypeModel.other,
-            )
-            .value ==
-        0;
+    final tradeAPIFailed = data.isNotEmpty &&
+        data
+                .firstWhere(
+                  (e) =>
+                      e.type == AssetTypeModel.preciousMetal &&
+                      (e as PreciousMetalAssetModel).metalType != PreciousMetalTypeModel.other,
+                )
+                .value ==
+            0;
 
     return SafeArea(
       child: RefreshIndicator(
         onRefresh: ref.read(assetsServiceProvider).getLocalAssets,
         child: DashboardChart(
-          emptyTitle: tradeAPIFailed ? 'toto' : S.current.preciousMetalsEmptyTitle,
-          emptyBody: tradeAPIFailed ? 'toto' : S.current.preciousMetalsEmptyBody,
+          emptyTitle: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyTitle,
+          emptyBody: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyBody,
           assetUnit: ref.watch(showPreciousMetalWeightControllerProvider) ? 'g' : '€',
           assetsFilter: () => PreciousMetalTypeModel.values
               .map(

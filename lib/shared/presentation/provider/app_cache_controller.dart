@@ -20,6 +20,7 @@ sealed class AppCache with _$AppCache {
     @JsonKey(includeFromJson: false, includeToJson: false) @Default('') final String applicationDirectory,
     @Default('') final String finarySessionId,
     @Default('') final String numistaApiKey,
+    @Default('') final String customBackApiKey,
     @Default(PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio) final double gsrGoldFavorableRatio,
     @Default(PhysicalAssetsSettingsPage.defaultGSRSilverFavorableRatio) final double gsrSilverFavorableRatio,
     @Default(PhysicalAssetsSettingsPage.defaultSPGRSPFavorableRatio) final double spgrSPFavorableRatio,
@@ -50,9 +51,10 @@ class AppCacheController extends _$AppCacheController {
       await ref.read(finaryAuthServiceProvider).clearSession();
     }
 
-    // Numista Api Key
+    // Numista & Custom Back Api Keys
     state = state.copyWith(
       numistaApiKey: await ref.read(localStorageRepositoryProvider).readNumistaApiKey() ?? '',
+      customBackApiKey: await ref.read(localStorageRepositoryProvider).readCustomBackApiKey() ?? '',
     );
 
     /// Assets
@@ -68,7 +70,7 @@ class AppCacheController extends _$AppCacheController {
       spgrSPFavorableRatio: await ref.read(localStorageRepositoryProvider).getSPGRSPFavorableRatio(),
       spgrGoldFavorableRatio: await ref.read(localStorageRepositoryProvider).getSPGRGoldFavorableRatio(),
       finaryAssets: state.finarySessionId.isNotEmpty ? await ref.read(assetsServiceProvider).getFinaryAssets() : null,
-      localAssets: await ref.read(assetsServiceProvider).getLocalAssets(),
+      localAssets: state.customBackApiKey.isNotEmpty ? await ref.read(assetsServiceProvider).getLocalAssets() : [],
     );
   }
 
@@ -78,9 +80,15 @@ class AppCacheController extends _$AppCacheController {
     );
   }
 
-  void refreshApiKey({required String? key}) {
+  void refreshNumistaApiKey({required String? key}) {
     state = state.copyWith(
       numistaApiKey: key ?? '',
+    );
+  }
+
+  void refreshCustomBackApiKey({required String? key}) {
+    state = state.copyWith(
+      customBackApiKey: key ?? '',
     );
   }
 
@@ -123,6 +131,7 @@ class AppCacheController extends _$AppCacheController {
       spgrSPFavorableRatio: importedCache.spgrSPFavorableRatio,
       spgrGoldFavorableRatio: importedCache.spgrGoldFavorableRatio,
       numistaApiKey: importedCache.numistaApiKey,
+      customBackApiKey: importedCache.customBackApiKey,
       localAssets: importedCache.localAssets,
     );
   }

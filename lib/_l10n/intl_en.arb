@@ -99,6 +99,8 @@
   "numistaApiKeyField": "API Key",
   "numistaApiKeyTooltip": "To obtain an API key, head over to\r\n",
   "numistaWebsiteUrl": "https://en.numista.com/api",
+  "customBack": "Custom Back",
+  "customBackMessage": "To obtain an API Key, contact \r\nthe administrator of the application",
   "@@@_SETTINGS_DASHBOARD": {},
   "dashboardSettingsStockCategorisationTitle": "Stock Categorisation",
   "dashboardSettingsStockCategorisationMessage": "By default, stocks are considered speculative. Select the ones you want to tag as investment in the following list.",

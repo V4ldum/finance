@@ -84,6 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Credit Accounts"),
         "crowdlendings": MessageLookupByLibrary.simpleMessage("Crowdlendings"),
         "cryptos": MessageLookupByLibrary.simpleMessage("Cryptos"),
+        "customBack": MessageLookupByLibrary.simpleMessage("Custom Back"),
+        "customBackMessage": MessageLookupByLibrary.simpleMessage(
+            "To obtain an API Key, contact \r\nthe administrator of the application"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "dashboardSettingsStockCategorisationEmptyError":

@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -18,17 +19,15 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+        _current != null, 'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -987,6 +986,26 @@ class S {
     return Intl.message(
       'https://en.numista.com/api',
       name: 'numistaWebsiteUrl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Custom Back`
+  String get customBack {
+    return Intl.message(
+      'Custom Back',
+      name: 'customBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To obtain an API Key, contact \r\nthe administrator of the application`
+  String get customBackMessage {
+    return Intl.message(
+      'To obtain an API Key, contact \r\nthe administrator of the application',
+      name: 'customBackMessage',
       desc: '',
       args: [],
     );

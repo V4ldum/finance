@@ -10,6 +10,7 @@ _$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
     _$AppCacheImpl(
       finarySessionId: json['finarySessionId'] as String? ?? '',
       numistaApiKey: json['numistaApiKey'] as String? ?? '',
+      customBackApiKey: json['customBackApiKey'] as String? ?? '',
       gsrGoldFavorableRatio:
           (json['gsrGoldFavorableRatio'] as num?)?.toDouble() ??
               PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio,
@@ -33,6 +34,7 @@ Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
     <String, dynamic>{
       'finarySessionId': instance.finarySessionId,
       'numistaApiKey': instance.numistaApiKey,
+      'customBackApiKey': instance.customBackApiKey,
       'gsrGoldFavorableRatio': instance.gsrGoldFavorableRatio,
       'gsrSilverFavorableRatio': instance.gsrSilverFavorableRatio,
       'spgrSPFavorableRatio': instance.spgrSPFavorableRatio,
@@ -45,7 +47,7 @@ Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'ce060917ba7fd1a30664bdf83dd85b27142fa70e';
+    r'b2ac1c6472bd2e2b87f7c4ca5a785b299487afd0';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

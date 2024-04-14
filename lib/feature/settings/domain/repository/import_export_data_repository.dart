@@ -44,6 +44,7 @@ class ImportExportDataRepository {
 
   FilePickerDataSource get _filePickerDataSource => _ref.read(filePickerDataSourceProvider);
   AppCache get _cache => _ref.read(appCacheControllerProvider);
+  AppCacheController get _cacheController => _ref.read(appCacheControllerProvider.notifier);
 
   Future<void> export() async {
     final filename = 'export_${DateTime.now().toIso8601String()}.json';
@@ -71,8 +72,8 @@ class ImportExportDataRepository {
   }
 
   Future<AppCache?> import({
-    required Future<PreciousMetalTradeValueModel> goldTradePriceFuture,
-    required Future<PreciousMetalTradeValueModel> silverTradePriceFuture,
+    required Future<PreciousMetalTradeValueModel> Function() goldTradePriceFuture,
+    required Future<PreciousMetalTradeValueModel> Function() silverTradePriceFuture,
   }) async {
     final file = await _filePickerDataSource.openDialogReadFile(
       fileExtensionsFilter: ['json'],
@@ -83,31 +84,38 @@ class ImportExportDataRepository {
       return null;
     }
 
-    final goldTradePrice = (await goldTradePriceFuture).grams;
-    final silverTradePrice = (await silverTradePriceFuture).grams;
-
     final fileContent = Map<String, dynamic>.from(jsonDecode(await file.readAsString(encoding: latin1)) as Map);
     final cache = AppCache.fromJson(fileContent);
     final localAssets = jsonDecode((fileContent[_localAssetsKey] as String?) ?? '[]') as List;
 
-    cache.localAssets = localAssets.map((e) {
-      // Precious Metal
-      if ((e as JsonResponse).keys.contains('metalType')) {
-        final dto = LocalPreciousMetalDto.fromJson(e);
+    if (_cache.customBackApiKey.isEmpty) {
+      // Temporary save the customBackApiKey to be able to query gold & silver price
+      _cacheController.refreshCustomBackApiKey(key: cache.customBackApiKey);
+    }
 
-        return PreciousMetalAssetModel.fromDto(
-          dto,
-          switch (dto.metalType) {
-            PreciousMetalTypeDto.gold => goldTradePrice,
-            PreciousMetalTypeDto.silver => silverTradePrice,
-            PreciousMetalTypeDto.other => 0,
-          },
-        );
-      }
+    if (_cache.customBackApiKey.isNotEmpty) {
+      final goldTradePrice = (await goldTradePriceFuture()).grams;
+      final silverTradePrice = (await silverTradePriceFuture()).grams;
 
-      // Cash
-      return AssetModel.fromLocalDto(LocalAssetDto.fromJson(e));
-    }).toList();
+      cache.localAssets = localAssets.map((e) {
+        // Precious Metal
+        if ((e as JsonResponse).keys.contains('metalType')) {
+          final dto = LocalPreciousMetalDto.fromJson(e);
+
+          return PreciousMetalAssetModel.fromDto(
+            dto,
+            switch (dto.metalType) {
+              PreciousMetalTypeDto.gold => goldTradePrice,
+              PreciousMetalTypeDto.silver => silverTradePrice,
+              PreciousMetalTypeDto.other => 0,
+            },
+          );
+        }
+
+        // Cash
+        return AssetModel.fromLocalDto(LocalAssetDto.fromJson(e));
+      }).toList();
+    }
 
     await _cookieJar.forceInit();
 

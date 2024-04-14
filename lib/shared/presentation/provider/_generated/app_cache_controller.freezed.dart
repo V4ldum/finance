@@ -24,6 +24,7 @@ mixin _$AppCache {
   String get applicationDirectory => throw _privateConstructorUsedError;
   String get finarySessionId => throw _privateConstructorUsedError;
   String get numistaApiKey => throw _privateConstructorUsedError;
+  String get customBackApiKey => throw _privateConstructorUsedError;
   double get gsrGoldFavorableRatio => throw _privateConstructorUsedError;
   double get gsrSilverFavorableRatio => throw _privateConstructorUsedError;
   double get spgrSPFavorableRatio => throw _privateConstructorUsedError;
@@ -56,6 +57,7 @@ abstract class $AppCacheCopyWith<$Res> {
       String applicationDirectory,
       String finarySessionId,
       String numistaApiKey,
+      String customBackApiKey,
       double gsrGoldFavorableRatio,
       double gsrSilverFavorableRatio,
       double spgrSPFavorableRatio,
@@ -83,6 +85,7 @@ class _$AppCacheCopyWithImpl<$Res, $Val extends AppCache>
     Object? applicationDirectory = null,
     Object? finarySessionId = null,
     Object? numistaApiKey = null,
+    Object? customBackApiKey = null,
     Object? gsrGoldFavorableRatio = null,
     Object? gsrSilverFavorableRatio = null,
     Object? spgrSPFavorableRatio = null,
@@ -103,6 +106,10 @@ class _$AppCacheCopyWithImpl<$Res, $Val extends AppCache>
       numistaApiKey: null == numistaApiKey
           ? _value.numistaApiKey
           : numistaApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      customBackApiKey: null == customBackApiKey
+          ? _value.customBackApiKey
+          : customBackApiKey // ignore: cast_nullable_to_non_nullable
               as String,
       gsrGoldFavorableRatio: null == gsrGoldFavorableRatio
           ? _value.gsrGoldFavorableRatio
@@ -149,6 +156,7 @@ abstract class _$$AppCacheImplCopyWith<$Res>
       String applicationDirectory,
       String finarySessionId,
       String numistaApiKey,
+      String customBackApiKey,
       double gsrGoldFavorableRatio,
       double gsrSilverFavorableRatio,
       double spgrSPFavorableRatio,
@@ -174,6 +182,7 @@ class __$$AppCacheImplCopyWithImpl<$Res>
     Object? applicationDirectory = null,
     Object? finarySessionId = null,
     Object? numistaApiKey = null,
+    Object? customBackApiKey = null,
     Object? gsrGoldFavorableRatio = null,
     Object? gsrSilverFavorableRatio = null,
     Object? spgrSPFavorableRatio = null,
@@ -194,6 +203,10 @@ class __$$AppCacheImplCopyWithImpl<$Res>
       numistaApiKey: null == numistaApiKey
           ? _value.numistaApiKey
           : numistaApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
+      customBackApiKey: null == customBackApiKey
+          ? _value.customBackApiKey
+          : customBackApiKey // ignore: cast_nullable_to_non_nullable
               as String,
       gsrGoldFavorableRatio: null == gsrGoldFavorableRatio
           ? _value.gsrGoldFavorableRatio
@@ -235,6 +248,7 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
       this.applicationDirectory = '',
       this.finarySessionId = '',
       this.numistaApiKey = '',
+      this.customBackApiKey = '',
       this.gsrGoldFavorableRatio =
           PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio,
       this.gsrSilverFavorableRatio =
@@ -262,6 +276,9 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
   final String numistaApiKey;
   @override
   @JsonKey()
+  final String customBackApiKey;
+  @override
+  @JsonKey()
   final double gsrGoldFavorableRatio;
   @override
   @JsonKey()
@@ -284,7 +301,7 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppCache(applicationDirectory: $applicationDirectory, finarySessionId: $finarySessionId, numistaApiKey: $numistaApiKey, gsrGoldFavorableRatio: $gsrGoldFavorableRatio, gsrSilverFavorableRatio: $gsrSilverFavorableRatio, spgrSPFavorableRatio: $spgrSPFavorableRatio, spgrGoldFavorableRatio: $spgrGoldFavorableRatio, investmentStocksSymbols: $investmentStocksSymbols, finaryAssets: $finaryAssets, localAssets: $localAssets)';
+    return 'AppCache(applicationDirectory: $applicationDirectory, finarySessionId: $finarySessionId, numistaApiKey: $numistaApiKey, customBackApiKey: $customBackApiKey, gsrGoldFavorableRatio: $gsrGoldFavorableRatio, gsrSilverFavorableRatio: $gsrSilverFavorableRatio, spgrSPFavorableRatio: $spgrSPFavorableRatio, spgrGoldFavorableRatio: $spgrGoldFavorableRatio, investmentStocksSymbols: $investmentStocksSymbols, finaryAssets: $finaryAssets, localAssets: $localAssets)';
   }
 
   @override
@@ -295,6 +312,7 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
       ..add(DiagnosticsProperty('applicationDirectory', applicationDirectory))
       ..add(DiagnosticsProperty('finarySessionId', finarySessionId))
       ..add(DiagnosticsProperty('numistaApiKey', numistaApiKey))
+      ..add(DiagnosticsProperty('customBackApiKey', customBackApiKey))
       ..add(DiagnosticsProperty('gsrGoldFavorableRatio', gsrGoldFavorableRatio))
       ..add(DiagnosticsProperty(
           'gsrSilverFavorableRatio', gsrSilverFavorableRatio))
@@ -327,6 +345,7 @@ abstract class _AppCache implements AppCache {
       final String applicationDirectory,
       final String finarySessionId,
       final String numistaApiKey,
+      final String customBackApiKey,
       final double gsrGoldFavorableRatio,
       final double gsrSilverFavorableRatio,
       final double spgrSPFavorableRatio,
@@ -347,6 +366,8 @@ abstract class _AppCache implements AppCache {
   String get finarySessionId;
   @override
   String get numistaApiKey;
+  @override
+  String get customBackApiKey;
   @override
   double get gsrGoldFavorableRatio;
   @override

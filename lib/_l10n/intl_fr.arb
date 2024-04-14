@@ -99,6 +99,8 @@
   "numistaApiKeyField": "Clé d'API",
   "numistaApiKeyTooltip": "Pour obtenir une clé d'API, rendez-vous sur\r\n",
   "numistaWebsiteUrl": "https://fr.numista.com/api",
+  "customBack": "API maison",
+  "customBackMessage": "Pour obtenir une clé d'API, contactez \r\nl'administrateur de l'application",
   "@@@_SETTINGS_DASHBOARD": {},
   "dashboardSettingsStockCategorisationTitle": "Categorisation des actions",
   "dashboardSettingsStockCategorisationMessage": "Par défault, les actions sont considérées comme spéculatives. Selectionnez celles que vous voulez catégoriser comme investissements dans la liste ci-dessous.",

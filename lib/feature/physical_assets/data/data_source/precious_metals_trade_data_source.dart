@@ -15,8 +15,7 @@ PreciousMetalsTradeDataSource preciousMetalsTradeDataSource(PreciousMetalsTradeD
     BaseOptions(
       baseUrl: AppString.preciousMetalTradeValueApi,
       headers: {
-        // TODO(val): change hardcoded + settings
-        AppString.customBackHeader: '',
+        AppString.customBackHeader: cache.customBackApiKey,
       },
     ),
   );

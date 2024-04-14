@@ -27,8 +27,8 @@ class ImportExportDataService {
 
   Future<void> import() async {
     final cache = await _importExportDataRepository.import(
-      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldTradeValue(),
-      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverTradeValue(),
+      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldTradeValue,
+      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverTradeValue,
     );
 
     if (cache == null) {
@@ -39,6 +39,7 @@ class ImportExportDataService {
     await _localStorageRepository.saveInvestmentStocksSymbols(cache.investmentStocksSymbols);
     await _localStorageRepository.saveSessionId(cache.finarySessionId);
     await _localStorageRepository.saveNumistaApiKey(cache.numistaApiKey);
+    await _localStorageRepository.saveCustomBackApiKey(cache.customBackApiKey);
     await _localStorageRepository.saveLocalAssets(cache.localAssets);
 
     _cacheController.importData(cache);

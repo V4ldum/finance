@@ -19,6 +19,11 @@ class PreciousMetalsService {
 
   Future<void> saveNumistaApiKey(String key) async {
     await _localStorageRepository.saveNumistaApiKey(key);
-    _appCacheController.refreshApiKey(key: key);
+    _appCacheController.refreshNumistaApiKey(key: key);
+  }
+
+  Future<void> saveCustomBackApiKey(String key) async {
+    await _localStorageRepository.saveCustomBackApiKey(key);
+    _appCacheController.refreshCustomBackApiKey(key: key);
   }
 }

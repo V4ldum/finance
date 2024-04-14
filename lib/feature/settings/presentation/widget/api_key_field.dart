@@ -1,11 +1,16 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/feature/physical_assets/application/precious_metals_service.dart';
-import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ApiKeyField extends ConsumerStatefulWidget {
-  const ApiKeyField({super.key});
+  const ApiKeyField({
+    super.key,
+    this.initialValue,
+    this.updateKeyCallback,
+  });
+
+  final String? initialValue;
+  final Future<void> Function(String)? updateKeyCallback;
 
   @override
   ConsumerState<ApiKeyField> createState() => _ApiKeyFieldState();
@@ -17,19 +22,22 @@ class _ApiKeyFieldState extends ConsumerState<ApiKeyField> {
 
   void _clearField() {
     setState(apiKeyController.clear);
-    _updateNumistaApiKey();
+    _updateApiKey();
   }
 
-  Future<void> _updateNumistaApiKey() async {
+  Future<void> _updateApiKey() async {
     debugPrint('Saving "${apiKeyController.text}"');
 
-    await ref.read(preciousMetalsServiceProvider).saveNumistaApiKey(apiKeyController.text);
+    await widget.updateKeyCallback?.call(apiKeyController.text);
   }
 
   @override
   void initState() {
     super.initState();
-    apiKeyController.text = ref.read(appCacheControllerProvider).numistaApiKey;
+
+    if (widget.initialValue != null) {
+      apiKeyController.text = widget.initialValue!;
+    }
   }
 
   @override
@@ -63,7 +71,7 @@ class _ApiKeyFieldState extends ConsumerState<ApiKeyField> {
               AutofillHints.password,
               AutofillHints.oneTimeCode,
             },
-            onChanged: (_) => _updateNumistaApiKey(),
+            onChanged: (_) => _updateApiKey(),
           ),
         ),
       ),
