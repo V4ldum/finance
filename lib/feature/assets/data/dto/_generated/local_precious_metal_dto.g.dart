@@ -29,7 +29,7 @@ Map<String, dynamic> _$$LocalPreciousMetalDtoImplToJson(
     };
 
 const _$PreciousMetalTypeDtoEnumMap = {
-  PreciousMetalTypeDto.gold: 'gold',
-  PreciousMetalTypeDto.silver: 'silver',
-  PreciousMetalTypeDto.other: 'other',
+  PreciousMetalTypeDto.gold: 'GOLD',
+  PreciousMetalTypeDto.silver: 'SILVER',
+  PreciousMetalTypeDto.other: 'OTHER',
 };

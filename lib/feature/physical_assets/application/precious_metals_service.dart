@@ -17,11 +17,6 @@ class PreciousMetalsService {
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);
   AppCacheController get _appCacheController => _ref.read(appCacheControllerProvider.notifier);
 
-  Future<void> saveNumistaApiKey(String key) async {
-    await _localStorageRepository.saveNumistaApiKey(key);
-    _appCacheController.refreshNumistaApiKey(key: key);
-  }
-
   Future<void> saveCustomBackApiKey(String key) async {
     await _localStorageRepository.saveCustomBackApiKey(key);
     _appCacheController.refreshCustomBackApiKey(key: key);

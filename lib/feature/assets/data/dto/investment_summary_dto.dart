@@ -11,9 +11,9 @@ sealed class InvestmentSummaryDto with _$InvestmentSummaryDto {
     required InvestmentSummaryResultDto result,
   }) = _InvestmentSummaryDto;
 
-  factory InvestmentSummaryDto.fromJson(JsonResponse json) => _$InvestmentSummaryDtoFromJson(json);
+  factory InvestmentSummaryDto.fromJson(JsonMapResponse json) => _$InvestmentSummaryDtoFromJson(json);
 
-  factory InvestmentSummaryDto.fromHttpResponse(JsonResponse response) {
+  factory InvestmentSummaryDto.fromHttpResponse(JsonMapResponse response) {
     return InvestmentSummaryDto.fromJson(response);
   }
 }
@@ -25,7 +25,7 @@ sealed class InvestmentSummaryResultDto with _$InvestmentSummaryResultDto {
     @JsonKey(name: 'gross') required InvestmentSummaryDistributionDto distribution,
   }) = _InvestmentSummaryResultDto;
 
-  factory InvestmentSummaryResultDto.fromJson(JsonResponse json) => _$InvestmentSummaryResultDtoFromJson(json);
+  factory InvestmentSummaryResultDto.fromJson(JsonMapResponse json) => _$InvestmentSummaryResultDtoFromJson(json);
 }
 
 @freezed
@@ -45,7 +45,7 @@ sealed class InvestmentSummaryDistributionDto with _$InvestmentSummaryDistributi
     @JsonKey(name: 'credit_accounts') required SummaryValuesDto? creditAccounts,
   }) = _InvestmentSummaryDistributionDto;
 
-  factory InvestmentSummaryDistributionDto.fromJson(JsonResponse json) =>
+  factory InvestmentSummaryDistributionDto.fromJson(JsonMapResponse json) =>
       _$InvestmentSummaryDistributionDtoFromJson(json);
 }
 

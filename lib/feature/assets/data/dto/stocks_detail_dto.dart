@@ -11,9 +11,9 @@ sealed class StocksDetailDto with _$StocksDetailDto {
     required StockDetailResultDto result,
   }) = _StocksDetailDto;
 
-  factory StocksDetailDto.fromJson(JsonResponse json) => _$StocksDetailDtoFromJson(json);
+  factory StocksDetailDto.fromJson(JsonMapResponse json) => _$StocksDetailDtoFromJson(json);
 
-  factory StocksDetailDto.fromHttpResponse(JsonResponse response) {
+  factory StocksDetailDto.fromHttpResponse(JsonMapResponse response) {
     return StocksDetailDto.fromJson(response);
   }
 }
@@ -25,7 +25,7 @@ sealed class StockDetailResultDto with _$StockDetailResultDto {
     required List<StockDetailAccountDto> accounts,
   }) = _StockDetailResultDto;
 
-  factory StockDetailResultDto.fromJson(JsonResponse json) => _$StockDetailResultDtoFromJson(json);
+  factory StockDetailResultDto.fromJson(JsonMapResponse json) => _$StockDetailResultDtoFromJson(json);
 }
 
 @freezed
@@ -36,7 +36,7 @@ sealed class StockDetailAccountDto with _$StockDetailAccountDto {
     required List<StockDetailSecurityDto> securities,
   }) = _StockDetailAccountDto;
 
-  factory StockDetailAccountDto.fromJson(JsonResponse json) => _$StockDetailAccountDtoFromJson(json);
+  factory StockDetailAccountDto.fromJson(JsonMapResponse json) => _$StockDetailAccountDtoFromJson(json);
 }
 
 @freezed
@@ -50,7 +50,7 @@ sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
     required StockDetailSecurityInformationDto security,
   }) = _StockDetailSecurityDto;
 
-  factory StockDetailSecurityDto.fromJson(JsonResponse json) => _$StockDetailSecurityDtoFromJson(json);
+  factory StockDetailSecurityDto.fromJson(JsonMapResponse json) => _$StockDetailSecurityDtoFromJson(json);
 
   factory StockDetailSecurityDto.fromLiquidityArray(Iterable<StockDetailSecurityDto> array) {
     return StockDetailSecurityDto(
@@ -83,7 +83,7 @@ sealed class StockDetailSecurityInformationDto with _$StockDetailSecurityInforma
     required StockDetailSecurityTypeDto type,
   }) = _StockDetailSecurityInformationDto;
 
-  factory StockDetailSecurityInformationDto.fromJson(JsonResponse json) =>
+  factory StockDetailSecurityInformationDto.fromJson(JsonMapResponse json) =>
       _$StockDetailSecurityInformationDtoFromJson(json);
 }
 

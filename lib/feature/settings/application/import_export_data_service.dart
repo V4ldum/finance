@@ -38,9 +38,7 @@ class ImportExportDataService {
     // Store the data again
     await _localStorageRepository.saveInvestmentStocksSymbols(cache.investmentStocksSymbols);
     await _localStorageRepository.saveSessionId(cache.finarySessionId);
-    await _localStorageRepository.saveNumistaApiKey(cache.numistaApiKey);
     await _localStorageRepository.saveCustomBackApiKey(cache.customBackApiKey);
-    await _localStorageRepository.saveLocalAssets(cache.localAssets);
 
     _cacheController.importData(cache);
   }

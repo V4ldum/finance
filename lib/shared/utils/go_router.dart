@@ -1,7 +1,7 @@
 import 'package:finance/feature/assets/domain/model/asset_model.dart';
 import 'package:finance/feature/assets/domain/model/precious_metal_asset_model.dart';
 import 'package:finance/feature/dashboard/presentation/page/dashboard_page.dart';
-import 'package:finance/feature/physical_assets/domain/model/coin_data_model.dart';
+import 'package:finance/feature/physical_assets/domain/model/coin_model.dart';
 import 'package:finance/feature/physical_assets/presentation/page/coin_details_page.dart';
 import 'package:finance/feature/physical_assets/presentation/page/edit_cash_page.dart';
 import 'package:finance/feature/physical_assets/presentation/page/edit_coin_page.dart';
@@ -55,16 +55,16 @@ final router = GoRouter(
               name: AppRoute.coinDetails,
               path: AppRoute._coinDetailsPath,
               builder: (_, state) {
-                final (String coinId, bool showAddButton) = state.extra! as (String, bool);
-                return CoinDetailsPage(coinId: coinId, showAddButton: showAddButton);
+                final (String id, bool showAddButton) = state.extra! as (String, bool);
+                return CoinDetailsPage(coinId: id, showAddButton: showAddButton);
               },
             ),
             GoRoute(
               name: AppRoute.editCoin,
               path: AppRoute._editCoinPath,
               builder: (_, state) {
-                if (state.extra is CoinDataModel) {
-                  return EditCoinPage(coin: state.extra as CoinDataModel?);
+                if (state.extra is CoinModel) {
+                  return EditCoinPage(coin: state.extra as CoinModel?);
                 }
                 return EditCoinPage(asset: state.extra as PreciousMetalAssetModel?);
               },

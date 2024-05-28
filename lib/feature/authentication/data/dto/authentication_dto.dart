@@ -12,9 +12,9 @@ sealed class AuthenticationDto with _$AuthenticationDto {
     required AuthenticationClientDto client,
   }) = _AuthenticationDto;
 
-  factory AuthenticationDto.fromJson(JsonResponse json) => _$AuthenticationDtoFromJson(json);
+  factory AuthenticationDto.fromJson(JsonMapResponse json) => _$AuthenticationDtoFromJson(json);
 
-  factory AuthenticationDto.fromHttpResponse(Response<JsonResponse> response) {
+  factory AuthenticationDto.fromHttpResponse(Response<JsonMapResponse> response) {
     return AuthenticationDto.fromJson(response.data!);
   }
 }
@@ -26,9 +26,9 @@ sealed class AuthenticationResponseDto with _$AuthenticationResponseDto {
     @JsonKey(unknownEnumValue: AuthenticationStatusDto.unknown) required AuthenticationStatusDto status,
   }) = _AuthenticationResponseDto;
 
-  factory AuthenticationResponseDto.fromJson(JsonResponse json) => _$AuthenticationResponseDtoFromJson(json);
+  factory AuthenticationResponseDto.fromJson(JsonMapResponse json) => _$AuthenticationResponseDtoFromJson(json);
 
-  factory AuthenticationResponseDto.fromHttpResponse(Response<JsonResponse> response) {
+  factory AuthenticationResponseDto.fromHttpResponse(Response<JsonMapResponse> response) {
     return AuthenticationResponseDto.fromJson(response.data!);
   }
 }
@@ -48,9 +48,9 @@ sealed class AuthenticationClientDto with _$AuthenticationClientDto {
     @JsonKey(name: 'sessions', readValue: _readAuthenticationSession) required AuthenticationSessionDto? session,
   }) = _AuthenticationClientDto;
 
-  factory AuthenticationClientDto.fromJson(JsonResponse json) => _$AuthenticationClientDtoFromJson(json);
+  factory AuthenticationClientDto.fromJson(JsonMapResponse json) => _$AuthenticationClientDtoFromJson(json);
 
-  factory AuthenticationClientDto.fromHttpResponse(Response<JsonResponse> response) {
+  factory AuthenticationClientDto.fromHttpResponse(Response<JsonMapResponse> response) {
     return AuthenticationClientDto.fromJson(response.data!);
   }
 }
@@ -61,9 +61,9 @@ sealed class AuthenticationSessionDto with _$AuthenticationSessionDto {
     required String id,
   }) = _AuthenticationSessionDto;
 
-  factory AuthenticationSessionDto.fromJson(JsonResponse json) => _$AuthenticationSessionDtoFromJson(json);
+  factory AuthenticationSessionDto.fromJson(JsonMapResponse json) => _$AuthenticationSessionDtoFromJson(json);
 
-  factory AuthenticationSessionDto.fromHttpResponse(Response<JsonResponse> response) {
+  factory AuthenticationSessionDto.fromHttpResponse(Response<JsonMapResponse> response) {
     return AuthenticationSessionDto.fromJson(response.data!);
   }
 }

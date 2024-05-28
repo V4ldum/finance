@@ -13,7 +13,7 @@ sealed class LocalAssetDto with _$LocalAssetDto {
     required double value,
   }) = _LocalAssetDto;
 
-  factory LocalAssetDto.fromJson(JsonResponse json) => _$LocalAssetDtoFromJson(json);
+  factory LocalAssetDto.fromJson(JsonMapResponse json) => _$LocalAssetDtoFromJson(json);
 
   factory LocalAssetDto.fromModel(AssetModel model) {
     return LocalAssetDto(

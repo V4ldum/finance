@@ -12,9 +12,9 @@ sealed class TradeValuesDto with _$TradeValuesDto {
     @JsonKey(name: 'sp_500') required TradeValueDto sp500,
   }) = _TradeValuesDto;
 
-  factory TradeValuesDto.fromJson(JsonResponse json) => _$TradeValuesDtoFromJson(json);
+  factory TradeValuesDto.fromJson(JsonMapResponse json) => _$TradeValuesDtoFromJson(json);
 
-  factory TradeValuesDto.fromHttpResponse(JsonResponse response) {
+  factory TradeValuesDto.fromHttpResponse(JsonMapResponse response) {
     return TradeValuesDto.fromJson(response);
   }
 }
@@ -26,9 +26,9 @@ sealed class TradeValueDto with _$TradeValueDto {
     @JsonKey(name: 'last_update') required DateTime lastUpdate,
   }) = _TradeValueDto;
 
-  factory TradeValueDto.fromJson(JsonResponse json) => _$TradeValueDtoFromJson(json);
+  factory TradeValueDto.fromJson(JsonMapResponse json) => _$TradeValueDtoFromJson(json);
 
-  factory TradeValueDto.fromHttpResponse(JsonResponse response) {
+  factory TradeValueDto.fromHttpResponse(JsonMapResponse response) {
     return TradeValueDto.fromJson(response);
   }
 }

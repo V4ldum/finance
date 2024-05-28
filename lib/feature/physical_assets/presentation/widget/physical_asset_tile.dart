@@ -25,19 +25,32 @@ class PhysicalAssetTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final splitName = asset.name.split('|');
+    final nameFirstPart = splitName.first.trim();
+    final nameSecondPart = splitName.length > 1 ? splitName.last.trim() : '';
+
     return ListTile(
       onTap: () => _onTap(context),
       title: Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
         children: [
-          Flexible(
-            child: Text(
-              asset.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
+          Text(
+            nameFirstPart,
+            maxLines: 1,
           ),
+          if (nameSecondPart.isNotEmpty) const SizedBox(width: AppPadding.s),
+          if (nameSecondPart.isNotEmpty)
+            Flexible(
+              child: Text(
+                nameSecondPart,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+              ),
+            ),
           if (asset.amount > 1) const SizedBox(width: AppPadding.m),
           if (asset.amount > 1)
             Text(

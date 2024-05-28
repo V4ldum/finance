@@ -30,7 +30,7 @@ class FinaryDataSource {
     required PeriodDto period,
     required String accessToken,
   }) async {
-    final response = await _dio.get<JsonResponse>(
+    final response = await _dio.get<JsonMapResponse>(
       '/users/me/portfolio',
       options: Options(
         headers: {
@@ -48,7 +48,7 @@ class FinaryDataSource {
   Future<UserInfoDto> getUserInfo({
     required String accessToken,
   }) async {
-    final response = await _dio.get<JsonResponse>(
+    final response = await _dio.get<JsonMapResponse>(
       '/users/me',
       options: Options(
         headers: {
@@ -63,7 +63,7 @@ class FinaryDataSource {
     required PeriodDto period,
     required String accessToken,
   }) async {
-    final response = await _dio.get<JsonResponse>(
+    final response = await _dio.get<JsonMapResponse>(
       '/users/me/portfolio/investments',
       options: Options(
         headers: {
@@ -80,7 +80,7 @@ class FinaryDataSource {
   Future<GeographicalRepartitionDto> getGeographicalRepartition({
     required String accessToken,
   }) async {
-    final response = await _dio.get<JsonResponse>(
+    final response = await _dio.get<JsonMapResponse>(
       '/users/me/portfolio/investments/geographical_allocation',
       options: Options(
         headers: {

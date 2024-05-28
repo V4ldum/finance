@@ -22,14 +22,14 @@ class AccountsDashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final localData = ref.read(appCacheControllerProvider).localAssets;
+    final physicalAssets = ref.read(appCacheControllerProvider).physicalAssets?.assets ?? [];
 
     return SafeArea(
       child: RefreshIndicator(
         onRefresh: ref.read(finaryAssetsControllerProvider.notifier).refreshAssets,
         child: assetsResult.when(
           data: (assets) {
-            final data = [...assets.assets, ...localData];
+            final data = [...assets.assets, ...physicalAssets];
 
             return DashboardChart(
               emptyTitle: S.current.genericEmptyTitle,

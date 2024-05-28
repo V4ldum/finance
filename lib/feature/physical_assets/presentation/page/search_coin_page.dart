@@ -1,6 +1,7 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/physical_assets/presentation/provider/search_coins_controller.dart';
 import 'package:finance/feature/physical_assets/presentation/widget/coin_tile.dart';
+import 'package:finance/shared/constant/app_padding.dart';
 import 'package:finance/shared/presentation/widget/default_error_widget.dart';
 import 'package:finance/shared/presentation/widget/default_loading_widget.dart';
 import 'package:flutter/material.dart';
@@ -68,8 +69,26 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
       body: SafeArea(
         child: searchCoinsResult.when(
           data: (data) {
-            if (data.isEmpty) {
+            if (data == null) {
               return Container();
+            }
+            if (data.isEmpty) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppPadding.xxl,
+                  vertical: AppPadding.m,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      S.current.noResult,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              );
             }
             return SingleChildScrollView(
               child: Column(

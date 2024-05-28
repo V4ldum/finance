@@ -10,9 +10,9 @@ sealed class UserInfoDto with _$UserInfoDto {
     required UserInfoResultDto result,
   }) = _UserInfoDto;
 
-  factory UserInfoDto.fromJson(JsonResponse json) => _$UserInfoDtoFromJson(json);
+  factory UserInfoDto.fromJson(JsonMapResponse json) => _$UserInfoDtoFromJson(json);
 
-  factory UserInfoDto.fromHttpResponse(JsonResponse response) {
+  factory UserInfoDto.fromHttpResponse(JsonMapResponse response) {
     return UserInfoDto.fromJson(response);
   }
 }
@@ -23,9 +23,9 @@ sealed class UserInfoResultDto with _$UserInfoResultDto {
     @JsonKey(name: 'last_asset_updated_at') required String lastSync,
   }) = _UserInfoResultDtoo;
 
-  factory UserInfoResultDto.fromJson(JsonResponse json) => _$UserInfoResultDtoFromJson(json);
+  factory UserInfoResultDto.fromJson(JsonMapResponse json) => _$UserInfoResultDtoFromJson(json);
 
-  factory UserInfoResultDto.fromHttpResponse(JsonResponse response) {
+  factory UserInfoResultDto.fromHttpResponse(JsonMapResponse response) {
     return UserInfoResultDto.fromJson(response);
   }
 }

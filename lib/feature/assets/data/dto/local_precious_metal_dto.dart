@@ -1,3 +1,4 @@
+import 'package:finance/feature/assets/data/dto/precious_metal_type_dto.dart';
 import 'package:finance/feature/assets/domain/model/precious_metal_asset_model.dart';
 import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -17,7 +18,7 @@ sealed class LocalPreciousMetalDto with _$LocalPreciousMetalDto {
     required PreciousMetalTypeDto metalType,
   }) = _LocalPreciousMetalDto;
 
-  factory LocalPreciousMetalDto.fromJson(JsonResponse json) => _$LocalPreciousMetalDtoFromJson(json);
+  factory LocalPreciousMetalDto.fromJson(JsonMapResponse json) => _$LocalPreciousMetalDtoFromJson(json);
 
   factory LocalPreciousMetalDto.fromModel(PreciousMetalAssetModel model) {
     return LocalPreciousMetalDto(
@@ -33,13 +34,4 @@ sealed class LocalPreciousMetalDto with _$LocalPreciousMetalDto {
       },
     );
   }
-}
-
-enum PreciousMetalTypeDto {
-  @JsonValue('gold')
-  gold,
-  @JsonValue('silver')
-  silver,
-  @JsonValue('other')
-  other,
 }

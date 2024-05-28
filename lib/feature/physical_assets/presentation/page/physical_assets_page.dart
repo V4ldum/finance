@@ -1,5 +1,6 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
+import 'package:finance/feature/assets/presentation/provider/physical_assets_controller.dart';
 import 'package:finance/feature/physical_assets/presentation/provider/ratio_controller.dart';
 import 'package:finance/feature/physical_assets/presentation/widget/physical_asset_tile.dart';
 import 'package:finance/shared/constant/app_asset.dart';
@@ -126,29 +127,34 @@ class PhysicalAssetsPage extends ConsumerWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Builder(
-            builder: (context) {
-              final assets = ref.watch(appCacheControllerProvider).localAssets
-                ..sort((a, b) => b.name.compareTo(a.name))
-                ..toList();
+        child: RefreshIndicator(
+          onRefresh: ref.read(physicalAssetsControllerProvider.notifier).refreshAssets,
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: Builder(
+              builder: (context) {
+                final assets = (ref.watch(appCacheControllerProvider).physicalAssets?.assets ?? [])
+                  ..sort((a, b) => b.name.compareTo(a.name))
+                  ..toList();
 
-              if (assets.isEmpty) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
-                  child: Text(
-                    S.current.noPhysicalAssets,
-                    textAlign: TextAlign.center,
-                  ),
+                if (assets.isEmpty) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
+                    child: Text(
+                      S.current.noPhysicalAssets,
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                }
+
+                return Column(
+                  children: assets
+                      .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
+                      .map((e) => PhysicalAssetTile(asset: e))
+                      .toList(),
                 );
-              }
-              return Column(
-                children: assets
-                    .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
-                    .map((e) => PhysicalAssetTile(asset: e))
-                    .toList(),
-              );
-            },
+              },
+            ),
           ),
         ),
       ),

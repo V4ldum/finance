@@ -29,22 +29,22 @@ class PreciousMetalsTradeDataSource {
   late final Dio _dio;
 
   Future<TradeValuesDto> getAllValues() async {
-    final response = await _dio.get<JsonResponse>('trade_values');
+    final response = await _dio.get<JsonMapResponse>('/trade_values');
     return TradeValuesDto.fromHttpResponse(response.data!);
   }
 
   Future<TradeValueDto> getGoldValue() async {
-    final response = await _dio.get<JsonResponse>('trade_values/gold');
+    final response = await _dio.get<JsonMapResponse>('/trade_values/gold');
     return TradeValueDto.fromHttpResponse(response.data!);
   }
 
   Future<TradeValueDto> getSilverValue() async {
-    final response = await _dio.get<JsonResponse>('trade_values/silver');
+    final response = await _dio.get<JsonMapResponse>('/trade_values/silver');
     return TradeValueDto.fromHttpResponse(response.data!);
   }
 
   Future<TradeValueDto> getSP500Value() async {
-    final response = await _dio.get<JsonResponse>('trade_values/sp500');
+    final response = await _dio.get<JsonMapResponse>('/trade_values/sp500');
     return TradeValueDto.fromHttpResponse(response.data!);
   }
 }

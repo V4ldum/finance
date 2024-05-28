@@ -7,7 +7,7 @@ part of '../get_coin_detail_controller.dart';
 // **************************************************************************
 
 String _$getCoinDetailControllerHash() =>
-    r'8f90e213af0e760a30406b35d33a5c2fc6f08744';
+    r'071cf5920aa251258226a68c1e02ac943dbb634c';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 }
 
 abstract class _$GetCoinDetailController
-    extends BuildlessAutoDisposeAsyncNotifier<CoinDataModel> {
-  late final String coinId;
+    extends BuildlessAutoDisposeAsyncNotifier<CoinModel> {
+  late final int coinId;
 
-  FutureOr<CoinDataModel> build(
-    String coinId,
+  FutureOr<CoinModel> build(
+    int coinId,
   );
 }
 
@@ -44,13 +44,13 @@ abstract class _$GetCoinDetailController
 const getCoinDetailControllerProvider = GetCoinDetailControllerFamily();
 
 /// See also [GetCoinDetailController].
-class GetCoinDetailControllerFamily extends Family<AsyncValue<CoinDataModel>> {
+class GetCoinDetailControllerFamily extends Family<AsyncValue<CoinModel>> {
   /// See also [GetCoinDetailController].
   const GetCoinDetailControllerFamily();
 
   /// See also [GetCoinDetailController].
   GetCoinDetailControllerProvider call(
-    String coinId,
+    int coinId,
   ) {
     return GetCoinDetailControllerProvider(
       coinId,
@@ -84,10 +84,10 @@ class GetCoinDetailControllerFamily extends Family<AsyncValue<CoinDataModel>> {
 /// See also [GetCoinDetailController].
 class GetCoinDetailControllerProvider
     extends AutoDisposeAsyncNotifierProviderImpl<GetCoinDetailController,
-        CoinDataModel> {
+        CoinModel> {
   /// See also [GetCoinDetailController].
   GetCoinDetailControllerProvider(
-    String coinId,
+    int coinId,
   ) : this._internal(
           () => GetCoinDetailController()..coinId = coinId,
           from: getCoinDetailControllerProvider,
@@ -112,10 +112,10 @@ class GetCoinDetailControllerProvider
     required this.coinId,
   }) : super.internal();
 
-  final String coinId;
+  final int coinId;
 
   @override
-  FutureOr<CoinDataModel> runNotifierBuild(
+  FutureOr<CoinModel> runNotifierBuild(
     covariant GetCoinDetailController notifier,
   ) {
     return notifier.build(
@@ -140,8 +140,8 @@ class GetCoinDetailControllerProvider
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<GetCoinDetailController,
-      CoinDataModel> createElement() {
+  AutoDisposeAsyncNotifierProviderElement<GetCoinDetailController, CoinModel>
+      createElement() {
     return _GetCoinDetailControllerProviderElement(this);
   }
 
@@ -160,18 +160,18 @@ class GetCoinDetailControllerProvider
 }
 
 mixin GetCoinDetailControllerRef
-    on AutoDisposeAsyncNotifierProviderRef<CoinDataModel> {
+    on AutoDisposeAsyncNotifierProviderRef<CoinModel> {
   /// The parameter `coinId` of this provider.
-  String get coinId;
+  int get coinId;
 }
 
 class _GetCoinDetailControllerProviderElement
     extends AutoDisposeAsyncNotifierProviderElement<GetCoinDetailController,
-        CoinDataModel> with GetCoinDetailControllerRef {
+        CoinModel> with GetCoinDetailControllerRef {
   _GetCoinDetailControllerProviderElement(super.provider);
 
   @override
-  String get coinId => (origin as GetCoinDetailControllerProvider).coinId;
+  int get coinId => (origin as GetCoinDetailControllerProvider).coinId;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -24,20 +24,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(label) => "Label: \'${label}\'";
 
-  static String m2(date) => "Oui (${date})";
+  static String m2(item) => "Êtes-vous sûr de voulour supprimer \'${item}\'";
 
-  static String m3(item) => "Êtes-vous sûr de voulour supprimer \'${item}\'";
-
-  static String m7(days) =>
+  static String m6(days) =>
       "${Intl.plural(days, one: 'hier', other: 'Il y a ${days} jours')}";
 
-  static String m8(hours) =>
+  static String m7(hours) =>
       "Il y a ${hours} ${Intl.plural(hours, one: 'heure', other: 'heures')}";
 
-  static String m9(minutes) =>
+  static String m8(minutes) =>
       "Il y a ${minutes} ${Intl.plural(minutes, one: 'minute', other: 'minutes')}";
 
-  static String m10(seconds) =>
+  static String m9(seconds) =>
       "Il y a ${seconds} ${Intl.plural(seconds, one: 'seconde', other: 'secondes')}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -70,11 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Comptes courants"),
         "coin": MessageLookupByLibrary.simpleMessage("Pièce"),
         "coinCompositionLabel": m1,
-        "coinFeaturesDemonetization":
-            MessageLookupByLibrary.simpleMessage("Démonétisée"),
-        "coinFeaturesDemonetizedCoinDate": m2,
+        "coinDateNow": MessageLookupByLibrary.simpleMessage("présent"),
         "coinFeaturesNoValue": MessageLookupByLibrary.simpleMessage("ø"),
-        "coinFeaturesSeries": MessageLookupByLibrary.simpleMessage("Série"),
         "coinPicturesNoPicturesAvailable": MessageLookupByLibrary.simpleMessage(
             "Aucune image disponible pour cette pièce."),
         "creditAccounts":
@@ -84,6 +79,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "customBack": MessageLookupByLibrary.simpleMessage("API maison"),
         "customBackMessage": MessageLookupByLibrary.simpleMessage(
             "Pour obtenir une clé d\'API, contactez \r\nl\'administrateur de l\'application"),
+        "customBackNoKeyBody": MessageLookupByLibrary.simpleMessage(
+            "Veuillez renseigner une clé d\'API dans les paramètres."),
+        "customBackNoKeyTitle":
+            MessageLookupByLibrary.simpleMessage("Pas de clé d\'API"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Tableau de bord"),
         "dashboardSettingsStockCategorisationEmptyError":
@@ -95,7 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dashboardSettingsStockCategorisationTitle":
             MessageLookupByLibrary.simpleMessage("Categorisation des actions"),
         "deleteAssetButton": MessageLookupByLibrary.simpleMessage("Supprimer"),
-        "deleteDialogContent": m3,
+        "deleteDialogContent": m2,
         "deleteDialogTitle":
             MessageLookupByLibrary.simpleMessage("Confirmer la suppression"),
         "distribution": MessageLookupByLibrary.simpleMessage("Répartition"),
@@ -151,6 +150,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "no": MessageLookupByLibrary.simpleMessage("Non"),
         "noPhysicalAssets": MessageLookupByLibrary.simpleMessage(
             "Vous n\'avez aucun métaux précieux. Ajoutez-en en appuyant sur le bouton en haut à droite"),
+        "noResult": MessageLookupByLibrary.simpleMessage("Aucun résultat"),
         "numista": MessageLookupByLibrary.simpleMessage("Numista"),
         "numistaApiKeyField":
             MessageLookupByLibrary.simpleMessage("Clé d\'API"),
@@ -228,7 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "preciousMetalsEmptyTitle": MessageLookupByLibrary.simpleMessage(
             "Vous n\'avez aucun métaux précieux"),
         "purity": MessageLookupByLibrary.simpleMessage("Pureté"),
-        "quantity": MessageLookupByLibrary.simpleMessage("Quantité"),
+        "quantityPossessed": MessageLookupByLibrary.simpleMessage("Possédé"),
         "raw": MessageLookupByLibrary.simpleMessage("Brut"),
         "realEstates": MessageLookupByLibrary.simpleMessage("Immobilier"),
         "savings": MessageLookupByLibrary.simpleMessage("Epargne"),
@@ -270,12 +270,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "stocksLiquidity":
             MessageLookupByLibrary.simpleMessage("Compte liquidité actions"),
         "submit": MessageLookupByLibrary.simpleMessage("Envoyer"),
-        "syncDaysAgo": m7,
-        "syncHoursAgo": m8,
+        "syncDaysAgo": m6,
+        "syncHoursAgo": m7,
         "syncLabel": MessageLookupByLibrary.simpleMessage("Mis à jour"),
-        "syncMinutesAgo": m9,
+        "syncMinutesAgo": m8,
         "syncNow": MessageLookupByLibrary.simpleMessage("now"),
-        "syncSecondsAgo": m10,
+        "syncSecondsAgo": m9,
         "tooManyRequestsBody": MessageLookupByLibrary.simpleMessage(
             "Vous avez envoyé trop de requêtes simultanées ou avez atteint votre quota mensuel."),
         "tooManyRequestsTitle":

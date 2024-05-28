@@ -1,12 +1,14 @@
 import 'package:finance/feature/assets/domain/model/asset_model.dart';
+import 'package:finance/feature/assets/domain/model/asset_type_model.dart';
 import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';
+import 'package:finance/feature/assets/domain/model/physical_assets_model.dart';
 import 'package:finance/feature/assets/domain/model/precious_metal_asset_model.dart';
 import 'package:finance/feature/assets/domain/repository/assets_repository.dart';
 import 'package:finance/feature/authentication/domain/repository/authentication_repository.dart';
+import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/feature/physical_assets/domain/repository/precious_metals_trade_repository.dart';
 import 'package:finance/shared/domain/repository/local_storage_repository.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_service.g.dart';
@@ -45,58 +47,100 @@ class AssetsService {
     return _appCache.finaryAssets = await _getFinaryAssets();
   }
 
-  /// Local Assets
-  Future<List<AssetModel>> getLocalAssets() async {
-    return _appCache.localAssets = await _localStorageRepository.readLocalAssets(
+  /// Physical Assets
+  Future<PhysicalAssetsModel> _getPhysicalAssets() async {
+    final assets = await _assetsRepository.getPhysicalAssets(
       goldTradePrice: (await _preciousMetalsTradeRepository.getGoldTradeValue()).grams,
       silverTradePrice: (await _preciousMetalsTradeRepository.getSilverTradeValue()).grams,
     );
+
+    return assets;
   }
 
-  Future<void> _refreshLocalAssets(List<AssetModel> assets) async {
-    _appCacheController.refreshLocalAssets(assets);
+  Future<PhysicalAssetsModel> getPhysicalAssets() async {
+    return _appCache.physicalAssets ??= await _getPhysicalAssets();
   }
 
-  Future<void> addLocalAsset(AssetModel asset) async {
-    final tmp = _appCache.localAssets;
-    final items = asset is PreciousMetalAssetModel && asset.numistaId.isNotEmpty
-        ? _appCache.localAssets.where((e) => e is PreciousMetalAssetModel && e.numistaId == asset.numistaId)
-        : _appCache.localAssets.where((e) => e.name == asset.name);
-
-    if (items.isNotEmpty) {
-      return;
-    }
-
-    await _localStorageRepository.saveLocalAssets(tmp..add(asset));
-    return _refreshLocalAssets(tmp);
+  Future<PhysicalAssetsModel> refreshPhysicalAssets() async {
+    final assets = await _getPhysicalAssets();
+    _appCacheController.refreshPhysicalAssets(assets);
+    return assets;
   }
 
-  Future<void> removeLocalAsset(AssetModel asset) async {
-    final tmp = _appCache.localAssets;
-    final items = asset is PreciousMetalAssetModel && asset.numistaId.isNotEmpty
-        ? _appCache.localAssets.where((e) => e is PreciousMetalAssetModel && e.numistaId == asset.numistaId)
-        : _appCache.localAssets.where((e) => e.name == asset.name);
-
-    if (items.isEmpty) {
-      return;
-    }
-
-    await _localStorageRepository.saveLocalAssets(tmp..removeWhere((e) => e.name == asset.name));
-    return _refreshLocalAssets(tmp);
+  Future<void> addCoinPhysicalAsset({required String coinId, required int possessed}) async {
+    await _assetsRepository.addCoinPhysicalAsset(coinId: coinId, possessed: possessed);
+    await refreshPhysicalAssets();
   }
 
-  Future<void> updateLocalAsset(AssetModel oldAsset, AssetModel newAsset) async {
-    final items = newAsset is PreciousMetalAssetModel && newAsset.numistaId.isNotEmpty
-        ? _appCache.localAssets.where((e) => e is PreciousMetalAssetModel && e.numistaId == newAsset.numistaId)
-        : _appCache.localAssets.where((e) => e.name == oldAsset.name);
+  Future<void> updateCoinPhysicalAsset({required String coinId, required int possessed}) async {
+    await _assetsRepository.updateCoinPhysicalAsset(coinId: coinId, possessed: possessed);
+    await refreshPhysicalAssets();
+  }
 
-    if (items.isEmpty) {
-      debugPrint('No element found when at least one should');
-      return;
-    }
+  Future<void> addCashPhysicalAsset({
+    required String name,
+    required int possessed,
+    required int unitValue,
+  }) async {
+    await _assetsRepository.addCashPhysicalAsset(name: name, possessed: possessed, unitValue: unitValue);
+    await refreshPhysicalAssets();
+  }
 
-    await removeLocalAsset(items.first);
-    await addLocalAsset(newAsset);
+  Future<void> updateCashPhysicalAsset({
+    required String id,
+    required String name,
+    required int possessed,
+    required int unitValue,
+  }) async {
+    await _assetsRepository.updateCashPhysicalAsset(id: id, name: name, possessed: possessed, unitValue: unitValue);
+    await refreshPhysicalAssets();
+  }
+
+  Future<void> addRawPhysicalAsset({
+    required String name,
+    required int possessed,
+    required double unitWeight,
+    required PreciousMetalTypeModel metalType,
+    required double purity,
+  }) async {
+    await _assetsRepository.addRawPhysicalAsset(
+      name: name,
+      possessed: possessed,
+      unitWeight: unitWeight,
+      metalType: metalType,
+      purity: purity,
+    );
+    await refreshPhysicalAssets();
+  }
+
+  Future<void> updateRawPhysicalAsset({
+    required String id,
+    required String name,
+    required int possessed,
+    required double unitWeight,
+    required PreciousMetalTypeModel metalType,
+    required double purity,
+  }) async {
+    await _assetsRepository.updateRawPhysicalAsset(
+      id: id,
+      name: name,
+      possessed: possessed,
+      unitWeight: unitWeight,
+      metalType: metalType,
+      purity: purity,
+    );
+    await refreshPhysicalAssets();
+  }
+
+  Future<void> removePhysicalAsset(AssetModel asset) async {
+    final _ = switch (asset.type) {
+      AssetTypeModel.cash => await _assetsRepository.removeCashPhysicalAsset(id: asset.id),
+      AssetTypeModel.preciousMetal => (asset as PreciousMetalAssetModel).numistaId.isEmpty
+          ? await _assetsRepository.removeRawPhysicalAsset(id: asset.id)
+          : await _assetsRepository.removeCoinPhysicalAsset(id: asset.id),
+      _ => throw UnimplementedError('This should not happen'),
+    };
+    await refreshPhysicalAssets();
   }
 
   /// Stocks Symbols

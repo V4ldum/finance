@@ -10,9 +10,9 @@ sealed class GeographicalRepartitionDto with _$GeographicalRepartitionDto {
     required GeographicalRepartitionResultDto result,
   }) = _GeographicalRepartitionDto;
 
-  factory GeographicalRepartitionDto.fromJson(JsonResponse json) => _$GeographicalRepartitionDtoFromJson(json);
+  factory GeographicalRepartitionDto.fromJson(JsonMapResponse json) => _$GeographicalRepartitionDtoFromJson(json);
 
-  factory GeographicalRepartitionDto.fromHttpResponse(JsonResponse response) {
+  factory GeographicalRepartitionDto.fromHttpResponse(JsonMapResponse response) {
     return GeographicalRepartitionDto.fromJson(response);
   }
 }
@@ -24,10 +24,10 @@ sealed class GeographicalRepartitionResultDto with _$GeographicalRepartitionResu
     required List<GeographicalRepartitionDistributionItemDto> distribution,
   }) = _GeographicalRepartitionResultDto;
 
-  factory GeographicalRepartitionResultDto.fromJson(JsonResponse json) =>
+  factory GeographicalRepartitionResultDto.fromJson(JsonMapResponse json) =>
       _$GeographicalRepartitionResultDtoFromJson(json);
 
-  factory GeographicalRepartitionResultDto.fromHttpResponse(JsonResponse response) {
+  factory GeographicalRepartitionResultDto.fromHttpResponse(JsonMapResponse response) {
     return GeographicalRepartitionResultDto.fromJson(response);
   }
 }
@@ -40,10 +40,10 @@ sealed class GeographicalRepartitionDistributionItemDto with _$GeographicalRepar
     required double share,
   }) = _GeographicalRepartitionDistributionItemDto;
 
-  factory GeographicalRepartitionDistributionItemDto.fromJson(JsonResponse json) =>
+  factory GeographicalRepartitionDistributionItemDto.fromJson(JsonMapResponse json) =>
       _$GeographicalRepartitionDistributionItemDtoFromJson(json);
 
-  factory GeographicalRepartitionDistributionItemDto.fromHttpResponse(JsonResponse response) {
+  factory GeographicalRepartitionDistributionItemDto.fromHttpResponse(JsonMapResponse response) {
     return GeographicalRepartitionDistributionItemDto.fromJson(response);
   }
 }

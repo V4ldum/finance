@@ -1,4 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/feature/physical_assets/presentation/provider/get_coin_detail_controller.dart';
 import 'package:finance/feature/physical_assets/presentation/widget/coin_face_image.dart';
 import 'package:finance/feature/physical_assets/presentation/widget/coin_features.dart';
@@ -23,8 +24,8 @@ class CoinDetailsPage extends ConsumerWidget {
   final String coinId;
   final bool showAddButton;
 
-  Future<void> _openInNumista() async {
-    final url = AppString.numistaCoinPageUrl(coinId);
+  Future<void> _openInNumista(String numistaId) async {
+    final url = AppString.numistaCoinPageUrl(numistaId);
 
     if (await canLaunchUrlString(url)) {
       await launchUrlString(
@@ -38,7 +39,7 @@ class CoinDetailsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final getCoinDetailResult = ref.watch(getCoinDetailControllerProvider(coinId));
+    final getCoinDetailResult = ref.watch(getCoinDetailControllerProvider(int.parse(coinId)));
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +47,7 @@ class CoinDetailsPage extends ConsumerWidget {
         actions: getCoinDetailResult.maybeWhen(
           data: (coin) => [
             IconButton(
-              onPressed: _openInNumista,
+              onPressed: () => _openInNumista(coin.numistaId),
               icon: const Icon(Icons.open_in_browser),
             ),
             if (showAddButton)
@@ -64,21 +65,38 @@ class CoinDetailsPage extends ConsumerWidget {
           child: SingleChildScrollView(
             child: getCoinDetailResult.when(
               data: (coin) {
+                final splitName = coin.name.split('|');
+                final nameFirstPart = splitName.first.trim();
+                final nameSecondPart = splitName.length > 1 ? splitName.last.trim() : '';
+
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     /// Title & Date
-                    Text(
-                      coin.name,
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                    Row(
+                      children: [
+                        Text(
+                          nameFirstPart,
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                        const SizedBox(width: AppPadding.s),
+                        Text(
+                          nameSecondPart,
+                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
+                              ),
+                        ),
+                      ],
                     ),
 
                     Text(
                       coin.minYear == coin.maxYear //
                           ? coin.minYear
-                          : '${coin.minYear} - ${coin.maxYear}',
+                          : coin.maxYear.isEmpty
+                              ? '${coin.minYear} - ${S.current.coinDateNow}'
+                              : '${coin.minYear} - ${coin.maxYear}',
                     ),
 
                     const SizedBox(height: AppPadding.l),
@@ -112,18 +130,10 @@ class CoinDetailsPage extends ConsumerWidget {
                               ? S.current.metalFeaturesThicknessValue(coin.thickness!)
                               : S.current.coinFeaturesNoValue,
                         ),
-                        CoinFeature(title: S.current.metalFeaturesComposition, content: coin.composition),
-                        if (coin.demonetization != null)
-                          CoinFeature(
-                            title: S.current.coinFeaturesDemonetization,
-                            content: coin.demonetization!.isDemonetized
-                                ? coin.demonetization!.date.isNotEmpty
-                                    ? S.current.coinFeaturesDemonetizedCoinDate(coin.demonetization!.date)
-                                    : S.current.yes
-                                : S.current.no,
-                          ),
-                        if (coin.series.isNotEmpty)
-                          CoinFeature(title: S.current.coinFeaturesSeries, content: coin.series),
+                        CoinFeature(
+                          title: S.current.metalFeaturesComposition,
+                          content: '${coin.composition.toIntlString()} ${coin.purity / 100.0}%',
+                        ),
                       ],
                     ),
 
@@ -143,7 +153,7 @@ class CoinDetailsPage extends ConsumerWidget {
                       runSpacing: AppPadding.l,
                       spacing: AppPadding.l,
                       children: [
-                        if (coin.obverse == null && coin.reverse == null && coin.edge == null && coin.watermark == null)
+                        if (coin.obverse == null && coin.reverse == null && coin.edge == null)
                           Padding(
                             padding: const EdgeInsets.all(AppPadding.l),
                             child: Text(S.current.coinPicturesNoPicturesAvailable),
@@ -151,7 +161,6 @@ class CoinDetailsPage extends ConsumerWidget {
                         if (coin.obverse != null) CoinFaceImage(coinFace: coin.obverse!),
                         if (coin.reverse != null) CoinFaceImage(coinFace: coin.reverse!),
                         if (coin.edge != null) CoinFaceImage(coinFace: coin.edge!),
-                        if (coin.watermark != null) CoinFaceImage(coinFace: coin.watermark!),
                       ],
                     ),
                     const SizedBox(height: AppPadding.xl),

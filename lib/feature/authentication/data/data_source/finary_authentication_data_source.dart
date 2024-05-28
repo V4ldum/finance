@@ -41,7 +41,7 @@ class FinaryAuthenticationDataSource {
 
   Future<AuthenticationDto> auth({required String login, required String password}) async {
     try {
-      final response = await _dio.post<JsonResponse>(
+      final response = await _dio.post<JsonMapResponse>(
         '/v1/client/sign_ins',
         data: {
           'identifier': login,
@@ -60,7 +60,7 @@ class FinaryAuthenticationDataSource {
   }
 
   Future<AuthenticationDto> authOtp({required String otp, required String sia}) async {
-    final response = await _dio.post<JsonResponse>(
+    final response = await _dio.post<JsonMapResponse>(
       '/v1/client/sign_ins/$sia/attempt_second_factor',
       data: {
         'strategy': 'totp',
@@ -71,7 +71,7 @@ class FinaryAuthenticationDataSource {
   }
 
   Future<String> refreshToken({required String sessionId}) async {
-    final response = await _dio.post<JsonResponse>(
+    final response = await _dio.post<JsonMapResponse>(
       '/v1/client/sessions/$sessionId/tokens',
     );
     // Not doing a serialized object just for this parameter

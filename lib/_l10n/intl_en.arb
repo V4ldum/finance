@@ -27,6 +27,9 @@
   "physicalAssetItemAlreadyExistsContent": "You should either change the name of the new item or edit the old one.",
   "physicalAssetCoinAlreadyExistsTitle": "Coin already exists",
   "physicalAssetCoinAlreadyExistsContent": "You must update the item instead of adding a new one.",
+  "noResult": "No result",
+  "customBackNoKeyTitle": "No API Key",
+  "customBackNoKeyBody": "Please set a key in the settings.",
   "@@@_POPUP_ELEMENTS": {},
   "submit": "Submit",
   "cancel": "Cancel",
@@ -132,6 +135,7 @@
   "searchCoin": "Search for a coin",
   "metalDetailsTitle": "Details",
   "metalFeaturesTitle": "Features",
+  "coinDateNow": "now",
   "metalFeaturesWeight": "Weight",
   "metalFeaturesWeightValue": "{weight} g",
   "@metalFeaturesWeightValue": {
@@ -160,16 +164,6 @@
     }
   },
   "metalFeaturesComposition": "Composition",
-  "coinFeaturesDemonetization": "Demonetized",
-  "coinFeaturesDemonetizedCoinDate": "Yes ({date})",
-  "@coinFeaturesDemonetizedCoinDate": {
-    "placeholders": {
-      "date": {
-        "type": "String"
-      }
-    }
-  },
-  "coinFeaturesSeries": "Series",
   "metalPicturesTitle": "Pictures",
   "coinFeaturesNoValue": "ø",
   "coinPicturesNoPicturesAvailable": "No picture available for this coin",
@@ -181,7 +175,7 @@
   "information": "Information",
   "possessed": "Possessed",
   "name": "Name",
-  "quantity": "Quantity",
+  "quantityPossessed": "Possessed",
   "cashUnitValue": "Unit value",
   "coinCompositionLabel": "Label: '{label}'",
   "@coinCompositionLabel": {

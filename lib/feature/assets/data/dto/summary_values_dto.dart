@@ -12,9 +12,9 @@ sealed class SummaryValuesDto with _$SummaryValuesDto {
     @JsonKey(name: 'evolution_percent', defaultValue: 0) required double evolutionPercent,
   }) = _SummaryValuesDto;
 
-  factory SummaryValuesDto.fromJson(JsonResponse json) => _$SummaryValuesDtoFromJson(json);
+  factory SummaryValuesDto.fromJson(JsonMapResponse json) => _$SummaryValuesDtoFromJson(json);
 
-  factory SummaryValuesDto.fromHttpResponse(JsonResponse response) {
+  factory SummaryValuesDto.fromHttpResponse(JsonMapResponse response) {
     return SummaryValuesDto.fromJson(response);
   }
 }

@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:finance/feature/physical_assets/domain/model/coin_data_model.dart';
+import 'package:finance/feature/physical_assets/domain/model/coin_model.dart';
 import 'package:finance/shared/constant/app_padding.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ class CoinFaceImage extends StatelessWidget {
     super.key,
   });
 
-  final CoinDataCoinFaceModel coinFace;
+  final CoinFaceModel coinFace;
 
   void _openCoinFaceImage(BuildContext context) {
     showDialog<void>(
@@ -41,17 +41,23 @@ class CoinFaceImage extends StatelessWidget {
     late final Widget image;
 
     if (coinFace.pictureUrl.isNotEmpty || coinFace.thumbnailUrl.isNotEmpty) {
-      image = InkWell(
-        onTap: () => _openCoinFaceImage(context),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: imageSize, maxWidth: imageSize),
-          child: CachedNetworkImage(
-            imageUrl: coinFace.thumbnailUrl.isNotEmpty ? coinFace.thumbnailUrl : coinFace.pictureUrl,
-            placeholder: (context, url) => SizedBox(
-              height: imageSize,
-              width: imageSize,
-              child: const Center(
-                child: CircularProgressIndicator(),
+      image = Material(
+        color: const Color(0xFFF8F8FF),
+        child: InkWell(
+          onTap: () => _openCoinFaceImage(context),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: imageSize,
+              minWidth: imageSize,
+            ),
+            child: CachedNetworkImage(
+              imageUrl: coinFace.thumbnailUrl.isNotEmpty ? coinFace.thumbnailUrl : coinFace.pictureUrl,
+              placeholder: (context, url) => SizedBox(
+                height: imageSize,
+                width: imageSize,
+                child: const Center(
+                  child: CircularProgressIndicator(),
+                ),
               ),
             ),
           ),

@@ -9,7 +9,6 @@ part of '../app_cache_controller.dart';
 _$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
     _$AppCacheImpl(
       finarySessionId: json['finarySessionId'] as String? ?? '',
-      numistaApiKey: json['numistaApiKey'] as String? ?? '',
       customBackApiKey: json['customBackApiKey'] as String? ?? '',
       gsrGoldFavorableRatio:
           (json['gsrGoldFavorableRatio'] as num?)?.toDouble() ??
@@ -33,7 +32,6 @@ _$AppCacheImpl _$$AppCacheImplFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
     <String, dynamic>{
       'finarySessionId': instance.finarySessionId,
-      'numistaApiKey': instance.numistaApiKey,
       'customBackApiKey': instance.customBackApiKey,
       'gsrGoldFavorableRatio': instance.gsrGoldFavorableRatio,
       'gsrSilverFavorableRatio': instance.gsrSilverFavorableRatio,
@@ -47,7 +45,7 @@ Map<String, dynamic> _$$AppCacheImplToJson(_$AppCacheImpl instance) =>
 // **************************************************************************
 
 String _$appCacheControllerHash() =>
-    r'b2ac1c6472bd2e2b87f7c4ca5a785b299487afd0';
+    r'8dd1695c36b78a7cbbc5556fc8e2db661d962518';
 
 /// See also [AppCacheController].
 @ProviderFor(AppCacheController)

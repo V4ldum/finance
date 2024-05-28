@@ -319,6 +319,36 @@ class S {
     );
   }
 
+  /// `No result`
+  String get noResult {
+    return Intl.message(
+      'No result',
+      name: 'noResult',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No API Key`
+  String get customBackNoKeyTitle {
+    return Intl.message(
+      'No API Key',
+      name: 'customBackNoKeyTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please set a key in the settings.`
+  String get customBackNoKeyBody {
+    return Intl.message(
+      'Please set a key in the settings.',
+      name: 'customBackNoKeyBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Submit`
   String get submit {
     return Intl.message(
@@ -1281,6 +1311,16 @@ class S {
     );
   }
 
+  /// `now`
+  String get coinDateNow {
+    return Intl.message(
+      'now',
+      name: 'coinDateNow',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Weight`
   String get metalFeaturesWeight {
     return Intl.message(
@@ -1346,36 +1386,6 @@ class S {
     return Intl.message(
       'Composition',
       name: 'metalFeaturesComposition',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Demonetized`
-  String get coinFeaturesDemonetization {
-    return Intl.message(
-      'Demonetized',
-      name: 'coinFeaturesDemonetization',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Yes ({date})`
-  String coinFeaturesDemonetizedCoinDate(String date) {
-    return Intl.message(
-      'Yes ($date)',
-      name: 'coinFeaturesDemonetizedCoinDate',
-      desc: '',
-      args: [date],
-    );
-  }
-
-  /// `Series`
-  String get coinFeaturesSeries {
-    return Intl.message(
-      'Series',
-      name: 'coinFeaturesSeries',
       desc: '',
       args: [],
     );
@@ -1491,11 +1501,11 @@ class S {
     );
   }
 
-  /// `Quantity`
-  String get quantity {
+  /// `Possessed`
+  String get quantityPossessed {
     return Intl.message(
-      'Quantity',
-      name: 'quantity',
+      'Possessed',
+      name: 'quantityPossessed',
       desc: '',
       args: [],
     );

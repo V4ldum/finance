@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_final_parameters
 import 'package:finance/feature/assets/application/assets_service.dart';
-import 'package:finance/feature/assets/domain/model/asset_model.dart';
 import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';
+import 'package:finance/feature/assets/domain/model/physical_assets_model.dart';
 import 'package:finance/feature/authentication/application/finary_auth_service.dart';
 import 'package:finance/feature/settings/presentation/page/physical_assets_settings_page.dart';
 import 'package:finance/shared/domain/repository/local_storage_repository.dart';
@@ -19,7 +19,6 @@ sealed class AppCache with _$AppCache {
   factory AppCache({
     @JsonKey(includeFromJson: false, includeToJson: false) @Default('') final String applicationDirectory,
     @Default('') final String finarySessionId,
-    @Default('') final String numistaApiKey,
     @Default('') final String customBackApiKey,
     @Default(PhysicalAssetsSettingsPage.defaultGSRGoldFavorableRatio) final double gsrGoldFavorableRatio,
     @Default(PhysicalAssetsSettingsPage.defaultGSRSilverFavorableRatio) final double gsrSilverFavorableRatio,
@@ -27,10 +26,10 @@ sealed class AppCache with _$AppCache {
     @Default(PhysicalAssetsSettingsPage.defaultSPGRGoldFavorableRatio) final double spgrGoldFavorableRatio,
     @Default([]) final List<String> investmentStocksSymbols,
     @JsonKey(includeFromJson: false, includeToJson: false) FinaryAssetsModel? finaryAssets,
-    @JsonKey(includeFromJson: false, includeToJson: false) @Default([]) List<AssetModel> localAssets,
+    @JsonKey(includeFromJson: false, includeToJson: false) PhysicalAssetsModel? physicalAssets,
   }) = _AppCache;
 
-  factory AppCache.fromJson(JsonResponse json) => _$AppCacheFromJson(json);
+  factory AppCache.fromJson(JsonMapResponse json) => _$AppCacheFromJson(json);
 }
 
 @Riverpod(keepAlive: true)
@@ -51,16 +50,11 @@ class AppCacheController extends _$AppCacheController {
       await ref.read(finaryAuthServiceProvider).clearSession();
     }
 
-    // Numista & Custom Back Api Keys
-    state = state.copyWith(
-      numistaApiKey: await ref.read(localStorageRepositoryProvider).readNumistaApiKey() ?? '',
-      customBackApiKey: await ref.read(localStorageRepositoryProvider).readCustomBackApiKey() ?? '',
-    );
-
     /// Assets
-    // Stocks flagged as investments
+    // Stocks flagged as investments & Custom Back Api Key
     state = state.copyWith(
       investmentStocksSymbols: await ref.read(assetsServiceProvider).getStocksSymbols(),
+      customBackApiKey: await ref.read(localStorageRepositoryProvider).readCustomBackApiKey() ?? '',
     );
 
     // Assets
@@ -70,7 +64,8 @@ class AppCacheController extends _$AppCacheController {
       spgrSPFavorableRatio: await ref.read(localStorageRepositoryProvider).getSPGRSPFavorableRatio(),
       spgrGoldFavorableRatio: await ref.read(localStorageRepositoryProvider).getSPGRGoldFavorableRatio(),
       finaryAssets: state.finarySessionId.isNotEmpty ? await ref.read(assetsServiceProvider).getFinaryAssets() : null,
-      localAssets: state.customBackApiKey.isNotEmpty ? await ref.read(assetsServiceProvider).getLocalAssets() : [],
+      physicalAssets:
+          state.customBackApiKey.isNotEmpty ? await ref.read(assetsServiceProvider).getPhysicalAssets() : null,
     );
   }
 
@@ -80,27 +75,21 @@ class AppCacheController extends _$AppCacheController {
     );
   }
 
-  void refreshNumistaApiKey({required String? key}) {
-    state = state.copyWith(
-      numistaApiKey: key ?? '',
-    );
-  }
-
   void refreshCustomBackApiKey({required String? key}) {
     state = state.copyWith(
       customBackApiKey: key ?? '',
     );
   }
 
-  void refreshStocksSymbol(List<String> stocksSymbols) {
+  void refreshPhysicalAssets(PhysicalAssetsModel assets) {
     state = state.copyWith(
-      investmentStocksSymbols: stocksSymbols,
+      physicalAssets: assets,
     );
   }
 
-  void refreshLocalAssets(List<AssetModel> assets) {
+  void refreshStocksSymbol(List<String> stocksSymbols) {
     state = state.copyWith(
-      localAssets: assets,
+      investmentStocksSymbols: stocksSymbols,
     );
   }
 
@@ -130,9 +119,7 @@ class AppCacheController extends _$AppCacheController {
       gsrSilverFavorableRatio: importedCache.gsrSilverFavorableRatio,
       spgrSPFavorableRatio: importedCache.spgrSPFavorableRatio,
       spgrGoldFavorableRatio: importedCache.spgrGoldFavorableRatio,
-      numistaApiKey: importedCache.numistaApiKey,
       customBackApiKey: importedCache.customBackApiKey,
-      localAssets: importedCache.localAssets,
     );
   }
 }

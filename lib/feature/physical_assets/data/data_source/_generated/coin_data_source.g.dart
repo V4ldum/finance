@@ -1,26 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../numista_data_source.dart';
+part of '../coin_data_source.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$numistaDataSourceHash() => r'94f8a7a7ec3408e21bd92e9bc22e20c25137a1b3';
+String _$coinDataSourceHash() => r'073ef3eeaf33696a06293ee5db049184833c84c2';
 
-/// See also [numistaDataSource].
-@ProviderFor(numistaDataSource)
-final numistaDataSourceProvider =
-    AutoDisposeProvider<NumistaDataSource>.internal(
-  numistaDataSource,
-  name: r'numistaDataSourceProvider',
+/// See also [coinDataSource].
+@ProviderFor(coinDataSource)
+final coinDataSourceProvider = AutoDisposeProvider<CoinDataSource>.internal(
+  coinDataSource,
+  name: r'coinDataSourceProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$numistaDataSourceHash,
+      : _$coinDataSourceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef NumistaDataSourceRef = AutoDisposeProviderRef<NumistaDataSource>;
+typedef CoinDataSourceRef = AutoDisposeProviderRef<CoinDataSource>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

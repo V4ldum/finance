@@ -24,26 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(label) => "Label: \'${label}\'";
 
-  static String m2(date) => "Yes (${date})";
+  static String m2(item) => "Are you sure you want to delete \'${item}\'";
 
-  static String m3(item) => "Are you sure you want to delete \'${item}\'";
+  static String m3(size) => "${size} mm";
 
-  static String m4(size) => "${size} mm";
+  static String m4(thickness) => "${thickness} mm";
 
-  static String m5(thickness) => "${thickness} mm";
+  static String m5(weight) => "${weight} g";
 
-  static String m6(weight) => "${weight} g";
-
-  static String m7(days) =>
+  static String m6(days) =>
       "${Intl.plural(days, one: 'yesterday', other: '${days} days ago')}";
 
-  static String m8(hours) =>
+  static String m7(hours) =>
       "${hours} ${Intl.plural(hours, one: 'hour', other: 'hours')} ago";
 
-  static String m9(minutes) =>
+  static String m8(minutes) =>
       "${minutes} ${Intl.plural(minutes, one: 'minute', other: 'minutes')} ago";
 
-  static String m10(seconds) =>
+  static String m9(seconds) =>
       "${seconds} ${Intl.plural(seconds, one: 'second', other: 'seconds')} ago";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
@@ -73,11 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Checking accounts"),
         "coin": MessageLookupByLibrary.simpleMessage("Coin"),
         "coinCompositionLabel": m1,
-        "coinFeaturesDemonetization":
-            MessageLookupByLibrary.simpleMessage("Demonetized"),
-        "coinFeaturesDemonetizedCoinDate": m2,
+        "coinDateNow": MessageLookupByLibrary.simpleMessage("now"),
         "coinFeaturesNoValue": MessageLookupByLibrary.simpleMessage("ø"),
-        "coinFeaturesSeries": MessageLookupByLibrary.simpleMessage("Series"),
         "coinPicturesNoPicturesAvailable": MessageLookupByLibrary.simpleMessage(
             "No picture available for this coin"),
         "creditAccounts":
@@ -87,6 +82,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "customBack": MessageLookupByLibrary.simpleMessage("Custom Back"),
         "customBackMessage": MessageLookupByLibrary.simpleMessage(
             "To obtain an API Key, contact \r\nthe administrator of the application"),
+        "customBackNoKeyBody": MessageLookupByLibrary.simpleMessage(
+            "Please set a key in the settings."),
+        "customBackNoKeyTitle":
+            MessageLookupByLibrary.simpleMessage("No API Key"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "dashboardSettingsStockCategorisationEmptyError":
@@ -98,7 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dashboardSettingsStockCategorisationTitle":
             MessageLookupByLibrary.simpleMessage("Stock Categorisation"),
         "deleteAssetButton": MessageLookupByLibrary.simpleMessage("Delete"),
-        "deleteDialogContent": m3,
+        "deleteDialogContent": m2,
         "deleteDialogTitle":
             MessageLookupByLibrary.simpleMessage("Confirm deletion"),
         "distribution": MessageLookupByLibrary.simpleMessage("Distribution"),
@@ -151,18 +150,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "metalFeaturesComposition":
             MessageLookupByLibrary.simpleMessage("Composition"),
         "metalFeaturesSize": MessageLookupByLibrary.simpleMessage("Size"),
-        "metalFeaturesSizeValue": m4,
+        "metalFeaturesSizeValue": m3,
         "metalFeaturesThickness":
             MessageLookupByLibrary.simpleMessage("Thickness"),
-        "metalFeaturesThicknessValue": m5,
+        "metalFeaturesThicknessValue": m4,
         "metalFeaturesTitle": MessageLookupByLibrary.simpleMessage("Features"),
         "metalFeaturesWeight": MessageLookupByLibrary.simpleMessage("Weight"),
-        "metalFeaturesWeightValue": m6,
+        "metalFeaturesWeightValue": m5,
         "metalPicturesTitle": MessageLookupByLibrary.simpleMessage("Pictures"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noPhysicalAssets": MessageLookupByLibrary.simpleMessage(
             "You don\'t have any physical assets. Add some by pressing the button at the top right."),
+        "noResult": MessageLookupByLibrary.simpleMessage("No result"),
         "numista": MessageLookupByLibrary.simpleMessage("Numista"),
         "numistaApiKeyField": MessageLookupByLibrary.simpleMessage("API Key"),
         "numistaApiKeyTooltip": MessageLookupByLibrary.simpleMessage(
@@ -239,7 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "preciousMetalsEmptyTitle": MessageLookupByLibrary.simpleMessage(
             "You don\'t have any precious metals"),
         "purity": MessageLookupByLibrary.simpleMessage("Purity"),
-        "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+        "quantityPossessed": MessageLookupByLibrary.simpleMessage("Possessed"),
         "raw": MessageLookupByLibrary.simpleMessage("Raw"),
         "realEstates": MessageLookupByLibrary.simpleMessage("Real estates"),
         "savings": MessageLookupByLibrary.simpleMessage("Savings"),
@@ -279,12 +279,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "stocksLiquidity":
             MessageLookupByLibrary.simpleMessage("Stocks liquidity accounts"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
-        "syncDaysAgo": m7,
-        "syncHoursAgo": m8,
+        "syncDaysAgo": m6,
+        "syncHoursAgo": m7,
         "syncLabel": MessageLookupByLibrary.simpleMessage("Updated"),
-        "syncMinutesAgo": m9,
+        "syncMinutesAgo": m8,
         "syncNow": MessageLookupByLibrary.simpleMessage("now"),
-        "syncSecondsAgo": m10,
+        "syncSecondsAgo": m9,
         "tooManyRequestsBody": MessageLookupByLibrary.simpleMessage(
             "You have sent too many simultaneous requests or have reached your monthly quota."),
         "tooManyRequestsTitle":

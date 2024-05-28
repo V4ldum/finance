@@ -17,7 +17,7 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = ref.read(appCacheControllerProvider).localAssets;
+    final data = ref.read(appCacheControllerProvider).physicalAssets?.assets ?? [];
     final tradeAPIFailed = data.isNotEmpty &&
         data
                 .firstWhere(
@@ -30,7 +30,7 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
 
     return SafeArea(
       child: RefreshIndicator(
-        onRefresh: ref.read(assetsServiceProvider).getLocalAssets,
+        onRefresh: ref.read(assetsServiceProvider).getPhysicalAssets,
         child: DashboardChart(
           emptyTitle: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyTitle,
           emptyBody: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyBody,
