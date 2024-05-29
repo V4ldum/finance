@@ -214,7 +214,7 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
                     child: FilledButton(
                       onPressed: _onTapDelete,
                       style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(Theme.of(context).colorScheme.error),
+                        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.error),
                       ),
                       child: Text(
                         S.current.deleteAssetButton,

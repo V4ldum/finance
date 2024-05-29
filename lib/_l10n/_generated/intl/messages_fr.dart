@@ -80,9 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "customBackMessage": MessageLookupByLibrary.simpleMessage(
             "Pour obtenir une clé d\'API, contactez \r\nl\'administrateur de l\'application"),
         "customBackNoKeyBody": MessageLookupByLibrary.simpleMessage(
-            "Veuillez renseigner une clé d\'API dans les paramètres."),
-        "customBackNoKeyTitle":
-            MessageLookupByLibrary.simpleMessage("Pas de clé d\'API"),
+            "Veuillez renseigner ou vérifier votre clé dans les paramètres."),
+        "customBackNoKeyTitle": MessageLookupByLibrary.simpleMessage(
+            "Pas de clé d\'API ou clé d\'API invalide"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Tableau de bord"),
         "dashboardSettingsStockCategorisationEmptyError":

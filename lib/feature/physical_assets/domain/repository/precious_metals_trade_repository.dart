@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:finance/feature/assets/domain/exception/custom_back_exception.dart';
 import 'package:finance/feature/physical_assets/data/data_source/precious_metals_trade_data_source.dart';
-import 'package:finance/feature/physical_assets/domain/exception/precious_metals_trade_value_exception.dart';
 import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/feature/physical_assets/domain/model/precious_metals_trade_value_model.dart';
 import 'package:finance/feature/physical_assets/domain/model/sp500_trade_value_model.dart';
@@ -26,7 +26,7 @@ class PreciousMetalsTradeRepository {
 
       return PreciousMetalTradeValueModel.fromDto(value, PreciousMetalTypeModel.gold);
     } on DioException catch (e) {
-      throw PreciousMetalsTradeValueException.fromStatusCode(e.response?.statusCode);
+      throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
   }
 
@@ -36,7 +36,7 @@ class PreciousMetalsTradeRepository {
 
       return PreciousMetalTradeValueModel.fromDto(value, PreciousMetalTypeModel.silver);
     } on DioException catch (e) {
-      throw PreciousMetalsTradeValueException.fromStatusCode(e.response?.statusCode);
+      throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
   }
 
@@ -46,7 +46,7 @@ class PreciousMetalsTradeRepository {
 
       return SP500TradeValueModel.fromDto(value);
     } on DioException catch (e) {
-      throw PreciousMetalsTradeValueException.fromStatusCode(e.response?.statusCode);
+      throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
   }
 }

@@ -83,9 +83,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "customBackMessage": MessageLookupByLibrary.simpleMessage(
             "To obtain an API Key, contact \r\nthe administrator of the application"),
         "customBackNoKeyBody": MessageLookupByLibrary.simpleMessage(
-            "Please set a key in the settings."),
-        "customBackNoKeyTitle":
-            MessageLookupByLibrary.simpleMessage("No API Key"),
+            "Please set or verify your key in the settings."),
+        "customBackNoKeyTitle": MessageLookupByLibrary.simpleMessage(
+            "No API key or invalid API key"),
         "dashboardDrawerItem":
             MessageLookupByLibrary.simpleMessage("Dashboard"),
         "dashboardSettingsStockCategorisationEmptyError":

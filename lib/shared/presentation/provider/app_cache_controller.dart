@@ -76,9 +76,17 @@ class AppCacheController extends _$AppCacheController {
   }
 
   void refreshCustomBackApiKey({required String? key}) {
-    state = state.copyWith(
+    var tmp = state.copyWith(
       customBackApiKey: key ?? '',
     );
+
+    if (key == null || key.isEmpty) {
+      tmp = tmp.copyWith(
+        physicalAssets: null,
+      );
+    }
+
+    state = tmp;
   }
 
   void refreshPhysicalAssets(PhysicalAssetsModel assets) {

@@ -5,7 +5,7 @@ class CustomBackException extends DisplayableException {
   CustomBackException.badRequest()
       : super(S.current.physicalAssetCoinAlreadyExistsTitle, S.current.physicalAssetCoinAlreadyExistsContent);
 
-  CustomBackException.unauthorized() : super(S.current.sessionExpiredTitle, S.current.sessionExpiredBody);
+  CustomBackException.unauthorized() : super(S.current.customBackNoKeyTitle, S.current.customBackNoKeyBody);
 
   CustomBackException.unknown() : super(S.current.unknownErrorTitle, S.current.unknownErrorBody);
 

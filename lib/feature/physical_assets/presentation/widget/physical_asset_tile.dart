@@ -65,11 +65,11 @@ class PhysicalAssetTile extends StatelessWidget {
       leading: ClipOval(
         child: ColoredBox(
           color: asset is! PreciousMetalAssetModel
-              ? Theme.of(context).colorScheme.surfaceVariant
+              ? Theme.of(context).colorScheme.surfaceContainerHighest
               : switch ((asset as PreciousMetalAssetModel).metalType) {
                   PreciousMetalTypeModel.gold => Utils.goldColor,
                   PreciousMetalTypeModel.silver => Utils.silverColor,
-                  PreciousMetalTypeModel.other => Theme.of(context).colorScheme.surfaceVariant,
+                  PreciousMetalTypeModel.other => Theme.of(context).colorScheme.surfaceContainerHighest,
                 },
           child: FittedBox(
             fit: BoxFit.cover,
@@ -93,7 +93,7 @@ class PhysicalAssetTile extends StatelessWidget {
                         color: switch ((asset as PreciousMetalAssetModel).metalType) {
                           PreciousMetalTypeModel.gold ||
                           PreciousMetalTypeModel.silver =>
-                            Theme.of(context).colorScheme.surfaceVariant,
+                            Theme.of(context).colorScheme.surfaceContainerHighest,
                           PreciousMetalTypeModel.other => Theme.of(context).colorScheme.onSurfaceVariant,
                         },
                       ),

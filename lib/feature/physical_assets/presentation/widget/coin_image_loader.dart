@@ -49,7 +49,7 @@ class CoinImageLoader extends StatelessWidget {
 
     return ClipOval(
       child: ColoredBox(
-        color: Theme.of(context).colorScheme.surfaceVariant,
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
         child: image,
       ),
     );

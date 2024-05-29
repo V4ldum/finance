@@ -7,6 +7,8 @@ import 'package:finance/shared/constant/app_asset.dart';
 import 'package:finance/shared/constant/app_padding.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:finance/shared/presentation/widget/app_navigation_drawer.dart';
+import 'package:finance/shared/presentation/widget/default_error_widget.dart';
+import 'package:finance/shared/presentation/widget/default_loading_widget.dart';
 import 'package:finance/shared/utils/go_router.dart';
 import 'package:finance/shared/utils/helpers.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,7 @@ class PhysicalAssetsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final physicalAssetsResult = ref.watch(physicalAssetsControllerProvider);
     final ratioResult = ref.watch(ratioControllerProvider);
     final cache = ref.read(appCacheControllerProvider);
 
@@ -73,9 +76,9 @@ class PhysicalAssetsPage extends ConsumerWidget {
               );
             },
             error: (error, trace) {
-              debugPrint(error.toString());
-              debugPrint('--- STACKTRACE ---');
-              debugPrint(trace.toString());
+              // debugPrint(error.toString());
+              // debugPrint('--- STACKTRACE ---');
+              // debugPrint(trace.toString());
               return const SizedBox();
             },
             loading: () => const Shimmer(
@@ -127,35 +130,36 @@ class PhysicalAssetsPage extends ConsumerWidget {
         ],
       ),
       body: SafeArea(
-        child: RefreshIndicator(
-          onRefresh: ref.read(physicalAssetsControllerProvider.notifier).refreshAssets,
-          child: SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(),
-            child: Builder(
-              builder: (context) {
-                final assets = (ref.watch(appCacheControllerProvider).physicalAssets?.assets ?? [])
-                  ..sort((a, b) => b.name.compareTo(a.name))
-                  ..toList();
+        child: physicalAssetsResult.when(
+          data: (assets) {
+            if (assets.assets.isEmpty) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
+                child: Text(
+                  S.current.noPhysicalAssets,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            }
 
-                if (assets.isEmpty) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
-                    child: Text(
-                      S.current.noPhysicalAssets,
-                      textAlign: TextAlign.center,
-                    ),
-                  );
-                }
+            final sorted = assets.assets
+              ..sort((a, b) => b.name.compareTo(a.name))
+              ..toList();
 
-                return Column(
-                  children: assets
+            return RefreshIndicator(
+              onRefresh: ref.read(physicalAssetsControllerProvider.notifier).refreshAssets,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: sorted
                       .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
                       .map((e) => PhysicalAssetTile(asset: e))
                       .toList(),
-                );
-              },
-            ),
-          ),
+                ),
+              ),
+            );
+          },
+          error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),
+          loading: () => const DefaultLoadingWidget(),
         ),
       ),
     );
