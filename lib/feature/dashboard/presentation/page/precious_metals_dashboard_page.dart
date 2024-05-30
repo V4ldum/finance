@@ -30,7 +30,7 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
 
     return SafeArea(
       child: RefreshIndicator(
-        onRefresh: ref.read(assetsServiceProvider).getPhysicalAssets,
+        onRefresh: ref.read(assetsServiceProvider).refreshPhysicalAssets,
         child: DashboardChart(
           emptyTitle: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyTitle,
           emptyBody: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyBody,

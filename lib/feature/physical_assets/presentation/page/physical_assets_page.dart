@@ -26,7 +26,7 @@ class PhysicalAssetsPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final physicalAssetsResult = ref.watch(physicalAssetsControllerProvider);
     final ratioResult = ref.watch(ratioControllerProvider);
-    final cache = ref.read(appCacheControllerProvider);
+    final cache = ref.watch(appCacheControllerProvider);
 
     return Scaffold(
       drawer: const AppNavigationDrawer(),
@@ -131,7 +131,9 @@ class PhysicalAssetsPage extends ConsumerWidget {
       ),
       body: SafeArea(
         child: physicalAssetsResult.when(
-          data: (assets) {
+          data: (_) {
+            final assets = cache.physicalAssets!;
+
             if (assets.assets.isEmpty) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
@@ -149,6 +151,7 @@ class PhysicalAssetsPage extends ConsumerWidget {
             return RefreshIndicator(
               onRefresh: ref.read(physicalAssetsControllerProvider.notifier).refreshAssets,
               child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
                   children: sorted
                       .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
