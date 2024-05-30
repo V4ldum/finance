@@ -32,13 +32,15 @@ class CoinSearchTile extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(width: AppPadding.s),
-          Text(
-            nameSecondPart,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+          Flexible(
+            child: Text(
+              nameSecondPart,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+            ),
           ),
         ],
       ),

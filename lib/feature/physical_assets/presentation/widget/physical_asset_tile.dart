@@ -35,22 +35,13 @@ class PhysicalAssetTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
         children: [
-          Text(
-            nameFirstPart,
-            maxLines: 1,
-          ),
-          if (nameSecondPart.isNotEmpty) const SizedBox(width: AppPadding.s),
-          if (nameSecondPart.isNotEmpty)
-            Flexible(
-              child: Text(
-                nameSecondPart,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    ),
-              ),
+          Flexible(
+            child: Text(
+              nameFirstPart,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
+          ),
           if (asset.amount > 1) const SizedBox(width: AppPadding.m),
           if (asset.amount > 1)
             Text(
@@ -62,6 +53,16 @@ class PhysicalAssetTile extends StatelessWidget {
           const SizedBox(width: AppPadding.s),
         ],
       ),
+      subtitle: nameSecondPart.isNotEmpty
+          ? Text(
+              nameSecondPart,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+            )
+          : null,
       leading: ClipOval(
         child: ColoredBox(
           color: asset is! PreciousMetalAssetModel
