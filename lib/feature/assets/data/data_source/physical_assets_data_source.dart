@@ -29,13 +29,13 @@ class PhysicalAssetsDataSource {
   final Dio _dio;
 
   Future<PhysicalAssetsDto> getAssets() async {
-    final response = await _dio.get<JsonMapResponse>('/api/assets');
+    final response = await _dio.get<JsonMapResponse>('/assets');
     return PhysicalAssetsDto.fromHttpResponse(response.data!);
   }
 
   Future<void> createCoinAsset({required int id, required int possessed}) async {
     await _dio.post<void>(
-      '/api/assets/coin',
+      '/assets/coin',
       data: {
         'coin_id': id,
         'possessed': possessed,
@@ -45,7 +45,7 @@ class PhysicalAssetsDataSource {
 
   Future<void> updateCoinAsset({required String id, required int possessed}) async {
     await _dio.patch<void>(
-      '/api/assets/coin/$id',
+      '/assets/coin/$id',
       data: {
         'possessed': possessed,
       },
@@ -53,7 +53,7 @@ class PhysicalAssetsDataSource {
   }
 
   Future<void> removeCoinAsset({required String id}) async {
-    await _dio.delete<void>('/api/assets/coin/$id');
+    await _dio.delete<void>('/assets/coin/$id');
   }
 
   Future<void> createCashAsset({
@@ -62,7 +62,7 @@ class PhysicalAssetsDataSource {
     required int unitValue,
   }) async {
     await _dio.post<void>(
-      '/api/assets/cash',
+      '/assets/cash',
       data: {
         'name': name,
         'possessed': possessed,
@@ -78,7 +78,7 @@ class PhysicalAssetsDataSource {
     required int unitValue,
   }) async {
     await _dio.patch<void>(
-      '/api/assets/cash/$id',
+      '/assets/cash/$id',
       data: {
         'name': name,
         'possessed': possessed,
@@ -88,7 +88,7 @@ class PhysicalAssetsDataSource {
   }
 
   Future<void> removeCashAsset({required String id}) async {
-    await _dio.delete<void>('/api/assets/cash/$id');
+    await _dio.delete<void>('/assets/cash/$id');
   }
 
   Future<void> createRawAsset({
@@ -99,7 +99,7 @@ class PhysicalAssetsDataSource {
     required int purity,
   }) async {
     await _dio.post<void>(
-      '/api/assets/raw',
+      '/assets/raw',
       data: {
         'name': name,
         'possessed': possessed,
@@ -119,7 +119,7 @@ class PhysicalAssetsDataSource {
     required int purity,
   }) async {
     await _dio.patch<void>(
-      '/api/assets/raw/$id',
+      '/assets/raw/$id',
       data: {
         'name': name,
         'possessed': possessed,
@@ -131,6 +131,6 @@ class PhysicalAssetsDataSource {
   }
 
   Future<void> removeRawAsset({required String id}) async {
-    await _dio.delete<void>('/api/assets/raw/$id');
+    await _dio.delete<void>('/assets/raw/$id');
   }
 }
