@@ -1,3 +1,4 @@
+import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 enum PeriodDto {
@@ -24,6 +25,17 @@ extension PeriodDtoValues on PeriodDto {
       PeriodDto.ytd => 'ytd',
       PeriodDto.year => '1y',
       PeriodDto.all => 'all',
+    };
+  }
+
+  String toIntlString() {
+    return switch (this) {
+      PeriodDto.day => S.current.periodDay,
+      PeriodDto.week => S.current.periodWeek,
+      PeriodDto.month => S.current.periodMonth,
+      PeriodDto.ytd => S.current.periodYtd,
+      PeriodDto.year => S.current.periodYear,
+      PeriodDto.all => S.current.periodAll,
     };
   }
 }

@@ -1,4 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/feature/assets/data/dto/period_dto.dart';
 import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';
 import 'package:finance/feature/dashboard/presentation/page/accounts_dashboard_page.dart';
 import 'package:finance/feature/dashboard/presentation/page/distribution_dashboard_page.dart';
@@ -131,4 +132,22 @@ class TabInformation {
   final String title;
   final Widget body;
   final List<Widget> actions;
+}
+
+@riverpod
+class SelectedPeriodController extends _$SelectedPeriodController {
+  // Key used to programmatically call the refresh indicator when changing the period
+  final GlobalKey<RefreshIndicatorState> refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
+
+  @override
+  PeriodDto build() {
+    return PeriodDto.ytd;
+  }
+
+  void onSelected(PeriodDto value) {
+    if (value != state) {
+      refreshIndicatorKey.currentState?.show();
+      state = value;
+    }
+  }
 }

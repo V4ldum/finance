@@ -1,4 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/feature/assets/data/dto/period_dto.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
 import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/dashboard/presentation/widget/asset_category_icon.dart';
@@ -32,6 +33,7 @@ class DashboardChart extends ConsumerWidget {
     required this.categoryFilter,
     required this.emptyTitle,
     required this.emptyBody,
+    this.showPeriodSelector = false,
     this.assetUnit = '€',
     this.colorManager = _defaultColorManager,
     super.key,
@@ -42,6 +44,7 @@ class DashboardChart extends ConsumerWidget {
   final String assetUnit;
   final String emptyTitle;
   final String emptyBody;
+  final bool showPeriodSelector;
   final Color Function(List<PieData>, int, int?) colorManager;
 
   @override
@@ -91,6 +94,25 @@ class DashboardChart extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: AppPadding.l),
+          if (showPeriodSelector)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: PeriodDto.values
+                  .map(
+                    (p) => Transform.scale(
+                      scale: 0.8,
+                      child: FilterChip(
+                        label: Text(p.toIntlString()),
+                        selected: p == ref.watch(selectedPeriodControllerProvider),
+                        onSelected: (_) {
+                          ref.read(selectedPeriodControllerProvider.notifier).onSelected(p);
+                        },
+                        showCheckmark: false,
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
           ...List.generate(
             data.length,
             (index) {
@@ -101,6 +123,7 @@ class DashboardChart extends ConsumerWidget {
                 child: LinearChartItem(
                   title: item.title,
                   value: item.value.toDouble(),
+                  evolution: item.evolutionPercent,
                   assetUnit: assetUnit,
                   percent: item.value / total,
                   color: colorManager(data, index, null),

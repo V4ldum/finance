@@ -4,6 +4,7 @@ import 'package:finance/feature/assets/data/dto/stocks_detail_dto.dart';
 import 'package:finance/feature/assets/data/dto/user_info_dto.dart';
 import 'package:finance/feature/assets/domain/model/asset_category_model.dart';
 import 'package:finance/feature/assets/domain/model/asset_model.dart';
+import 'package:finance/feature/assets/domain/model/finary_asset_model.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 
 class FinaryAssetsModel {
@@ -32,7 +33,7 @@ class FinaryAssetsModel {
       lastSyncFinary: DateTime.parse(userInfo.result.lastSync),
       assets: [
         // Stocks
-        ...filteredStocks.map((e) => AssetModel.fromStocksSecurityDto(e, cache)),
+        ...filteredStocks.map((e) => FinaryAssetModel.fromStocksSecurityDto(e, cache)),
         // Accounts
         if (summary.result.distribution.checkingAccounts != null)
           AssetModel.fromSummaryDto(

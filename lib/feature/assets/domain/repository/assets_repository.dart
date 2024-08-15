@@ -8,6 +8,7 @@ import 'package:finance/feature/assets/domain/exception/custom_back_exception.da
 import 'package:finance/feature/assets/domain/exception/finary_exception.dart';
 import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';
 import 'package:finance/feature/assets/domain/model/physical_assets_model.dart';
+import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -26,6 +27,7 @@ class AssetsRepository {
 
   FinaryDataSource get _finaryDataSource => _ref.read(finaryDataSourceProvider);
   PhysicalAssetsDataSource get _physicalAssetsDataSource => _ref.read(physicalAssetsDataSourceProvider);
+  PeriodDto get _selectedPeriod => _ref.read(selectedPeriodControllerProvider);
   AppCache get _cache => _ref.read(appCacheControllerProvider);
 
   Future<FinaryAssetsModel> getFinaryAssets(String accessToken) async {
@@ -36,11 +38,11 @@ class AssetsRepository {
     try {
       final summary = await _finaryDataSource.getInvestmentSummary(
         type: TypeDto.gross,
-        period: PeriodDto.ytd,
+        period: _selectedPeriod,
         accessToken: accessToken,
       );
       final userInfo = await _finaryDataSource.getUserInfo(accessToken: accessToken);
-      final stocks = await _finaryDataSource.getStocksDetail(period: PeriodDto.ytd, accessToken: accessToken);
+      final stocks = await _finaryDataSource.getStocksDetail(period: _selectedPeriod, accessToken: accessToken);
 
       final assets = FinaryAssetsModel.fromDto(summary, userInfo, stocks, _cache);
 

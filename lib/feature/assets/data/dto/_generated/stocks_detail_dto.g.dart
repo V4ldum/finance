@@ -58,9 +58,8 @@ _$StockDetailSecurityDtoImpl _$$StockDetailSecurityDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$StockDetailSecurityDtoImpl(
       total: (json['current_value'] as num).toDouble(),
-      periodEvolution: (json['period_evolution'] as num).toDouble(),
-      periodEvolutionPercent:
-          (json['period_evolution_percent'] as num?)?.toDouble() ?? 0,
+      evolution: (json['evolution'] as num?)?.toDouble() ?? 0,
+      evolutionPercent: (json['evolution_percent'] as num?)?.toDouble() ?? 0,
       buyingPrice: (json['buying_price'] as num?)?.toDouble() ?? 0,
       quantity: (json['quantity'] as num).toDouble(),
       security: StockDetailSecurityInformationDto.fromJson(
@@ -71,8 +70,8 @@ Map<String, dynamic> _$$StockDetailSecurityDtoImplToJson(
         _$StockDetailSecurityDtoImpl instance) =>
     <String, dynamic>{
       'current_value': instance.total,
-      'period_evolution': instance.periodEvolution,
-      'period_evolution_percent': instance.periodEvolutionPercent,
+      'evolution': instance.evolution,
+      'evolution_percent': instance.evolutionPercent,
       'buying_price': instance.buyingPrice,
       'quantity': instance.quantity,
       'security': instance.security,

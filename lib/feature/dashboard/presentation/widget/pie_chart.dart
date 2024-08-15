@@ -75,7 +75,9 @@ class PieData {
   const PieData({
     required this.title,
     required this.value,
+    this.evolutionPercent,
   });
   final String title;
   final int value;
+  final double? evolutionPercent;
 }

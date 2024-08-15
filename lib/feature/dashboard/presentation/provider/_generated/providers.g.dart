@@ -57,5 +57,22 @@ final dashboardTabControllerProvider =
 );
 
 typedef _$DashboardTabController = AutoDisposeNotifier<int>;
+String _$selectedPeriodControllerHash() =>
+    r'e0e1d290cb6c22f40ee6da3f34be3dea53535b5f';
+
+/// See also [SelectedPeriodController].
+@ProviderFor(SelectedPeriodController)
+final selectedPeriodControllerProvider =
+    AutoDisposeNotifierProvider<SelectedPeriodController, PeriodDto>.internal(
+  SelectedPeriodController.new,
+  name: r'selectedPeriodControllerProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$selectedPeriodControllerHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$SelectedPeriodController = AutoDisposeNotifier<PeriodDto>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

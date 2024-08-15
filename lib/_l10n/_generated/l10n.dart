@@ -791,6 +791,66 @@ class S {
     );
   }
 
+  /// `1d`
+  String get periodDay {
+    return Intl.message(
+      '1d',
+      name: 'periodDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1w`
+  String get periodWeek {
+    return Intl.message(
+      '1w',
+      name: 'periodWeek',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1m`
+  String get periodMonth {
+    return Intl.message(
+      '1m',
+      name: 'periodMonth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ytd`
+  String get periodYtd {
+    return Intl.message(
+      'ytd',
+      name: 'periodYtd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1y`
+  String get periodYear {
+    return Intl.message(
+      '1y',
+      name: 'periodYear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `all`
+  String get periodAll {
+    return Intl.message(
+      'all',
+      name: 'periodAll',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Dashboard`
   String get settingsAssetsTitle {
     return Intl.message(

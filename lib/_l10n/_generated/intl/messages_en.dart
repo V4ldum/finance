@@ -189,6 +189,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Secret code"),
         "passwordTextFieldLabel":
             MessageLookupByLibrary.simpleMessage("Password"),
+        "periodAll": MessageLookupByLibrary.simpleMessage("all"),
+        "periodDay": MessageLookupByLibrary.simpleMessage("1d"),
+        "periodMonth": MessageLookupByLibrary.simpleMessage("1m"),
+        "periodWeek": MessageLookupByLibrary.simpleMessage("1w"),
+        "periodYear": MessageLookupByLibrary.simpleMessage("1y"),
+        "periodYtd": MessageLookupByLibrary.simpleMessage("ytd"),
         "physicalAssetCoinAlreadyExistsContent":
             MessageLookupByLibrary.simpleMessage(
                 "You must update the item instead of adding a new one."),

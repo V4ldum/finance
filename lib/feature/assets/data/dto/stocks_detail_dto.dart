@@ -43,8 +43,8 @@ sealed class StockDetailAccountDto with _$StockDetailAccountDto {
 sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
   const factory StockDetailSecurityDto({
     @JsonKey(name: 'current_value') required double total,
-    @JsonKey(name: 'period_evolution') required double periodEvolution,
-    @JsonKey(name: 'period_evolution_percent', defaultValue: 0) required double periodEvolutionPercent,
+    @JsonKey(name: 'evolution', defaultValue: 0) required double evolution,
+    @JsonKey(name: 'evolution_percent', defaultValue: 0) required double evolutionPercent,
     @JsonKey(name: 'buying_price', defaultValue: 0) required double buyingPrice,
     required double quantity,
     required StockDetailSecurityInformationDto security,
@@ -55,8 +55,8 @@ sealed class StockDetailSecurityDto with _$StockDetailSecurityDto {
   factory StockDetailSecurityDto.fromLiquidityArray(Iterable<StockDetailSecurityDto> array) {
     return StockDetailSecurityDto(
       total: array.fold(0, (prev, e) => prev += e.total),
-      periodEvolution: array.fold<double>(0, (prev, e) => prev += e.periodEvolution),
-      periodEvolutionPercent: array.fold<double>(0, (prev, e) => prev += e.periodEvolutionPercent) / array.length,
+      evolution: array.fold<double>(0, (prev, e) => prev += e.evolution),
+      evolutionPercent: array.fold<double>(0, (prev, e) => prev += e.evolutionPercent) / array.length,
       buyingPrice: array.fold(0, (prev, e) => prev += e.buyingPrice),
       quantity: 1,
       security: StockDetailSecurityInformationDto(

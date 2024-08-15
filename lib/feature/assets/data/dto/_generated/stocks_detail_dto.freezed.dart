@@ -546,10 +546,10 @@ StockDetailSecurityDto _$StockDetailSecurityDtoFromJson(
 mixin _$StockDetailSecurityDto {
   @JsonKey(name: 'current_value')
   double get total => throw _privateConstructorUsedError;
-  @JsonKey(name: 'period_evolution')
-  double get periodEvolution => throw _privateConstructorUsedError;
-  @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-  double get periodEvolutionPercent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'evolution', defaultValue: 0)
+  double get evolution => throw _privateConstructorUsedError;
+  @JsonKey(name: 'evolution_percent', defaultValue: 0)
+  double get evolutionPercent => throw _privateConstructorUsedError;
   @JsonKey(name: 'buying_price', defaultValue: 0)
   double get buyingPrice => throw _privateConstructorUsedError;
   double get quantity => throw _privateConstructorUsedError;
@@ -570,9 +570,9 @@ abstract class $StockDetailSecurityDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'current_value') double total,
-      @JsonKey(name: 'period_evolution') double periodEvolution,
-      @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-      double periodEvolutionPercent,
+      @JsonKey(name: 'evolution', defaultValue: 0) double evolution,
+      @JsonKey(name: 'evolution_percent', defaultValue: 0)
+      double evolutionPercent,
       @JsonKey(name: 'buying_price', defaultValue: 0) double buyingPrice,
       double quantity,
       StockDetailSecurityInformationDto security});
@@ -595,8 +595,8 @@ class _$StockDetailSecurityDtoCopyWithImpl<$Res,
   @override
   $Res call({
     Object? total = null,
-    Object? periodEvolution = null,
-    Object? periodEvolutionPercent = null,
+    Object? evolution = null,
+    Object? evolutionPercent = null,
     Object? buyingPrice = null,
     Object? quantity = null,
     Object? security = null,
@@ -606,13 +606,13 @@ class _$StockDetailSecurityDtoCopyWithImpl<$Res,
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      periodEvolution: null == periodEvolution
-          ? _value.periodEvolution
-          : periodEvolution // ignore: cast_nullable_to_non_nullable
+      evolution: null == evolution
+          ? _value.evolution
+          : evolution // ignore: cast_nullable_to_non_nullable
               as double,
-      periodEvolutionPercent: null == periodEvolutionPercent
-          ? _value.periodEvolutionPercent
-          : periodEvolutionPercent // ignore: cast_nullable_to_non_nullable
+      evolutionPercent: null == evolutionPercent
+          ? _value.evolutionPercent
+          : evolutionPercent // ignore: cast_nullable_to_non_nullable
               as double,
       buyingPrice: null == buyingPrice
           ? _value.buyingPrice
@@ -650,9 +650,9 @@ abstract class _$$StockDetailSecurityDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'current_value') double total,
-      @JsonKey(name: 'period_evolution') double periodEvolution,
-      @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-      double periodEvolutionPercent,
+      @JsonKey(name: 'evolution', defaultValue: 0) double evolution,
+      @JsonKey(name: 'evolution_percent', defaultValue: 0)
+      double evolutionPercent,
       @JsonKey(name: 'buying_price', defaultValue: 0) double buyingPrice,
       double quantity,
       StockDetailSecurityInformationDto security});
@@ -675,8 +675,8 @@ class __$$StockDetailSecurityDtoImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? total = null,
-    Object? periodEvolution = null,
-    Object? periodEvolutionPercent = null,
+    Object? evolution = null,
+    Object? evolutionPercent = null,
     Object? buyingPrice = null,
     Object? quantity = null,
     Object? security = null,
@@ -686,13 +686,13 @@ class __$$StockDetailSecurityDtoImplCopyWithImpl<$Res>
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
               as double,
-      periodEvolution: null == periodEvolution
-          ? _value.periodEvolution
-          : periodEvolution // ignore: cast_nullable_to_non_nullable
+      evolution: null == evolution
+          ? _value.evolution
+          : evolution // ignore: cast_nullable_to_non_nullable
               as double,
-      periodEvolutionPercent: null == periodEvolutionPercent
-          ? _value.periodEvolutionPercent
-          : periodEvolutionPercent // ignore: cast_nullable_to_non_nullable
+      evolutionPercent: null == evolutionPercent
+          ? _value.evolutionPercent
+          : evolutionPercent // ignore: cast_nullable_to_non_nullable
               as double,
       buyingPrice: null == buyingPrice
           ? _value.buyingPrice
@@ -715,9 +715,9 @@ class __$$StockDetailSecurityDtoImplCopyWithImpl<$Res>
 class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
   const _$StockDetailSecurityDtoImpl(
       {@JsonKey(name: 'current_value') required this.total,
-      @JsonKey(name: 'period_evolution') required this.periodEvolution,
-      @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-      required this.periodEvolutionPercent,
+      @JsonKey(name: 'evolution', defaultValue: 0) required this.evolution,
+      @JsonKey(name: 'evolution_percent', defaultValue: 0)
+      required this.evolutionPercent,
       @JsonKey(name: 'buying_price', defaultValue: 0) required this.buyingPrice,
       required this.quantity,
       required this.security});
@@ -729,11 +729,11 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
   @JsonKey(name: 'current_value')
   final double total;
   @override
-  @JsonKey(name: 'period_evolution')
-  final double periodEvolution;
+  @JsonKey(name: 'evolution', defaultValue: 0)
+  final double evolution;
   @override
-  @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-  final double periodEvolutionPercent;
+  @JsonKey(name: 'evolution_percent', defaultValue: 0)
+  final double evolutionPercent;
   @override
   @JsonKey(name: 'buying_price', defaultValue: 0)
   final double buyingPrice;
@@ -744,7 +744,7 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
 
   @override
   String toString() {
-    return 'StockDetailSecurityDto(total: $total, periodEvolution: $periodEvolution, periodEvolutionPercent: $periodEvolutionPercent, buyingPrice: $buyingPrice, quantity: $quantity, security: $security)';
+    return 'StockDetailSecurityDto(total: $total, evolution: $evolution, evolutionPercent: $evolutionPercent, buyingPrice: $buyingPrice, quantity: $quantity, security: $security)';
   }
 
   @override
@@ -753,10 +753,10 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
         (other.runtimeType == runtimeType &&
             other is _$StockDetailSecurityDtoImpl &&
             (identical(other.total, total) || other.total == total) &&
-            (identical(other.periodEvolution, periodEvolution) ||
-                other.periodEvolution == periodEvolution) &&
-            (identical(other.periodEvolutionPercent, periodEvolutionPercent) ||
-                other.periodEvolutionPercent == periodEvolutionPercent) &&
+            (identical(other.evolution, evolution) ||
+                other.evolution == evolution) &&
+            (identical(other.evolutionPercent, evolutionPercent) ||
+                other.evolutionPercent == evolutionPercent) &&
             (identical(other.buyingPrice, buyingPrice) ||
                 other.buyingPrice == buyingPrice) &&
             (identical(other.quantity, quantity) ||
@@ -767,8 +767,8 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, total, periodEvolution,
-      periodEvolutionPercent, buyingPrice, quantity, security);
+  int get hashCode => Object.hash(runtimeType, total, evolution,
+      evolutionPercent, buyingPrice, quantity, security);
 
   @JsonKey(ignore: true)
   @override
@@ -787,15 +787,16 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
 
 abstract class _StockDetailSecurityDto implements StockDetailSecurityDto {
   const factory _StockDetailSecurityDto(
-      {@JsonKey(name: 'current_value') required final double total,
-      @JsonKey(name: 'period_evolution') required final double periodEvolution,
-      @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-      required final double periodEvolutionPercent,
-      @JsonKey(name: 'buying_price', defaultValue: 0)
-      required final double buyingPrice,
-      required final double quantity,
-      required final StockDetailSecurityInformationDto
-          security}) = _$StockDetailSecurityDtoImpl;
+          {@JsonKey(name: 'current_value') required final double total,
+          @JsonKey(name: 'evolution', defaultValue: 0)
+          required final double evolution,
+          @JsonKey(name: 'evolution_percent', defaultValue: 0)
+          required final double evolutionPercent,
+          @JsonKey(name: 'buying_price', defaultValue: 0)
+          required final double buyingPrice,
+          required final double quantity,
+          required final StockDetailSecurityInformationDto security}) =
+      _$StockDetailSecurityDtoImpl;
 
   factory _StockDetailSecurityDto.fromJson(Map<String, dynamic> json) =
       _$StockDetailSecurityDtoImpl.fromJson;
@@ -804,11 +805,11 @@ abstract class _StockDetailSecurityDto implements StockDetailSecurityDto {
   @JsonKey(name: 'current_value')
   double get total;
   @override
-  @JsonKey(name: 'period_evolution')
-  double get periodEvolution;
+  @JsonKey(name: 'evolution', defaultValue: 0)
+  double get evolution;
   @override
-  @JsonKey(name: 'period_evolution_percent', defaultValue: 0)
-  double get periodEvolutionPercent;
+  @JsonKey(name: 'evolution_percent', defaultValue: 0)
+  double get evolutionPercent;
   @override
   @JsonKey(name: 'buying_price', defaultValue: 0)
   double get buyingPrice;

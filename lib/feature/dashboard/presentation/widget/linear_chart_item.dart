@@ -9,6 +9,7 @@ class LinearChartItem extends StatelessWidget {
     required this.value,
     required this.percent,
     required this.assetUnit,
+    this.evolution,
     this.color = Colors.black87,
     super.key,
     this.leading,
@@ -16,6 +17,7 @@ class LinearChartItem extends StatelessWidget {
 
   final String title;
   final double value;
+  final double? evolution;
   final double percent;
   final String assetUnit;
   final Color color;
@@ -48,6 +50,27 @@ class LinearChartItem extends StatelessWidget {
               ),
             ),
             const SizedBox(width: AppPadding.m),
+            if (evolution != null)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(AppPadding.xs),
+                child: ColoredBox(
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppPadding.xxs, horizontal: AppPadding.s),
+                    child: Text(
+                      '${(evolution! >= 0 ? evolution! : evolution! * -1).toStringAsFixed(1)} %',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontSize: 10,
+                            color: evolution! > 0
+                                ? Colors.green
+                                : evolution! < 0
+                                    ? Colors.red
+                                    : Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                    ),
+                  ),
+                ),
+              ),
             Expanded(
               flex: 3,
               child: HideableText(
