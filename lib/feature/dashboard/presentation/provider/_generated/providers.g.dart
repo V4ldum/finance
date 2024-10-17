@@ -58,7 +58,7 @@ final dashboardTabControllerProvider =
 
 typedef _$DashboardTabController = AutoDisposeNotifier<int>;
 String _$selectedPeriodControllerHash() =>
-    r'e0e1d290cb6c22f40ee6da3f34be3dea53535b5f';
+    r'98c964c24d9c164aefdd77df98d4dd101af4456b';
 
 /// See also [SelectedPeriodController].
 @ProviderFor(SelectedPeriodController)

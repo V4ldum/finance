@@ -1,3 +1,4 @@
+import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/shared/constant/app_asset.dart';
 import 'package:finance/shared/constant/app_component_size.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
@@ -15,10 +16,19 @@ class LoadingPage extends ConsumerWidget {
   Future<void> _onInit(WidgetRef ref) async {
     final context = ref.context;
 
-    await ref.read(appCacheControllerProvider.notifier).init();
+    try {
+      await ref.read(appCacheControllerProvider.notifier).init();
 
-    if (context.mounted) {
-      context.pushReplacementNamed(AppRoute.dashboard);
+      if (context.mounted) {
+        context.pushReplacementNamed(AppRoute.dashboard);
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(S.current.genericError)),
+        );
+      }
+      rethrow;
     }
   }
 

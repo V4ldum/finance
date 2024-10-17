@@ -22,9 +22,11 @@ Map<String, dynamic> _$$InvestmentSummaryDtoImplToJson(
 _$InvestmentSummaryResultDtoImpl _$$InvestmentSummaryResultDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$InvestmentSummaryResultDtoImpl(
-      total: SummaryValuesDto.fromJson(
-          _readInvestmentSummaryResultTotal(json, 'total')
-              as Map<String, dynamic>),
+      total: _readInvestmentSummaryResultTotal(json, 'total') == null
+          ? null
+          : SummaryValuesDto.fromJson(
+              _readInvestmentSummaryResultTotal(json, 'total')
+                  as Map<String, dynamic>),
       distribution: InvestmentSummaryDistributionDto.fromJson(
           json['gross'] as Map<String, dynamic>),
     );

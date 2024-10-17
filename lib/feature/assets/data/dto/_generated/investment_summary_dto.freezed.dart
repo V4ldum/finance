@@ -176,7 +176,7 @@ InvestmentSummaryResultDto _$InvestmentSummaryResultDtoFromJson(
 /// @nodoc
 mixin _$InvestmentSummaryResultDto {
   @JsonKey(readValue: _readInvestmentSummaryResultTotal)
-  SummaryValuesDto get total => throw _privateConstructorUsedError;
+  SummaryValuesDto? get total => throw _privateConstructorUsedError;
   @JsonKey(name: 'gross')
   InvestmentSummaryDistributionDto get distribution =>
       throw _privateConstructorUsedError;
@@ -196,10 +196,10 @@ abstract class $InvestmentSummaryResultDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(readValue: _readInvestmentSummaryResultTotal)
-      SummaryValuesDto total,
+      SummaryValuesDto? total,
       @JsonKey(name: 'gross') InvestmentSummaryDistributionDto distribution});
 
-  $SummaryValuesDtoCopyWith<$Res> get total;
+  $SummaryValuesDtoCopyWith<$Res>? get total;
   $InvestmentSummaryDistributionDtoCopyWith<$Res> get distribution;
 }
 
@@ -217,14 +217,14 @@ class _$InvestmentSummaryResultDtoCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total = null,
+    Object? total = freezed,
     Object? distribution = null,
   }) {
     return _then(_value.copyWith(
-      total: null == total
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
+              as SummaryValuesDto?,
       distribution: null == distribution
           ? _value.distribution
           : distribution // ignore: cast_nullable_to_non_nullable
@@ -234,8 +234,12 @@ class _$InvestmentSummaryResultDtoCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $SummaryValuesDtoCopyWith<$Res> get total {
-    return $SummaryValuesDtoCopyWith<$Res>(_value.total, (value) {
+  $SummaryValuesDtoCopyWith<$Res>? get total {
+    if (_value.total == null) {
+      return null;
+    }
+
+    return $SummaryValuesDtoCopyWith<$Res>(_value.total!, (value) {
       return _then(_value.copyWith(total: value) as $Val);
     });
   }
@@ -261,11 +265,11 @@ abstract class _$$InvestmentSummaryResultDtoImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(readValue: _readInvestmentSummaryResultTotal)
-      SummaryValuesDto total,
+      SummaryValuesDto? total,
       @JsonKey(name: 'gross') InvestmentSummaryDistributionDto distribution});
 
   @override
-  $SummaryValuesDtoCopyWith<$Res> get total;
+  $SummaryValuesDtoCopyWith<$Res>? get total;
   @override
   $InvestmentSummaryDistributionDtoCopyWith<$Res> get distribution;
 }
@@ -283,14 +287,14 @@ class __$$InvestmentSummaryResultDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total = null,
+    Object? total = freezed,
     Object? distribution = null,
   }) {
     return _then(_$InvestmentSummaryResultDtoImpl(
-      total: null == total
+      total: freezed == total
           ? _value.total
           : total // ignore: cast_nullable_to_non_nullable
-              as SummaryValuesDto,
+              as SummaryValuesDto?,
       distribution: null == distribution
           ? _value.distribution
           : distribution // ignore: cast_nullable_to_non_nullable
@@ -313,7 +317,7 @@ class _$InvestmentSummaryResultDtoImpl implements _InvestmentSummaryResultDto {
 
   @override
   @JsonKey(readValue: _readInvestmentSummaryResultTotal)
-  final SummaryValuesDto total;
+  final SummaryValuesDto? total;
   @override
   @JsonKey(name: 'gross')
   final InvestmentSummaryDistributionDto distribution;
@@ -356,7 +360,7 @@ abstract class _InvestmentSummaryResultDto
     implements InvestmentSummaryResultDto {
   const factory _InvestmentSummaryResultDto(
           {@JsonKey(readValue: _readInvestmentSummaryResultTotal)
-          required final SummaryValuesDto total,
+          required final SummaryValuesDto? total,
           @JsonKey(name: 'gross')
           required final InvestmentSummaryDistributionDto distribution}) =
       _$InvestmentSummaryResultDtoImpl;
@@ -366,7 +370,7 @@ abstract class _InvestmentSummaryResultDto
 
   @override
   @JsonKey(readValue: _readInvestmentSummaryResultTotal)
-  SummaryValuesDto get total;
+  SummaryValuesDto? get total;
   @override
   @JsonKey(name: 'gross')
   InvestmentSummaryDistributionDto get distribution;

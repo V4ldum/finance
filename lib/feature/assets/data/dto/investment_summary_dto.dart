@@ -21,7 +21,7 @@ sealed class InvestmentSummaryDto with _$InvestmentSummaryDto {
 @freezed
 sealed class InvestmentSummaryResultDto with _$InvestmentSummaryResultDto {
   const factory InvestmentSummaryResultDto({
-    @JsonKey(readValue: _readInvestmentSummaryResultTotal) required SummaryValuesDto total,
+    @JsonKey(readValue: _readInvestmentSummaryResultTotal) required SummaryValuesDto? total,
     @JsonKey(name: 'gross') required InvestmentSummaryDistributionDto distribution,
   }) = _InvestmentSummaryResultDto;
 
