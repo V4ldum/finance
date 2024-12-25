@@ -2,19 +2,20 @@ import 'package:finance/feature/physical_assets/domain/repository/precious_metal
 import 'package:finance/feature/settings/domain/repository/import_export_data_repository.dart';
 import 'package:finance/shared/domain/repository/local_storage_repository.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/import_export_data_service.g.dart';
 
 @riverpod
-ImportExportDataService importExportDataService(ImportExportDataServiceRef ref) {
+ImportExportDataService importExportDataService(Ref ref) {
   return ImportExportDataService(ref);
 }
 
 class ImportExportDataService {
   ImportExportDataService(this._ref);
 
-  final ImportExportDataServiceRef _ref;
+  final Ref _ref;
 
   ImportExportDataRepository get _importExportDataRepository => _ref.read(importExportDataRepositoryProvider);
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);

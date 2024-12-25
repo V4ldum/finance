@@ -9,12 +9,13 @@ import 'package:finance/feature/physical_assets/domain/model/precious_metals_tra
 import 'package:finance/feature/settings/data/data_source/file_picker_data_source.dart';
 import 'package:finance/shared/constant/app_string.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/import_export_data_repository.g.dart';
 
 @riverpod
-ImportExportDataRepository importExportDataRepository(ImportExportDataRepositoryRef ref) {
+ImportExportDataRepository importExportDataRepository(Ref ref) {
   final cache = ref.watch(appCacheControllerProvider);
 
   return ImportExportDataRepository(
@@ -34,7 +35,7 @@ class ImportExportDataRepository {
   static const String _domainCookiesKey = 'domainCookies';
   static const String _hostCookiesKey = 'hostCookies';
   final PersistCookieJar _cookieJar;
-  final ImportExportDataRepositoryRef _ref;
+  final Ref _ref;
 
   FilePickerDataSource get _filePickerDataSource => _ref.read(filePickerDataSourceProvider);
   AppCache get _cache => _ref.read(appCacheControllerProvider);

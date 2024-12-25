@@ -22,8 +22,12 @@ UserInfoDto _$UserInfoDtoFromJson(Map<String, dynamic> json) {
 mixin _$UserInfoDto {
   UserInfoResultDto get result => throw _privateConstructorUsedError;
 
+  /// Serializes this UserInfoDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserInfoDtoCopyWith<UserInfoDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$UserInfoDtoCopyWithImpl<$Res, $Val extends UserInfoDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$UserInfoDtoCopyWithImpl<$Res, $Val extends UserInfoDto>
     ) as $Val);
   }
 
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserInfoResultDtoCopyWith<$Res> get result {
@@ -93,6 +101,8 @@ class __$$UserInfoDtoImplCopyWithImpl<$Res>
       _$UserInfoDtoImpl _value, $Res Function(_$UserInfoDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +141,13 @@ class _$UserInfoDtoImpl implements _UserInfoDto {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, result);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserInfoDtoImplCopyWith<_$UserInfoDtoImpl> get copyWith =>
@@ -158,8 +170,11 @@ abstract class _UserInfoDto implements UserInfoDto {
 
   @override
   UserInfoResultDto get result;
+
+  /// Create a copy of UserInfoDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserInfoDtoImplCopyWith<_$UserInfoDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -173,8 +188,12 @@ mixin _$UserInfoResultDto {
   @JsonKey(name: 'last_asset_updated_at')
   String get lastSync => throw _privateConstructorUsedError;
 
+  /// Serializes this UserInfoResultDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserInfoResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserInfoResultDtoCopyWith<UserInfoResultDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -198,6 +217,8 @@ class _$UserInfoResultDtoCopyWithImpl<$Res, $Val extends UserInfoResultDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserInfoResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -231,6 +252,8 @@ class __$$UserInfoResultDtooImplCopyWithImpl<$Res>
       $Res Function(_$UserInfoResultDtooImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserInfoResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -272,11 +295,13 @@ class _$UserInfoResultDtooImpl implements _UserInfoResultDtoo {
                 other.lastSync == lastSync));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, lastSync);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserInfoResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserInfoResultDtooImplCopyWith<_$UserInfoResultDtooImpl> get copyWith =>
@@ -302,8 +327,11 @@ abstract class _UserInfoResultDtoo implements UserInfoResultDto {
   @override
   @JsonKey(name: 'last_asset_updated_at')
   String get lastSync;
+
+  /// Create a copy of UserInfoResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserInfoResultDtooImplCopyWith<_$UserInfoResultDtooImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

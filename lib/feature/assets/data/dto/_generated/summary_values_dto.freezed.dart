@@ -25,8 +25,12 @@ mixin _$SummaryValuesDto {
   @JsonKey(name: 'evolution_percent', defaultValue: 0)
   double get evolutionPercent => throw _privateConstructorUsedError;
 
+  /// Serializes this SummaryValuesDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SummaryValuesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SummaryValuesDtoCopyWith<SummaryValuesDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$SummaryValuesDtoCopyWithImpl<$Res, $Val extends SummaryValuesDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SummaryValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class __$$SummaryValuesDtoImplCopyWithImpl<$Res>
       $Res Function(_$SummaryValuesDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of SummaryValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,12 +170,14 @@ class _$SummaryValuesDtoImpl implements _SummaryValuesDto {
                 other.evolutionPercent == evolutionPercent));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, amount, evolution, evolutionPercent);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SummaryValuesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SummaryValuesDtoImplCopyWith<_$SummaryValuesDtoImpl> get copyWith =>
@@ -199,8 +209,11 @@ abstract class _SummaryValuesDto implements SummaryValuesDto {
   @override
   @JsonKey(name: 'evolution_percent', defaultValue: 0)
   double get evolutionPercent;
+
+  /// Create a copy of SummaryValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SummaryValuesDtoImplCopyWith<_$SummaryValuesDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

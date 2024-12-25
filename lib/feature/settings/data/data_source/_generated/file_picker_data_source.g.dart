@@ -7,7 +7,7 @@ part of '../file_picker_data_source.dart';
 // **************************************************************************
 
 String _$filePickerDataSourceHash() =>
-    r'dba0996fda37a854dca8570f2e1cfecd30f6b950';
+    r'bd48eaa587058ee64aac4c46739086e95eff73ce';
 
 /// See also [filePickerDataSource].
 @ProviderFor(filePickerDataSource)
@@ -22,6 +22,8 @@ final filePickerDataSourceProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef FilePickerDataSourceRef = AutoDisposeProviderRef<FilePickerDataSource>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

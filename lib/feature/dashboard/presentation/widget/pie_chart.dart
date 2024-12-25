@@ -21,8 +21,8 @@ class PieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final chartWidget = chart.PieChart(
-      swapAnimationDuration: const MediumDuration(),
-      swapAnimationCurve: Curves.easeOutCubic,
+      duration: const MediumDuration(),
+      curve: Curves.easeOutCubic,
       chart.PieChartData(
         sectionsSpace: 2,
         startDegreeOffset: -90,

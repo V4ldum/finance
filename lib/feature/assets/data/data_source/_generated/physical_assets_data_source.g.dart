@@ -7,7 +7,7 @@ part of '../physical_assets_data_source.dart';
 // **************************************************************************
 
 String _$physicalAssetsDataSourceHash() =>
-    r'4041aa87eecac6177b0a4d6e0ea95ff355ea1ecc';
+    r'3b1196552b068cb708c63b3c5e531b29753a7009';
 
 /// See also [physicalAssetsDataSource].
 @ProviderFor(physicalAssetsDataSource)
@@ -22,7 +22,9 @@ final physicalAssetsDataSourceProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef PhysicalAssetsDataSourceRef
     = AutoDisposeProviderRef<PhysicalAssetsDataSource>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

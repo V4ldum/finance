@@ -23,8 +23,12 @@ mixin _$CoinsSearchDto {
   @JsonKey(name: 'query', defaultValue: [])
   List<CoinDto> get coins => throw _privateConstructorUsedError;
 
+  /// Serializes this CoinsSearchDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CoinsSearchDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoinsSearchDtoCopyWith<CoinsSearchDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$CoinsSearchDtoCopyWithImpl<$Res, $Val extends CoinsSearchDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CoinsSearchDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +87,8 @@ class __$$CoinsSearchDtoImplCopyWithImpl<$Res>
       _$CoinsSearchDtoImpl _value, $Res Function(_$CoinsSearchDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CoinsSearchDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,12 +136,14 @@ class _$CoinsSearchDtoImpl implements _CoinsSearchDto {
             const DeepCollectionEquality().equals(other._coins, _coins));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_coins));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CoinsSearchDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinsSearchDtoImplCopyWith<_$CoinsSearchDtoImpl> get copyWith =>
@@ -159,8 +169,11 @@ abstract class _CoinsSearchDto implements CoinsSearchDto {
   @override
   @JsonKey(name: 'query', defaultValue: [])
   List<CoinDto> get coins;
+
+  /// Create a copy of CoinsSearchDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoinsSearchDtoImplCopyWith<_$CoinsSearchDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,13 +6,14 @@ import 'package:finance/feature/assets/data/dto/stocks_detail_dto.dart';
 import 'package:finance/feature/assets/data/dto/type_dto.dart';
 import 'package:finance/feature/assets/data/dto/user_info_dto.dart';
 import 'package:finance/shared/constant/app_string.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/finary_data_source.g.dart';
 
 @riverpod
-FinaryDataSource finaryDataSource(FinaryDataSourceRef ref) {
+FinaryDataSource finaryDataSource(Ref ref) {
   return FinaryDataSource();
 }
 

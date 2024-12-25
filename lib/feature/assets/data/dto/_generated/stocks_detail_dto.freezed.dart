@@ -22,8 +22,12 @@ StocksDetailDto _$StocksDetailDtoFromJson(Map<String, dynamic> json) {
 mixin _$StocksDetailDto {
   StockDetailResultDto get result => throw _privateConstructorUsedError;
 
+  /// Serializes this StocksDetailDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StocksDetailDtoCopyWith<StocksDetailDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$StocksDetailDtoCopyWithImpl<$Res, $Val extends StocksDetailDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$StocksDetailDtoCopyWithImpl<$Res, $Val extends StocksDetailDto>
     ) as $Val);
   }
 
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $StockDetailResultDtoCopyWith<$Res> get result {
@@ -93,6 +101,8 @@ class __$$StocksDetailDtoImplCopyWithImpl<$Res>
       _$StocksDetailDtoImpl _value, $Res Function(_$StocksDetailDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +141,13 @@ class _$StocksDetailDtoImpl implements _StocksDetailDto {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, result);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StocksDetailDtoImplCopyWith<_$StocksDetailDtoImpl> get copyWith =>
@@ -159,8 +171,11 @@ abstract class _StocksDetailDto implements StocksDetailDto {
 
   @override
   StockDetailResultDto get result;
+
+  /// Create a copy of StocksDetailDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StocksDetailDtoImplCopyWith<_$StocksDetailDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -175,8 +190,12 @@ mixin _$StockDetailResultDto {
   List<StockDetailAccountDto> get accounts =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this StockDetailResultDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StockDetailResultDtoCopyWith<StockDetailResultDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -203,6 +222,8 @@ class _$StockDetailResultDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -221,6 +242,8 @@ class _$StockDetailResultDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res> get total {
@@ -252,6 +275,8 @@ class __$$StockDetailResultDtoImplCopyWithImpl<$Res>
       $Res Function(_$StockDetailResultDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -306,12 +331,14 @@ class _$StockDetailResultDtoImpl implements _StockDetailResultDto {
             const DeepCollectionEquality().equals(other._accounts, _accounts));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, total, const DeepCollectionEquality().hash(_accounts));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StockDetailResultDtoImplCopyWith<_$StockDetailResultDtoImpl>
@@ -340,8 +367,11 @@ abstract class _StockDetailResultDto implements StockDetailResultDto {
   SummaryValuesDto get total;
   @override
   List<StockDetailAccountDto> get accounts;
+
+  /// Create a copy of StockDetailResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StockDetailResultDtoImplCopyWith<_$StockDetailResultDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -358,8 +388,12 @@ mixin _$StockDetailAccountDto {
   List<StockDetailSecurityDto> get securities =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this StockDetailAccountDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StockDetailAccountDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StockDetailAccountDtoCopyWith<StockDetailAccountDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -385,6 +419,8 @@ class _$StockDetailAccountDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StockDetailAccountDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -431,6 +467,8 @@ class __$$StockDetailAccountDtoImplCopyWithImpl<$Res>
       $Res Function(_$StockDetailAccountDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StockDetailAccountDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -495,12 +533,14 @@ class _$StockDetailAccountDtoImpl implements _StockDetailAccountDto {
                 .equals(other._securities, _securities));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, balance,
       const DeepCollectionEquality().hash(_securities));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StockDetailAccountDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StockDetailAccountDtoImplCopyWith<_$StockDetailAccountDtoImpl>
@@ -531,8 +571,11 @@ abstract class _StockDetailAccountDto implements StockDetailAccountDto {
   double get balance;
   @override
   List<StockDetailSecurityDto> get securities;
+
+  /// Create a copy of StockDetailAccountDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StockDetailAccountDtoImplCopyWith<_$StockDetailAccountDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -556,8 +599,12 @@ mixin _$StockDetailSecurityDto {
   StockDetailSecurityInformationDto get security =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this StockDetailSecurityDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StockDetailSecurityDtoCopyWith<StockDetailSecurityDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -591,6 +638,8 @@ class _$StockDetailSecurityDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -629,6 +678,8 @@ class _$StockDetailSecurityDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $StockDetailSecurityInformationDtoCopyWith<$Res> get security {
@@ -671,6 +722,8 @@ class __$$StockDetailSecurityDtoImplCopyWithImpl<$Res>
       $Res Function(_$StockDetailSecurityDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -765,12 +818,14 @@ class _$StockDetailSecurityDtoImpl implements _StockDetailSecurityDto {
                 other.security == security));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, total, evolution,
       evolutionPercent, buyingPrice, quantity, security);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StockDetailSecurityDtoImplCopyWith<_$StockDetailSecurityDtoImpl>
@@ -817,8 +872,11 @@ abstract class _StockDetailSecurityDto implements StockDetailSecurityDto {
   double get quantity;
   @override
   StockDetailSecurityInformationDto get security;
+
+  /// Create a copy of StockDetailSecurityDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StockDetailSecurityDtoImplCopyWith<_$StockDetailSecurityDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -844,8 +902,12 @@ mixin _$StockDetailSecurityInformationDto {
       unknownEnumValue: StockDetailSecurityTypeDto.unknown)
   StockDetailSecurityTypeDto get type => throw _privateConstructorUsedError;
 
+  /// Serializes this StockDetailSecurityInformationDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of StockDetailSecurityInformationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $StockDetailSecurityInformationDtoCopyWith<StockDetailSecurityInformationDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -881,6 +943,8 @@ class _$StockDetailSecurityInformationDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of StockDetailSecurityInformationDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -951,6 +1015,8 @@ class __$$StockDetailSecurityInformationDtoImplCopyWithImpl<$Res>
       $Res Function(_$StockDetailSecurityInformationDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of StockDetailSecurityInformationDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1048,12 +1114,14 @@ class _$StockDetailSecurityInformationDtoImpl
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, name, symbol, isin, logoUrl, unitPrice, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of StockDetailSecurityInformationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$StockDetailSecurityInformationDtoImplCopyWith<
@@ -1093,8 +1161,8 @@ abstract class _StockDetailSecurityInformationDto
   String get symbol;
   @override
   @JsonKey(defaultValue: '')
-  String get isin;
-  @override // International Security Identifier Number (ISIN)
+  String get isin; // International Security Identifier Number (ISIN)
+  @override
   @JsonKey(name: 'logo_url')
   String get logoUrl;
   @override
@@ -1105,8 +1173,11 @@ abstract class _StockDetailSecurityInformationDto
       name: 'security_type',
       unknownEnumValue: StockDetailSecurityTypeDto.unknown)
   StockDetailSecurityTypeDto get type;
+
+  /// Create a copy of StockDetailSecurityInformationDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$StockDetailSecurityInformationDtoImplCopyWith<
           _$StockDetailSecurityInformationDtoImpl>
       get copyWith => throw _privateConstructorUsedError;

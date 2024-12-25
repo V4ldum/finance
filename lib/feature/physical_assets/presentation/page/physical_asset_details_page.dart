@@ -80,6 +80,7 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
         if (context.mounted) {
           unawaited(
             showDialog<void>(
+              // Linter doesn't recognize that we check if context was mounted
               // ignore: use_build_context_synchronously
               context: context,
               builder: (context) => AlertDialog(
@@ -105,6 +106,7 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
       }
 
       if (context.mounted) {
+        // Linter doesn't recognize that we check if context was mounted
         // ignore: use_build_context_synchronously
         context.pop();
       }

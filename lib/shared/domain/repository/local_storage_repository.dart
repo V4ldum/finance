@@ -2,19 +2,20 @@ import 'dart:convert';
 
 import 'package:finance/feature/settings/presentation/page/physical_assets_settings_page.dart';
 import 'package:finance/shared/data/data_source/local_storage_data_source.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/local_storage_repository.g.dart';
 
 @riverpod
-LocalStorageRepository localStorageRepository(LocalStorageRepositoryRef ref) {
+LocalStorageRepository localStorageRepository(Ref ref) {
   return LocalStorageRepository(ref);
 }
 
 class LocalStorageRepository {
   LocalStorageRepository(this._ref);
 
-  final LocalStorageRepositoryRef _ref;
+  final Ref _ref;
 
   LocalStorageDataSource get _dataSource => _ref.read(localStorageDataSourceProvider);
 

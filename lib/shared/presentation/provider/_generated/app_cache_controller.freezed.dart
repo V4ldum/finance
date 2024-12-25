@@ -41,8 +41,12 @@ mixin _$AppCache {
   set physicalAssets(PhysicalAssetsModel? value) =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this AppCache to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AppCache
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AppCacheCopyWith<AppCache> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -78,6 +82,8 @@ class _$AppCacheCopyWithImpl<$Res, $Val extends AppCache>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AppCache
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,6 +175,8 @@ class __$$AppCacheImplCopyWithImpl<$Res>
       _$AppCacheImpl _value, $Res Function(_$AppCacheImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AppCache
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -308,7 +316,9 @@ class _$AppCacheImpl with DiagnosticableTreeMixin implements _AppCache {
       ..add(DiagnosticsProperty('physicalAssets', physicalAssets));
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AppCache
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AppCacheImplCopyWith<_$AppCacheImpl> get copyWith =>
@@ -368,8 +378,11 @@ abstract class _AppCache implements AppCache {
   PhysicalAssetsModel? get physicalAssets;
   @JsonKey(includeFromJson: false, includeToJson: false)
   set physicalAssets(PhysicalAssetsModel? value);
+
+  /// Create a copy of AppCache
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AppCacheImplCopyWith<_$AppCacheImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

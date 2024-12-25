@@ -25,8 +25,12 @@ mixin _$TradeValuesDto {
   @JsonKey(name: 'sp_500')
   TradeValueDto get sp500 => throw _privateConstructorUsedError;
 
+  /// Serializes this TradeValuesDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TradeValuesDtoCopyWith<TradeValuesDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$TradeValuesDtoCopyWithImpl<$Res, $Val extends TradeValuesDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class _$TradeValuesDtoCopyWithImpl<$Res, $Val extends TradeValuesDto>
     ) as $Val);
   }
 
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TradeValueDtoCopyWith<$Res> get gold {
@@ -88,6 +96,8 @@ class _$TradeValuesDtoCopyWithImpl<$Res, $Val extends TradeValuesDto>
     });
   }
 
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TradeValueDtoCopyWith<$Res> get silver {
@@ -96,6 +106,8 @@ class _$TradeValuesDtoCopyWithImpl<$Res, $Val extends TradeValuesDto>
     });
   }
 
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $TradeValueDtoCopyWith<$Res> get sp500 {
@@ -134,6 +146,8 @@ class __$$TradeValuesDtoImplCopyWithImpl<$Res>
       _$TradeValuesDtoImpl _value, $Res Function(_$TradeValuesDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -192,11 +206,13 @@ class _$TradeValuesDtoImpl implements _TradeValuesDto {
             (identical(other.sp500, sp500) || other.sp500 == sp500));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, gold, silver, sp500);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TradeValuesDtoImplCopyWith<_$TradeValuesDtoImpl> get copyWith =>
@@ -228,8 +244,11 @@ abstract class _TradeValuesDto implements TradeValuesDto {
   @override
   @JsonKey(name: 'sp_500')
   TradeValueDto get sp500;
+
+  /// Create a copy of TradeValuesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TradeValuesDtoImplCopyWith<_$TradeValuesDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -244,8 +263,12 @@ mixin _$TradeValueDto {
   @JsonKey(name: 'last_update')
   DateTime get lastUpdate => throw _privateConstructorUsedError;
 
+  /// Serializes this TradeValueDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of TradeValueDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $TradeValueDtoCopyWith<TradeValueDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -269,6 +292,8 @@ class _$TradeValueDtoCopyWithImpl<$Res, $Val extends TradeValueDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of TradeValueDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -307,6 +332,8 @@ class __$$TradeValueDtoImplCopyWithImpl<$Res>
       _$TradeValueDtoImpl _value, $Res Function(_$TradeValueDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of TradeValueDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -357,11 +384,13 @@ class _$TradeValueDtoImpl implements _TradeValueDto {
                 other.lastUpdate == lastUpdate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, price, lastUpdate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of TradeValueDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$TradeValueDtoImplCopyWith<_$TradeValueDtoImpl> get copyWith =>
@@ -389,8 +418,11 @@ abstract class _TradeValueDto implements TradeValueDto {
   @override
   @JsonKey(name: 'last_update')
   DateTime get lastUpdate;
+
+  /// Create a copy of TradeValueDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$TradeValueDtoImplCopyWith<_$TradeValueDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

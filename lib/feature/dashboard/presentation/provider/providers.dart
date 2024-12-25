@@ -137,6 +137,7 @@ class TabInformation {
 @riverpod
 class SelectedPeriodController extends _$SelectedPeriodController {
   // Key used to programmatically call the refresh indicator when changing the period
+  // ignore: avoid_public_notifier_properties
   final GlobalKey<RefreshIndicatorState> refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
 
   @override

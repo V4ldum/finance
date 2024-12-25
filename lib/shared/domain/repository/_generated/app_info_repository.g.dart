@@ -6,7 +6,7 @@ part of '../app_info_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appInfoRepositoryHash() => r'5e9df1c759a7b5f4408ee2424de4d9e8b92f5b46';
+String _$appInfoRepositoryHash() => r'd2b716263963f366fca78734bb5dd3c57b3fa73e';
 
 /// See also [appInfoRepository].
 @ProviderFor(appInfoRepository)
@@ -21,6 +21,8 @@ final appInfoRepositoryProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AppInfoRepositoryRef = AutoDisposeProviderRef<AppInfoRepository>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

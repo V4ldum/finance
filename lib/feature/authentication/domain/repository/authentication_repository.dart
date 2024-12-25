@@ -3,19 +3,20 @@ import 'package:finance/feature/authentication/data/data_source/finary_authentic
 import 'package:finance/feature/authentication/domain/exception/finary_authentication_exception.dart';
 import 'package:finance/feature/authentication/domain/model/finary_authentication_model.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/authentication_repository.g.dart';
 
 @riverpod
-FinaryAuthenticationRepository finaryAuthenticationRepository(FinaryAuthenticationRepositoryRef ref) {
+FinaryAuthenticationRepository finaryAuthenticationRepository(Ref ref) {
   return FinaryAuthenticationRepository(ref);
 }
 
 class FinaryAuthenticationRepository {
   FinaryAuthenticationRepository(this._ref);
 
-  final FinaryAuthenticationRepositoryRef _ref;
+  final Ref _ref;
 
   FinaryAuthenticationDataSource get _dataSource => _ref.read(finaryAuthenticationDataSourceProvider);
   AppCache get _appCache => _ref.read(appCacheControllerProvider);

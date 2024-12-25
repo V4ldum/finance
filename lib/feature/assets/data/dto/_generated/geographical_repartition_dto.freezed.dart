@@ -24,8 +24,12 @@ mixin _$GeographicalRepartitionDto {
   GeographicalRepartitionResultDto get result =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this GeographicalRepartitionDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeographicalRepartitionDtoCopyWith<GeographicalRepartitionDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -53,6 +57,8 @@ class _$GeographicalRepartitionDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -66,6 +72,8 @@ class _$GeographicalRepartitionDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GeographicalRepartitionResultDtoCopyWith<$Res> get result {
@@ -101,6 +109,8 @@ class __$$GeographicalRepartitionDtoImplCopyWithImpl<$Res>
       $Res Function(_$GeographicalRepartitionDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,11 +150,13 @@ class _$GeographicalRepartitionDtoImpl implements _GeographicalRepartitionDto {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, result);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeographicalRepartitionDtoImplCopyWith<_$GeographicalRepartitionDtoImpl>
@@ -170,8 +182,11 @@ abstract class _GeographicalRepartitionDto
 
   @override
   GeographicalRepartitionResultDto get result;
+
+  /// Create a copy of GeographicalRepartitionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeographicalRepartitionDtoImplCopyWith<_$GeographicalRepartitionDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -187,8 +202,12 @@ mixin _$GeographicalRepartitionResultDto {
   List<GeographicalRepartitionDistributionItemDto> get distribution =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this GeographicalRepartitionResultDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeographicalRepartitionResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeographicalRepartitionResultDtoCopyWith<GeographicalRepartitionResultDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -217,6 +236,8 @@ class _$GeographicalRepartitionResultDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeographicalRepartitionResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -260,6 +281,8 @@ class __$$GeographicalRepartitionResultDtoImplCopyWithImpl<$Res>
       $Res Function(_$GeographicalRepartitionResultDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeographicalRepartitionResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -318,12 +341,14 @@ class _$GeographicalRepartitionResultDtoImpl
                 .equals(other._distribution, _distribution));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, total, const DeepCollectionEquality().hash(_distribution));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeographicalRepartitionResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeographicalRepartitionResultDtoImplCopyWith<
@@ -354,8 +379,11 @@ abstract class _GeographicalRepartitionResultDto
   double get total;
   @override
   List<GeographicalRepartitionDistributionItemDto> get distribution;
+
+  /// Create a copy of GeographicalRepartitionResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeographicalRepartitionResultDtoImplCopyWith<
           _$GeographicalRepartitionResultDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -373,8 +401,12 @@ mixin _$GeographicalRepartitionDistributionItemDto {
   double get amount => throw _privateConstructorUsedError;
   double get share => throw _privateConstructorUsedError;
 
+  /// Serializes this GeographicalRepartitionDistributionItemDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GeographicalRepartitionDistributionItemDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GeographicalRepartitionDistributionItemDtoCopyWith<
           GeographicalRepartitionDistributionItemDto>
       get copyWith => throw _privateConstructorUsedError;
@@ -403,6 +435,8 @@ class _$GeographicalRepartitionDistributionItemDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GeographicalRepartitionDistributionItemDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -450,6 +484,8 @@ class __$$GeographicalRepartitionDistributionItemDtoImplCopyWithImpl<$Res>
       $Res Function(_$GeographicalRepartitionDistributionItemDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GeographicalRepartitionDistributionItemDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -507,11 +543,13 @@ class _$GeographicalRepartitionDistributionItemDtoImpl
             (identical(other.share, share) || other.share == share));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, label, amount, share);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GeographicalRepartitionDistributionItemDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GeographicalRepartitionDistributionItemDtoImplCopyWith<
@@ -547,8 +585,11 @@ abstract class _GeographicalRepartitionDistributionItemDto
   double get amount;
   @override
   double get share;
+
+  /// Create a copy of GeographicalRepartitionDistributionItemDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GeographicalRepartitionDistributionItemDtoImplCopyWith<
           _$GeographicalRepartitionDistributionItemDtoImpl>
       get copyWith => throw _privateConstructorUsedError;

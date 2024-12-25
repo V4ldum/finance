@@ -11,19 +11,20 @@ import 'package:finance/feature/assets/domain/model/physical_assets_model.dart';
 import 'package:finance/feature/dashboard/presentation/provider/providers.dart';
 import 'package:finance/feature/physical_assets/domain/model/precious_metal_type_model.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_repository.g.dart';
 
 @riverpod
-AssetsRepository assetsRepository(AssetsRepositoryRef ref) {
+AssetsRepository assetsRepository(Ref ref) {
   return AssetsRepository(ref);
 }
 
 class AssetsRepository {
   AssetsRepository(this._ref);
 
-  final AssetsRepositoryRef _ref;
+  final Ref _ref;
 
   FinaryDataSource get _finaryDataSource => _ref.read(finaryDataSourceProvider);
   PhysicalAssetsDataSource get _physicalAssetsDataSource => _ref.read(physicalAssetsDataSourceProvider);

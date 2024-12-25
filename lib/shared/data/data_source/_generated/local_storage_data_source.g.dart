@@ -7,7 +7,7 @@ part of '../local_storage_data_source.dart';
 // **************************************************************************
 
 String _$localStorageDataSourceHash() =>
-    r'b448a0df4ec7eb2201123d5ce72b0da1d07ac3fe';
+    r'adbeb5fe10fc8ed1af99cc703277e9e5fc1bf022';
 
 /// See also [localStorageDataSource].
 @ProviderFor(localStorageDataSource)
@@ -22,7 +22,9 @@ final localStorageDataSourceProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef LocalStorageDataSourceRef
     = AutoDisposeProviderRef<LocalStorageDataSource>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

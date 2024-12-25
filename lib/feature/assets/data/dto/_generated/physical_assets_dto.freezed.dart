@@ -29,8 +29,12 @@ mixin _$PhysicalAssetsDto {
   List<CoinPhysicalAssetDto> get coinAssets =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this PhysicalAssetsDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PhysicalAssetsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PhysicalAssetsDtoCopyWith<PhysicalAssetsDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$PhysicalAssetsDtoCopyWithImpl<$Res, $Val extends PhysicalAssetsDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PhysicalAssetsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -103,6 +109,8 @@ class __$$PhysicalAssetsDtoImplCopyWithImpl<$Res>
       $Res Function(_$PhysicalAssetsDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of PhysicalAssetsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,7 +197,7 @@ class _$PhysicalAssetsDtoImpl implements _PhysicalAssetsDto {
                 .equals(other._coinAssets, _coinAssets));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -197,7 +205,9 @@ class _$PhysicalAssetsDtoImpl implements _PhysicalAssetsDto {
       const DeepCollectionEquality().hash(_cashAssets),
       const DeepCollectionEquality().hash(_coinAssets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PhysicalAssetsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PhysicalAssetsDtoImplCopyWith<_$PhysicalAssetsDtoImpl> get copyWith =>
@@ -234,8 +244,11 @@ abstract class _PhysicalAssetsDto implements PhysicalAssetsDto {
   @override
   @JsonKey(name: 'coin_assets')
   List<CoinPhysicalAssetDto> get coinAssets;
+
+  /// Create a copy of PhysicalAssetsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PhysicalAssetsDtoImplCopyWith<_$PhysicalAssetsDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -254,8 +267,12 @@ mixin _$RawPhysicalAssetDto {
   PreciousMetalTypeDto get composition => throw _privateConstructorUsedError;
   int get purity => throw _privateConstructorUsedError;
 
+  /// Serializes this RawPhysicalAssetDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RawPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RawPhysicalAssetDtoCopyWith<RawPhysicalAssetDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -285,6 +302,8 @@ class _$RawPhysicalAssetDtoCopyWithImpl<$Res, $Val extends RawPhysicalAssetDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RawPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -349,6 +368,8 @@ class __$$RawPhysicalAssetDtoImplCopyWithImpl<$Res>
       $Res Function(_$RawPhysicalAssetDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RawPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -437,12 +458,14 @@ class _$RawPhysicalAssetDtoImpl implements _RawPhysicalAssetDto {
             (identical(other.purity, purity) || other.purity == purity));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, name, possessed, unitWeight, composition, purity);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RawPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RawPhysicalAssetDtoImplCopyWith<_$RawPhysicalAssetDtoImpl> get copyWith =>
@@ -482,8 +505,11 @@ abstract class _RawPhysicalAssetDto implements RawPhysicalAssetDto {
   PreciousMetalTypeDto get composition;
   @override
   int get purity;
+
+  /// Create a copy of RawPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RawPhysicalAssetDtoImplCopyWith<_$RawPhysicalAssetDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -500,8 +526,12 @@ mixin _$CashPhysicalAssetDto {
   @JsonKey(name: 'unit_value')
   int get unitValue => throw _privateConstructorUsedError;
 
+  /// Serializes this CashPhysicalAssetDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CashPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CashPhysicalAssetDtoCopyWith<CashPhysicalAssetDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -530,6 +560,8 @@ class _$CashPhysicalAssetDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CashPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -582,6 +614,8 @@ class __$$CashPhysicalAssetDtoImplCopyWithImpl<$Res>
       $Res Function(_$CashPhysicalAssetDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CashPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -651,11 +685,13 @@ class _$CashPhysicalAssetDtoImpl implements _CashPhysicalAssetDto {
                 other.unitValue == unitValue));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, possessed, unitValue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CashPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CashPhysicalAssetDtoImplCopyWith<_$CashPhysicalAssetDtoImpl>
@@ -691,8 +727,11 @@ abstract class _CashPhysicalAssetDto implements CashPhysicalAssetDto {
   @override
   @JsonKey(name: 'unit_value')
   int get unitValue;
+
+  /// Create a copy of CashPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CashPhysicalAssetDtoImplCopyWith<_$CashPhysicalAssetDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -707,8 +746,12 @@ mixin _$CoinPhysicalAssetDto {
   @JsonKey(name: 'coin_data')
   CoinDto get data => throw _privateConstructorUsedError;
 
+  /// Serializes this CoinPhysicalAssetDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoinPhysicalAssetDtoCopyWith<CoinPhysicalAssetDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -735,6 +778,8 @@ class _$CoinPhysicalAssetDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -753,6 +798,8 @@ class _$CoinPhysicalAssetDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinDtoCopyWith<$Res> get data {
@@ -784,6 +831,8 @@ class __$$CoinPhysicalAssetDtoImplCopyWithImpl<$Res>
       $Res Function(_$CoinPhysicalAssetDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -834,11 +883,13 @@ class _$CoinPhysicalAssetDtoImpl implements _CoinPhysicalAssetDto {
             (identical(other.data, data) || other.data == data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, possessed, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinPhysicalAssetDtoImplCopyWith<_$CoinPhysicalAssetDtoImpl>
@@ -868,8 +919,11 @@ abstract class _CoinPhysicalAssetDto implements CoinPhysicalAssetDto {
   @override
   @JsonKey(name: 'coin_data')
   CoinDto get data;
+
+  /// Create a copy of CoinPhysicalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoinPhysicalAssetDtoImplCopyWith<_$CoinPhysicalAssetDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

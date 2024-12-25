@@ -22,8 +22,12 @@ InvestmentSummaryDto _$InvestmentSummaryDtoFromJson(Map<String, dynamic> json) {
 mixin _$InvestmentSummaryDto {
   InvestmentSummaryResultDto get result => throw _privateConstructorUsedError;
 
+  /// Serializes this InvestmentSummaryDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InvestmentSummaryDtoCopyWith<InvestmentSummaryDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$InvestmentSummaryDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,6 +69,8 @@ class _$InvestmentSummaryDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $InvestmentSummaryResultDtoCopyWith<$Res> get result {
@@ -94,6 +102,8 @@ class __$$InvestmentSummaryDtoImplCopyWithImpl<$Res>
       $Res Function(_$InvestmentSummaryDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +142,13 @@ class _$InvestmentSummaryDtoImpl implements _InvestmentSummaryDto {
             (identical(other.result, result) || other.result == result));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, result);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InvestmentSummaryDtoImplCopyWith<_$InvestmentSummaryDtoImpl>
@@ -162,8 +174,11 @@ abstract class _InvestmentSummaryDto implements InvestmentSummaryDto {
 
   @override
   InvestmentSummaryResultDto get result;
+
+  /// Create a copy of InvestmentSummaryDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InvestmentSummaryDtoImplCopyWith<_$InvestmentSummaryDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -181,8 +196,12 @@ mixin _$InvestmentSummaryResultDto {
   InvestmentSummaryDistributionDto get distribution =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this InvestmentSummaryResultDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InvestmentSummaryResultDtoCopyWith<InvestmentSummaryResultDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -214,6 +233,8 @@ class _$InvestmentSummaryResultDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -232,6 +253,8 @@ class _$InvestmentSummaryResultDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get total {
@@ -244,6 +267,8 @@ class _$InvestmentSummaryResultDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $InvestmentSummaryDistributionDtoCopyWith<$Res> get distribution {
@@ -284,6 +309,8 @@ class __$$InvestmentSummaryResultDtoImplCopyWithImpl<$Res>
       $Res Function(_$InvestmentSummaryResultDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -337,11 +364,13 @@ class _$InvestmentSummaryResultDtoImpl implements _InvestmentSummaryResultDto {
                 other.distribution == distribution));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, total, distribution);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InvestmentSummaryResultDtoImplCopyWith<_$InvestmentSummaryResultDtoImpl>
@@ -374,8 +403,11 @@ abstract class _InvestmentSummaryResultDto
   @override
   @JsonKey(name: 'gross')
   InvestmentSummaryDistributionDto get distribution;
+
+  /// Create a copy of InvestmentSummaryResultDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InvestmentSummaryResultDtoImplCopyWith<_$InvestmentSummaryResultDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -407,8 +439,12 @@ mixin _$InvestmentSummaryDistributionDto {
   @JsonKey(name: 'credit_accounts')
   SummaryValuesDto? get creditAccounts => throw _privateConstructorUsedError;
 
+  /// Serializes this InvestmentSummaryDistributionDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $InvestmentSummaryDistributionDtoCopyWith<InvestmentSummaryDistributionDto>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -460,6 +496,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -528,6 +566,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get checkingAccounts {
@@ -540,6 +580,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get savingsAccounts {
@@ -552,6 +594,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get stocksAccounts {
@@ -564,6 +608,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get cryptos {
@@ -576,6 +622,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get fondsEuro {
@@ -588,6 +636,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get realEstates {
@@ -600,6 +650,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get startups {
@@ -612,6 +664,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get commodities {
@@ -624,6 +678,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get crowdlendings {
@@ -636,6 +692,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get other {
@@ -648,6 +706,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get loans {
@@ -660,6 +720,8 @@ class _$InvestmentSummaryDistributionDtoCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SummaryValuesDtoCopyWith<$Res>? get creditAccounts {
@@ -732,6 +794,8 @@ class __$$InvestmentSummaryDistributionDtoImplCopyWithImpl<$Res>
       $Res Function(_$InvestmentSummaryDistributionDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -888,7 +952,7 @@ class _$InvestmentSummaryDistributionDtoImpl
                 other.creditAccounts == creditAccounts));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -905,7 +969,9 @@ class _$InvestmentSummaryDistributionDtoImpl
       loans,
       creditAccounts);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$InvestmentSummaryDistributionDtoImplCopyWith<
@@ -978,8 +1044,11 @@ abstract class _InvestmentSummaryDistributionDto
   @override
   @JsonKey(name: 'credit_accounts')
   SummaryValuesDto? get creditAccounts;
+
+  /// Create a copy of InvestmentSummaryDistributionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InvestmentSummaryDistributionDtoImplCopyWith<
           _$InvestmentSummaryDistributionDtoImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -24,8 +24,12 @@ mixin _$LocalAssetDto {
   double get amount => throw _privateConstructorUsedError;
   double get value => throw _privateConstructorUsedError;
 
+  /// Serializes this LocalAssetDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LocalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $LocalAssetDtoCopyWith<LocalAssetDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$LocalAssetDtoCopyWithImpl<$Res, $Val extends LocalAssetDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of LocalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$LocalAssetDtoImplCopyWithImpl<$Res>
       _$LocalAssetDtoImpl _value, $Res Function(_$LocalAssetDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of LocalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,11 +155,13 @@ class _$LocalAssetDtoImpl implements _LocalAssetDto {
             (identical(other.value, value) || other.value == value));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, amount, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LocalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LocalAssetDtoImplCopyWith<_$LocalAssetDtoImpl> get copyWith =>
@@ -180,8 +190,11 @@ abstract class _LocalAssetDto implements LocalAssetDto {
   double get amount;
   @override
   double get value;
+
+  /// Create a copy of LocalAssetDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LocalAssetDtoImplCopyWith<_$LocalAssetDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

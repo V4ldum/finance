@@ -31,9 +31,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace "com.v4ldum.finance"
     compileSdkVersion flutter.compileSdkVersion
-    // todo uncomment ?
-    // ndkVersion flutter.ndkVersion
-    ndkVersion "27.0.12077973"
+     ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -41,11 +39,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     defaultConfig {

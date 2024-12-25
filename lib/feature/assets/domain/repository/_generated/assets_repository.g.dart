@@ -6,7 +6,7 @@ part of '../assets_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$assetsRepositoryHash() => r'c42441f1af5c4158f6cc0f343cc284c9a98a0637';
+String _$assetsRepositoryHash() => r'4074c4b3d4368728d0e2efbf31bd4e0f39ff711f';
 
 /// See also [assetsRepository].
 @ProviderFor(assetsRepository)
@@ -20,6 +20,8 @@ final assetsRepositoryProvider = AutoDisposeProvider<AssetsRepository>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AssetsRepositoryRef = AutoDisposeProviderRef<AssetsRepository>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

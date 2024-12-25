@@ -23,8 +23,12 @@ mixin _$AuthenticationDto {
   AuthenticationResponseDto get response => throw _privateConstructorUsedError;
   AuthenticationClientDto get client => throw _privateConstructorUsedError;
 
+  /// Serializes this AuthenticationDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthenticationDtoCopyWith<AuthenticationDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,6 +56,8 @@ class _$AuthenticationDtoCopyWithImpl<$Res, $Val extends AuthenticationDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,6 +76,8 @@ class _$AuthenticationDtoCopyWithImpl<$Res, $Val extends AuthenticationDto>
     ) as $Val);
   }
 
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AuthenticationResponseDtoCopyWith<$Res> get response {
@@ -78,6 +86,8 @@ class _$AuthenticationDtoCopyWithImpl<$Res, $Val extends AuthenticationDto>
     });
   }
 
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AuthenticationClientDtoCopyWith<$Res> get client {
@@ -112,6 +122,8 @@ class __$$AuthenticationDtoImplCopyWithImpl<$Res>
       $Res Function(_$AuthenticationDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,11 +171,13 @@ class _$AuthenticationDtoImpl implements _AuthenticationDto {
             (identical(other.client, client) || other.client == client));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, response, client);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticationDtoImplCopyWith<_$AuthenticationDtoImpl> get copyWith =>
@@ -190,8 +204,11 @@ abstract class _AuthenticationDto implements AuthenticationDto {
   AuthenticationResponseDto get response;
   @override
   AuthenticationClientDto get client;
+
+  /// Create a copy of AuthenticationDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticationDtoImplCopyWith<_$AuthenticationDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -208,8 +225,12 @@ mixin _$AuthenticationResponseDto {
   @JsonKey(unknownEnumValue: AuthenticationStatusDto.unknown)
   AuthenticationStatusDto get status => throw _privateConstructorUsedError;
 
+  /// Serializes this AuthenticationResponseDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthenticationResponseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthenticationResponseDtoCopyWith<AuthenticationResponseDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -237,6 +258,8 @@ class _$AuthenticationResponseDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthenticationResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -281,6 +304,8 @@ class __$$AuthenticationResponseDtoImplCopyWithImpl<$Res>
       $Res Function(_$AuthenticationResponseDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthenticationResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -332,11 +357,13 @@ class _$AuthenticationResponseDtoImpl implements _AuthenticationResponseDto {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, sia, status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthenticationResponseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticationResponseDtoImplCopyWith<_$AuthenticationResponseDtoImpl>
@@ -367,8 +394,11 @@ abstract class _AuthenticationResponseDto implements AuthenticationResponseDto {
   @override
   @JsonKey(unknownEnumValue: AuthenticationStatusDto.unknown)
   AuthenticationStatusDto get status;
+
+  /// Create a copy of AuthenticationResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticationResponseDtoImplCopyWith<_$AuthenticationResponseDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -383,8 +413,12 @@ mixin _$AuthenticationClientDto {
   @JsonKey(name: 'sessions', readValue: _readAuthenticationSession)
   AuthenticationSessionDto? get session => throw _privateConstructorUsedError;
 
+  /// Serializes this AuthenticationClientDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthenticationClientDtoCopyWith<AuthenticationClientDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -413,6 +447,8 @@ class _$AuthenticationClientDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -426,6 +462,8 @@ class _$AuthenticationClientDtoCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $AuthenticationSessionDtoCopyWith<$Res>? get session {
@@ -466,6 +504,8 @@ class __$$AuthenticationClientDtoImplCopyWithImpl<$Res>
       $Res Function(_$AuthenticationClientDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -507,11 +547,13 @@ class _$AuthenticationClientDtoImpl implements _AuthenticationClientDto {
             (identical(other.session, session) || other.session == session));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, session);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticationClientDtoImplCopyWith<_$AuthenticationClientDtoImpl>
@@ -538,8 +580,11 @@ abstract class _AuthenticationClientDto implements AuthenticationClientDto {
   @override
   @JsonKey(name: 'sessions', readValue: _readAuthenticationSession)
   AuthenticationSessionDto? get session;
+
+  /// Create a copy of AuthenticationClientDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticationClientDtoImplCopyWith<_$AuthenticationClientDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -553,8 +598,12 @@ AuthenticationSessionDto _$AuthenticationSessionDtoFromJson(
 mixin _$AuthenticationSessionDto {
   String get id => throw _privateConstructorUsedError;
 
+  /// Serializes this AuthenticationSessionDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AuthenticationSessionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AuthenticationSessionDtoCopyWith<AuthenticationSessionDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -579,6 +628,8 @@ class _$AuthenticationSessionDtoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AuthenticationSessionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -615,6 +666,8 @@ class __$$AuthenticationSessionDtoImplCopyWithImpl<$Res>
       $Res Function(_$AuthenticationSessionDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AuthenticationSessionDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -653,11 +706,13 @@ class _$AuthenticationSessionDtoImpl implements _AuthenticationSessionDto {
             (identical(other.id, id) || other.id == id));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthenticationSessionDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AuthenticationSessionDtoImplCopyWith<_$AuthenticationSessionDtoImpl>
@@ -681,8 +736,11 @@ abstract class _AuthenticationSessionDto implements AuthenticationSessionDto {
 
   @override
   String get id;
+
+  /// Create a copy of AuthenticationSessionDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthenticationSessionDtoImplCopyWith<_$AuthenticationSessionDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

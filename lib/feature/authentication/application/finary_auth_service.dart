@@ -2,19 +2,20 @@ import 'package:finance/feature/authentication/domain/model/finary_authenticatio
 import 'package:finance/feature/authentication/domain/repository/authentication_repository.dart';
 import 'package:finance/shared/domain/repository/local_storage_repository.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/finary_auth_service.g.dart';
 
 @riverpod
-FinaryAuthService finaryAuthService(FinaryAuthServiceRef ref) {
+FinaryAuthService finaryAuthService(Ref ref) {
   return FinaryAuthService(ref);
 }
 
 class FinaryAuthService {
   FinaryAuthService(this._ref);
 
-  final FinaryAuthServiceRef _ref;
+  final Ref _ref;
 
   FinaryAuthenticationRepository get _finaryAuthRepository => _ref.read(finaryAuthenticationRepositoryProvider);
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);

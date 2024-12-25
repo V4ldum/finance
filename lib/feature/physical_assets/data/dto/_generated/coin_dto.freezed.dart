@@ -37,8 +37,12 @@ mixin _$CoinDto {
   CoinFaceDto? get reverse => throw _privateConstructorUsedError;
   CoinFaceDto? get edge => throw _privateConstructorUsedError;
 
+  /// Serializes this CoinDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoinDtoCopyWith<CoinDto> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -77,6 +81,8 @@ class _$CoinDtoCopyWithImpl<$Res, $Val extends CoinDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -150,6 +156,8 @@ class _$CoinDtoCopyWithImpl<$Res, $Val extends CoinDto>
     ) as $Val);
   }
 
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinFaceDtoCopyWith<$Res>? get obverse {
@@ -162,6 +170,8 @@ class _$CoinDtoCopyWithImpl<$Res, $Val extends CoinDto>
     });
   }
 
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinFaceDtoCopyWith<$Res>? get reverse {
@@ -174,6 +184,8 @@ class _$CoinDtoCopyWithImpl<$Res, $Val extends CoinDto>
     });
   }
 
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $CoinFaceDtoCopyWith<$Res>? get edge {
@@ -225,6 +237,8 @@ class __$$CoinDtoImplCopyWithImpl<$Res>
       _$CoinDtoImpl _value, $Res Function(_$CoinDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -378,7 +392,7 @@ class _$CoinDtoImpl implements _CoinDto {
             (identical(other.edge, edge) || other.edge == edge));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -396,7 +410,9 @@ class _$CoinDtoImpl implements _CoinDto {
       reverse,
       edge);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinDtoImplCopyWith<_$CoinDtoImpl> get copyWith =>
@@ -458,8 +474,11 @@ abstract class _CoinDto implements CoinDto {
   CoinFaceDto? get reverse;
   @override
   CoinFaceDto? get edge;
+
+  /// Create a copy of CoinDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoinDtoImplCopyWith<_$CoinDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -481,8 +500,12 @@ mixin _$CoinFaceDto {
   @JsonKey(defaultValue: '')
   String get copyright => throw _privateConstructorUsedError;
 
+  /// Serializes this CoinFaceDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CoinFaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $CoinFaceDtoCopyWith<CoinFaceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -511,6 +534,8 @@ class _$CoinFaceDtoCopyWithImpl<$Res, $Val extends CoinFaceDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of CoinFaceDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -569,6 +594,8 @@ class __$$CoinFaceDtoImplCopyWithImpl<$Res>
       _$CoinFaceDtoImpl _value, $Res Function(_$CoinFaceDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CoinFaceDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -653,12 +680,14 @@ class _$CoinFaceDtoImpl implements _CoinFaceDto {
                 other.copyright == copyright));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, image, thumbnail, lettering, description, copyright);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CoinFaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$CoinFaceDtoImplCopyWith<_$CoinFaceDtoImpl> get copyWith =>
@@ -701,8 +730,11 @@ abstract class _CoinFaceDto implements CoinFaceDto {
   @override
   @JsonKey(defaultValue: '')
   String get copyright;
+
+  /// Create a copy of CoinFaceDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CoinFaceDtoImplCopyWith<_$CoinFaceDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

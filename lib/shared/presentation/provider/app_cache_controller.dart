@@ -1,3 +1,4 @@
+// Silence issue with Freeze not recognizing syntax
 // ignore_for_file: avoid_final_parameters
 import 'package:finance/feature/assets/application/assets_service.dart';
 import 'package:finance/feature/assets/domain/model/finary_assets_model.dart';

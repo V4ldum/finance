@@ -102,6 +102,7 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
       if (context.mounted) {
         unawaited(
           showDialog<void>(
+            // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
             builder: (context) => AlertDialog(
@@ -127,8 +128,10 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
     }
 
     if (context.mounted) {
+      // Linter doesn't recognize that we check if context was mounted
       // ignore: use_build_context_synchronously
       while (context.canPop()) {
+        // Linter doesn't recognize that we check if context was mounted
         // ignore: use_build_context_synchronously
         context.pop();
       }
@@ -154,6 +157,7 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
       if (context.mounted) {
         unawaited(
           showDialog<void>(
+            // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
             builder: (context) => AlertDialog(
@@ -179,8 +183,10 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
     }
 
     if (context.mounted) {
+      // Linter doesn't recognize that we check if context was mounted
       // ignore: use_build_context_synchronously
       while (context.canPop()) {
+        // Linter doesn't recognize that we check if context was mounted
         // ignore: use_build_context_synchronously
         context.pop();
       }

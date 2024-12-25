@@ -1,19 +1,20 @@
 import 'package:finance/feature/settings/presentation/page/physical_assets_settings_page.dart';
 import 'package:finance/shared/domain/repository/local_storage_repository.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/ratio_service.g.dart';
 
 @riverpod
-RatioService ratioService(RatioServiceRef ref) {
+RatioService ratioService(Ref ref) {
   return RatioService(ref);
 }
 
 class RatioService {
   RatioService(this._ref);
 
-  final RatioServiceRef _ref;
+  final Ref _ref;
 
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);
   AppCacheController get _appCacheController => _ref.read(appCacheControllerProvider.notifier);

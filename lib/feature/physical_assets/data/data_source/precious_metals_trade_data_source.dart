@@ -2,13 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:finance/feature/physical_assets/data/dto/trade_values_dto.dart';
 import 'package:finance/shared/constant/app_string.dart';
 import 'package:finance/shared/presentation/provider/app_cache_controller.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/precious_metals_trade_data_source.g.dart';
 
 @riverpod
-PreciousMetalsTradeDataSource preciousMetalsTradeDataSource(PreciousMetalsTradeDataSourceRef ref) {
+PreciousMetalsTradeDataSource preciousMetalsTradeDataSource(Ref ref) {
   final cache = ref.watch(appCacheControllerProvider);
 
   final dio = Dio(
