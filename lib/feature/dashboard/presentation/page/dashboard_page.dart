@@ -5,6 +5,7 @@ import 'package:finance/shared/presentation/widget/app_navigation_drawer.dart';
 import 'package:finance/shared/presentation/widget/hide_values_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({
@@ -13,10 +14,14 @@ class DashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    print(GoRouter.of(context).routerDelegate.currentConfiguration.matches);
     final dashboardAssetsResult = ref.watch(finaryAssetsControllerProvider);
     final tabInfo = ref.read(dashboardTabControllerProvider.notifier).getCurrentPage(dashboardAssetsResult);
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        context.pop();
+      }),
       drawer: const AppNavigationDrawer(),
       appBar: AppBar(
         title: Text(tabInfo.title),

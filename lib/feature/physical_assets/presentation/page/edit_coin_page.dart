@@ -140,6 +140,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
       if (context.mounted) {
         unawaited(
           showDialog<void>(
+            // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
             builder: (context) => AlertDialog(
@@ -165,8 +166,10 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
     }
 
     if (context.mounted) {
+      // Linter doesn't recognize that we check if context was mounted
       // ignore: use_build_context_synchronously
       while (context.canPop()) {
+        // Linter doesn't recognize that we check if context was mounted
         // ignore: use_build_context_synchronously
         context.pop();
       }
@@ -190,6 +193,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
       if (context.mounted) {
         unawaited(
           showDialog<void>(
+            // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
             builder: (context) => AlertDialog(
@@ -215,8 +219,10 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
     }
 
     if (context.mounted) {
+      // Linter doesn't recognize that we check if context was mounted
       // ignore: use_build_context_synchronously
       while (context.canPop()) {
+        // Linter doesn't recognize that we check if context was mounted
         // ignore: use_build_context_synchronously
         context.pop();
       }
