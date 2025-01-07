@@ -21,7 +21,7 @@ Then, you can download [Obtainium](https://github.com/ImranR98/Obtainium) and ad
 
 ## How to build
 
-```bash
+```
 dart run intl_utils:generate
 dart run build_runner build
 flutter build <target> --debug
