@@ -50,5 +50,5 @@ app.*.map.json
 # Build
 **/_generated
 
-# Misc
+# Tests
 /coverage
