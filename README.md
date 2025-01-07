@@ -10,10 +10,23 @@ New features may come in the future, when my needs expand/change.
 
 The recommended way to keep this app updated is through [Obtainium](https://github.com/ImranR98/Obtainium). 
 First, manually install the app by downloading the latest APK from the [releases](https://github.com/V4ldum/finance/releases). This is useful to guarantee the app is signed with the correct certificate (mine) and was not injected with malware.
-Then, you can download Obtainium and add my app inside using the GitHub link. Obtainium will see the app installed and will be able to update it from there.
+Then, you can download [Obtainium](https://github.com/ImranR98/Obtainium) and add my app inside using the GitHub link of this repo. Obtainium will see the app installed and will be able to update it from there.
 
 ## Screenshots
 
 | <img src="./misc/screenshots/dashboard.png" alt="Dashboard Page" /> | <img src="./misc/screenshots/settings.png" alt="Settings Page" /> |
 |---------------------------------------------------------------------|-------------------------------------------------------------------| 
 
+## How to build
+
+```bash
+dart run intl_utils:generate
+dart run build_runner build
+flutter build <target> --debug
+```
+
+## Copyright
+
+This code is provided "as-is". You are permitted to use or modify the application at your own risks and for personal purposes only.
+You may NOT distribute, sublicense, or create derivative works based on this code in any way without explicit permission.
+You may specifically NOT use the source code in any way with AI technologies (referring to any form of Artificial Intelligence, including machine learning algorithms, neural networks, deep learning models, and other technologies, present or future, designed to simulate human intelligence). This includes but is not limited to training AI models, utilizing AI tools, or incorporating the content into any AI-related applications or systems.
