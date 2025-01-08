@@ -29,7 +29,7 @@ flutter build <target> --debug
 
 ## Copyright
 
-This code is provided "as-is". You are permitted to use or modify the application at your own risks and for personal purposes only.
+This code is provided "as-is". You are permitted to use or modify the application for personal purposes only.
 
 You may NOT distribute, sublicense, or create derivative works based on this code in any way without explicit permission.
 
