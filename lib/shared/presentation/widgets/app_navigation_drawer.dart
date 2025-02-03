@@ -5,6 +5,7 @@ import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 final drawerSelectedIndexProvider = StateProvider((ref) => 0);
 
@@ -19,11 +20,11 @@ class AppNavigationDrawer extends ConsumerWidget {
     ref.read(drawerSelectedIndexProvider.notifier).state = value;
     switch (_DrawerItem.values[value]) {
       case _DrawerItem.dashboard:
-        ref.context.pushReplacementNamed(AppRoute.dashboard);
+        ref.context.pushReplacementNamed(AppRoutes.dashboard);
       case _DrawerItem.preciousMetals:
-        ref.context.pushReplacementNamed(AppRoute.preciousMetals);
+        ref.context.pushReplacementNamed(AppRoutes.preciousMetals);
       case _DrawerItem.settings:
-        ref.context.pushReplacementNamed(AppRoute.settings);
+        ref.context.pushReplacementNamed(AppRoutes.settings);
     }
   }
 
@@ -36,19 +37,16 @@ class AppNavigationDrawer extends ConsumerWidget {
         const SizedBox(height: AppPadding.s),
         NavigationDrawerDestination(
           label: Text(S.current.dashboardDrawerItem),
-          icon: const Icon(Icons.area_chart_outlined),
-          selectedIcon: const Icon(Icons.area_chart),
+          icon: const Icon(LucideIcons.layoutDashboard),
         ),
         NavigationDrawerDestination(
           label: Text(S.current.physicalAssetsDrawerItem),
-          icon: const Icon(Icons.shield_outlined),
-          selectedIcon: const Icon(Icons.shield),
+          icon: const Icon(LucideIcons.coins),
         ),
         const Divider(indent: AppPadding.l, endIndent: AppPadding.l),
         NavigationDrawerDestination(
           label: Text(S.current.settingsDrawerItem),
-          icon: const Icon(Icons.settings_outlined),
-          selectedIcon: const Icon(Icons.settings),
+          icon: const Icon(LucideIcons.settings),
         ),
         Center(
           child: Padding(

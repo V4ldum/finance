@@ -3,7 +3,7 @@ import 'package:finance/features/assets/data/dtos/period_dto.dart';
 import 'package:finance/features/assets/domain/models/asset_category_model.dart';
 import 'package:finance/features/dashboard/presentation/providers/providers.dart';
 import 'package:finance/features/dashboard/presentation/widgets/asset_category_icon.dart';
-import 'package:finance/features/dashboard/presentation/widgets/linear_chart_item.dart';
+import 'package:finance/features/dashboard/presentation/widgets/chart_item_card.dart';
 import 'package:finance/features/dashboard/presentation/widgets/pie_chart.dart';
 import 'package:finance/features/dashboard/presentation/widgets/pie_chart_center.dart';
 import 'package:finance/shared/constants/app_padding.dart';
@@ -113,26 +113,34 @@ class DashboardChart extends ConsumerWidget {
                   )
                   .toList(),
             ),
-          ...List.generate(
-            data.length,
-            (index) {
-              final item = data[index];
+          GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            physics: const NeverScrollableScrollPhysics(),
+            childAspectRatio: 2,
+            crossAxisSpacing: AppPadding.s,
+            children: [
+              ...List.generate(
+                data.length,
+                (index) {
+                  final item = data[index];
 
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: AppPadding.xs),
-                child: LinearChartItem(
-                  title: item.title,
-                  value: item.value.toDouble(),
-                  evolution: item.evolutionPercent,
-                  assetUnit: assetUnit,
-                  percent: item.value / total,
-                  color: colorManager(data, index, null),
-                  leading: AssetCategoryIcon(
-                    category: categoryFilter(item),
-                  ),
-                ),
-              );
-            },
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: AppPadding.xs),
+                    child: ChartItemCard(
+                      title: item.title,
+                      value: item.value.toDouble(),
+                      evolution: item.evolutionPercent,
+                      assetUnit: assetUnit,
+                      percent: item.value / total,
+                      leading: AssetCategoryIcon(
+                        category: categoryFilter(item),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),

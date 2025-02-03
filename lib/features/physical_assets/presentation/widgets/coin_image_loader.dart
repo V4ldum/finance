@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class CoinImageLoader extends StatelessWidget {
   const CoinImageLoader({
@@ -23,7 +24,7 @@ class CoinImageLoader extends StatelessWidget {
         fit: BoxFit.cover,
         imageUrl: url,
         errorWidget: (_, __, ___) => const Icon(
-          Icons.image_not_supported_outlined,
+          LucideIcons.imageOff,
           size: _defaultSize,
         ),
         placeholder: (_, __) => Transform.scale(
@@ -40,7 +41,7 @@ class CoinImageLoader extends StatelessWidget {
           width: _defaultSize * 2,
           height: _defaultSize * 2,
           child: Icon(
-            Icons.image_not_supported_outlined,
+            LucideIcons.imageOff,
             size: _defaultSize,
           ),
         ),

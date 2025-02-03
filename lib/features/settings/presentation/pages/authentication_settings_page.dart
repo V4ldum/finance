@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class AuthenticationSettingsPage extends ConsumerWidget {
   const AuthenticationSettingsPage({
@@ -18,7 +19,7 @@ class AuthenticationSettingsPage extends ConsumerWidget {
   });
 
   Future<void> _logInButtonTapped(WidgetRef ref) async {
-    await ref.context.pushNamed(AppRoute.finaryAuthentication);
+    await ref.context.pushNamed(AppRoutes.finaryAuthentication);
     ref.read(finaryAuthenticationControllerProvider.notifier).logIn();
   }
 
@@ -52,13 +53,13 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                       ),
                       if (finaryAuthenticated)
                         Icon(
-                          Icons.check_outlined,
+                          LucideIcons.check,
                           color: ColorScheme.fromSwatch(primarySwatch: Colors.green).primary,
                           size: AppIconSize.xl,
                         )
                       else
                         Icon(
-                          Icons.close_outlined,
+                          LucideIcons.x,
                           color: ColorScheme.fromSwatch(primarySwatch: Colors.red).primary,
                           size: AppIconSize.xl,
                         ),
@@ -117,7 +118,7 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                                 vertical: AppPadding.xs,
                               ),
                               child: Icon(
-                                Icons.info_outline,
+                                LucideIcons.info,
                                 size: AppIconSize.s,
                               ),
                             ),

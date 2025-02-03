@@ -20,7 +20,7 @@ class LoadingPage extends ConsumerWidget {
       await ref.read(appCacheControllerProvider.notifier).init();
 
       if (context.mounted) {
-        context.pushReplacementNamed(AppRoute.dashboard);
+        context.pushReplacementNamed(AppRoutes.dashboard);
       }
     } catch (e) {
       if (context.mounted) {

@@ -5,6 +5,7 @@ import 'package:finance/shared/presentation/widgets/app_navigation_drawer.dart';
 import 'package:finance/shared/presentation/widgets/hide_values_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class DashboardPage extends ConsumerWidget {
   const DashboardPage({
@@ -31,23 +32,19 @@ class DashboardPage extends ConsumerWidget {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         destinations: [
           NavigationDestination(
-            icon: const Icon(Icons.account_balance_outlined),
-            selectedIcon: const Icon(Icons.account_balance),
+            icon: const Icon(LucideIcons.landmark),
             label: S.current.stocks,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.account_balance_wallet_outlined),
-            selectedIcon: const Icon(Icons.account_balance_wallet),
+            icon: const Icon(LucideIcons.walletMinimal),
             label: S.current.accounts,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.diamond_outlined),
-            selectedIcon: const Icon(Icons.diamond),
+            icon: const Icon(LucideIcons.anvil),
             label: S.current.preciousMetals,
           ),
           NavigationDestination(
-            icon: const Icon(Icons.data_usage_outlined),
-            selectedIcon: const Icon(Icons.data_usage),
+            icon: const Icon(LucideIcons.chartPie),
             label: S.current.distribution,
           ),
         ],

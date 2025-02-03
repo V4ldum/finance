@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class PhysicalAssetDetailsPage extends ConsumerStatefulWidget {
@@ -31,19 +32,19 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
   bool isLoading = false;
 
   void _onTapDetails(BuildContext context) {
-    context.pushNamed(AppRoute.coinDetails, extra: ((widget.asset as PreciousMetalAssetModel).id, false));
+    context.pushNamed(AppRoutes.coinDetails, extra: ((widget.asset as PreciousMetalAssetModel).id, false));
   }
 
   void _onTapEdit(BuildContext context) {
     late final String route;
 
     if (widget.asset is! PreciousMetalAssetModel) {
-      route = AppRoute.editCash;
+      route = AppRoutes.editCash;
     } else {
       if ((widget.asset as PreciousMetalAssetModel).numistaId.isEmpty) {
-        route = AppRoute.editRawPreciousMetal;
+        route = AppRoutes.editRawPreciousMetal;
       } else {
-        route = AppRoute.editCoin;
+        route = AppRoutes.editCoin;
       }
     }
 
@@ -129,11 +130,11 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
                   (widget.asset as PreciousMetalAssetModel).numistaId.isNotEmpty)
                 IconButton(
                   onPressed: () => _onTapDetails(context),
-                  icon: const Icon(Icons.info_outline),
+                  icon: const Icon(LucideIcons.info),
                 ),
               IconButton(
                 onPressed: () => _onTapEdit(context),
-                icon: const Icon(Icons.edit),
+                icon: const Icon(LucideIcons.pencil),
               ),
             ],
           ),

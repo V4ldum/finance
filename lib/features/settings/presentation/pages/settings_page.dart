@@ -1,10 +1,10 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
-import 'package:finance/shared/constants/app_asset.dart';
 import 'package:finance/shared/presentation/widgets/app_navigation_drawer.dart';
 import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage({
@@ -25,26 +25,26 @@ class SettingsPage extends ConsumerWidget {
             ListTile(
               title: Text(S.current.settingsAssetsTitle),
               subtitle: Text(S.current.settingsAssetsSubtitle),
-              leading: const Icon(Icons.account_balance_wallet),
-              onTap: () => context.pushNamed(AppRoute.dashboardSettings),
+              leading: const Icon(LucideIcons.walletMinimal),
+              onTap: () => context.pushNamed(AppRoutes.dashboardSettings),
             ),
             ListTile(
               title: Text(S.current.settingsPhysicalAssetsTitle),
               subtitle: Text(S.current.settingsPhysicalAssetsSubtitle),
-              leading: const ImageIcon(AssetImage(AppAsset.salesIcon)),
-              onTap: () => context.pushNamed(AppRoute.physicalAssetsSettings),
+              leading: const Icon(LucideIcons.coins),
+              onTap: () => context.pushNamed(AppRoutes.physicalAssetsSettings),
             ),
             ListTile(
               title: Text(S.current.settingsAuthenticationTitle),
               subtitle: Text(S.current.settingsAuthenticationSubtitle),
-              leading: const Icon(Icons.login),
-              onTap: () => context.pushNamed(AppRoute.authenticationSettings),
+              leading: const Icon(LucideIcons.logIn),
+              onTap: () => context.pushNamed(AppRoutes.authenticationSettings),
             ),
             ListTile(
               title: Text(S.current.settingsImportExportTitle),
               subtitle: Text(S.current.settingsImportExportSubtitle),
-              leading: const Icon(Icons.import_export),
-              onTap: () => context.pushNamed(AppRoute.importExport),
+              leading: const Icon(LucideIcons.arrowUpDown),
+              onTap: () => context.pushNamed(AppRoutes.importExport),
             ),
           ],
         ),

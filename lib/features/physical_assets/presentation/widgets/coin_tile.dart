@@ -6,6 +6,7 @@ import 'package:finance/shared/constants/app_padding.dart';
 import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class CoinSearchTile extends StatelessWidget {
   const CoinSearchTile({
@@ -22,7 +23,7 @@ class CoinSearchTile extends StatelessWidget {
     final nameSecondPart = splitName.length > 1 ? splitName.last.trim() : '';
 
     return ListTile(
-      onTap: () => context.pushNamed(AppRoute.coinDetails, extra: (coin.id, true)),
+      onTap: () => context.pushNamed(AppRoutes.coinDetails, extra: (coin.id, true)),
       leading: CoinImageLoader(url: coin.obverse?.thumbnailUrl ?? coin.obverse?.pictureUrl ?? ''),
       title: Row(
         spacing: AppPadding.s,
@@ -52,7 +53,7 @@ class CoinSearchTile extends StatelessWidget {
                 : '${coin.minYear} - ${coin.maxYear}',
       ),
       trailing: const Icon(
-        Icons.arrow_forward_ios_rounded,
+        LucideIcons.chevronRight,
         size: AppIconSize.m,
       ),
     );

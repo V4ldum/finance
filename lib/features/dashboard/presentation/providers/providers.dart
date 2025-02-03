@@ -9,6 +9,7 @@ import 'package:finance/features/dashboard/presentation/widgets/last_sync_text.d
 import 'package:finance/shared/constants/app_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/providers.g.dart';
@@ -97,8 +98,8 @@ class DashboardTabController extends _$DashboardTabController {
                 return IconButton(
                   onPressed: ref.read(showPreciousMetalWeightControllerProvider.notifier).swap,
                   icon: ref.watch(showPreciousMetalWeightControllerProvider)
-                      ? const Icon(Icons.attach_money)
-                      : const Icon(Icons.monitor_weight_outlined),
+                      ? const Icon(LucideIcons.circleDollarSign)
+                      : const Icon(LucideIcons.weight),
                 );
               },
             ),

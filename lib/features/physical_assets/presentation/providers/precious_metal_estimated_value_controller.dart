@@ -22,6 +22,7 @@ class PreciousMetalEstimatedValueController extends _$PreciousMetalEstimatedValu
           metal: PreciousMetalTypeModel.other,
           grams: 0,
           troyOunces: 0,
+          lastUpdated: DateTime.now(),
         ),
     };
 

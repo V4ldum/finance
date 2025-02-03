@@ -24,14 +24,14 @@ class PieChart extends StatelessWidget {
       duration: const MediumDuration(),
       curve: Curves.easeOutCubic,
       chart.PieChartData(
-        sectionsSpace: 2,
+        sectionsSpace: 3,
         startDegreeOffset: -90,
         sections: [
           ...List.generate(
             data.length,
             (index) {
               return chart.PieChartSectionData(
-                radius: 25,
+                radius: 21,
                 title: data[index].title,
                 value: data[index].value.toDouble(),
                 showTitle: false,

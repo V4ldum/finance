@@ -130,6 +130,14 @@
   "importSuccessMessage": "Import successful",
   "exportSuccessMessage": "Export successful",
   "@@@_PHYSICAL_ASSETS": {},
+  "lastUpdateTooltip": "Last update : {date}",
+  "@lastUpdateTooltip": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "goldMetalType": "Gold",
   "silverMetalType": "Silver",
   "otherMetalType": "Other",

@@ -130,6 +130,7 @@
   "importSuccessMessage": "Import réussi",
   "exportSuccessMessage": "Export réussi",
   "@@@_PHYSICAL_ASSETS": {},
+  "lastUpdateTooltip": "Dernière mise à jour : {date}",
   "goldMetalType": "Or",
   "silverMetalType": "Argent",
   "otherMetalType": "Autre",

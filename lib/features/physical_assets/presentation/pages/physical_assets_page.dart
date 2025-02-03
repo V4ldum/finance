@@ -3,7 +3,6 @@ import 'package:finance/features/assets/domain/models/asset_type_model.dart';
 import 'package:finance/features/assets/presentation/providers/physical_assets_controller.dart';
 import 'package:finance/features/physical_assets/presentation/providers/ratio_controller.dart';
 import 'package:finance/features/physical_assets/presentation/widgets/physical_asset_tile.dart';
-import 'package:finance/shared/constants/app_asset.dart';
 import 'package:finance/shared/constants/app_padding.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
 import 'package:finance/shared/presentation/widgets/app_navigation_drawer.dart';
@@ -15,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class PhysicalAssetsPage extends ConsumerWidget {
@@ -35,44 +35,70 @@ class PhysicalAssetsPage extends ConsumerWidget {
         actions: [
           ratioResult.when(
             data: (data) {
-              final (double gsr, double spgr) = data;
+              final (gold, silver, sp) = data;
+              final gsr = gold.troyOunces / silver.troyOunces;
+              final spgr = sp.value / gold.troyOunces;
+              final earliestDate = [gold.lastUpdated, silver.lastUpdated, sp.lastUpdated].reduce(
+                (a, b) => a.isBefore(b) //
+                    ? a
+                    : b,
+              );
 
               if (gsr.isNaN || spgr.isNaN) {
-                return const Icon(Icons.wifi_off_outlined);
+                return const Icon(LucideIcons.wifiOff);
               }
 
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'SP/G',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: spgr < cache.spgrSPFavorableRatio
-                              // SP Favorable
-                              ? Utils.moneyColor
-                              : spgr > cache.spgrGoldFavorableRatio
-                                  // Gold Favorable
-                                  ? Utils.goldColor
-                                  // Neutral
-                                  : Theme.of(context).colorScheme.onSurface,
+              return Theme(
+                // Tooltip is bugged and shows dark UI for light brightness and the other way around
+                data: Theme.of(context).copyWith(
+                  brightness: Theme.of(context).brightness == Brightness.dark //
+                      ? Brightness.light
+                      : Brightness.dark,
+                ),
+                child: Tooltip(
+                  message: S.current.lastUpdateTooltip(DateFormat('dd MMM').format(earliestDate)),
+                  preferBelow: true,
+                  showDuration: const Duration(seconds: 10),
+                  triggerMode: TooltipTriggerMode.tap,
+                  enableTapToDismiss: false,
+                  child: Theme(
+                    // Revert the change down this branch
+                    data: Theme.of(context),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'SP/G',
+                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: spgr < cache.spgrSPFavorableRatio
+                                    // SP Favorable
+                                    ? Utils.moneyColor
+                                    : spgr > cache.spgrGoldFavorableRatio
+                                        // Gold Favorable
+                                        ? Utils.goldColor
+                                        // Neutral
+                                        : Theme.of(context).colorScheme.onSurface,
+                              ),
                         ),
-                  ),
-                  Text(
-                    'G/S',
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: gsr < cache.gsrGoldFavorableRatio
-                              // Gold Favorable
-                              ? Utils.goldColor
-                              : gsr > cache.gsrSilverFavorableRatio
-                                  // Silver Favorable
-                                  ? Utils.silverColor
-                                  // Neutral
-                                  : Theme.of(context).colorScheme.onSurface,
+                        Text(
+                          'G/S',
+                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: gsr < cache.gsrGoldFavorableRatio
+                                    // Gold Favorable
+                                    ? Utils.goldColor
+                                    : gsr > cache.gsrSilverFavorableRatio
+                                        // Silver Favorable
+                                        ? Utils.silverColor
+                                        // Neutral
+                                        : Theme.of(context).colorScheme.onSurface,
+                              ),
                         ),
+                      ],
+                    ),
                   ),
-                ],
+                ),
               );
             },
             error: (error, trace) {
@@ -91,25 +117,21 @@ class PhysicalAssetsPage extends ConsumerWidget {
             alignmentOffset: Intl.getCurrentLocale().startsWith('fr') ? const Offset(-80, 0) : const Offset(-65, 0),
             menuChildren: [
               MenuItemButton(
-                onPressed: () => context.pushNamed(AppRoute.editCash),
+                onPressed: () => context.pushNamed(AppRoutes.editCash),
                 trailingIcon: Container(),
-                leadingIcon: const Icon(Icons.money_rounded),
+                leadingIcon: const Icon(LucideIcons.banknote),
                 child: Text(S.current.cash),
               ),
               MenuItemButton(
-                onPressed: () => context.pushNamed(AppRoute.editRawPreciousMetal),
+                onPressed: () => context.pushNamed(AppRoutes.editRawPreciousMetal),
                 trailingIcon: Container(),
-                leadingIcon: const ImageIcon(
-                  AssetImage(AppAsset.rockIcon),
-                ),
+                leadingIcon: const Icon(LucideIcons.mountain),
                 child: Text(S.current.raw),
               ),
               MenuItemButton(
-                onPressed: () => context.pushNamed(AppRoute.searchCoin),
+                onPressed: () => context.pushNamed(AppRoutes.searchCoin),
                 trailingIcon: Container(),
-                leadingIcon: const ImageIcon(
-                  AssetImage(AppAsset.salesIcon),
-                ),
+                leadingIcon: const Icon(LucideIcons.coins),
                 child: Text(S.current.coin),
               ),
             ],
@@ -125,7 +147,7 @@ class PhysicalAssetsPage extends ConsumerWidget {
                 icon: child!,
               );
             },
-            child: const Icon(Icons.add),
+            child: const Icon(LucideIcons.plus),
           ),
         ],
       ),

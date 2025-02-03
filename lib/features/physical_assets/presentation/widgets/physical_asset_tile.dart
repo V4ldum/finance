@@ -1,13 +1,13 @@
 import 'package:finance/features/assets/domain/models/asset_model.dart';
 import 'package:finance/features/assets/domain/models/precious_metal_asset_model.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
-import 'package:finance/shared/constants/app_asset.dart';
 import 'package:finance/shared/constants/app_icon_size.dart';
 import 'package:finance/shared/constants/app_padding.dart';
 import 'package:finance/shared/utils/go_router.dart';
 import 'package:finance/shared/utils/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class PhysicalAssetTile extends StatelessWidget {
   const PhysicalAssetTile({
@@ -20,7 +20,7 @@ class PhysicalAssetTile extends StatelessWidget {
   final AssetModel asset;
 
   void _onTap(BuildContext context) {
-    context.pushNamed(AppRoute.physicalAssetDetails, extra: asset);
+    context.pushNamed(AppRoutes.physicalAssetDetails, extra: asset);
   }
 
   @override
@@ -80,17 +80,17 @@ class PhysicalAssetTile extends StatelessWidget {
               child: asset is! PreciousMetalAssetModel
                   // Cash
                   ? Icon(
-                      Icons.money_rounded,
+                      LucideIcons.banknote,
                       size: _defaultSize * 1.4,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     )
                   // Precious Metal
                   : Padding(
                       padding: const EdgeInsets.all(AppPadding.xs),
-                      child: ImageIcon(
+                      child: Icon(
                         (asset as PreciousMetalAssetModel).numistaId.isEmpty
-                            ? const AssetImage(AppAsset.rockIcon) // Raw
-                            : const AssetImage(AppAsset.salesIcon), // Coin
+                            ? LucideIcons.mountain // Raw
+                            : LucideIcons.coins, // Coin
                         color: switch ((asset as PreciousMetalAssetModel).metalType) {
                           PreciousMetalTypeModel.gold ||
                           PreciousMetalTypeModel.silver =>
@@ -104,7 +104,7 @@ class PhysicalAssetTile extends StatelessWidget {
         ),
       ),
       trailing: const Icon(
-        Icons.arrow_forward_ios,
+        LucideIcons.chevronRight,
         size: AppIconSize.m,
       ),
     );

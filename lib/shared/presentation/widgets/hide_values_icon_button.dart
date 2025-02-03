@@ -1,6 +1,7 @@
 import 'package:finance/shared/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class HideValueIconButton extends ConsumerWidget {
   const HideValueIconButton({super.key});
@@ -13,8 +14,8 @@ class HideValueIconButton extends ConsumerWidget {
       },
       icon: Icon(
         ref.watch(areValuesHidden) //
-            ? Icons.visibility
-            : Icons.visibility_off,
+            ? LucideIcons.eye
+            : LucideIcons.eyeOff,
       ),
     );
   }

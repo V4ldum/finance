@@ -21,48 +21,48 @@ import 'package:go_router/go_router.dart';
 
 @protected
 final router = GoRouter(
-  initialLocation: AppRoute._loadingPath,
+  initialLocation: AppRoutes._loadingPath,
   routes: [
     GoRoute(
-      name: AppRoute.loading,
-      path: AppRoute._loadingPath,
+      name: AppRoutes.loading,
+      path: AppRoutes._loadingPath,
       builder: (_, __) => const LoadingPage(),
     ),
 
     /// Dashboard
     GoRoute(
-      name: AppRoute.dashboard,
-      path: AppRoute._dashboardPath,
+      name: AppRoutes.dashboard,
+      path: AppRoutes._dashboardPath,
       builder: (_, __) => const DashboardPage(),
     ),
 
     /// Precious Metals
     GoRoute(
-      name: AppRoute.preciousMetals,
-      path: AppRoute._preciousMetalsPath,
+      name: AppRoutes.preciousMetals,
+      path: AppRoutes._preciousMetalsPath,
       builder: (_, __) => const PhysicalAssetsPage(),
       routes: [
         GoRoute(
-          name: AppRoute.searchCoin,
-          path: AppRoute._searchCoinPath,
+          name: AppRoutes.searchCoin,
+          path: AppRoutes._searchCoinPath,
           builder: (_, __) => const SearchCoinPage(),
         ),
         GoRoute(
-          name: AppRoute.physicalAssetDetails,
-          path: AppRoute._physicalAssetDetailsPath,
+          name: AppRoutes.physicalAssetDetails,
+          path: AppRoutes._physicalAssetDetailsPath,
           builder: (_, state) => PhysicalAssetDetailsPage(asset: state.extra! as AssetModel),
         ),
         GoRoute(
-          name: AppRoute.coinDetails,
-          path: AppRoute._coinDetailsPath,
+          name: AppRoutes.coinDetails,
+          path: AppRoutes._coinDetailsPath,
           builder: (_, state) {
             final (String id, bool showAddButton) = state.extra! as (String, bool);
             return CoinDetailsPage(coinId: id, showAddButton: showAddButton);
           },
         ),
         GoRoute(
-          name: AppRoute.editCoin,
-          path: AppRoute._editCoinPath,
+          name: AppRoutes.editCoin,
+          path: AppRoutes._editCoinPath,
           builder: (_, state) {
             if (state.extra is CoinModel) {
               return EditCoinPage(coin: state.extra as CoinModel?);
@@ -71,13 +71,13 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          name: AppRoute.editCash,
-          path: AppRoute._editCashPath,
+          name: AppRoutes.editCash,
+          path: AppRoutes._editCashPath,
           builder: (_, state) => EditCashPage(asset: state.extra as AssetModel?),
         ),
         GoRoute(
-          name: AppRoute.editRawPreciousMetal,
-          path: AppRoute._editRawPreciousMetalPath,
+          name: AppRoutes.editRawPreciousMetal,
+          path: AppRoutes._editRawPreciousMetalPath,
           builder: (_, state) => EditRawPreciousMetalPage(asset: state.extra as PreciousMetalAssetModel?),
         ),
       ],
@@ -85,35 +85,35 @@ final router = GoRouter(
 
     /// Settings
     GoRoute(
-      name: AppRoute.settings,
-      path: AppRoute._settingsPath,
+      name: AppRoutes.settings,
+      path: AppRoutes._settingsPath,
       builder: (_, __) => const SettingsPage(),
       routes: [
         GoRoute(
-          name: AppRoute.authenticationSettings,
-          path: AppRoute._authenticationSettingsPath,
+          name: AppRoutes.authenticationSettings,
+          path: AppRoutes._authenticationSettingsPath,
           builder: (_, __) => const AuthenticationSettingsPage(),
           routes: [
             GoRoute(
-              name: AppRoute.finaryAuthentication,
-              path: AppRoute._finaryAuthenticationPath,
+              name: AppRoutes.finaryAuthentication,
+              path: AppRoutes._finaryAuthenticationPath,
               builder: (_, __) => const FinaryAuthenticationPage(),
             ),
           ],
         ),
         GoRoute(
-          name: AppRoute.dashboardSettings,
-          path: AppRoute._dashboardSettingsPath,
+          name: AppRoutes.dashboardSettings,
+          path: AppRoutes._dashboardSettingsPath,
           builder: (_, __) => const DashboardSettingsPage(),
         ),
         GoRoute(
-          name: AppRoute.physicalAssetsSettings,
-          path: AppRoute._physicalAssetsSettingsPath,
+          name: AppRoutes.physicalAssetsSettings,
+          path: AppRoutes._physicalAssetsSettingsPath,
           builder: (_, __) => const PhysicalAssetsSettingsPage(),
         ),
         GoRoute(
-          name: AppRoute.importExport,
-          path: AppRoute._importExportPath,
+          name: AppRoutes.importExport,
+          path: AppRoutes._importExportPath,
           builder: (_, __) => const ImportExportPage(),
         ),
       ],
@@ -121,8 +121,8 @@ final router = GoRouter(
   ],
 );
 
-class AppRoute {
-  AppRoute._();
+class AppRoutes {
+  AppRoutes._();
 
   static const String loading = 'loading';
   static const String _loadingPath = '/';

@@ -6,6 +6,7 @@ class PreciousMetalTradeValueModel {
     required this.metal,
     required this.grams,
     required this.troyOunces,
+    required this.lastUpdated,
   });
 
   factory PreciousMetalTradeValueModel.fromDto(TradeValueDto dto, PreciousMetalTypeModel type) {
@@ -15,10 +16,12 @@ class PreciousMetalTradeValueModel {
       metal: type,
       grams: dto.price * troyOunceToGramsRatio,
       troyOunces: dto.price,
+      lastUpdated: dto.lastUpdate,
     );
   }
 
   final PreciousMetalTypeModel metal;
   final double grams;
   final double troyOunces;
+  final DateTime lastUpdated;
 }

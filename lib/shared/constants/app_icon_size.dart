@@ -1,4 +1,4 @@
-/// Standard icons size used across the app
+/// Standard  size used across the app
 class AppIconSize {
   AppIconSize._();
 

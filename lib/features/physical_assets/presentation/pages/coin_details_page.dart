@@ -11,6 +11,7 @@ import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -48,12 +49,12 @@ class CoinDetailsPage extends ConsumerWidget {
           data: (coin) => [
             IconButton(
               onPressed: () => _openInNumista(coin.numistaId),
-              icon: const Icon(Icons.open_in_browser),
+              icon: const Icon(LucideIcons.externalLink),
             ),
             if (showAddButton)
               IconButton(
-                onPressed: () => context.pushNamed(AppRoute.editCoin, extra: coin),
-                icon: const Icon(Icons.add),
+                onPressed: () => context.pushNamed(AppRoutes.editCoin, extra: coin),
+                icon: const Icon(LucideIcons.plus),
               ),
           ],
           orElse: () => [],

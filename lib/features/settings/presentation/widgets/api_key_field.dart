@@ -1,6 +1,7 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class ApiKeyField extends ConsumerStatefulWidget {
   const ApiKeyField({
@@ -60,7 +61,7 @@ class _ApiKeyFieldState extends ConsumerState<ApiKeyField> {
               suffixIcon: apiKeyController.text.isNotEmpty
                   ? IconButton(
                       onPressed: _clearField,
-                      icon: const Icon(Icons.close),
+                      icon: const Icon(LucideIcons.x),
                     )
                   : null,
               labelText: S.current.numistaApiKeyField,

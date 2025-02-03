@@ -1,6 +1,7 @@
 import 'package:finance/features/assets/domain/models/asset_category_model.dart';
 import 'package:finance/shared/constants/app_icon_size.dart';
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class AssetCategoryIcon extends StatelessWidget {
   const AssetCategoryIcon({
@@ -17,10 +18,10 @@ class AssetCategoryIcon extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
       child: Icon(
         switch (category) {
-          AssetCategoryModel.speculative => Icons.show_chart,
-          AssetCategoryModel.investment => Icons.attach_money,
-          AssetCategoryModel.savings => Icons.savings,
-          AssetCategoryModel.other => Icons.question_mark,
+          AssetCategoryModel.speculative => LucideIcons.chartSpline,
+          AssetCategoryModel.investment => LucideIcons.circleDollarSign,
+          AssetCategoryModel.savings => LucideIcons.piggyBank,
+          AssetCategoryModel.other => LucideIcons.circleHelp,
         },
         size: AppIconSize.xs,
         color: Theme.of(context).colorScheme.onSecondaryContainer,

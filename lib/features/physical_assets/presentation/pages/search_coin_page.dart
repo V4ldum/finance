@@ -6,6 +6,7 @@ import 'package:finance/shared/presentation/widgets/default_error_widget.dart';
 import 'package:finance/shared/presentation/widgets/default_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class SearchCoinPage extends ConsumerStatefulWidget {
@@ -56,7 +57,7 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
             suffixIcon: _controller.text.isNotEmpty
                 ? IconButton(
                     onPressed: _clearSearch,
-                    icon: const Icon(Icons.close),
+                    icon: const Icon(LucideIcons.x),
                   )
                 : null,
             hintText: S.current.searchCoin,

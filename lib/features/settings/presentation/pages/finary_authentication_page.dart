@@ -8,6 +8,7 @@ import 'package:finance/shared/utils/validators/string_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class FinaryAuthenticationPage extends ConsumerWidget {
@@ -123,7 +124,7 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
               validator: EmailValidator.validate,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.person),
+                prefixIcon: const Icon(LucideIcons.user),
                 labelText: S.current.loginTextFieldLabel,
                 helperText: '',
                 filled: true,
@@ -141,11 +142,11 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
               keyboardType: TextInputType.emailAddress,
               obscureText: passwordObscured,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.password),
+                prefixIcon: const Icon(LucideIcons.rectangleEllipsis),
                 suffixIcon: IconButton(
                   onPressed: _togglePasswordTapped,
                   icon: Icon(
-                    passwordObscured ? Icons.visibility : Icons.visibility_off,
+                    passwordObscured ? LucideIcons.eye : LucideIcons.eyeOff,
                   ),
                 ),
                 labelText: S.current.passwordTextFieldLabel,
@@ -244,11 +245,11 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
             keyboardType: TextInputType.number,
             obscureText: otpObscured,
             decoration: InputDecoration(
-              prefixIcon: const Icon(Icons.key),
+              prefixIcon: const Icon(LucideIcons.keyRound),
               suffixIcon: IconButton(
                 onPressed: _toggleOtpTapped,
                 icon: Icon(
-                  otpObscured ? Icons.visibility : Icons.visibility_off,
+                  otpObscured ? LucideIcons.eye : LucideIcons.eyeOff,
                 ),
               ),
               labelText: S.current.otpTextFieldLabel,
