@@ -117,7 +117,7 @@ class DashboardChart extends ConsumerWidget {
             shrinkWrap: true,
             crossAxisCount: 2,
             physics: const NeverScrollableScrollPhysics(),
-            childAspectRatio: 2,
+            childAspectRatio: MediaQuery.of(context).size.width / 240,
             crossAxisSpacing: AppPadding.s,
             children: [
               ...List.generate(

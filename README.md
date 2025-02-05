@@ -14,11 +14,6 @@ First, manually install the app by downloading the latest APK from the [releases
 
 Then, you can download [Obtainium](https://github.com/ImranR98/Obtainium) and add my app inside using the GitHub link of this repo. Obtainium will see the app installed and will be able to update it from there.
 
-## Screenshots
-
-| <img src="./misc/screenshots/dashboard.png" alt="Dashboard Page" /> | <img src="./misc/screenshots/settings.png" alt="Settings Page" /> |
-|---------------------------------------------------------------------|-------------------------------------------------------------------| 
-
 ## How to build
 
 ```

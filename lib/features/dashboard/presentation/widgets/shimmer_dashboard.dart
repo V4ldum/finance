@@ -14,7 +14,7 @@ class ShimmerDashboard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: AppPadding.s, horizontal: AppPadding.m),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: AppPadding.l,
+          spacing: AppPadding.xxl,
           children: [
             /// Chart
             Center(
@@ -25,12 +25,21 @@ class ShimmerDashboard extends StatelessWidget {
               ),
             ),
 
-            /// Lines
-            const ShimmerBlock.text(height: AppPadding.xl),
-            const SizedBox(height: AppPadding.xs),
-            const ShimmerBlock.text(height: AppPadding.xl),
-            const SizedBox(height: AppPadding.xs),
-            const ShimmerBlock.text(height: AppPadding.xl),
+            /// Cards
+            GridView.count(
+              shrinkWrap: true,
+              crossAxisCount: 2,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisSpacing: AppPadding.s,
+              mainAxisSpacing: AppPadding.s,
+              childAspectRatio: 2,
+              children: const [
+                ShimmerBlock(height: AppPadding.xl),
+                ShimmerBlock(height: AppPadding.xl),
+                ShimmerBlock(height: AppPadding.xl),
+                ShimmerBlock(height: AppPadding.xl),
+              ],
+            ),
           ],
         ),
       ),
