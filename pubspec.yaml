@@ -45,7 +45,7 @@ dependencies:
   html: ^0.15.4
   intl: ^0.19.0
   json_annotation: ^4.9.0
-  lucide_icons_flutter: ^1.2.6
+  lucide_icons_flutter: ^1.2.7
   meta_package:
     git:
       url: https://github.com/V4ldum/meta-package
