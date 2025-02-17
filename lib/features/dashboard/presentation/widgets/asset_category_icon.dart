@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class AssetCategoryIcon extends StatelessWidget {
-  const AssetCategoryIcon({
-    required this.category,
-    super.key,
-  });
+  const AssetCategoryIcon({required this.category, super.key});
 
   final AssetCategoryModel category;
 

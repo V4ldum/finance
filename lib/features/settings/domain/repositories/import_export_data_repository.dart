@@ -20,17 +20,12 @@ ImportExportDataRepository importExportDataRepository(Ref ref) {
 
   return ImportExportDataRepository(
     ref,
-    PersistCookieJar(
-      storage: FileStorage('${cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies'),
-    ),
+    PersistCookieJar(storage: FileStorage('${cache.applicationDirectory}${Platform.pathSeparator}.finary_cookies')),
   );
 }
 
 class ImportExportDataRepository {
-  ImportExportDataRepository(
-    this._ref,
-    this._cookieJar,
-  );
+  ImportExportDataRepository(this._ref, this._cookieJar);
 
   static const String _domainCookiesKey = 'domainCookies';
   static const String _hostCookiesKey = 'hostCookies';
@@ -48,11 +43,7 @@ class ImportExportDataRepository {
     final cacheMap = _cache.toJson();
     final domainCookiesMap = _cookieJar.domainCookies;
     final hostCookiesMap = _cookieJar.hostCookies;
-    final data = jsonEncode({
-      ...cacheMap,
-      _domainCookiesKey: domainCookiesMap,
-      _hostCookiesKey: hostCookiesMap,
-    });
+    final data = jsonEncode({...cacheMap, _domainCookiesKey: domainCookiesMap, _hostCookiesKey: hostCookiesMap});
 
     await _filePickerDataSource.openDialogSaveFile(content: data, filename: filename);
   }
@@ -123,10 +114,7 @@ class ImportExportDataRepository {
         BaseOptions(
           baseUrl: AppString.finaryClerkApiUrl,
           contentType: Headers.formUrlEncodedContentType,
-          headers: {
-            'Origin': AppString.finaryAppUrl,
-            'Referer': AppString.finaryAppUrl,
-          },
+          headers: {'Origin': AppString.finaryAppUrl, 'Referer': AppString.finaryAppUrl},
         ),
       )..interceptors.add(CookieManager(cookieJar)),
       cookieJar,

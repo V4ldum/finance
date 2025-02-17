@@ -37,16 +37,8 @@ class ShimmerCoinDetail extends StatelessWidget {
           Row(
             spacing: AppPadding.m,
             children: [
-              Expanded(
-                child: ShimmerBlock(
-                  height: shimmerImagesSize,
-                ),
-              ),
-              Expanded(
-                child: ShimmerBlock(
-                  height: shimmerImagesSize,
-                ),
-              ),
+              Expanded(child: ShimmerBlock(height: shimmerImagesSize)),
+              Expanded(child: ShimmerBlock(height: shimmerImagesSize)),
             ],
           ),
         ],

@@ -23,18 +23,10 @@ import 'package:go_router/go_router.dart';
 final router = GoRouter(
   initialLocation: AppRoutes._loadingPath,
   routes: [
-    GoRoute(
-      name: AppRoutes.loading,
-      path: AppRoutes._loadingPath,
-      builder: (_, __) => const LoadingPage(),
-    ),
+    GoRoute(name: AppRoutes.loading, path: AppRoutes._loadingPath, builder: (_, __) => const LoadingPage()),
 
     /// Dashboard
-    GoRoute(
-      name: AppRoutes.dashboard,
-      path: AppRoutes._dashboardPath,
-      builder: (_, __) => const DashboardPage(),
-    ),
+    GoRoute(name: AppRoutes.dashboard, path: AppRoutes._dashboardPath, builder: (_, __) => const DashboardPage()),
 
     /// Precious Metals
     GoRoute(

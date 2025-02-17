@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class CoinImageLoader extends StatelessWidget {
-  const CoinImageLoader({
-    required this.url,
-    super.key,
-  });
+  const CoinImageLoader({required this.url, super.key});
 
   final String url;
 
@@ -23,16 +20,12 @@ class CoinImageLoader extends StatelessWidget {
         height: _defaultSize * 2,
         fit: BoxFit.cover,
         imageUrl: url,
-        errorWidget: (_, __, ___) => const Icon(
-          LucideIcons.imageOff,
-          size: _defaultSize,
-        ),
-        placeholder: (_, __) => Transform.scale(
-          scale: _loaderScale,
-          child: CircularProgressIndicator(
-            color: Theme.of(context).colorScheme.onSurfaceVariant,
-          ),
-        ),
+        errorWidget: (_, __, ___) => const Icon(LucideIcons.imageOff, size: _defaultSize),
+        placeholder:
+            (_, __) => Transform.scale(
+              scale: _loaderScale,
+              child: CircularProgressIndicator(color: Theme.of(context).colorScheme.onSurfaceVariant),
+            ),
       );
     } else {
       image = const FittedBox(
@@ -40,19 +33,11 @@ class CoinImageLoader extends StatelessWidget {
         child: SizedBox(
           width: _defaultSize * 2,
           height: _defaultSize * 2,
-          child: Icon(
-            LucideIcons.imageOff,
-            size: _defaultSize,
-          ),
+          child: Icon(LucideIcons.imageOff, size: _defaultSize),
         ),
       );
     }
 
-    return ClipOval(
-      child: ColoredBox(
-        color: Theme.of(context).colorScheme.surfaceContainerHighest,
-        child: image,
-      ),
-    );
+    return ClipOval(child: ColoredBox(color: Theme.of(context).colorScheme.surfaceContainerHighest, child: image));
   }
 }

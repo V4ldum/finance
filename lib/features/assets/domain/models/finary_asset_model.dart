@@ -23,18 +23,21 @@ class FinaryAssetModel extends AssetModel {
       evolution: security.evolution,
       evolutionPercent: security.evolutionPercent,
       id: security.security.isin,
-      name: security.security.type == StockDetailSecurityTypeDto.unknown
-          ? S.current.stocksLiquidity
-          : security.security.name,
+      name:
+          security.security.type == StockDetailSecurityTypeDto.unknown
+              ? S.current.stocksLiquidity
+              : security.security.name,
       symbol: security.security.symbol,
       amount: security.quantity,
       value: security.security.unitPrice,
       category: switch (security.security.type) {
         StockDetailSecurityTypeDto.etf || StockDetailSecurityTypeDto.fund => AssetCategoryModel.investment,
-        StockDetailSecurityTypeDto.equity => cache.investmentStocksSymbols.contains(security.security.symbol)
-            // Bare stock
-            ? AssetCategoryModel.investment // Override default behaviour:
-            : AssetCategoryModel.speculative,
+        StockDetailSecurityTypeDto.equity =>
+          cache.investmentStocksSymbols.contains(security.security.symbol)
+              // Bare stock
+              ? AssetCategoryModel
+                  .investment // Override default behaviour:
+              : AssetCategoryModel.speculative,
         StockDetailSecurityTypeDto.unknown => AssetCategoryModel.other, // Liquidity account
       },
       type: switch (security.security.type) {

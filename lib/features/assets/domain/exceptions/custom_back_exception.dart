@@ -3,7 +3,7 @@ import 'package:meta_package/meta_package.dart';
 
 class CustomBackException extends DisplayableException {
   CustomBackException.badRequest()
-      : super(S.current.physicalAssetCoinAlreadyExistsTitle, S.current.physicalAssetCoinAlreadyExistsContent);
+    : super(S.current.physicalAssetCoinAlreadyExistsTitle, S.current.physicalAssetCoinAlreadyExistsContent);
 
   CustomBackException.unauthorized() : super(S.current.customBackNoKeyTitle, S.current.customBackNoKeyBody);
 

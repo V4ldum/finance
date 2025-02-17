@@ -92,11 +92,7 @@ class AssetsRepository {
     }
   }
 
-  Future<void> addCashPhysicalAsset({
-    required String name,
-    required int possessed,
-    required int unitValue,
-  }) async {
+  Future<void> addCashPhysicalAsset({required String name, required int possessed, required int unitValue}) async {
     try {
       await _physicalAssetsDataSource.createCashAsset(name: name, possessed: possessed, unitValue: unitValue);
     } on DioException catch (e) {
@@ -111,12 +107,7 @@ class AssetsRepository {
     required int unitValue,
   }) async {
     try {
-      await _physicalAssetsDataSource.updateCashAsset(
-        id: id,
-        name: name,
-        possessed: possessed,
-        unitValue: unitValue,
-      );
+      await _physicalAssetsDataSource.updateCashAsset(id: id, name: name, possessed: possessed, unitValue: unitValue);
     } on DioException catch (e) {
       throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
@@ -142,12 +133,12 @@ class AssetsRepository {
         name: name,
         possessed: possessed,
         unitWeight: unitWeight.toInt(),
-        composition: switch (metalType) {
-          PreciousMetalTypeModel.gold => PreciousMetalTypeDto.gold,
-          PreciousMetalTypeModel.silver => PreciousMetalTypeDto.silver,
-          PreciousMetalTypeModel.other => PreciousMetalTypeDto.other,
-        }
-            .toApiValue(),
+        composition:
+            switch (metalType) {
+              PreciousMetalTypeModel.gold => PreciousMetalTypeDto.gold,
+              PreciousMetalTypeModel.silver => PreciousMetalTypeDto.silver,
+              PreciousMetalTypeModel.other => PreciousMetalTypeDto.other,
+            }.toApiValue(),
         purity: (purity * 100).toInt(),
       );
     } on DioException catch (e) {
@@ -169,12 +160,12 @@ class AssetsRepository {
         name: name,
         possessed: possessed,
         unitWeight: unitWeight.toInt(),
-        composition: switch (metalType) {
-          PreciousMetalTypeModel.gold => PreciousMetalTypeDto.gold,
-          PreciousMetalTypeModel.silver => PreciousMetalTypeDto.silver,
-          PreciousMetalTypeModel.other => PreciousMetalTypeDto.other,
-        }
-            .toApiValue(),
+        composition:
+            switch (metalType) {
+              PreciousMetalTypeModel.gold => PreciousMetalTypeDto.gold,
+              PreciousMetalTypeModel.silver => PreciousMetalTypeDto.silver,
+              PreciousMetalTypeModel.other => PreciousMetalTypeDto.other,
+            }.toApiValue(),
         purity: (purity * 100).toInt(),
       );
     } on DioException catch (e) {

@@ -12,10 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meta_package/meta_package.dart';
 
 class EditCashPage extends ConsumerStatefulWidget {
-  const EditCashPage({
-    super.key,
-    this.asset,
-  });
+  const EditCashPage({super.key, this.asset});
 
   final AssetModel? asset;
 
@@ -92,7 +89,9 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).updateCashPhysicalAsset(
+      await ref
+          .read(assetsServiceProvider)
+          .updateCashPhysicalAsset(
             id: widget.asset!.id,
             name: _nameController.text,
             possessed: _possessed,
@@ -105,18 +104,19 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -148,11 +148,9 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).addCashPhysicalAsset(
-            name: _nameController.text,
-            possessed: _possessed,
-            unitValue: _unitValue,
-          );
+      await ref
+          .read(assetsServiceProvider)
+          .addCashPhysicalAsset(name: _nameController.text, possessed: _possessed, unitValue: _unitValue);
     } on DisplayableException catch (e) {
       if (context.mounted) {
         unawaited(
@@ -160,18 +158,19 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -219,7 +218,8 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
           Scaffold(
             appBar: AppBar(
               title: Text(
-                widget.asset != null //
+                widget.asset !=
+                        null //
                     ? S.current.updateAssetTitle
                     : S.current.addCashTitle,
               ),
@@ -243,11 +243,7 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
                                 validator: StringValidator.validateEmpty,
                                 autocorrect: false,
                                 textInputAction: TextInputAction.done,
-                                decoration: InputDecoration(
-                                  labelText: S.current.name,
-                                  filled: true,
-                                  helperText: '',
-                                ),
+                                decoration: InputDecoration(labelText: S.current.name, filled: true, helperText: ''),
                               ),
                             ),
                             const SizedBox(height: AppPadding.s),
@@ -261,13 +257,8 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
                                       autocorrect: false,
                                       textInputAction: TextInputAction.done,
                                       keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        labelText: S.current.quantityPossessed,
-                                        filled: true,
-                                      ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.digitsOnly,
-                                      ],
+                                      decoration: InputDecoration(labelText: S.current.quantityPossessed, filled: true),
+                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     ),
                                   ),
                                 ),
@@ -283,28 +274,22 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
                                       decoration: InputDecoration(
                                         labelText: S.current.cashUnitValue,
                                         filled: true,
-                                        suffix: Text(
-                                          '€',
-                                          style: Theme.of(context).textTheme.bodyLarge,
-                                        ),
+                                        suffix: Text('€', style: Theme.of(context).textTheme.bodyLarge),
                                       ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.digitsOnly,
-                                      ],
+                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     ),
                                   ),
                                 ),
                               ],
                             ),
 
-                            const Expanded(
-                              child: SizedBox(height: AppPadding.l),
-                            ),
+                            const Expanded(child: SizedBox(height: AppPadding.l)),
 
                             FilledButton(
                               onPressed: () => widget.asset != null ? _updateCashAsset() : _addCashAsset(),
                               child: Text(
-                                widget.asset != null //
+                                widget.asset !=
+                                        null //
                                     ? S.current.updateAssetsButton
                                     : S.current.addToAssetsButton,
                               ),
@@ -319,13 +304,7 @@ class _EditCashPageState extends ConsumerState<EditCashPage> {
               ),
             ),
           ),
-          if (isLoading)
-            const ColoredBox(
-              color: Colors.black38,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
+          if (isLoading) const ColoredBox(color: Colors.black38, child: Center(child: CircularProgressIndicator())),
         ],
       ),
     );

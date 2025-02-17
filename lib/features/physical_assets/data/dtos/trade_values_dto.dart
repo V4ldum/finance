@@ -21,10 +21,8 @@ sealed class TradeValuesDto with _$TradeValuesDto {
 
 @freezed
 sealed class TradeValueDto with _$TradeValueDto {
-  const factory TradeValueDto({
-    required double price,
-    @JsonKey(name: 'last_update') required DateTime lastUpdate,
-  }) = _TradeValueDto;
+  const factory TradeValueDto({required double price, @JsonKey(name: 'last_update') required DateTime lastUpdate}) =
+      _TradeValueDto;
 
   factory TradeValueDto.fromJson(JsonMapResponse json) => _$TradeValueDtoFromJson(json);
 

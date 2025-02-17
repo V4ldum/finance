@@ -11,18 +11,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 
 class DashboardSettingsPage extends ConsumerWidget {
-  const DashboardSettingsPage({
-    super.key,
-  });
+  const DashboardSettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final assetsResult = ref.watch(finaryAssetsControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.settingsAssetsTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.settingsAssetsTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -48,17 +44,13 @@ class DashboardSettingsPage extends ConsumerWidget {
               ),
               assetsResult.when(
                 data: (data) {
-                  final stocks = data.assets.where((element) => element.type == AssetTypeModel.stock).toList()
-                    ..sort(
-                      (a, b) => a.name.compareTo(b.name),
-                    );
+                  final stocks =
+                      data.assets.where((element) => element.type == AssetTypeModel.stock).toList()
+                        ..sort((a, b) => a.name.compareTo(b.name));
 
                   if (stocks.isEmpty) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppPadding.xxl,
-                        vertical: AppPadding.l,
-                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: AppPadding.xxl, vertical: AppPadding.l),
                       child: Text(
                         S.current.dashboardSettingsStockCategorisationEmptyError,
                         textAlign: TextAlign.center,
@@ -69,36 +61,27 @@ class DashboardSettingsPage extends ConsumerWidget {
 
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: List.generate(
-                      stocks.length,
-                      (index) {
-                        final stock = stocks[index];
+                    children: List.generate(stocks.length, (index) {
+                      final stock = stocks[index];
 
-                        return CheckboxListTile(
-                          contentPadding: const EdgeInsets.only(left: AppPadding.l, right: AppPadding.m),
-                          dense: true,
-                          value: ref.watch(appCacheControllerProvider).investmentStocksSymbols.contains(stock.symbol),
-                          onChanged: (value) {
-                            if (value case true) {
-                              ref.read(assetsServiceProvider).addInvestmentStockSymbol(stock.symbol);
-                            }
-                            if (value case false) {
-                              ref.read(assetsServiceProvider).removeInvestmentStockSymbol(stock.symbol);
-                            }
-                          },
-                          title: Text(
-                            stock.name,
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
-                        );
-                      },
-                    ),
+                      return CheckboxListTile(
+                        contentPadding: const EdgeInsets.only(left: AppPadding.l, right: AppPadding.m),
+                        dense: true,
+                        value: ref.watch(appCacheControllerProvider).investmentStocksSymbols.contains(stock.symbol),
+                        onChanged: (value) {
+                          if (value case true) {
+                            ref.read(assetsServiceProvider).addInvestmentStockSymbol(stock.symbol);
+                          }
+                          if (value case false) {
+                            ref.read(assetsServiceProvider).removeInvestmentStockSymbol(stock.symbol);
+                          }
+                        },
+                        title: Text(stock.name, style: Theme.of(context).textTheme.bodyMedium),
+                      );
+                    }),
                   );
                 },
-                error: (error, trace) => DefaultErrorWidget(
-                  error: error as DisplayableException,
-                  trace: trace,
-                ),
+                error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),
                 loading: () => const DefaultLoadingWidget(),
               ),
               const SizedBox(height: AppPadding.m),

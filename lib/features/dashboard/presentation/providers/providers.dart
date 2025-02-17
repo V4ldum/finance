@@ -64,71 +64,77 @@ class DashboardTabController extends _$DashboardTabController {
   TabInformation getCurrentPage(AsyncValue<FinaryAssetsModel> assetsResult) {
     return switch (state) {
       0 => TabInformation(
-          title: S.current.stocks,
-          body: StocksDashboardPage(assetsResult: assetsResult),
-          actions: [
-            assetsResult.maybeWhen(
-              data: (assets) => assets.lastSyncFinary != null //
-                  ? LastSyncText(sync: assets.lastSyncFinary!)
-                  : const SizedBox(),
-              orElse: () => const SizedBox(),
-            ),
-            const SizedBox(width: AppPadding.s),
-          ],
-        ),
+        title: S.current.stocks,
+        body: StocksDashboardPage(assetsResult: assetsResult),
+        actions: [
+          assetsResult.maybeWhen(
+            data:
+                (assets) =>
+                    assets.lastSyncFinary !=
+                            null //
+                        ? LastSyncText(sync: assets.lastSyncFinary!)
+                        : const SizedBox(),
+            orElse: () => const SizedBox(),
+          ),
+          const SizedBox(width: AppPadding.s),
+        ],
+      ),
       1 => TabInformation(
-          title: S.current.accounts,
-          body: AccountsDashboardPage(assetsResult: assetsResult),
-          actions: [
-            assetsResult.maybeWhen(
-              data: (assets) => assets.lastSyncFinary != null //
-                  ? LastSyncText(sync: assets.lastSyncFinary!)
-                  : const SizedBox(),
-              orElse: () => const SizedBox(),
-            ),
-            const SizedBox(width: AppPadding.s),
-          ],
-        ),
+        title: S.current.accounts,
+        body: AccountsDashboardPage(assetsResult: assetsResult),
+        actions: [
+          assetsResult.maybeWhen(
+            data:
+                (assets) =>
+                    assets.lastSyncFinary !=
+                            null //
+                        ? LastSyncText(sync: assets.lastSyncFinary!)
+                        : const SizedBox(),
+            orElse: () => const SizedBox(),
+          ),
+          const SizedBox(width: AppPadding.s),
+        ],
+      ),
       2 => TabInformation(
-          title: S.current.preciousMetals,
-          body: const PreciousMetalsDashboardPage(),
-          actions: [
-            Consumer(
-              builder: (BuildContext context, WidgetRef ref, Widget? child) {
-                return IconButton(
-                  onPressed: ref.read(showPreciousMetalWeightControllerProvider.notifier).swap,
-                  icon: ref.watch(showPreciousMetalWeightControllerProvider)
-                      ? const Icon(LucideIcons.circleDollarSign)
-                      : const Icon(LucideIcons.weight),
-                );
-              },
-            ),
-          ],
-        ),
+        title: S.current.preciousMetals,
+        body: const PreciousMetalsDashboardPage(),
+        actions: [
+          Consumer(
+            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+              return IconButton(
+                onPressed: ref.read(showPreciousMetalWeightControllerProvider.notifier).swap,
+                icon:
+                    ref.watch(showPreciousMetalWeightControllerProvider)
+                        ? const Icon(LucideIcons.circleDollarSign)
+                        : const Icon(LucideIcons.weight),
+              );
+            },
+          ),
+        ],
+      ),
       3 => TabInformation(
-          title: S.current.distribution,
-          body: DistributionDashboardPage(assetsResult: assetsResult),
-          actions: [
-            assetsResult.maybeWhen(
-              data: (assets) => assets.lastSyncFinary != null //
-                  ? LastSyncText(sync: assets.lastSyncFinary!)
-                  : const SizedBox(),
-              orElse: () => const SizedBox(),
-            ),
-            const SizedBox(width: AppPadding.s),
-          ],
-        ),
+        title: S.current.distribution,
+        body: DistributionDashboardPage(assetsResult: assetsResult),
+        actions: [
+          assetsResult.maybeWhen(
+            data:
+                (assets) =>
+                    assets.lastSyncFinary !=
+                            null //
+                        ? LastSyncText(sync: assets.lastSyncFinary!)
+                        : const SizedBox(),
+            orElse: () => const SizedBox(),
+          ),
+          const SizedBox(width: AppPadding.s),
+        ],
+      ),
       _ => throw UnimplementedError('There are no page n°$state'),
     };
   }
 }
 
 class TabInformation {
-  const TabInformation({
-    required this.title,
-    required this.body,
-    required this.actions,
-  });
+  const TabInformation({required this.title, required this.body, required this.actions});
 
   final String title;
   final Widget body;

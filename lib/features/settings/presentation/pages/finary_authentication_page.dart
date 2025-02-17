@@ -22,10 +22,7 @@ class FinaryAuthenticationPage extends ConsumerWidget {
 
     if (context.mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(S.current.finarySuccessfulAuthentication),
-        ),
+        SnackBar(behavior: SnackBarBehavior.floating, content: Text(S.current.finarySuccessfulAuthentication)),
       );
     }
   }
@@ -35,20 +32,18 @@ class FinaryAuthenticationPage extends ConsumerWidget {
     final authResult = ref.watch(finaryAuthenticationProcessControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.finaryAuthenticationTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.finaryAuthenticationTitle)),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.l),
         child: authResult.maybeWhen(
-          loading: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-          orElse: () => SingleChildScrollView(
-            child: authResult.requireValue
-                ? _OtpContent(onLogInSuccess: () => _logInSuccessful(ref: ref, context: context))
-                : _LoginContent(onLogInSuccess: () => _logInSuccessful(ref: ref, context: context)),
-          ),
+          loading: () => const Center(child: CircularProgressIndicator()),
+          orElse:
+              () => SingleChildScrollView(
+                child:
+                    authResult.requireValue
+                        ? _OtpContent(onLogInSuccess: () => _logInSuccessful(ref: ref, context: context))
+                        : _LoginContent(onLogInSuccess: () => _logInSuccessful(ref: ref, context: context)),
+              ),
         ),
       ),
     );
@@ -56,9 +51,7 @@ class FinaryAuthenticationPage extends ConsumerWidget {
 }
 
 class _LoginContent extends ConsumerStatefulWidget {
-  const _LoginContent({
-    required this.onLogInSuccess,
-  });
+  const _LoginContent({required this.onLogInSuccess});
 
   final Future<void> Function() onLogInSuccess;
 
@@ -82,11 +75,9 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
 
   void _logInTapped() {
     if (formKey.isFormValid) {
-      ref.read(finaryAuthenticationProcessControllerProvider.notifier).logInFinary(
-            loginController.text,
-            passwordController.text,
-            onSuccess: widget.onLogInSuccess,
-          );
+      ref
+          .read(finaryAuthenticationProcessControllerProvider.notifier)
+          .logInFinary(loginController.text, passwordController.text, onSuccess: widget.onLogInSuccess);
     }
   }
 
@@ -108,14 +99,14 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
             const SizedBox(height: AppPadding.s),
             Text(S.current.finaryAuthenticationLoginMessage),
             const SizedBox(height: AppPadding.l),
-            ref.watch(finaryAuthenticationProcessControllerProvider).maybeWhen(
-                  error: (error, stackTrace) => Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      AuthenticationErrorCard(error: error),
-                      const SizedBox(height: AppPadding.m),
-                    ],
-                  ),
+            ref
+                .watch(finaryAuthenticationProcessControllerProvider)
+                .maybeWhen(
+                  error:
+                      (error, stackTrace) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [AuthenticationErrorCard(error: error), const SizedBox(height: AppPadding.m)],
+                      ),
                   orElse: () => const SizedBox(),
                 ),
             TextFormField(
@@ -129,9 +120,7 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
                 helperText: '',
                 filled: true,
               ),
-              autofillHints: const {
-                AutofillHints.email,
-              },
+              autofillHints: const {AutofillHints.email},
             ),
             const SizedBox(height: AppPadding.s),
             TextFormField(
@@ -145,30 +134,18 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
                 prefixIcon: const Icon(LucideIcons.rectangleEllipsis),
                 suffixIcon: IconButton(
                   onPressed: _togglePasswordTapped,
-                  icon: Icon(
-                    passwordObscured ? LucideIcons.eye : LucideIcons.eyeOff,
-                  ),
+                  icon: Icon(passwordObscured ? LucideIcons.eye : LucideIcons.eyeOff),
                 ),
                 labelText: S.current.passwordTextFieldLabel,
                 helperText: '',
                 filled: true,
               ),
-              autofillHints: const {
-                AutofillHints.password,
-              },
+              autofillHints: const {AutofillHints.password},
             ),
             Row(
               children: [
-                const Expanded(
-                  flex: 2,
-                  child: SizedBox(),
-                ),
-                Expanded(
-                  child: TextButton(
-                    onPressed: _logInTapped,
-                    child: Text(S.current.submit),
-                  ),
-                ),
+                const Expanded(flex: 2, child: SizedBox()),
+                Expanded(child: TextButton(onPressed: _logInTapped, child: Text(S.current.submit))),
               ],
             ),
           ],
@@ -179,9 +156,7 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
 }
 
 class _OtpContent extends ConsumerStatefulWidget {
-  const _OtpContent({
-    required this.onLogInSuccess,
-  });
+  const _OtpContent({required this.onLogInSuccess});
 
   final Future<void> Function() onLogInSuccess;
 
@@ -203,10 +178,9 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
 
   void _logInTapped() {
     if (formKey.isFormValid) {
-      ref.read(finaryAuthenticationProcessControllerProvider.notifier).logInFinaryWithOtp(
-            otpController.text,
-            onSuccess: widget.onLogInSuccess,
-          );
+      ref
+          .read(finaryAuthenticationProcessControllerProvider.notifier)
+          .logInFinaryWithOtp(otpController.text, onSuccess: widget.onLogInSuccess);
     }
   }
 
@@ -226,14 +200,14 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
           const SizedBox(height: AppPadding.s),
           Text(S.current.finaryAuthenticationOtpMessage),
           const SizedBox(height: AppPadding.l),
-          ref.watch(finaryAuthenticationProcessControllerProvider).maybeWhen(
-                error: (error, stackTrace) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    AuthenticationErrorCard(error: error),
-                    const SizedBox(height: AppPadding.m),
-                  ],
-                ),
+          ref
+              .watch(finaryAuthenticationProcessControllerProvider)
+              .maybeWhen(
+                error:
+                    (error, stackTrace) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [AuthenticationErrorCard(error: error), const SizedBox(height: AppPadding.m)],
+                    ),
                 orElse: () => const SizedBox(),
               ),
           TextFormField(
@@ -248,9 +222,7 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
               prefixIcon: const Icon(LucideIcons.keyRound),
               suffixIcon: IconButton(
                 onPressed: _toggleOtpTapped,
-                icon: Icon(
-                  otpObscured ? LucideIcons.eye : LucideIcons.eyeOff,
-                ),
+                icon: Icon(otpObscured ? LucideIcons.eye : LucideIcons.eyeOff),
               ),
               labelText: S.current.otpTextFieldLabel,
               helperText: '',
@@ -259,14 +231,8 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
           ),
           Row(
             children: [
-              const Expanded(
-                flex: 2,
-                child: SizedBox(),
-              ),
-              TextButton(
-                onPressed: _logInTapped,
-                child: Text(S.current.submit),
-              ),
+              const Expanded(flex: 2, child: SizedBox()),
+              TextButton(onPressed: _logInTapped, child: Text(S.current.submit)),
             ],
           ),
         ],

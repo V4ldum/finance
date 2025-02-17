@@ -16,9 +16,7 @@ CoinDataSource coinDataSource(Ref ref) {
   final dio = Dio(
     BaseOptions(
       baseUrl: AppString.preciousMetalTradeValueApi,
-      headers: {
-        AppString.customBackHeader: cache.customBackApiKey,
-      },
+      headers: {AppString.customBackHeader: cache.customBackApiKey},
     ),
   );
 
@@ -31,12 +29,7 @@ class CoinDataSource {
   late final Dio _dio;
 
   Future<CoinsSearchDto> searchCoin(String query) async {
-    final response = await _dio.get<JsonListResponse>(
-      '/coins/search',
-      queryParameters: {
-        'q': query,
-      },
-    );
+    final response = await _dio.get<JsonListResponse>('/coins/search', queryParameters: {'q': query});
     return CoinsSearchDto.fromHttpResponse(response.data!);
   }
 

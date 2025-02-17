@@ -78,11 +78,7 @@ class AssetsService {
     await refreshPhysicalAssets();
   }
 
-  Future<void> addCashPhysicalAsset({
-    required String name,
-    required int possessed,
-    required int unitValue,
-  }) async {
+  Future<void> addCashPhysicalAsset({required String name, required int possessed, required int unitValue}) async {
     await _assetsRepository.addCashPhysicalAsset(name: name, possessed: possessed, unitValue: unitValue);
     await refreshPhysicalAssets();
   }
@@ -136,9 +132,10 @@ class AssetsService {
   Future<void> removePhysicalAsset(AssetModel asset) async {
     final _ = switch (asset.type) {
       AssetTypeModel.cash => await _assetsRepository.removeCashPhysicalAsset(id: asset.id),
-      AssetTypeModel.preciousMetal => (asset as PreciousMetalAssetModel).numistaId.isEmpty
-          ? await _assetsRepository.removeRawPhysicalAsset(id: asset.id)
-          : await _assetsRepository.removeCoinPhysicalAsset(id: asset.id),
+      AssetTypeModel.preciousMetal =>
+        (asset as PreciousMetalAssetModel).numistaId.isEmpty
+            ? await _assetsRepository.removeRawPhysicalAsset(id: asset.id)
+            : await _assetsRepository.removeCoinPhysicalAsset(id: asset.id),
       _ => throw UnimplementedError('This should not happen'),
     };
     await refreshPhysicalAssets();

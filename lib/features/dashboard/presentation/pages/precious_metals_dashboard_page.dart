@@ -18,7 +18,8 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final data = ref.read(appCacheControllerProvider).physicalAssets?.assets ?? [];
-    final tradeAPIFailed = data.isNotEmpty &&
+    final tradeAPIFailed =
+        data.isNotEmpty &&
         data
                 .firstWhere(
                   (e) =>
@@ -35,20 +36,27 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
           emptyTitle: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyTitle,
           emptyBody: tradeAPIFailed ? 'Should not be shown' : S.current.preciousMetalsEmptyBody,
           assetUnit: ref.watch(showPreciousMetalWeightControllerProvider) ? 'g' : '€',
-          assetsFilter: () => PreciousMetalTypeModel.values
-              .map(
-                (type) => PieData(
-                  title: type.toIntlString(),
-                  value: data.where((e) => e.type == AssetTypeModel.preciousMetal).fold(
-                        0,
-                        (prev, e) => ref.watch(showPreciousMetalWeightControllerProvider)
-                            ? prev += (e as PreciousMetalAssetModel).metalType == type ? e.totalWeight.toInt() : 0
-                            : prev += (e as PreciousMetalAssetModel).metalType == type ? e.total.toInt() : 0,
-                      ),
-                ),
-              )
-              .toList()
-            ..removeWhere((e) => e.value == 0),
+          assetsFilter:
+              () =>
+                  PreciousMetalTypeModel.values
+                      .map(
+                        (type) => PieData(
+                          title: type.toIntlString(),
+                          value: data
+                              .where((e) => e.type == AssetTypeModel.preciousMetal)
+                              .fold(
+                                0,
+                                (prev, e) =>
+                                    ref.watch(showPreciousMetalWeightControllerProvider)
+                                        ? prev +=
+                                            (e as PreciousMetalAssetModel).metalType == type ? e.totalWeight.toInt() : 0
+                                        : prev +=
+                                            (e as PreciousMetalAssetModel).metalType == type ? e.total.toInt() : 0,
+                              ),
+                        ),
+                      )
+                      .toList()
+                    ..removeWhere((e) => e.value == 0),
           categoryFilter: (_) => AssetCategoryModel.savings,
           colorManager: (data, index, selectedIndex) {
             final item = data[index];

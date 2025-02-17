@@ -10,8 +10,6 @@ class PhysicalAssetsController extends _$PhysicalAssetsController {
   Future<PhysicalAssetsModel> build() async => ref.read(assetsServiceProvider).getPhysicalAssets();
 
   Future<void> refreshAssets() async {
-    state = await AsyncValue.guard(
-      () async => ref.read(assetsServiceProvider).refreshPhysicalAssets(),
-    );
+    state = await AsyncValue.guard(() async => ref.read(assetsServiceProvider).refreshPhysicalAssets());
   }
 }

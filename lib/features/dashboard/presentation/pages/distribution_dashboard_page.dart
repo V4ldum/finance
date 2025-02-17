@@ -12,10 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 
 class DistributionDashboardPage extends ConsumerWidget {
-  const DistributionDashboardPage({
-    required this.assetsResult,
-    super.key,
-  });
+  const DistributionDashboardPage({required this.assetsResult, super.key});
 
   final AsyncValue<FinaryAssetsModel> assetsResult;
 
@@ -33,22 +30,21 @@ class DistributionDashboardPage extends ConsumerWidget {
             return DashboardChart(
               emptyTitle: S.current.genericEmptyTitle,
               emptyBody: S.current.genericEmptyBody,
-              assetsFilter: () => AssetCategoryModel.values
-                  .map(
-                    (category) => PieData(
-                      title: category.toIntlString(),
-                      value: data.fold(0, (prev, e) => prev += e.category == category ? e.total.toInt() : 0),
-                    ),
-                  )
-                  .toList()
-                ..removeWhere((e) => e.value == 0),
+              assetsFilter:
+                  () =>
+                      AssetCategoryModel.values
+                          .map(
+                            (category) => PieData(
+                              title: category.toIntlString(),
+                              value: data.fold(0, (prev, e) => prev += e.category == category ? e.total.toInt() : 0),
+                            ),
+                          )
+                          .toList()
+                        ..removeWhere((e) => e.value == 0),
               categoryFilter: (item) => data.firstWhere((e) => e.category.toIntlString() == item.title).category,
             );
           },
-          error: (error, trace) => DefaultErrorWidget(
-            error: error as DisplayableException,
-            trace: trace,
-          ),
+          error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),
           loading: () => const ShimmerDashboard(),
         ),
       ),

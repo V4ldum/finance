@@ -1,11 +1,6 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 
-enum AssetCategoryModel {
-  speculative,
-  investment,
-  savings,
-  other,
-}
+enum AssetCategoryModel { speculative, investment, savings, other }
 
 extension AssetCategoryModelExtension on AssetCategoryModel {
   String toIntlString() {

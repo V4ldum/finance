@@ -14,13 +14,7 @@ import 'package:intl/intl.dart';
 
 Color _defaultColorManager(List<PieData> data, int index, int? selectedIndex) {
   return Utils.getNextChartColor(
-    colors: const [
-      Colors.red,
-      Colors.orange,
-      Colors.green,
-      Colors.blueAccent,
-      Colors.deepPurple,
-    ],
+    colors: const [Colors.red, Colors.orange, Colors.green, Colors.blueAccent, Colors.deepPurple],
     current: index,
     max: data.length,
     selected: selectedIndex,
@@ -59,13 +53,7 @@ class DashboardChart extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: AppPadding.m,
-          children: [
-            Text(emptyTitle),
-            Text(
-              emptyBody,
-              textAlign: TextAlign.center,
-            ),
-          ],
+          children: [Text(emptyTitle), Text(emptyBody, textAlign: TextAlign.center)],
         ),
       );
     }
@@ -97,21 +85,22 @@ class DashboardChart extends ConsumerWidget {
           if (showPeriodSelector)
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: PeriodDto.values
-                  .map(
-                    (p) => Transform.scale(
-                      scale: 0.8,
-                      child: FilterChip(
-                        label: Text(p.toIntlString()),
-                        selected: p == ref.watch(selectedPeriodControllerProvider),
-                        onSelected: (_) {
-                          ref.read(selectedPeriodControllerProvider.notifier).onSelected(p);
-                        },
-                        showCheckmark: false,
-                      ),
-                    ),
-                  )
-                  .toList(),
+              children:
+                  PeriodDto.values
+                      .map(
+                        (p) => Transform.scale(
+                          scale: 0.8,
+                          child: FilterChip(
+                            label: Text(p.toIntlString()),
+                            selected: p == ref.watch(selectedPeriodControllerProvider),
+                            onSelected: (_) {
+                              ref.read(selectedPeriodControllerProvider.notifier).onSelected(p);
+                            },
+                            showCheckmark: false,
+                          ),
+                        ),
+                      )
+                      .toList(),
             ),
           GridView.count(
             shrinkWrap: true,
@@ -120,26 +109,21 @@ class DashboardChart extends ConsumerWidget {
             childAspectRatio: MediaQuery.of(context).size.width / 240,
             crossAxisSpacing: AppPadding.s,
             children: [
-              ...List.generate(
-                data.length,
-                (index) {
-                  final item = data[index];
+              ...List.generate(data.length, (index) {
+                final item = data[index];
 
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: AppPadding.xs),
-                    child: ChartItemCard(
-                      title: item.title,
-                      value: item.value.toDouble(),
-                      evolution: item.evolutionPercent,
-                      assetUnit: assetUnit,
-                      percent: item.value / total,
-                      leading: AssetCategoryIcon(
-                        category: categoryFilter(item),
-                      ),
-                    ),
-                  );
-                },
-              ),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: AppPadding.xs),
+                  child: ChartItemCard(
+                    title: item.title,
+                    value: item.value.toDouble(),
+                    evolution: item.evolutionPercent,
+                    assetUnit: assetUnit,
+                    percent: item.value / total,
+                    leading: AssetCategoryIcon(category: categoryFilter(item)),
+                  ),
+                );
+              }),
             ],
           ),
         ],

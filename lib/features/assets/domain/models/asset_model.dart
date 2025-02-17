@@ -14,11 +14,7 @@ class AssetModel {
     this.symbol = '',
   });
 
-  factory AssetModel.fromSummaryDto(
-    String name,
-    SummaryValuesDto summary,
-    AssetCategoryModel category,
-  ) {
+  factory AssetModel.fromSummaryDto(String name, SummaryValuesDto summary, AssetCategoryModel category) {
     return AssetModel(
       id: '',
       name: name,

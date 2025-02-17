@@ -6,9 +6,7 @@ part '_generated/user_info_dto.g.dart';
 
 @freezed
 sealed class UserInfoDto with _$UserInfoDto {
-  const factory UserInfoDto({
-    required UserInfoResultDto result,
-  }) = _UserInfoDto;
+  const factory UserInfoDto({required UserInfoResultDto result}) = _UserInfoDto;
 
   factory UserInfoDto.fromJson(JsonMapResponse json) => _$UserInfoDtoFromJson(json);
 
@@ -19,9 +17,8 @@ sealed class UserInfoDto with _$UserInfoDto {
 
 @freezed
 sealed class UserInfoResultDto with _$UserInfoResultDto {
-  const factory UserInfoResultDto({
-    @JsonKey(name: 'last_asset_updated_at') required String lastSync,
-  }) = _UserInfoResultDtoo;
+  const factory UserInfoResultDto({@JsonKey(name: 'last_asset_updated_at') required String lastSync}) =
+      _UserInfoResultDtoo;
 
   factory UserInfoResultDto.fromJson(JsonMapResponse json) => _$UserInfoResultDtoFromJson(json);
 

@@ -41,9 +41,7 @@ class AppCacheController extends _$AppCacheController {
   Future<void> init() async {
     /// Authentication
     // Getting app's directory (cookies for authentication, import/export
-    state = state.copyWith(
-      applicationDirectory: (await path_provider.getApplicationDocumentsDirectory()).path,
-    );
+    state = state.copyWith(applicationDirectory: (await path_provider.getApplicationDocumentsDirectory()).path);
 
     // Finary authentication
     await ref.read(finaryAuthServiceProvider).getSessionId();
@@ -71,35 +69,25 @@ class AppCacheController extends _$AppCacheController {
   }
 
   void refreshSessionId({required String? sessionId}) {
-    state = state.copyWith(
-      finarySessionId: sessionId ?? '',
-    );
+    state = state.copyWith(finarySessionId: sessionId ?? '');
   }
 
   void refreshCustomBackApiKey({required String? key}) {
-    var tmp = state.copyWith(
-      customBackApiKey: key ?? '',
-    );
+    var tmp = state.copyWith(customBackApiKey: key ?? '');
 
     if (key == null || key.isEmpty) {
-      tmp = tmp.copyWith(
-        physicalAssets: null,
-      );
+      tmp = tmp.copyWith(physicalAssets: null);
     }
 
     state = tmp;
   }
 
   void refreshPhysicalAssets(PhysicalAssetsModel assets) {
-    state = state.copyWith(
-      physicalAssets: assets,
-    );
+    state = state.copyWith(physicalAssets: assets);
   }
 
   void refreshStocksSymbol(List<String> stocksSymbols) {
-    state = state.copyWith(
-      investmentStocksSymbols: stocksSymbols,
-    );
+    state = state.copyWith(investmentStocksSymbols: stocksSymbols);
   }
 
   void refreshRatios({

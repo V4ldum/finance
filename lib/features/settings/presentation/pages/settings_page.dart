@@ -7,17 +7,13 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class SettingsPage extends ConsumerWidget {
-  const SettingsPage({
-    super.key,
-  });
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       drawer: const AppNavigationDrawer(),
-      appBar: AppBar(
-        title: Text(S.current.settingsPageTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.settingsPageTitle)),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

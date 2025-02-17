@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:meta_package/meta_package.dart';
 
 class DefaultErrorWidget extends StatelessWidget {
-  const DefaultErrorWidget({
-    required this.error,
-    required this.trace,
-    super.key,
-  });
+  const DefaultErrorWidget({required this.error, required this.trace, super.key});
 
   final DisplayableException error;
   final StackTrace trace;
@@ -19,25 +15,14 @@ class DefaultErrorWidget extends StatelessWidget {
     debugPrint('$trace');
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppPadding.xxl,
-        vertical: AppPadding.m,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: AppPadding.xxl, vertical: AppPadding.m),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: AppPadding.s,
         children: [
-          Text(
-            error.title,
-            style: Theme.of(context).textTheme.bodyLarge,
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            error.message,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
+          Text(error.title, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center),
+          Text(error.message, style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
         ],
       ),
     );

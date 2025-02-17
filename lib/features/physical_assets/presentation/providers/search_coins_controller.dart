@@ -11,9 +11,7 @@ class SearchCoinsController extends _$SearchCoinsController {
 
   Future<void> searchCoins({required String query}) async {
     state = const AsyncValue.loading();
-    state = await AsyncValue.guard(
-      () async => ref.read(coinsRepositoryProvider).searchCoin(query: query),
-    );
+    state = await AsyncValue.guard(() async => ref.read(coinsRepositoryProvider).searchCoin(query: query));
   }
 
   void clearSearch() {

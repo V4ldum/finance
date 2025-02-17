@@ -1,7 +1,1 @@
-enum AssetTypeModel {
-  stock,
-  fund,
-  account,
-  cash,
-  preciousMetal,
-}
+enum AssetTypeModel { stock, fund, account, cash, preciousMetal }

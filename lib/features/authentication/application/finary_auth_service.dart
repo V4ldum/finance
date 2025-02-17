@@ -48,9 +48,7 @@ class FinaryAuthService {
   }
 
   Future<void> getSessionId() async {
-    _appCacheController.refreshSessionId(
-      sessionId: await _localStorageRepository.readSessionId(),
-    );
+    _appCacheController.refreshSessionId(sessionId: await _localStorageRepository.readSessionId());
   }
 
   Future<void> clearSession() async {

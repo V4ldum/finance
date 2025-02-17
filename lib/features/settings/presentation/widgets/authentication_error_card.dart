@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:meta_package/meta_package.dart';
 
 class AuthenticationErrorCard extends StatelessWidget {
-  const AuthenticationErrorCard({
-    required this.error,
-    super.key,
-  });
+  const AuthenticationErrorCard({required this.error, super.key});
 
   final Object error;
 
@@ -21,25 +18,17 @@ class AuthenticationErrorCard extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.zero,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(AppPadding.xs),
-        ),
-      ),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(AppPadding.xs))),
       elevation: 0,
       color: Theme.of(context).colorScheme.errorContainer,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppPadding.m,
-          vertical: AppPadding.s,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.m, vertical: AppPadding.s),
         child: Text(
-          error is DisplayableException //
+          error
+                  is DisplayableException //
               ? (error as DisplayableException).message
               : S.current.genericError,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                color: Theme.of(context).colorScheme.onErrorContainer,
-              ),
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onErrorContainer),
         ),
       ),
     );

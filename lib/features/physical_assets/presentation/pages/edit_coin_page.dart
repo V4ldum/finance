@@ -15,12 +15,9 @@ import 'package:go_router/go_router.dart';
 import 'package:meta_package/meta_package.dart';
 
 class EditCoinPage extends ConsumerStatefulWidget {
-  const EditCoinPage({
-    this.coin,
-    this.asset,
-    super.key,
-  })  : assert(coin != null || asset != null, 'One of coin or asset must not be null'),
-        assert(coin == null || asset == null, 'At least one of them must be null');
+  const EditCoinPage({this.coin, this.asset, super.key})
+    : assert(coin != null || asset != null, 'One of coin or asset must not be null'),
+      assert(coin == null || asset == null, 'At least one of them must be null');
 
   final CoinModel? coin;
   final PreciousMetalAssetModel? asset;
@@ -132,10 +129,9 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).updateCoinPhysicalAsset(
-            coinId: coin?.id ?? asset!.id,
-            possessed: _possessed,
-          );
+      await ref
+          .read(assetsServiceProvider)
+          .updateCoinPhysicalAsset(coinId: coin?.id ?? asset!.id, possessed: _possessed);
     } on DisplayableException catch (e) {
       if (context.mounted) {
         unawaited(
@@ -143,18 +139,19 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -185,10 +182,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).addCoinPhysicalAsset(
-            coinId: coin?.id ?? asset!.id,
-            possessed: _possessed,
-          );
+      await ref.read(assetsServiceProvider).addCoinPhysicalAsset(coinId: coin?.id ?? asset!.id, possessed: _possessed);
     } on DisplayableException catch (e) {
       if (context.mounted) {
         unawaited(
@@ -196,18 +190,19 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -268,7 +263,8 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
           Scaffold(
             appBar: AppBar(
               title: Text(
-                widget.asset != null //
+                widget.asset !=
+                        null //
                     ? S.current.updateAssetTitle
                     : S.current.addCoinTitle,
               ),
@@ -295,11 +291,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                 validator: StringValidator.validateEmpty,
                                 autocorrect: false,
                                 textInputAction: TextInputAction.done,
-                                decoration: InputDecoration(
-                                  labelText: S.current.name,
-                                  filled: true,
-                                  helperText: '',
-                                ),
+                                decoration: InputDecoration(labelText: S.current.name, filled: true, helperText: ''),
                               ),
                             ),
                             const SizedBox(height: AppPadding.s),
@@ -314,13 +306,8 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                       autocorrect: false,
                                       textInputAction: TextInputAction.done,
                                       keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        labelText: S.current.quantityPossessed,
-                                        filled: true,
-                                      ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.digitsOnly,
-                                      ],
+                                      decoration: InputDecoration(labelText: S.current.quantityPossessed, filled: true),
+                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     ),
                                   ),
                                 ),
@@ -336,14 +323,9 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                       decoration: InputDecoration(
                                         labelText: S.current.metalFeaturesWeight,
                                         filled: true,
-                                        suffix: Text(
-                                          'g',
-                                          style: Theme.of(context).textTheme.bodyLarge,
-                                        ),
+                                        suffix: Text('g', style: Theme.of(context).textTheme.bodyLarge),
                                       ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                                      ],
+                                      inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                                     ),
                                   ),
                                 ),
@@ -354,9 +336,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                             /// Composition
                             Text(
                               S.current.metalFeaturesComposition,
-                              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                             ),
 
                             const SizedBox(height: AppPadding.m),
@@ -370,18 +350,12 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                     initialSelection: _dropdownValue,
                                     label: Text(S.current.metalDropdown),
                                     expandedInsets: EdgeInsets.zero,
-                                    inputDecorationTheme: const InputDecorationTheme(
-                                      filled: true,
-                                    ),
+                                    inputDecorationTheme: const InputDecorationTheme(filled: true),
                                     onSelected: _onMetalDropdownChanged,
-                                    dropdownMenuEntries: PreciousMetalTypeModel.values
-                                        .map(
-                                          (e) => DropdownMenuEntry(
-                                            value: e,
-                                            label: e.toIntlString(),
-                                          ),
-                                        )
-                                        .toList(),
+                                    dropdownMenuEntries:
+                                        PreciousMetalTypeModel.values
+                                            .map((e) => DropdownMenuEntry(value: e, label: e.toIntlString()))
+                                            .toList(),
                                   ),
                                 ),
                                 Expanded(
@@ -396,14 +370,9 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                       decoration: InputDecoration(
                                         labelText: S.current.purity,
                                         filled: true,
-                                        suffix: Text(
-                                          '%',
-                                          style: Theme.of(context).textTheme.bodyLarge,
-                                        ),
+                                        suffix: Text('%', style: Theme.of(context).textTheme.bodyLarge),
                                       ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                                      ],
+                                      inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                                     ),
                                   ),
                                 ),
@@ -435,30 +404,30 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                       debugPrint('$error');
                                       return TextSpan(text: S.current.unknownErrorTitle);
                                     },
-                                    loading: () => const WidgetSpan(
-                                      alignment: PlaceholderAlignment.middle,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(left: AppPadding.s),
-                                        child: SizedBox(
-                                          height: AppPadding.m,
-                                          width: AppPadding.m,
-                                          child: CircularProgressIndicator(strokeWidth: 1.5),
+                                    loading:
+                                        () => const WidgetSpan(
+                                          alignment: PlaceholderAlignment.middle,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: AppPadding.s),
+                                            child: SizedBox(
+                                              height: AppPadding.m,
+                                              width: AppPadding.m,
+                                              child: CircularProgressIndicator(strokeWidth: 1.5),
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
                                   ),
                                 ],
                               ),
                             ),
 
-                            const Expanded(
-                              child: SizedBox(height: AppPadding.l),
-                            ),
+                            const Expanded(child: SizedBox(height: AppPadding.l)),
 
                             FilledButton(
                               onPressed: () => widget.asset != null ? _updateCoinAsset() : _addCoinAssets(),
                               child: Text(
-                                widget.asset != null //
+                                widget.asset !=
+                                        null //
                                     ? S.current.updateAssetsButton
                                     : S.current.addToAssetsButton,
                               ),
@@ -473,13 +442,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
               ),
             ),
           ),
-          if (isLoading)
-            const ColoredBox(
-              color: Colors.black38,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
+          if (isLoading) const ColoredBox(color: Colors.black38, child: Center(child: CircularProgressIndicator())),
         ],
       ),
     );

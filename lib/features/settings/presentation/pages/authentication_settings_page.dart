@@ -14,9 +14,7 @@ import 'package:intl/intl.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class AuthenticationSettingsPage extends ConsumerWidget {
-  const AuthenticationSettingsPage({
-    super.key,
-  });
+  const AuthenticationSettingsPage({super.key});
 
   Future<void> _logInButtonTapped(WidgetRef ref) async {
     await ref.context.pushNamed(AppRoutes.finaryAuthentication);
@@ -32,9 +30,7 @@ class AuthenticationSettingsPage extends ConsumerWidget {
     final finaryAuthenticated = ref.watch(finaryAuthenticationControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.settingsAuthenticationTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.settingsAuthenticationTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.l),
@@ -47,10 +43,7 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                   Row(
                     spacing: AppPadding.m,
                     children: [
-                      Text(
-                        S.current.finary,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
+                      Text(S.current.finary, style: Theme.of(context).textTheme.titleLarge),
                       if (finaryAuthenticated)
                         Icon(
                           LucideIcons.check,
@@ -69,15 +62,10 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                     constraints: BoxConstraints(
                       minWidth: Intl.getCurrentLocale().contains('fr') ? AppComponentSize.m : AppComponentSize.s,
                     ),
-                    child: finaryAuthenticated
-                        ? ElevatedButton(
-                            onPressed: () => _logOutButtonTapped(ref),
-                            child: Text(S.current.logOut),
-                          )
-                        : FilledButton(
-                            onPressed: () => _logInButtonTapped(ref),
-                            child: Text(S.current.logIn),
-                          ),
+                    child:
+                        finaryAuthenticated
+                            ? ElevatedButton(onPressed: () => _logOutButtonTapped(ref), child: Text(S.current.logOut))
+                            : FilledButton(onPressed: () => _logInButtonTapped(ref), child: Text(S.current.logIn)),
                   ),
                 ],
               ),
@@ -91,16 +79,16 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        S.current.customBack,
-                        style: Theme.of(context).textTheme.titleLarge,
-                      ),
+                      Text(S.current.customBack, style: Theme.of(context).textTheme.titleLarge),
                       Theme(
                         // Tooltip is bugged and shows dark UI for light brightness and the other way around
                         data: Theme.of(context).copyWith(
-                          brightness: Theme.of(context).brightness == Brightness.dark //
-                              ? Brightness.light
-                              : Brightness.dark,
+                          brightness:
+                              Theme.of(context).brightness ==
+                                      Brightness
+                                          .dark //
+                                  ? Brightness.light
+                                  : Brightness.dark,
                         ),
                         child: Tooltip(
                           message: S.current.customBackMessage,
@@ -113,14 +101,8 @@ class AuthenticationSettingsPage extends ConsumerWidget {
                             // Revert the change down this branch
                             data: Theme.of(context),
                             child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: AppPadding.m,
-                                vertical: AppPadding.xs,
-                              ),
-                              child: Icon(
-                                LucideIcons.info,
-                                size: AppIconSize.s,
-                              ),
+                              padding: EdgeInsets.symmetric(horizontal: AppPadding.m, vertical: AppPadding.xs),
+                              child: Icon(LucideIcons.info, size: AppIconSize.s),
                             ),
                           ),
                         ),

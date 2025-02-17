@@ -12,12 +12,9 @@ class ImportExportPage extends ConsumerWidget {
 
     final context = ref.context;
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(S.current.importSuccessMessage),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(behavior: SnackBarBehavior.floating, content: Text(S.current.importSuccessMessage)));
     }
   }
 
@@ -26,21 +23,16 @@ class ImportExportPage extends ConsumerWidget {
 
     final context = ref.context;
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text(S.current.exportSuccessMessage),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(behavior: SnackBarBehavior.floating, content: Text(S.current.exportSuccessMessage)));
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.settingsImportExportTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.settingsImportExportTitle)),
       body: SafeArea(
         child: Column(
           children: [

@@ -23,9 +23,7 @@ class FinaryAuthenticationRepository {
 
   Future<FinaryAuthenticationModel> auth(String login, String password) async {
     try {
-      return FinaryAuthenticationModel.fromDto(
-        await _dataSource.auth(login: login, password: password),
-      );
+      return FinaryAuthenticationModel.fromDto(await _dataSource.auth(login: login, password: password));
     } on DioException catch (e) {
       throw FinaryAuthenticationException.fromStatusCode(e.response?.statusCode);
     }
@@ -33,9 +31,7 @@ class FinaryAuthenticationRepository {
 
   Future<FinaryAuthenticationModel> authOtp(String sia, String otp) async {
     try {
-      return FinaryAuthenticationModel.fromDto(
-        await _dataSource.authOtp(sia: sia, otp: otp),
-      );
+      return FinaryAuthenticationModel.fromDto(await _dataSource.authOtp(sia: sia, otp: otp));
     } on DioException catch (e) {
       // Manually drill the 400 error for wrong OTP if it's a 422 here, otherwise put the usual error
       throw FinaryAuthenticationException.fromStatusCode(e.response?.statusCode == 422 ? 400 : e.response?.statusCode);

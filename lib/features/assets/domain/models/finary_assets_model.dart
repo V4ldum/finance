@@ -8,10 +8,7 @@ import 'package:finance/features/assets/domain/models/finary_asset_model.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
 
 class FinaryAssetsModel {
-  FinaryAssetsModel({
-    required this.assets,
-    this.lastSyncFinary,
-  });
+  FinaryAssetsModel({required this.assets, this.lastSyncFinary});
 
   factory FinaryAssetsModel.fromDto(
     InvestmentSummaryDto summary,
@@ -25,9 +22,10 @@ class FinaryAssetsModel {
         .where((e) => e.security.type == StockDetailSecurityTypeDto.unknown);
     final mergedLiquidity = StockDetailSecurityDto.fromLiquidityArray(stocksLiquidityArray);
 
-    final filteredStocks = stocks.result.accounts.expand((e) => e.securities).toList()
-      ..removeWhere((e) => e.security.type == StockDetailSecurityTypeDto.unknown)
-      ..add(mergedLiquidity);
+    final filteredStocks =
+        stocks.result.accounts.expand((e) => e.securities).toList()
+          ..removeWhere((e) => e.security.type == StockDetailSecurityTypeDto.unknown)
+          ..add(mergedLiquidity);
 
     return FinaryAssetsModel(
       lastSyncFinary: DateTime.parse(userInfo.result.lastSync),
@@ -48,11 +46,7 @@ class FinaryAssetsModel {
             AssetCategoryModel.savings,
           ),
         if (summary.result.distribution.cryptos != null)
-          AssetModel.fromSummaryDto(
-            S.current.cryptos,
-            summary.result.distribution.cryptos!,
-            AssetCategoryModel.other,
-          ),
+          AssetModel.fromSummaryDto(S.current.cryptos, summary.result.distribution.cryptos!, AssetCategoryModel.other),
         if (summary.result.distribution.fondsEuro != null)
           AssetModel.fromSummaryDto(
             S.current.fondsEuro,
@@ -84,11 +78,7 @@ class FinaryAssetsModel {
             AssetCategoryModel.other,
           ),
         if (summary.result.distribution.loans != null)
-          AssetModel.fromSummaryDto(
-            S.current.loans,
-            summary.result.distribution.loans!,
-            AssetCategoryModel.other,
-          ),
+          AssetModel.fromSummaryDto(S.current.loans, summary.result.distribution.loans!, AssetCategoryModel.other),
         if (summary.result.distribution.creditAccounts != null)
           AssetModel.fromSummaryDto(
             S.current.creditAccounts,

@@ -7,19 +7,11 @@ part '_generated/local_asset_dto.g.dart';
 
 @freezed
 sealed class LocalAssetDto with _$LocalAssetDto {
-  const factory LocalAssetDto({
-    required String name,
-    required double amount,
-    required double value,
-  }) = _LocalAssetDto;
+  const factory LocalAssetDto({required String name, required double amount, required double value}) = _LocalAssetDto;
 
   factory LocalAssetDto.fromJson(JsonMapResponse json) => _$LocalAssetDtoFromJson(json);
 
   factory LocalAssetDto.fromModel(AssetModel model) {
-    return LocalAssetDto(
-      name: model.name,
-      amount: model.amount,
-      value: model.value,
-    );
+    return LocalAssetDto(name: model.name, amount: model.amount, value: model.value);
   }
 }

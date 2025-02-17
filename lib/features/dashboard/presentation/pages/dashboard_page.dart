@@ -8,9 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class DashboardPage extends ConsumerWidget {
-  const DashboardPage({
-    super.key,
-  });
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,39 +17,19 @@ class DashboardPage extends ConsumerWidget {
 
     return Scaffold(
       drawer: const AppNavigationDrawer(),
-      appBar: AppBar(
-        title: Text(tabInfo.title),
-        actions: [
-          ...tabInfo.actions,
-          const HideValueIconButton(),
-        ],
-      ),
+      appBar: AppBar(title: Text(tabInfo.title), actions: [...tabInfo.actions, const HideValueIconButton()]),
       bottomNavigationBar: NavigationBar(
         selectedIndex: ref.watch(dashboardTabControllerProvider),
         onDestinationSelected: ref.read(dashboardTabControllerProvider.notifier).onTabSelected,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         destinations: [
-          NavigationDestination(
-            icon: const Icon(LucideIcons.landmark),
-            label: S.current.stocks,
-          ),
-          NavigationDestination(
-            icon: const Icon(LucideIcons.walletMinimal),
-            label: S.current.accounts,
-          ),
-          NavigationDestination(
-            icon: const Icon(LucideIcons.anvil),
-            label: S.current.preciousMetals,
-          ),
-          NavigationDestination(
-            icon: const Icon(LucideIcons.chartPie),
-            label: S.current.distribution,
-          ),
+          NavigationDestination(icon: const Icon(LucideIcons.landmark), label: S.current.stocks),
+          NavigationDestination(icon: const Icon(LucideIcons.walletMinimal), label: S.current.accounts),
+          NavigationDestination(icon: const Icon(LucideIcons.anvil), label: S.current.preciousMetals),
+          NavigationDestination(icon: const Icon(LucideIcons.chartPie), label: S.current.distribution),
         ],
       ),
-      body: SafeArea(
-        child: tabInfo.body,
-      ),
+      body: SafeArea(child: tabInfo.body),
     );
   }
 }

@@ -1,11 +1,7 @@
 import 'package:finance/features/authentication/data/dtos/authentication_dto.dart';
 
 class FinaryAuthenticationModel {
-  FinaryAuthenticationModel({
-    required this.sia,
-    required this.sessionId,
-    required this.otpRequired,
-  });
+  FinaryAuthenticationModel({required this.sia, required this.sessionId, required this.otpRequired});
 
   factory FinaryAuthenticationModel.fromDto(AuthenticationDto dto) {
     return FinaryAuthenticationModel(

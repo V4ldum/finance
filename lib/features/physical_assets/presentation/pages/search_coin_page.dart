@@ -10,9 +10,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class SearchCoinPage extends ConsumerStatefulWidget {
-  const SearchCoinPage({
-    super.key,
-  });
+  const SearchCoinPage({super.key});
 
   @override
   ConsumerState<SearchCoinPage> createState() => _SearchCoinPageState();
@@ -54,12 +52,10 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
           textInputAction: TextInputAction.search,
           autofocus: true,
           decoration: InputDecoration(
-            suffixIcon: _controller.text.isNotEmpty
-                ? IconButton(
-                    onPressed: _clearSearch,
-                    icon: const Icon(LucideIcons.x),
-                  )
-                : null,
+            suffixIcon:
+                _controller.text.isNotEmpty
+                    ? IconButton(onPressed: _clearSearch, icon: const Icon(LucideIcons.x))
+                    : null,
             hintText: S.current.searchCoin,
             border: InputBorder.none,
           ),
@@ -75,29 +71,17 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
             }
             if (data.isEmpty) {
               return Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppPadding.xxl,
-                  vertical: AppPadding.m,
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.xxl, vertical: AppPadding.m),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      S.current.noResult,
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      textAlign: TextAlign.center,
-                    ),
+                    Text(S.current.noResult, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center),
                   ],
                 ),
               );
             }
             return SingleChildScrollView(
-              child: Column(
-                children: List.generate(
-                  data.length,
-                  (index) => CoinSearchTile(coin: data[index]),
-                ),
-              ),
+              child: Column(children: List.generate(data.length, (index) => CoinSearchTile(coin: data[index]))),
             );
           },
           error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),

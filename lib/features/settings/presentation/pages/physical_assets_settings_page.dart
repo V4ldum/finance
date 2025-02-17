@@ -7,9 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PhysicalAssetsSettingsPage extends ConsumerStatefulWidget {
-  const PhysicalAssetsSettingsPage({
-    super.key,
-  });
+  const PhysicalAssetsSettingsPage({super.key});
 
   static const defaultGSRGoldFavorableRatio = 30.0;
   static const defaultGSRSilverFavorableRatio = 80.0;
@@ -159,27 +157,19 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.settingsPhysicalAssetsTitle),
-      ),
+      appBar: AppBar(title: Text(S.current.settingsPhysicalAssetsTitle)),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.l),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                S.current.physicalAssetsSettingsGoldToSilverRatio,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              Text(S.current.physicalAssetsSettingsGoldToSilverRatio, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: AppPadding.m),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    flex: 2,
-                    child: Text(S.current.physicalAssetsSettingsGoldFavorableRatioGSR),
-                  ),
+                  Flexible(flex: 2, child: Text(S.current.physicalAssetsSettingsGoldFavorableRatioGSR)),
                   Flexible(
                     child: Focus(
                       onFocusChange: _onGSRGoldRatioFocusChanged,
@@ -188,13 +178,8 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
                         autocorrect: false,
                         textInputAction: TextInputAction.done,
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: S.current.physicalAssetsSettingsGoldRatio,
-                          filled: true,
-                        ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                        ],
+                        decoration: InputDecoration(labelText: S.current.physicalAssetsSettingsGoldRatio, filled: true),
+                        inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                       ),
                     ),
                   ),
@@ -204,10 +189,7 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    flex: 2,
-                    child: Text(S.current.physicalAssetsSettingsSilverFavorableRatioGSR),
-                  ),
+                  Flexible(flex: 2, child: Text(S.current.physicalAssetsSettingsSilverFavorableRatioGSR)),
                   Flexible(
                     child: Focus(
                       onFocusChange: _onGSRSilverRatioFocusChanged,
@@ -220,9 +202,7 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
                           labelText: S.current.physicalAssetsSettingsSilverRatio,
                           filled: true,
                         ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                        ],
+                        inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                       ),
                     ),
                   ),
@@ -230,18 +210,12 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
               ),
               const SizedBox(height: AppPadding.l),
               const Divider(),
-              Text(
-                S.current.physicalAssetsSettingsSPToGoldRatio,
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+              Text(S.current.physicalAssetsSettingsSPToGoldRatio, style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: AppPadding.m),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    flex: 2,
-                    child: Text(S.current.physicalAssetsSettingsSPFavorableRatioSPGR),
-                  ),
+                  Flexible(flex: 2, child: Text(S.current.physicalAssetsSettingsSPFavorableRatioSPGR)),
                   Flexible(
                     child: Focus(
                       onFocusChange: _onSPGRSPRatioFocusChanged,
@@ -250,13 +224,8 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
                         autocorrect: false,
                         textInputAction: TextInputAction.done,
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: S.current.physicalAssetsSettingsSPRatio,
-                          filled: true,
-                        ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                        ],
+                        decoration: InputDecoration(labelText: S.current.physicalAssetsSettingsSPRatio, filled: true),
+                        inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                       ),
                     ),
                   ),
@@ -266,10 +235,7 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    flex: 2,
-                    child: Text(S.current.physicalAssetsSettingsGoldFavorableRatioSPGR),
-                  ),
+                  Flexible(flex: 2, child: Text(S.current.physicalAssetsSettingsGoldFavorableRatioSPGR)),
                   Flexible(
                     child: Focus(
                       onFocusChange: _onSPGRGoldRatioFocusChanged,
@@ -278,13 +244,8 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
                         autocorrect: false,
                         textInputAction: TextInputAction.done,
                         keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          labelText: S.current.physicalAssetsSettingsGoldRatio,
-                          filled: true,
-                        ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                        ],
+                        decoration: InputDecoration(labelText: S.current.physicalAssetsSettingsGoldRatio, filled: true),
+                        inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                       ),
                     ),
                   ),

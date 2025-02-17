@@ -17,10 +17,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class PhysicalAssetDetailsPage extends ConsumerStatefulWidget {
-  const PhysicalAssetDetailsPage({
-    required this.asset,
-    super.key,
-  });
+  const PhysicalAssetDetailsPage({required this.asset, super.key});
 
   final AssetModel asset;
 
@@ -54,20 +51,15 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
   Future<void> _onTapDelete() async {
     final deleteItem = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(S.current.deleteDialogTitle),
-        content: Text(S.current.deleteDialogContent(widget.asset.name)),
-        actions: [
-          TextButton(
-            onPressed: () => context.pop(false),
-            child: Text(S.current.no),
+      builder:
+          (context) => AlertDialog(
+            title: Text(S.current.deleteDialogTitle),
+            content: Text(S.current.deleteDialogContent(widget.asset.name)),
+            actions: [
+              TextButton(onPressed: () => context.pop(false), child: Text(S.current.no)),
+              TextButton(onPressed: () => context.pop(true), child: Text(S.current.yes)),
+            ],
           ),
-          TextButton(
-            onPressed: () => context.pop(true),
-            child: Text(S.current.yes),
-          ),
-        ],
-      ),
     );
 
     if (deleteItem ?? false) {
@@ -84,18 +76,19 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
               // Linter doesn't recognize that we check if context was mounted
               // ignore: use_build_context_synchronously
               context: context,
-              builder: (context) => AlertDialog(
-                title: Text(e.title),
-                content: Text(e.message),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    child: Text(S.current.ok),
+              builder:
+                  (context) => AlertDialog(
+                    title: Text(e.title),
+                    content: Text(e.message),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          context.pop();
+                        },
+                        child: Text(S.current.ok),
+                      ),
+                    ],
                   ),
-                ],
-              ),
             ),
           );
         }
@@ -128,14 +121,8 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
             actions: [
               if (widget.asset.type == AssetTypeModel.preciousMetal &&
                   (widget.asset as PreciousMetalAssetModel).numistaId.isNotEmpty)
-                IconButton(
-                  onPressed: () => _onTapDetails(context),
-                  icon: const Icon(LucideIcons.info),
-                ),
-              IconButton(
-                onPressed: () => _onTapEdit(context),
-                icon: const Icon(LucideIcons.pencil),
-              ),
+                IconButton(onPressed: () => _onTapDetails(context), icon: const Icon(LucideIcons.info)),
+              IconButton(onPressed: () => _onTapEdit(context), icon: const Icon(LucideIcons.pencil)),
             ],
           ),
           body: SafeArea(
@@ -147,37 +134,31 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
                   Row(
                     spacing: AppPadding.s,
                     children: [
-                      Text(
-                        nameFirstPart,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
+                      Text(nameFirstPart, style: Theme.of(context).textTheme.titleMedium),
                       Text(
                         nameSecondPart,
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              color: Theme.of(context).colorScheme.onSurfaceVariant,
-                            ),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleSmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                       ),
                     ],
                   ),
                   const SizedBox(height: AppPadding.l),
                   Text(
                     S.current.information,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: AppPadding.s),
                   CoinFeatures(
                     features: [
-                      CoinFeature(
-                        title: S.current.possessed,
-                        content: widget.asset.amount.toInt().toString(),
-                      ),
+                      CoinFeature(title: S.current.possessed, content: widget.asset.amount.toInt().toString()),
                       if (widget.asset.type == AssetTypeModel.cash)
                         CoinFeature(
                           title: S.current.cashUnitValue,
-                          content:
-                              NumberFormat.simpleCurrency(decimalDigits: 0, name: 'EUR').format(widget.asset.value),
+                          content: NumberFormat.simpleCurrency(
+                            decimalDigits: 0,
+                            name: 'EUR',
+                          ).format(widget.asset.value),
                         )
                       else
                         CoinFeature(
@@ -202,28 +183,25 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
                                 '${(widget.asset as PreciousMetalAssetModel).metalType.toIntlString()} ${(widget.asset as PreciousMetalAssetModel).purity} %',
                           ),
                       CoinFeature(
-                        title: widget.asset.type == AssetTypeModel.cash
-                            ? S.current.total
-                            : S.current.estimatedPrice.replaceAll(':', ''),
+                        title:
+                            widget.asset.type == AssetTypeModel.cash
+                                ? S.current.total
+                                : S.current.estimatedPrice.replaceAll(':', ''),
                         content: NumberFormat.simpleCurrency(decimalDigits: 0, name: 'EUR').format(widget.asset.total),
                       ),
                     ],
                   ),
-                  const Expanded(
-                    child: SizedBox(height: AppPadding.xl),
-                  ),
+                  const Expanded(child: SizedBox(height: AppPadding.xl)),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: AppPadding.s),
                     child: FilledButton(
                       onPressed: _onTapDelete,
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.error),
-                      ),
+                      style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.error)),
                       child: Text(
                         S.current.deleteAssetButton,
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: Theme.of(context).colorScheme.onError,
-                            ),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onError),
                       ),
                     ),
                   ),
@@ -233,13 +211,7 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
             ),
           ),
         ),
-        if (isLoading)
-          const ColoredBox(
-            color: Colors.black38,
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          ),
+        if (isLoading) const ColoredBox(color: Colors.black38, child: Center(child: CircularProgressIndicator())),
       ],
     );
   }

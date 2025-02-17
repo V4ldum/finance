@@ -15,9 +15,7 @@ PreciousMetalsTradeDataSource preciousMetalsTradeDataSource(Ref ref) {
   final dio = Dio(
     BaseOptions(
       baseUrl: AppString.preciousMetalTradeValueApi,
-      headers: {
-        AppString.customBackHeader: cache.customBackApiKey,
-      },
+      headers: {AppString.customBackHeader: cache.customBackApiKey},
     ),
   );
 

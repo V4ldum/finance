@@ -16,11 +16,7 @@ import 'package:meta_package/meta_package.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class CoinDetailsPage extends ConsumerWidget {
-  const CoinDetailsPage({
-    required this.coinId,
-    this.showAddButton = true,
-    super.key,
-  });
+  const CoinDetailsPage({required this.coinId, this.showAddButton = true, super.key});
 
   final String coinId;
   final bool showAddButton;
@@ -29,10 +25,7 @@ class CoinDetailsPage extends ConsumerWidget {
     final url = AppString.numistaCoinPageUrl(numistaId);
 
     if (await canLaunchUrlString(url)) {
-      await launchUrlString(
-        url,
-        mode: LaunchMode.externalApplication,
-      );
+      await launchUrlString(url, mode: LaunchMode.externalApplication);
     } else {
       debugPrint("Can't launch URL");
     }
@@ -46,17 +39,15 @@ class CoinDetailsPage extends ConsumerWidget {
       appBar: AppBar(
         title: Text(S.current.metalDetailsTitle),
         actions: getCoinDetailResult.maybeWhen(
-          data: (coin) => [
-            IconButton(
-              onPressed: () => _openInNumista(coin.numistaId),
-              icon: const Icon(LucideIcons.externalLink),
-            ),
-            if (showAddButton)
-              IconButton(
-                onPressed: () => context.pushNamed(AppRoutes.editCoin, extra: coin),
-                icon: const Icon(LucideIcons.plus),
-              ),
-          ],
+          data:
+              (coin) => [
+                IconButton(onPressed: () => _openInNumista(coin.numistaId), icon: const Icon(LucideIcons.externalLink)),
+                if (showAddButton)
+                  IconButton(
+                    onPressed: () => context.pushNamed(AppRoutes.editCoin, extra: coin),
+                    icon: const Icon(LucideIcons.plus),
+                  ),
+              ],
           orElse: () => [],
         ),
       ),
@@ -79,25 +70,25 @@ class CoinDetailsPage extends ConsumerWidget {
                       children: [
                         Text(
                           nameFirstPart,
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                fontWeight: FontWeight.bold,
-                              ),
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           nameSecondPart,
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                color: Theme.of(context).colorScheme.onSurfaceVariant,
-                              ),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.titleSmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                         ),
                       ],
                     ),
 
                     Text(
-                      coin.minYear == coin.maxYear //
+                      coin.minYear ==
+                              coin
+                                  .maxYear //
                           ? coin.minYear
                           : coin.maxYear.isEmpty
-                              ? '${coin.minYear} - ${S.current.coinDateNow}'
-                              : '${coin.minYear} - ${coin.maxYear}',
+                          ? '${coin.minYear} - ${S.current.coinDateNow}'
+                          : '${coin.minYear} - ${coin.maxYear}',
                     ),
 
                     const SizedBox(height: AppPadding.l),
@@ -105,9 +96,7 @@ class CoinDetailsPage extends ConsumerWidget {
                     /// Features
                     Text(
                       S.current.metalFeaturesTitle,
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: AppPadding.m),
 
@@ -115,21 +104,24 @@ class CoinDetailsPage extends ConsumerWidget {
                       features: [
                         CoinFeature(
                           title: S.current.metalFeaturesWeight,
-                          content: coin.weight != null
-                              ? S.current.metalFeaturesWeightValue(coin.weight!)
-                              : S.current.coinFeaturesNoValue,
+                          content:
+                              coin.weight != null
+                                  ? S.current.metalFeaturesWeightValue(coin.weight!)
+                                  : S.current.coinFeaturesNoValue,
                         ),
                         CoinFeature(
                           title: S.current.metalFeaturesSize,
-                          content: coin.size != null
-                              ? S.current.metalFeaturesSizeValue(coin.size!)
-                              : S.current.coinFeaturesNoValue,
+                          content:
+                              coin.size != null
+                                  ? S.current.metalFeaturesSizeValue(coin.size!)
+                                  : S.current.coinFeaturesNoValue,
                         ),
                         CoinFeature(
                           title: S.current.metalFeaturesThickness,
-                          content: coin.thickness != null
-                              ? S.current.metalFeaturesThicknessValue(coin.thickness!)
-                              : S.current.coinFeaturesNoValue,
+                          content:
+                              coin.thickness != null
+                                  ? S.current.metalFeaturesThicknessValue(coin.thickness!)
+                                  : S.current.coinFeaturesNoValue,
                         ),
                         CoinFeature(
                           title: S.current.metalFeaturesComposition,
@@ -143,9 +135,7 @@ class CoinDetailsPage extends ConsumerWidget {
                     /// Images
                     Text(
                       S.current.metalPicturesTitle,
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: AppPadding.m),
                     Wrap(
@@ -168,10 +158,7 @@ class CoinDetailsPage extends ConsumerWidget {
                   ],
                 );
               },
-              error: (error, trace) => DefaultErrorWidget(
-                error: error as DisplayableException,
-                trace: trace,
-              ),
+              error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),
               loading: () => const ShimmerCoinDetail(),
             ),
           ),

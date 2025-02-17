@@ -4,34 +4,31 @@ import 'package:finance/shared/constants/app_padding.dart';
 import 'package:flutter/material.dart';
 
 class CoinFaceImage extends StatelessWidget {
-  const CoinFaceImage({
-    required this.coinFace,
-    super.key,
-  });
+  const CoinFaceImage({required this.coinFace, super.key});
 
   final CoinFaceModel coinFace;
 
   void _openCoinFaceImage(BuildContext context) {
     showDialog<void>(
       context: context,
-      builder: (context) => SimpleDialog(
-        contentPadding: EdgeInsets.zero,
-        shadowColor: Colors.transparent,
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-        clipBehavior: Clip.antiAlias,
-        children: [
-          CachedNetworkImage(
-            imageUrl: coinFace.pictureUrl.isNotEmpty ? coinFace.pictureUrl : coinFace.thumbnailUrl,
-            placeholder: (context, url) => const Padding(
-              padding: EdgeInsets.all(AppPadding.xxs),
-              child: Center(
-                child: CircularProgressIndicator(),
+      builder:
+          (context) => SimpleDialog(
+            contentPadding: EdgeInsets.zero,
+            shadowColor: Colors.transparent,
+            surfaceTintColor: Colors.transparent,
+            backgroundColor: Colors.transparent,
+            clipBehavior: Clip.antiAlias,
+            children: [
+              CachedNetworkImage(
+                imageUrl: coinFace.pictureUrl.isNotEmpty ? coinFace.pictureUrl : coinFace.thumbnailUrl,
+                placeholder:
+                    (context, url) => const Padding(
+                      padding: EdgeInsets.all(AppPadding.xxs),
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
     );
   }
 
@@ -46,19 +43,15 @@ class CoinFaceImage extends StatelessWidget {
         child: InkWell(
           onTap: () => _openCoinFaceImage(context),
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: imageSize,
-              minWidth: imageSize,
-            ),
+            constraints: BoxConstraints(maxWidth: imageSize, minWidth: imageSize),
             child: CachedNetworkImage(
               imageUrl: coinFace.thumbnailUrl.isNotEmpty ? coinFace.thumbnailUrl : coinFace.pictureUrl,
-              placeholder: (context, url) => SizedBox(
-                height: imageSize,
-                width: imageSize,
-                child: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
+              placeholder:
+                  (context, url) => SizedBox(
+                    height: imageSize,
+                    width: imageSize,
+                    child: const Center(child: CircularProgressIndicator()),
+                  ),
             ),
           ),
         ),
@@ -98,15 +91,8 @@ class _TextCoinData extends StatelessWidget {
       padding: const EdgeInsets.all(AppPadding.m),
       child: Container(
         padding: const EdgeInsets.all(AppPadding.m),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-        ),
+        decoration: BoxDecoration(border: Border.all(color: Theme.of(context).colorScheme.onSurface)),
+        child: Text(text, textAlign: TextAlign.center),
       ),
     );
   }

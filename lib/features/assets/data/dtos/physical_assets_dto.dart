@@ -49,10 +49,8 @@ sealed class CashPhysicalAssetDto with _$CashPhysicalAssetDto {
 
 @freezed
 sealed class CoinPhysicalAssetDto with _$CoinPhysicalAssetDto {
-  const factory CoinPhysicalAssetDto({
-    required int possessed,
-    @JsonKey(name: 'coin_data') required CoinDto data,
-  }) = _CoinPhysicalAssetDto;
+  const factory CoinPhysicalAssetDto({required int possessed, @JsonKey(name: 'coin_data') required CoinDto data}) =
+      _CoinPhysicalAssetDto;
 
   factory CoinPhysicalAssetDto.fromJson(JsonMapResponse json) => _$CoinPhysicalAssetDtoFromJson(json);
 }

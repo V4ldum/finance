@@ -27,18 +27,15 @@ class PieChart extends StatelessWidget {
         sectionsSpace: 3,
         startDegreeOffset: -90,
         sections: [
-          ...List.generate(
-            data.length,
-            (index) {
-              return chart.PieChartSectionData(
-                radius: 21,
-                title: data[index].title,
-                value: data[index].value.toDouble(),
-                showTitle: false,
-                color: colorManager(data, index),
-              );
-            },
-          ),
+          ...List.generate(data.length, (index) {
+            return chart.PieChartSectionData(
+              radius: 21,
+              title: data[index].title,
+              value: data[index].value.toDouble(),
+              showTitle: false,
+              color: colorManager(data, index),
+            );
+          }),
         ],
         pieTouchData: chart.PieTouchData(
           enabled: onSectionTaped != null,
@@ -58,25 +55,14 @@ class PieChart extends StatelessWidget {
     );
 
     if (child != null) {
-      return Stack(
-        children: [
-          chartWidget,
-          Center(
-            child: child,
-          ),
-        ],
-      );
+      return Stack(children: [chartWidget, Center(child: child)]);
     }
     return chartWidget;
   }
 }
 
 class PieData {
-  const PieData({
-    required this.title,
-    required this.value,
-    this.evolutionPercent,
-  });
+  const PieData({required this.title, required this.value, this.evolutionPercent});
   final String title;
   final int value;
   final double? evolutionPercent;

@@ -7,9 +7,7 @@ part '_generated/stocks_detail_dto.g.dart';
 
 @freezed
 sealed class StocksDetailDto with _$StocksDetailDto {
-  const factory StocksDetailDto({
-    required StockDetailResultDto result,
-  }) = _StocksDetailDto;
+  const factory StocksDetailDto({required StockDetailResultDto result}) = _StocksDetailDto;
 
   factory StocksDetailDto.fromJson(JsonMapResponse json) => _$StocksDetailDtoFromJson(json);
 
@@ -20,10 +18,8 @@ sealed class StocksDetailDto with _$StocksDetailDto {
 
 @freezed
 sealed class StockDetailResultDto with _$StockDetailResultDto {
-  const factory StockDetailResultDto({
-    required SummaryValuesDto total,
-    required List<StockDetailAccountDto> accounts,
-  }) = _StockDetailResultDto;
+  const factory StockDetailResultDto({required SummaryValuesDto total, required List<StockDetailAccountDto> accounts}) =
+      _StockDetailResultDto;
 
   factory StockDetailResultDto.fromJson(JsonMapResponse json) => _$StockDetailResultDtoFromJson(json);
 }

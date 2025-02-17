@@ -14,12 +14,7 @@ PhysicalAssetsDataSource physicalAssetsDataSource(Ref ref) {
 
   return PhysicalAssetsDataSource(
     Dio(
-      BaseOptions(
-        baseUrl: AppString.physicalAssetsApi,
-        headers: {
-          AppString.customBackHeader: cache.customBackApiKey,
-        },
-      ),
+      BaseOptions(baseUrl: AppString.physicalAssetsApi, headers: {AppString.customBackHeader: cache.customBackApiKey}),
     ),
   );
 }
@@ -35,41 +30,19 @@ class PhysicalAssetsDataSource {
   }
 
   Future<void> createCoinAsset({required int id, required int possessed}) async {
-    await _dio.post<void>(
-      '/assets/coin',
-      data: {
-        'coin_id': id,
-        'possessed': possessed,
-      },
-    );
+    await _dio.post<void>('/assets/coin', data: {'coin_id': id, 'possessed': possessed});
   }
 
   Future<void> updateCoinAsset({required String id, required int possessed}) async {
-    await _dio.patch<void>(
-      '/assets/coin/$id',
-      data: {
-        'possessed': possessed,
-      },
-    );
+    await _dio.patch<void>('/assets/coin/$id', data: {'possessed': possessed});
   }
 
   Future<void> removeCoinAsset({required String id}) async {
     await _dio.delete<void>('/assets/coin/$id');
   }
 
-  Future<void> createCashAsset({
-    required String name,
-    required int possessed,
-    required int unitValue,
-  }) async {
-    await _dio.post<void>(
-      '/assets/cash',
-      data: {
-        'name': name,
-        'possessed': possessed,
-        'unit_value': unitValue,
-      },
-    );
+  Future<void> createCashAsset({required String name, required int possessed, required int unitValue}) async {
+    await _dio.post<void>('/assets/cash', data: {'name': name, 'possessed': possessed, 'unit_value': unitValue});
   }
 
   Future<void> updateCashAsset({
@@ -78,14 +51,7 @@ class PhysicalAssetsDataSource {
     required int possessed,
     required int unitValue,
   }) async {
-    await _dio.patch<void>(
-      '/assets/cash/$id',
-      data: {
-        'name': name,
-        'possessed': possessed,
-        'unit_weight': unitValue,
-      },
-    );
+    await _dio.patch<void>('/assets/cash/$id', data: {'name': name, 'possessed': possessed, 'unit_weight': unitValue});
   }
 
   Future<void> removeCashAsset({required String id}) async {

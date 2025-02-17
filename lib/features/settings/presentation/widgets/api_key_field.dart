@@ -4,11 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class ApiKeyField extends ConsumerStatefulWidget {
-  const ApiKeyField({
-    super.key,
-    this.initialValue,
-    this.updateKeyCallback,
-  });
+  const ApiKeyField({super.key, this.initialValue, this.updateKeyCallback});
 
   final String? initialValue;
   final Future<void> Function(String)? updateKeyCallback;
@@ -58,20 +54,15 @@ class _ApiKeyFieldState extends ConsumerState<ApiKeyField> {
             autocorrect: false,
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
-              suffixIcon: apiKeyController.text.isNotEmpty
-                  ? IconButton(
-                      onPressed: _clearField,
-                      icon: const Icon(LucideIcons.x),
-                    )
-                  : null,
+              suffixIcon:
+                  apiKeyController.text.isNotEmpty
+                      ? IconButton(onPressed: _clearField, icon: const Icon(LucideIcons.x))
+                      : null,
               labelText: S.current.numistaApiKeyField,
               helperText: '',
               filled: true,
             ),
-            autofillHints: const {
-              AutofillHints.password,
-              AutofillHints.oneTimeCode,
-            },
+            autofillHints: const {AutofillHints.password, AutofillHints.oneTimeCode},
             onChanged: (_) => _updateApiKey(),
           ),
         ),

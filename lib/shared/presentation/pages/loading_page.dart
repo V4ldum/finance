@@ -9,9 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meta_package/meta_package.dart';
 
 class LoadingPage extends ConsumerWidget {
-  const LoadingPage({
-    super.key,
-  });
+  const LoadingPage({super.key});
 
   Future<void> _onInit(WidgetRef ref) async {
     final context = ref.context;
@@ -24,9 +22,7 @@ class LoadingPage extends ConsumerWidget {
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(S.current.genericError)),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.genericError)));
       }
       rethrow;
     }
@@ -39,12 +35,7 @@ class LoadingPage extends ConsumerWidget {
         child: InitCaller(
           postFrame: true,
           onInit: () => _onInit(ref),
-          child: Center(
-            child: Image.asset(
-              AppAsset.logo,
-              height: AppComponentSize.m,
-            ),
-          ),
+          child: Center(child: Image.asset(AppAsset.logo, height: AppComponentSize.m)),
         ),
       ),
     );

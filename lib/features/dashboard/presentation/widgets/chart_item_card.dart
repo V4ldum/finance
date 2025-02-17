@@ -28,10 +28,7 @@ class ChartItemCard extends StatelessWidget {
       color: Theme.of(context).colorScheme.surfaceContainerLow,
       elevation: 0,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppPadding.m,
-          vertical: AppPadding.m,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.m, vertical: AppPadding.m),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -52,9 +49,7 @@ class ChartItemCard extends StatelessWidget {
                           title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                fontWeight: FontWeight.w500,
-                              ),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
@@ -64,9 +59,9 @@ class ChartItemCard extends StatelessWidget {
                 Text(
                   '${(percent * 100).toStringAsFixed(0)} %',
                   textAlign: TextAlign.end,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        color: Theme.of(context).colorScheme.inverseSurface,
-                      ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.inverseSurface),
                 ),
               ],
             ),
@@ -79,14 +74,15 @@ class ChartItemCard extends StatelessWidget {
                   Text(
                     '${(evolution! >= 0 ? evolution! : evolution! * -1).toStringAsFixed(1)} %',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          // fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: evolution! > 0
+                      // fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color:
+                          evolution! > 0
                               ? Colors.green
                               : evolution! < 0
-                                  ? Colors.red
-                                  : Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
+                              ? Colors.red
+                              : Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                   )
                 else
                   const SizedBox(),
@@ -96,9 +92,7 @@ class ChartItemCard extends StatelessWidget {
                     NumberFormat().format(value),
                     suffix: ' $assetUnit',
                     textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontWeight: FontWeight.w500,
-                        ),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),
                   ),
                 ),
               ],

@@ -5,11 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,10 +22,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blueAccent,
-          brightness: Brightness.dark,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       routerConfig: router,

@@ -14,10 +14,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meta_package/meta_package.dart';
 
 class EditRawPreciousMetalPage extends ConsumerStatefulWidget {
-  const EditRawPreciousMetalPage({
-    this.asset,
-    super.key,
-  });
+  const EditRawPreciousMetalPage({this.asset, super.key});
 
   final PreciousMetalAssetModel? asset;
 
@@ -129,7 +126,9 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).updateRawPhysicalAsset(
+      await ref
+          .read(assetsServiceProvider)
+          .updateRawPhysicalAsset(
             id: widget.asset!.id,
             name: _nameController.text,
             possessed: _possessed,
@@ -144,18 +143,19 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -187,7 +187,9 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
         isLoading = true;
       });
 
-      await ref.read(assetsServiceProvider).addRawPhysicalAsset(
+      await ref
+          .read(assetsServiceProvider)
+          .addRawPhysicalAsset(
             name: _nameController.text,
             possessed: _possessed,
             unitWeight: _weight,
@@ -201,18 +203,19 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
             // Linter doesn't recognize that we check if context was mounted
             // ignore: use_build_context_synchronously
             context: context,
-            builder: (context) => AlertDialog(
-              title: Text(e.title),
-              content: Text(e.message),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  child: Text(S.current.ok),
+            builder:
+                (context) => AlertDialog(
+                  title: Text(e.title),
+                  content: Text(e.message),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      child: Text(S.current.ok),
+                    ),
+                  ],
                 ),
-              ],
-            ),
           ),
         );
       }
@@ -267,7 +270,8 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
           Scaffold(
             appBar: AppBar(
               title: Text(
-                widget.asset != null //
+                widget.asset !=
+                        null //
                     ? S.current.updateAssetTitle
                     : S.current.addRawPreciousMetalTitle,
               ),
@@ -291,11 +295,7 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                 validator: StringValidator.validateEmpty,
                                 autocorrect: false,
                                 textInputAction: TextInputAction.done,
-                                decoration: InputDecoration(
-                                  labelText: S.current.name,
-                                  filled: true,
-                                  helperText: '',
-                                ),
+                                decoration: InputDecoration(labelText: S.current.name, filled: true, helperText: ''),
                               ),
                             ),
                             const SizedBox(height: AppPadding.s),
@@ -310,13 +310,8 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                       autocorrect: false,
                                       textInputAction: TextInputAction.done,
                                       keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                        labelText: S.current.quantityPossessed,
-                                        filled: true,
-                                      ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.digitsOnly,
-                                      ],
+                                      decoration: InputDecoration(labelText: S.current.quantityPossessed, filled: true),
+                                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     ),
                                   ),
                                 ),
@@ -331,14 +326,9 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                       decoration: InputDecoration(
                                         labelText: S.current.metalFeaturesWeight,
                                         filled: true,
-                                        suffix: Text(
-                                          'g',
-                                          style: Theme.of(context).textTheme.bodyLarge,
-                                        ),
+                                        suffix: Text('g', style: Theme.of(context).textTheme.bodyLarge),
                                       ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                                      ],
+                                      inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                                     ),
                                   ),
                                 ),
@@ -349,9 +339,7 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                             /// Composition
                             Text(
                               S.current.metalFeaturesComposition,
-                              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                              style: Theme.of(context).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
                             ),
 
                             const SizedBox(height: AppPadding.m),
@@ -364,18 +352,13 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                     initialSelection: _dropdownValue,
                                     label: Text(S.current.metalDropdown),
                                     expandedInsets: EdgeInsets.zero,
-                                    inputDecorationTheme: const InputDecorationTheme(
-                                      filled: true,
-                                    ),
+                                    inputDecorationTheme: const InputDecorationTheme(filled: true),
                                     onSelected: _onMetalDropdownChanged,
-                                    dropdownMenuEntries: [PreciousMetalTypeModel.gold, PreciousMetalTypeModel.silver]
-                                        .map(
-                                          (e) => DropdownMenuEntry(
-                                            value: e,
-                                            label: e.toIntlString(),
-                                          ),
-                                        )
-                                        .toList(),
+                                    dropdownMenuEntries:
+                                        [
+                                          PreciousMetalTypeModel.gold,
+                                          PreciousMetalTypeModel.silver,
+                                        ].map((e) => DropdownMenuEntry(value: e, label: e.toIntlString())).toList(),
                                   ),
                                 ),
                                 Expanded(
@@ -389,14 +372,9 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                       decoration: InputDecoration(
                                         labelText: S.current.purity,
                                         filled: true,
-                                        suffix: Text(
-                                          '%',
-                                          style: Theme.of(context).textTheme.bodyLarge,
-                                        ),
+                                        suffix: Text('%', style: Theme.of(context).textTheme.bodyLarge),
                                       ),
-                                      inputFormatters: [
-                                        FilteringTextInputFormatter.allow(_floatWhitelistRegExp),
-                                      ],
+                                      inputFormatters: [FilteringTextInputFormatter.allow(_floatWhitelistRegExp)],
                                     ),
                                   ),
                                 ),
@@ -428,30 +406,30 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                       debugPrint('$error');
                                       return TextSpan(text: S.current.unknownErrorTitle);
                                     },
-                                    loading: () => const WidgetSpan(
-                                      alignment: PlaceholderAlignment.middle,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(left: AppPadding.s),
-                                        child: SizedBox(
-                                          height: AppPadding.m,
-                                          width: AppPadding.m,
-                                          child: CircularProgressIndicator(strokeWidth: 1.5),
+                                    loading:
+                                        () => const WidgetSpan(
+                                          alignment: PlaceholderAlignment.middle,
+                                          child: Padding(
+                                            padding: EdgeInsets.only(left: AppPadding.s),
+                                            child: SizedBox(
+                                              height: AppPadding.m,
+                                              width: AppPadding.m,
+                                              child: CircularProgressIndicator(strokeWidth: 1.5),
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                    ),
                                   ),
                                 ],
                               ),
                             ),
 
-                            const Expanded(
-                              child: SizedBox(height: AppPadding.l),
-                            ),
+                            const Expanded(child: SizedBox(height: AppPadding.l)),
 
                             FilledButton(
                               onPressed: () => widget.asset != null ? _updateRawMetalAsset() : _addRawMetalAssets(),
                               child: Text(
-                                widget.asset != null //
+                                widget.asset !=
+                                        null //
                                     ? S.current.updateAssetsButton
                                     : S.current.addToAssetsButton,
                               ),
@@ -466,13 +444,7 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
               ),
             ),
           ),
-          if (isLoading)
-            const ColoredBox(
-              color: Colors.black38,
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
+          if (isLoading) const ColoredBox(color: Colors.black38, child: Center(child: CircularProgressIndicator())),
         ],
       ),
     );

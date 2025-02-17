@@ -57,9 +57,7 @@ sealed class AuthenticationClientDto with _$AuthenticationClientDto {
 
 @freezed
 sealed class AuthenticationSessionDto with _$AuthenticationSessionDto {
-  const factory AuthenticationSessionDto({
-    required String id,
-  }) = _AuthenticationSessionDto;
+  const factory AuthenticationSessionDto({required String id}) = _AuthenticationSessionDto;
 
   factory AuthenticationSessionDto.fromJson(JsonMapResponse json) => _$AuthenticationSessionDtoFromJson(json);
 

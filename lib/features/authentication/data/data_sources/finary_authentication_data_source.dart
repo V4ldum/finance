@@ -24,10 +24,7 @@ FinaryAuthenticationDataSource finaryAuthenticationDataSource(Ref ref) {
     BaseOptions(
       baseUrl: AppString.finaryClerkApiUrl,
       contentType: Headers.formUrlEncodedContentType,
-      headers: {
-        'Origin': AppString.finaryAppUrl,
-        'Referer': AppString.finaryAppUrl,
-      },
+      headers: {'Origin': AppString.finaryAppUrl, 'Referer': AppString.finaryAppUrl},
     ),
   )..interceptors.add(CookieManager(cookieJar));
 
@@ -44,10 +41,7 @@ class FinaryAuthenticationDataSource {
     try {
       final response = await _dio.post<JsonMapResponse>(
         '/v1/client/sign_ins',
-        data: {
-          'identifier': login,
-          'password': password,
-        },
+        data: {'identifier': login, 'password': password},
       );
       return AuthenticationDto.fromHttpResponse(response);
     } on DioException catch (e) {
@@ -63,18 +57,13 @@ class FinaryAuthenticationDataSource {
   Future<AuthenticationDto> authOtp({required String otp, required String sia}) async {
     final response = await _dio.post<JsonMapResponse>(
       '/v1/client/sign_ins/$sia/attempt_second_factor',
-      data: {
-        'strategy': 'totp',
-        'code': otp,
-      },
+      data: {'strategy': 'totp', 'code': otp},
     );
     return AuthenticationDto.fromHttpResponse(response);
   }
 
   Future<String> refreshToken({required String sessionId}) async {
-    final response = await _dio.post<JsonMapResponse>(
-      '/v1/client/sessions/$sessionId/tokens',
-    );
+    final response = await _dio.post<JsonMapResponse>('/v1/client/sessions/$sessionId/tokens');
     // Not doing a serialized object just for this parameter
     return (response.data?['jwt'] ?? '') as String;
   }

@@ -9,10 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class CoinSearchTile extends StatelessWidget {
-  const CoinSearchTile({
-    required this.coin,
-    super.key,
-  });
+  const CoinSearchTile({required this.coin, super.key});
 
   final CoinModel coin;
 
@@ -28,34 +25,29 @@ class CoinSearchTile extends StatelessWidget {
       title: Row(
         spacing: AppPadding.s,
         children: [
-          Text(
-            nameFirstPart,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
+          Text(nameFirstPart, maxLines: 1, overflow: TextOverflow.ellipsis),
           Flexible(
             child: Text(
               nameSecondPart,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),
           ),
         ],
       ),
       subtitle: Text(
-        coin.minYear == coin.maxYear //
+        coin.minYear ==
+                coin
+                    .maxYear //
             ? coin.minYear
             : coin.maxYear.isEmpty
-                ? '${coin.minYear} - ${S.current.coinDateNow}'
-                : '${coin.minYear} - ${coin.maxYear}',
+            ? '${coin.minYear} - ${S.current.coinDateNow}'
+            : '${coin.minYear} - ${coin.maxYear}',
       ),
-      trailing: const Icon(
-        LucideIcons.chevronRight,
-        size: AppIconSize.m,
-      ),
+      trailing: const Icon(LucideIcons.chevronRight, size: AppIconSize.m),
     );
   }
 }

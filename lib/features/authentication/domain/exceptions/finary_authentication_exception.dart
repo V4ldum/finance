@@ -3,13 +3,13 @@ import 'package:meta_package/meta_package.dart';
 
 class FinaryAuthenticationException extends DisplayableException {
   FinaryAuthenticationException.badRequest()
-      : super(S.current.authenticationOtpFailedTitle, S.current.authenticationOtpFailedBody);
+    : super(S.current.authenticationOtpFailedTitle, S.current.authenticationOtpFailedBody);
 
   FinaryAuthenticationException.unauthorized()
-      : super(S.current.authenticationFailedTitle, S.current.authenticationFailedBody);
+    : super(S.current.authenticationFailedTitle, S.current.authenticationFailedBody);
 
   FinaryAuthenticationException.tooManyRequests()
-      : super(S.current.tooManyRequestsTitle, S.current.tooManyRequestsBody);
+    : super(S.current.tooManyRequestsTitle, S.current.tooManyRequestsBody);
 
   FinaryAuthenticationException.unknown() : super(S.current.unknownErrorTitle, S.current.unknownErrorBody);
 

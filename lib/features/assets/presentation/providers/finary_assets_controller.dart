@@ -10,8 +10,6 @@ class FinaryAssetsController extends _$FinaryAssetsController {
   Future<FinaryAssetsModel> build() async => ref.read(assetsServiceProvider).getFinaryAssets();
 
   Future<void> refreshAssets() async {
-    state = await AsyncValue.guard(
-      () async => ref.read(assetsServiceProvider).refreshFinaryAssets(),
-    );
+    state = await AsyncValue.guard(() async => ref.read(assetsServiceProvider).refreshFinaryAssets());
   }
 }

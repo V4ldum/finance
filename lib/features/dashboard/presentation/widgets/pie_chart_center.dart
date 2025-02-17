@@ -2,12 +2,7 @@ import 'package:finance/shared/presentation/widgets/hideable_text.dart';
 import 'package:flutter/material.dart';
 
 class PieChartCenter extends StatelessWidget {
-  const PieChartCenter({
-    required this.top,
-    required this.bottom,
-    this.size,
-    super.key,
-  });
+  const PieChartCenter({required this.top, required this.bottom, this.size, super.key});
 
   final String top;
   final String bottom;
@@ -16,9 +11,7 @@ class PieChartCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(size ?? 0),
-      ),
+      borderRadius: BorderRadius.all(Radius.circular(size ?? 0)),
       child: SizedBox(
         width: size,
         height: size,
@@ -29,15 +22,9 @@ class PieChartCenter extends StatelessWidget {
             HideableText(
               top,
               hiddenText: '##### €',
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
-            Text(
-              bottom,
-              style: Theme.of(context).textTheme.bodySmall,
-              overflow: TextOverflow.ellipsis,
-            ),
+            Text(bottom, style: Theme.of(context).textTheme.bodySmall, overflow: TextOverflow.ellipsis),
           ],
         ),
       ),

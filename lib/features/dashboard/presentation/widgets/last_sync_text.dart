@@ -2,10 +2,7 @@ import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LastSyncText extends StatelessWidget {
-  const LastSyncText({
-    required this.sync,
-    super.key,
-  });
+  const LastSyncText({required this.sync, super.key});
 
   final DateTime sync;
 
@@ -33,10 +30,7 @@ class LastSyncText extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          S.current.syncLabel,
-          style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold),
-        ),
+        Text(S.current.syncLabel, style: Theme.of(context).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
         Text(_formatMessageReceivedTime(sync), style: Theme.of(context).textTheme.bodySmall),
       ],
     );

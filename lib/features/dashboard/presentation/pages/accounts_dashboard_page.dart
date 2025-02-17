@@ -13,10 +13,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 
 class AccountsDashboardPage extends ConsumerWidget {
-  const AccountsDashboardPage({
-    required this.assetsResult,
-    super.key,
-  });
+  const AccountsDashboardPage({required this.assetsResult, super.key});
 
   final AsyncValue<FinaryAssetsModel> assetsResult;
 
@@ -49,11 +46,7 @@ class AccountsDashboardPage extends ConsumerWidget {
                   value: data.where((e) => e.type == AssetTypeModel.cash).fold(0, (prev, e) => prev += e.total.toInt()),
                 );
 
-                return [
-                  ...accounts,
-                  if (preciousMetals.value > 0) preciousMetals,
-                  if (cash.value > 0) cash,
-                ];
+                return [...accounts, if (preciousMetals.value > 0) preciousMetals, if (cash.value > 0) cash];
               },
               categoryFilter: (item) {
                 if (item.title == S.current.preciousMetals || item.title == S.current.cash) {
@@ -63,10 +56,7 @@ class AccountsDashboardPage extends ConsumerWidget {
               },
             );
           },
-          error: (error, trace) => DefaultErrorWidget(
-            error: error as DisplayableException,
-            trace: trace,
-          ),
+          error: (error, trace) => DefaultErrorWidget(error: error as DisplayableException, trace: trace),
           loading: () => const ShimmerDashboard(),
         ),
       ),

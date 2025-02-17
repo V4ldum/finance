@@ -7,13 +7,8 @@ class DefaultLoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppPadding.xxl,
-        vertical: AppPadding.l,
-      ),
-      child: Center(
-        child: CircularProgressIndicator(),
-      ),
+      padding: EdgeInsets.symmetric(horizontal: AppPadding.xxl, vertical: AppPadding.l),
+      child: Center(child: CircularProgressIndicator()),
     );
   }
 }

@@ -44,20 +44,20 @@ class AppNavigationDrawer extends ConsumerWidget {
           icon: const Icon(LucideIcons.coins),
         ),
         const Divider(indent: AppPadding.l, endIndent: AppPadding.l),
-        NavigationDrawerDestination(
-          label: Text(S.current.settingsDrawerItem),
-          icon: const Icon(LucideIcons.settings),
-        ),
+        NavigationDrawerDestination(label: Text(S.current.settingsDrawerItem), icon: const Icon(LucideIcons.settings)),
         Center(
           child: Padding(
             padding: const EdgeInsets.all(AppPadding.xs),
-            child: ref.watch(appVersionControllerProvider).when(
-                  data: (data) => Text(
-                    S.current.appVersion(data),
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                  ),
+            child: ref
+                .watch(appVersionControllerProvider)
+                .when(
+                  data:
+                      (data) => Text(
+                        S.current.appVersion(data),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                      ),
                   error: (_, __) => const SizedBox(),
                   loading: () => const SizedBox(),
                 ),
@@ -68,8 +68,4 @@ class AppNavigationDrawer extends ConsumerWidget {
   }
 }
 
-enum _DrawerItem {
-  dashboard,
-  preciousMetals,
-  settings,
-}
+enum _DrawerItem { dashboard, preciousMetals, settings }

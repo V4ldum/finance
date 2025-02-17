@@ -18,9 +18,7 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:meta_package/meta_package.dart';
 
 class PhysicalAssetsPage extends ConsumerWidget {
-  const PhysicalAssetsPage({
-    super.key,
-  });
+  const PhysicalAssetsPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,9 +37,10 @@ class PhysicalAssetsPage extends ConsumerWidget {
               final gsr = gold.troyOunces / silver.troyOunces;
               final spgr = sp.value / gold.troyOunces;
               final earliestDate = [gold.lastUpdated, silver.lastUpdated, sp.lastUpdated].reduce(
-                (a, b) => a.isBefore(b) //
-                    ? a
-                    : b,
+                (a, b) =>
+                    a.isBefore(b) //
+                        ? a
+                        : b,
               );
 
               if (gsr.isNaN || spgr.isNaN) {
@@ -51,9 +50,12 @@ class PhysicalAssetsPage extends ConsumerWidget {
               return Theme(
                 // Tooltip is bugged and shows dark UI for light brightness and the other way around
                 data: Theme.of(context).copyWith(
-                  brightness: Theme.of(context).brightness == Brightness.dark //
-                      ? Brightness.light
-                      : Brightness.dark,
+                  brightness:
+                      Theme.of(context).brightness ==
+                              Brightness
+                                  .dark //
+                          ? Brightness.light
+                          : Brightness.dark,
                 ),
                 child: Tooltip(
                   message: S.current.lastUpdateTooltip(DateFormat('dd MMM').format(earliestDate)),
@@ -70,30 +72,32 @@ class PhysicalAssetsPage extends ConsumerWidget {
                         Text(
                           'SP/G',
                           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: spgr < cache.spgrSPFavorableRatio
+                            fontWeight: FontWeight.bold,
+                            color:
+                                spgr < cache.spgrSPFavorableRatio
                                     // SP Favorable
                                     ? Utils.moneyColor
                                     : spgr > cache.spgrGoldFavorableRatio
-                                        // Gold Favorable
-                                        ? Utils.goldColor
-                                        // Neutral
-                                        : Theme.of(context).colorScheme.onSurface,
-                              ),
+                                    // Gold Favorable
+                                    ? Utils.goldColor
+                                    // Neutral
+                                    : Theme.of(context).colorScheme.onSurface,
+                          ),
                         ),
                         Text(
                           'G/S',
                           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: gsr < cache.gsrGoldFavorableRatio
+                            fontWeight: FontWeight.bold,
+                            color:
+                                gsr < cache.gsrGoldFavorableRatio
                                     // Gold Favorable
                                     ? Utils.goldColor
                                     : gsr > cache.gsrSilverFavorableRatio
-                                        // Silver Favorable
-                                        ? Utils.silverColor
-                                        // Neutral
-                                        : Theme.of(context).colorScheme.onSurface,
-                              ),
+                                    // Silver Favorable
+                                    ? Utils.silverColor
+                                    // Neutral
+                                    : Theme.of(context).colorScheme.onSurface,
+                          ),
                         ),
                       ],
                     ),
@@ -107,9 +111,7 @@ class PhysicalAssetsPage extends ConsumerWidget {
               // debugPrint(trace.toString());
               return const SizedBox();
             },
-            loading: () => const Shimmer(
-              child: ShimmerBlock(height: AppPadding.xl, width: AppPadding.xl),
-            ),
+            loading: () => const Shimmer(child: ShimmerBlock(height: AppPadding.xl, width: AppPadding.xl)),
           ),
           const SizedBox(width: AppPadding.s),
           MenuAnchor(
@@ -159,26 +161,25 @@ class PhysicalAssetsPage extends ConsumerWidget {
             if (assets.assets.isEmpty) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.l, vertical: AppPadding.m),
-                child: Text(
-                  S.current.noPhysicalAssets,
-                  textAlign: TextAlign.center,
-                ),
+                child: Text(S.current.noPhysicalAssets, textAlign: TextAlign.center),
               );
             }
 
-            final sorted = assets.assets
-              ..sort((a, b) => b.name.compareTo(a.name))
-              ..toList();
+            final sorted =
+                assets.assets
+                  ..sort((a, b) => b.name.compareTo(a.name))
+                  ..toList();
 
             return RefreshIndicator(
               onRefresh: ref.read(physicalAssetsControllerProvider.notifier).refreshAssets,
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
-                  children: sorted
-                      .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
-                      .map((e) => PhysicalAssetTile(asset: e))
-                      .toList(),
+                  children:
+                      sorted
+                          .where((e) => e.type == AssetTypeModel.preciousMetal || e.type == AssetTypeModel.cash)
+                          .map((e) => PhysicalAssetTile(asset: e))
+                          .toList(),
                 ),
               ),
             );

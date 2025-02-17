@@ -6,9 +6,8 @@ part '_generated/geographical_repartition_dto.g.dart';
 
 @freezed
 sealed class GeographicalRepartitionDto with _$GeographicalRepartitionDto {
-  const factory GeographicalRepartitionDto({
-    required GeographicalRepartitionResultDto result,
-  }) = _GeographicalRepartitionDto;
+  const factory GeographicalRepartitionDto({required GeographicalRepartitionResultDto result}) =
+      _GeographicalRepartitionDto;
 
   factory GeographicalRepartitionDto.fromJson(JsonMapResponse json) => _$GeographicalRepartitionDtoFromJson(json);
 

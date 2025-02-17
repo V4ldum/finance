@@ -5,12 +5,7 @@ class Utils {
 
   /// Will get the correct next color to avoid having the same color on adjacent
   /// segments of a PieChart.
-  static Color getNextChartColor({
-    required List<Color> colors,
-    required int current,
-    required int max,
-    int? selected,
-  }) {
+  static Color getNextChartColor({required List<Color> colors, required int current, required int max, int? selected}) {
     late final Color color;
 
     if (colors.isEmpty) {

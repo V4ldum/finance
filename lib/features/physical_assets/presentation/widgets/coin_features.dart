@@ -2,10 +2,7 @@ import 'package:finance/shared/constants/app_padding.dart';
 import 'package:flutter/material.dart';
 
 class CoinFeatures extends StatelessWidget {
-  const CoinFeatures({
-    required this.features,
-    super.key,
-  });
+  const CoinFeatures({required this.features, super.key});
 
   final List<CoinFeature> features;
 
@@ -24,15 +21,10 @@ class CoinFeatures extends StatelessWidget {
               Expanded(
                 child: Text(
                   feature.title,
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
-              Expanded(
-                flex: 2,
-                child: Text(feature.content),
-              ),
+              Expanded(flex: 2, child: Text(feature.content)),
             ],
           ),
         );
@@ -42,10 +34,7 @@ class CoinFeatures extends StatelessWidget {
 }
 
 class CoinFeature {
-  const CoinFeature({
-    required this.title,
-    required this.content,
-  });
+  const CoinFeature({required this.title, required this.content});
 
   final String title;
   final String content;

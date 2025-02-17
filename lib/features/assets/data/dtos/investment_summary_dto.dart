@@ -7,9 +7,7 @@ part '_generated/investment_summary_dto.g.dart';
 
 @freezed
 sealed class InvestmentSummaryDto with _$InvestmentSummaryDto {
-  const factory InvestmentSummaryDto({
-    required InvestmentSummaryResultDto result,
-  }) = _InvestmentSummaryDto;
+  const factory InvestmentSummaryDto({required InvestmentSummaryResultDto result}) = _InvestmentSummaryDto;
 
   factory InvestmentSummaryDto.fromJson(JsonMapResponse json) => _$InvestmentSummaryDtoFromJson(json);
 
