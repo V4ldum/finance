@@ -1,0 +1,54 @@
+name: Dependabot auto-merge
+on:
+  pull_request:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+    
+jobs:
+  should-merge:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'V4ldum/finance'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+
+      - name: Config Flutter
+        run: flutter config --no-analytics
+
+      - name: Clean project
+        run: |
+          flutter clean
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Rebuild generated code
+        run: |
+          rm -rf .dart_tool
+          dart run intl_utils:generate
+          dart run build_runner build --delete-conflicting-outputs
+
+      - name: Analyze project source
+        run: dart analyze
+
+      - name: Build APK
+        run: |
+          flutter build apk --debug
+
+
+  auto-merge:
+    needs: should-merge
+    runs-on: ubuntu-latest
+    steps:
+      - name: Merge PR
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          MESSAGE=$(echo "$PR_TITLE" | sed 's/Bump/Auto merged/')
+          gh pr merge "$PR_NUMBER" --merge --body "$MESSAGE"
