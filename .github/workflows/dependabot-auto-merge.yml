@@ -53,4 +53,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           MESSAGE=$(echo "$PR_TITLE" | sed 's/Bump/Auto merged/')
+          echo "$MESSAGE"
+          pwd
+          ls
           gh pr merge "$PR_NUMBER" --merge --body "$MESSAGE"
