@@ -657,10 +657,10 @@ packages:
     dependency: "direct main"
     description:
       name: lucide_icons_flutter
-      sha256: d6f8b0cc65207d12b84150c20e6333336e2442e1467d79dc49d36dc8df991f09
+      sha256: bc584af4f1e6437f5a4ab17beb03afd933f44ccbe4ee97ba7636def551c9d698
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   matcher:
     dependency: transitive
     description:
