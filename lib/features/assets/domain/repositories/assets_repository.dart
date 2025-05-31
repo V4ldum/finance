@@ -3,7 +3,6 @@ import 'package:finance/features/assets/data/data_sources/finary_data_source.dar
 import 'package:finance/features/assets/data/data_sources/physical_assets_data_source.dart';
 import 'package:finance/features/assets/data/dtos/period_dto.dart';
 import 'package:finance/features/assets/data/dtos/precious_metal_type_dto.dart';
-import 'package:finance/features/assets/data/dtos/type_dto.dart';
 import 'package:finance/features/assets/domain/exceptions/custom_back_exception.dart';
 import 'package:finance/features/assets/domain/exceptions/finary_exception.dart';
 import 'package:finance/features/assets/domain/models/finary_assets_model.dart';
@@ -37,15 +36,18 @@ class AssetsRepository {
     }
 
     try {
-      final summary = await _finaryDataSource.getInvestmentSummary(
-        type: TypeDto.gross,
+      final userInfo = await _finaryDataSource.getUserInfo(accessToken: accessToken);
+      final checkingAccounts = await _finaryDataSource.getCheckingAccounts(
         period: _selectedPeriod,
         accessToken: accessToken,
       );
-      final userInfo = await _finaryDataSource.getUserInfo(accessToken: accessToken);
-      final stocks = await _finaryDataSource.getStocksDetail(period: _selectedPeriod, accessToken: accessToken);
+      final savingsAccounts = await _finaryDataSource.getSavingsAccounts(
+        period: _selectedPeriod,
+        accessToken: accessToken,
+      );
+      final stocks = await _finaryDataSource.getInvestments(period: _selectedPeriod, accessToken: accessToken);
 
-      final assets = FinaryAssetsModel.fromDto(summary, userInfo, stocks, _cache);
+      final assets = FinaryAssetsModel.fromDto(userInfo, checkingAccounts, savingsAccounts, stocks, _cache);
 
       return assets;
     } on DioException catch (e) {

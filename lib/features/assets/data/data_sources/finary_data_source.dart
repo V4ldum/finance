@@ -1,9 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:finance/features/assets/data/dtos/accounts_dto.dart';
 import 'package:finance/features/assets/data/dtos/geographical_repartition_dto.dart';
-import 'package:finance/features/assets/data/dtos/investment_summary_dto.dart';
 import 'package:finance/features/assets/data/dtos/period_dto.dart';
-import 'package:finance/features/assets/data/dtos/stocks_detail_dto.dart';
-import 'package:finance/features/assets/data/dtos/type_dto.dart';
 import 'package:finance/features/assets/data/dtos/user_info_dto.dart';
 import 'package:finance/shared/constants/app_string.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,19 +20,6 @@ class FinaryDataSource {
 
   final Dio _dio = Dio(BaseOptions(baseUrl: AppString.finaryApiUrl));
 
-  Future<InvestmentSummaryDto> getInvestmentSummary({
-    required TypeDto type,
-    required PeriodDto period,
-    required String accessToken,
-  }) async {
-    final response = await _dio.get<JsonMapResponse>(
-      '/users/me/portfolio',
-      options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
-      queryParameters: {'type': type.toApiValue(), 'period': period.toApiValue()},
-    );
-    return InvestmentSummaryDto.fromHttpResponse(response.data!);
-  }
-
   Future<UserInfoDto> getUserInfo({required String accessToken}) async {
     final response = await _dio.get<JsonMapResponse>(
       '/users/me',
@@ -43,13 +28,31 @@ class FinaryDataSource {
     return UserInfoDto.fromHttpResponse(response.data!);
   }
 
-  Future<StocksDetailDto> getStocksDetail({required PeriodDto period, required String accessToken}) async {
+  Future<AccountsDto> getCheckingAccounts({required PeriodDto period, required String accessToken}) async {
     final response = await _dio.get<JsonMapResponse>(
-      '/users/me/portfolio/investments',
+      '/users/me/portfolio/checking_accounts/accounts',
       options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
       queryParameters: {'period': period.toApiValue()},
     );
-    return StocksDetailDto.fromHttpResponse(response.data!);
+    return AccountsDto.fromHttpResponse(response.data!);
+  }
+
+  Future<AccountsDto> getSavingsAccounts({required PeriodDto period, required String accessToken}) async {
+    final response = await _dio.get<JsonMapResponse>(
+      '/users/me/portfolio/savings_accounts/accounts',
+      options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
+      queryParameters: {'period': period.toApiValue()},
+    );
+    return AccountsDto.fromHttpResponse(response.data!);
+  }
+
+  Future<AccountsDto> getInvestments({required PeriodDto period, required String accessToken}) async {
+    final response = await _dio.get<JsonMapResponse>(
+      '/users/me/portfolio/investments/accounts',
+      options: Options(headers: {'Authorization': 'Bearer $accessToken'}),
+      queryParameters: {'period': period.toApiValue()},
+    );
+    return AccountsDto.fromHttpResponse(response.data!);
   }
 
   Future<GeographicalRepartitionDto> getGeographicalRepartition({required String accessToken}) async {

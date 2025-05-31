@@ -1,5 +1,5 @@
+import 'package:finance/features/assets/data/dtos/accounts_dto.dart';
 import 'package:finance/features/assets/data/dtos/physical_assets_dto.dart';
-import 'package:finance/features/assets/data/dtos/summary_values_dto.dart';
 import 'package:finance/features/assets/domain/models/asset_category_model.dart';
 import 'package:finance/features/assets/domain/models/asset_type_model.dart';
 
@@ -14,12 +14,12 @@ class AssetModel {
     this.symbol = '',
   });
 
-  factory AssetModel.fromSummaryDto(String name, SummaryValuesDto summary, AssetCategoryModel category) {
+  factory AssetModel.fromAccountDto(String name, List<AccountDto> accounts, AssetCategoryModel category) {
     return AssetModel(
       id: '',
       name: name,
       amount: 1,
-      value: summary.amount,
+      value: accounts.fold(0, (prev, e) => prev + e.balance),
       category: category,
       type: AssetTypeModel.account,
     );
