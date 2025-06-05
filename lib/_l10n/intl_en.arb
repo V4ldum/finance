@@ -119,6 +119,7 @@
   "physicalAssetsSettingsGoldFavorableRatioGSR": "Gold favorable when lower than",
   "physicalAssetsSettingsSilverFavorableRatioGSR": "Silver favorable when higher than",
   "physicalAssetsSettingsSPToGoldRatio": "SP500 to Gold ratio (SPGR)",
+  "physicalAssetsSettingsSPToGoldRatioExplanation": "Those values will depend on your view on the financial landscale.\n - Set it to [1.0, 2.0] if you want to be conservative on the ratio, and/or are pessimistic toward fiat currency and would like a return to the gold standard.\n - Set it to [1.5, 3.0] if you are optimistic toward fiat currency and more of an investor.\n - If you want a middle ground for those visions, you can try [1.2, 2.5] instead.\nThe default value here is the optimistic one because it's the one that's going to work for more people.",
   "physicalAssetsSettingsSPFavorableRatioSPGR": "SP500 favorable when lower than",
   "physicalAssetsSettingsGoldFavorableRatioSPGR": "Gold favorable when higher than",
   "physicalAssetsSettingsGoldRatio": "Gold ratio",

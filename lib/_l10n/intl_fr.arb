@@ -119,6 +119,7 @@
   "physicalAssetsSettingsGoldFavorableRatioGSR": "Favorable à l'or lorsque inférieur à",
   "physicalAssetsSettingsSilverFavorableRatioGSR": "Favorable à l'argent lorsque supérieur à",
   "physicalAssetsSettingsSPToGoldRatio": "Ratio SP500/Or (SPGR)",
+  "physicalAssetsSettingsSPToGoldRatioExplanation": "Ces valeurs dépendant de votre point du vu sur le paysage financier.\n - Paramétrez les à [1.0, 2.0] si vous voulez être conservateur vis à vis du ratio, et/ou êtes pessimistes vis à vis de la devise fiduciaire and souhaiteriez un retour à l'étalon-or.\n - Paramétrez les à [1.5, 3.0] si vous êtes optimistes vis à vis de la device fiduciaire et êtes plus un investisseur.\n - Si vous souhaitez un entre-deux, vous pouvez essayer [1.5, 2.5].\nLes valeurs par défaut sont celle du profil optimiste car c'est ce qui fonctionnera pour le plus de monde.",
   "physicalAssetsSettingsSPFavorableRatioSPGR": "Favorable au SP500 lorsque inférieur à",
   "physicalAssetsSettingsGoldFavorableRatioSPGR": "Favorable à l'or lorsque supérieur à",
   "physicalAssetsSettingsGoldRatio": "Ratio de l'or",

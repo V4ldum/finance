@@ -9,11 +9,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class PhysicalAssetsSettingsPage extends ConsumerStatefulWidget {
   const PhysicalAssetsSettingsPage({super.key});
 
-  static const defaultGSRGoldFavorableRatio = 30.0;
+  static const defaultGSRGoldFavorableRatio = 60.0;
   static const defaultGSRSilverFavorableRatio = 80.0;
 
-  static const defaultSPGRSPFavorableRatio = 1.0;
-  static const defaultSPGRGoldFavorableRatio = 2.0;
+  static const defaultSPGRSPFavorableRatio = 1.5;
+  static const defaultSPGRGoldFavorableRatio = 3.0;
 
   @override
   ConsumerState<PhysicalAssetsSettingsPage> createState() => _PhysicalAssetsSettingsPageState();
@@ -251,7 +251,12 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
                   ),
                 ],
               ),
-              const SizedBox(height: AppPadding.m),
+              const SizedBox(height: AppPadding.l),
+              Text(
+                S.current.physicalAssetsSettingsSPToGoldRatioExplanation,
+                textAlign: TextAlign.justify,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ],
           ),
         ),
