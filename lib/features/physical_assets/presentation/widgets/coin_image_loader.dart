@@ -20,9 +20,9 @@ class CoinImageLoader extends StatelessWidget {
         height: _defaultSize * 2,
         fit: BoxFit.cover,
         imageUrl: url,
-        errorWidget: (_, __, ___) => const Icon(LucideIcons.imageOff, size: _defaultSize),
+        errorWidget: (_, _, _) => const Icon(LucideIcons.imageOff, size: _defaultSize),
         placeholder:
-            (_, __) => Transform.scale(
+            (_, _) => Transform.scale(
               scale: _loaderScale,
               child: CircularProgressIndicator(color: Theme.of(context).colorScheme.onSurfaceVariant),
             ),

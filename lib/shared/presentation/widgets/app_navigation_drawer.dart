@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-final drawerSelectedIndexProvider = StateProvider((ref) => 0);
+final drawerSelectedIndexProvider = StateProvider<int>((ref) => 0);
 
 class AppNavigationDrawer extends ConsumerWidget {
   const AppNavigationDrawer({super.key});
@@ -58,7 +58,7 @@ class AppNavigationDrawer extends ConsumerWidget {
                           context,
                         ).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
                       ),
-                  error: (_, __) => const SizedBox(),
+                  error: (_, _) => const SizedBox(),
                   loading: () => const SizedBox(),
                 ),
           ),

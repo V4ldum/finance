@@ -18,7 +18,7 @@ class AssetCategoryIcon extends StatelessWidget {
           AssetCategoryModel.speculative => LucideIcons.chartSpline,
           AssetCategoryModel.investment => LucideIcons.circleDollarSign,
           AssetCategoryModel.savings => LucideIcons.piggyBank,
-          AssetCategoryModel.other => LucideIcons.circleHelp,
+          AssetCategoryModel.other => LucideIcons.circleQuestionMark,
         },
         size: AppIconSize.xs,
         color: Theme.of(context).colorScheme.onSecondaryContainer,

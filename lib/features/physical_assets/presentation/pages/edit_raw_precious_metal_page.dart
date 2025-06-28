@@ -402,7 +402,7 @@ class _EditRawPreciousMetalPageState extends ConsumerState<EditRawPreciousMetalP
                                         ],
                                       );
                                     },
-                                    error: (error, __) {
+                                    error: (error, _) {
                                       debugPrint('$error');
                                       return TextSpan(text: S.current.unknownErrorTitle);
                                     },

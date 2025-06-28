@@ -400,7 +400,7 @@ class _EditCoinPageState extends ConsumerState<EditCoinPage> {
                                         ],
                                       );
                                     },
-                                    error: (error, __) {
+                                    error: (error, _) {
                                       debugPrint('$error');
                                       return TextSpan(text: S.current.unknownErrorTitle);
                                     },

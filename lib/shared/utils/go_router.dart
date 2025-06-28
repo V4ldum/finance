@@ -23,21 +23,21 @@ import 'package:go_router/go_router.dart';
 final router = GoRouter(
   initialLocation: AppRoutes._loadingPath,
   routes: [
-    GoRoute(name: AppRoutes.loading, path: AppRoutes._loadingPath, builder: (_, __) => const LoadingPage()),
+    GoRoute(name: AppRoutes.loading, path: AppRoutes._loadingPath, builder: (_, _) => const LoadingPage()),
 
     /// Dashboard
-    GoRoute(name: AppRoutes.dashboard, path: AppRoutes._dashboardPath, builder: (_, __) => const DashboardPage()),
+    GoRoute(name: AppRoutes.dashboard, path: AppRoutes._dashboardPath, builder: (_, _) => const DashboardPage()),
 
     /// Precious Metals
     GoRoute(
       name: AppRoutes.preciousMetals,
       path: AppRoutes._preciousMetalsPath,
-      builder: (_, __) => const PhysicalAssetsPage(),
+      builder: (_, _) => const PhysicalAssetsPage(),
       routes: [
         GoRoute(
           name: AppRoutes.searchCoin,
           path: AppRoutes._searchCoinPath,
-          builder: (_, __) => const SearchCoinPage(),
+          builder: (_, _) => const SearchCoinPage(),
         ),
         GoRoute(
           name: AppRoutes.physicalAssetDetails,
@@ -79,34 +79,34 @@ final router = GoRouter(
     GoRoute(
       name: AppRoutes.settings,
       path: AppRoutes._settingsPath,
-      builder: (_, __) => const SettingsPage(),
+      builder: (_, _) => const SettingsPage(),
       routes: [
         GoRoute(
           name: AppRoutes.authenticationSettings,
           path: AppRoutes._authenticationSettingsPath,
-          builder: (_, __) => const AuthenticationSettingsPage(),
+          builder: (_, _) => const AuthenticationSettingsPage(),
           routes: [
             GoRoute(
               name: AppRoutes.finaryAuthentication,
               path: AppRoutes._finaryAuthenticationPath,
-              builder: (_, __) => const FinaryAuthenticationPage(),
+              builder: (_, _) => const FinaryAuthenticationPage(),
             ),
           ],
         ),
         GoRoute(
           name: AppRoutes.dashboardSettings,
           path: AppRoutes._dashboardSettingsPath,
-          builder: (_, __) => const DashboardSettingsPage(),
+          builder: (_, _) => const DashboardSettingsPage(),
         ),
         GoRoute(
           name: AppRoutes.physicalAssetsSettings,
           path: AppRoutes._physicalAssetsSettingsPath,
-          builder: (_, __) => const PhysicalAssetsSettingsPage(),
+          builder: (_, _) => const PhysicalAssetsSettingsPage(),
         ),
         GoRoute(
           name: AppRoutes.importExport,
           path: AppRoutes._importExportPath,
-          builder: (_, __) => const ImportExportPage(),
+          builder: (_, _) => const ImportExportPage(),
         ),
       ],
     ),
