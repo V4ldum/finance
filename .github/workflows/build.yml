@@ -81,10 +81,10 @@ jobs:
       - name: Decode files
         env:
           KEYSTORE: ${{ secrets.KEYSTORE }}
-          KEY_PROPERTIES: ${{ secrets.KEY_PROPERTIES }}
+          KEYSTORE_PROPERTIES: ${{ secrets.KEYSTORE_PROPERTIES }}
         run: |
           echo $KEYSTORE | base64 -di > "$PWD/android/finance-signing-key.jks"
-          echo $KEY_PROPERTIES | base64 -di > "$PWD/android/key.properties"
+          echo $KEYSTORE_PROPERTIES | base64 -di > "$PWD/android/keystore.properties"
 
       - name: Build project
         run: flutter build apk --split-per-abi
