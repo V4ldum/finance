@@ -1,5 +1,6 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/features/assets/data/dtos/period_dto.dart';
+import 'package:finance/features/assets/domain/models/asset_category_model.dart';
 import 'package:finance/features/assets/domain/models/finary_assets_model.dart';
 import 'package:finance/features/dashboard/presentation/pages/accounts_dashboard_page.dart';
 import 'package:finance/features/dashboard/presentation/pages/distribution_dashboard_page.dart';
@@ -65,7 +66,10 @@ class DashboardTabController extends _$DashboardTabController {
     return switch (state) {
       0 => TabInformation(
         title: S.current.stocks,
-        body: StocksDashboardPage(assetsResult: assetsResult),
+        body: StocksDashboardPage(
+          assetsResult: assetsResult,
+          category: AssetCategoryModel.speculative,
+        ),
         actions: [
           assetsResult.maybeWhen(
             data:
@@ -80,6 +84,25 @@ class DashboardTabController extends _$DashboardTabController {
         ],
       ),
       1 => TabInformation(
+        title: S.current.stocks,
+        body: StocksDashboardPage(
+          assetsResult: assetsResult,
+          category: AssetCategoryModel.investment,
+        ),
+        actions: [
+          assetsResult.maybeWhen(
+            data:
+                (assets) =>
+                    assets.lastSyncFinary !=
+                            null //
+                        ? LastSyncText(sync: assets.lastSyncFinary!)
+                        : const SizedBox(),
+            orElse: () => const SizedBox(),
+          ),
+          const SizedBox(width: AppPadding.s),
+        ],
+      ),
+      2 => TabInformation(
         title: S.current.accounts,
         body: AccountsDashboardPage(assetsResult: assetsResult),
         actions: [
@@ -95,7 +118,7 @@ class DashboardTabController extends _$DashboardTabController {
           const SizedBox(width: AppPadding.s),
         ],
       ),
-      2 => TabInformation(
+      3 => TabInformation(
         title: S.current.preciousMetals,
         body: const PreciousMetalsDashboardPage(),
         actions: [
@@ -112,7 +135,7 @@ class DashboardTabController extends _$DashboardTabController {
           ),
         ],
       ),
-      3 => TabInformation(
+      4 => TabInformation(
         title: S.current.distribution,
         body: DistributionDashboardPage(assetsResult: assetsResult),
         actions: [

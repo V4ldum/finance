@@ -1,4 +1,5 @@
 import 'package:finance/_l10n/_generated/l10n.dart';
+import 'package:finance/features/assets/domain/models/asset_category_model.dart';
 import 'package:finance/features/assets/domain/models/asset_type_model.dart';
 import 'package:finance/features/assets/domain/models/finary_asset_model.dart';
 import 'package:finance/features/assets/domain/models/finary_assets_model.dart';
@@ -13,9 +14,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 
 class StocksDashboardPage extends ConsumerWidget {
-  const StocksDashboardPage({required this.assetsResult, super.key});
+  const StocksDashboardPage({
+    required this.assetsResult,
+    required this.category,
+    super.key,
+  });
 
   final AsyncValue<FinaryAssetsModel> assetsResult;
+  final AssetCategoryModel category;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,7 +40,11 @@ class StocksDashboardPage extends ConsumerWidget {
                     assetsFilter:
                         () =>
                             assets.assets
-                                .where((e) => e.type == AssetTypeModel.stock || e.type == AssetTypeModel.fund)
+                                .where(
+                                  (e) =>
+                                      (e.type == AssetTypeModel.stock || e.type == AssetTypeModel.fund) &&
+                                      e.category == category,
+                                )
                                 .map(
                                   (e) => PieData(
                                     title: e.name,

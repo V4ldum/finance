@@ -31,8 +31,8 @@ class FinaryAssetModel extends AssetModel {
       amount: security.quantity,
       value: security.security.unitPrice,
       category: switch (security.security.type) {
-        StockAccountSecurityTypeDto.etf || StockAccountSecurityTypeDto.fund => AssetCategoryModel.investment,
-        StockAccountSecurityTypeDto.equity =>
+        StockAccountSecurityTypeDto.etf /*|| StockAccountSecurityTypeDto.fund */ => AssetCategoryModel.investment,
+        StockAccountSecurityTypeDto.equity || StockAccountSecurityTypeDto.fund =>
           cache.investmentStocksSymbols.contains(security.security.symbol)
               // Bare stock
               ? AssetCategoryModel

@@ -23,7 +23,8 @@ class DashboardPage extends ConsumerWidget {
         onDestinationSelected: ref.read(dashboardTabControllerProvider.notifier).onTabSelected,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         destinations: [
-          NavigationDestination(icon: const Icon(LucideIcons.landmark), label: S.current.stocks),
+          NavigationDestination(icon: const Icon(LucideIcons.chartSpline), label: S.current.stocks),
+          NavigationDestination(icon: const Icon(LucideIcons.banknoteArrowUp), label: S.current.stocks),
           NavigationDestination(icon: const Icon(LucideIcons.walletMinimal), label: S.current.accounts),
           NavigationDestination(icon: const Icon(LucideIcons.anvil), label: S.current.preciousMetals),
           NavigationDestination(icon: const Icon(LucideIcons.chartPie), label: S.current.distribution),

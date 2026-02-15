@@ -45,7 +45,11 @@ class DashboardSettingsPage extends ConsumerWidget {
               assetsResult.when(
                 data: (data) {
                   final stocks =
-                      data.assets.where((element) => element.type == AssetTypeModel.stock).toList()
+                      data.assets
+                          .where(
+                            (element) => element.type == AssetTypeModel.stock || element.type == AssetTypeModel.fund,
+                          )
+                          .toList()
                         ..sort((a, b) => a.name.compareTo(b.name));
 
                   if (stocks.isEmpty) {
