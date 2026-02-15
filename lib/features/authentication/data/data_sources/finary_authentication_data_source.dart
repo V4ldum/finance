@@ -45,7 +45,7 @@ class FinaryAuthenticationDataSource {
       );
       return AuthenticationDto.fromHttpResponse(response);
     } on DioException catch (e) {
-      if (e.response!.statusCode != 400) {
+      if (e.response == null || e.response!.statusCode != 400) {
         rethrow;
       }
       // If 400, clear our cookies and retry. It might mean we have a de-sync error
