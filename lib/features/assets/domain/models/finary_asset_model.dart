@@ -19,12 +19,17 @@ class FinaryAssetModel extends AssetModel {
   });
 
   factory FinaryAssetModel.fromStockAccountSecurityDto(StockAccountSecurityDto security, AppCache cache) {
+    if (security.security.type == StockAccountSecurityTypeDto.unknown) {
+      print(security.security.name);
+      print(security.security.symbol);
+    }
+
     return FinaryAssetModel(
       evolution: security.evolution,
       evolutionPercent: security.evolutionPercent,
       id: security.security.isin,
       name:
-          security.security.type == StockAccountSecurityTypeDto.unknown
+          security.security.type == StockAccountSecurityTypeDto.unknown && security.security.symbol.startsWith('XX')
               ? S.current.stocksLiquidity
               : security.security.name,
       symbol: security.security.symbol,
@@ -36,14 +41,18 @@ class FinaryAssetModel extends AssetModel {
           cache.investmentStocksSymbols.contains(security.security.symbol)
               // Bare stock
               ? AssetCategoryModel
-                  .investment // Override default behaviour:
+                  .investment // Override default behaviour
               : AssetCategoryModel.speculative,
-        StockAccountSecurityTypeDto.unknown => AssetCategoryModel.other, // Liquidity account
+        StockAccountSecurityTypeDto.unknown when security.security.symbol.startsWith('XX') =>
+          AssetCategoryModel.other, // Liquidity account
+        StockAccountSecurityTypeDto.unknown => AssetCategoryModel.investment,
       },
       type: switch (security.security.type) {
         StockAccountSecurityTypeDto.etf || StockAccountSecurityTypeDto.fund => AssetTypeModel.fund,
         StockAccountSecurityTypeDto.equity => AssetTypeModel.stock, // Bare stock
-        StockAccountSecurityTypeDto.unknown => AssetTypeModel.account, // Liquidity account
+        StockAccountSecurityTypeDto.unknown when security.security.symbol.startsWith('XX') =>
+          AssetTypeModel.account, // Liquidity account
+        StockAccountSecurityTypeDto.unknown => AssetTypeModel.fund,
       },
     );
   }
