@@ -21,7 +21,7 @@ sealed class AccountsDto with _$AccountsDto {
 sealed class AccountDto with _$AccountDto {
   const factory AccountDto({
     required String name,
-    required double balance,
+    @JsonKey(defaultValue: 0) required double balance,
     @JsonKey(defaultValue: [])
     required List<StockAccountSecurityDto> securities, // Only useful for the investment account
   }) = _AccountDto;
