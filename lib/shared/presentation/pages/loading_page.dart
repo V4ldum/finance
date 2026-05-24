@@ -1,4 +1,3 @@
-import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/shared/constants/app_asset.dart';
 import 'package:finance/shared/constants/app_component_size.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
@@ -22,7 +21,7 @@ class LoadingPage extends ConsumerWidget {
       }
     } catch (e) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(S.current.genericError)));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
       }
       rethrow;
     }

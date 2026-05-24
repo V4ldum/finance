@@ -19,11 +19,6 @@ class FinaryAssetModel extends AssetModel {
   });
 
   factory FinaryAssetModel.fromStockAccountSecurityDto(StockAccountSecurityDto security, AppCache cache) {
-    if (security.security.type == StockAccountSecurityTypeDto.unknown) {
-      print(security.security.name);
-      print(security.security.symbol);
-    }
-
     return FinaryAssetModel(
       evolution: security.evolution,
       evolutionPercent: security.evolutionPercent,
