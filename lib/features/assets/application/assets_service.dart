@@ -28,7 +28,7 @@ class AssetsService {
   FinaryAuthenticationRepository get _finaryAuthenticationRepository =>
       _ref.read(finaryAuthenticationRepositoryProvider);
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);
-  PreciousMetalsTradeRepository get _preciousMetalsTradeRepository => _ref.read(preciousMetalsTradeRepositoryProvider);
+  PreciousMetalsPriceRepository get _preciousMetalsTradeRepository => _ref.read(preciousMetalsPriceRepositoryProvider);
   AppCache get _appCache => _ref.read(appCacheControllerProvider);
   AppCacheController get _appCacheController => _ref.read(appCacheControllerProvider.notifier);
 
@@ -51,8 +51,8 @@ class AssetsService {
   /// Physical Assets
   Future<PhysicalAssetsModel> _getPhysicalAssets() async {
     final assets = await _assetsRepository.getPhysicalAssets(
-      goldTradePrice: (await _preciousMetalsTradeRepository.getGoldTradeValue()).grams,
-      silverTradePrice: (await _preciousMetalsTradeRepository.getSilverTradeValue()).grams,
+      goldTradePrice: (await _preciousMetalsTradeRepository.getGoldPrice()).grams,
+      silverTradePrice: (await _preciousMetalsTradeRepository.getSilverPrice()).grams,
     );
 
     return assets;

@@ -1,51 +1,51 @@
 import 'package:dio/dio.dart';
 import 'package:finance/features/assets/domain/exceptions/custom_back_exception.dart';
-import 'package:finance/features/physical_assets/data/data_sources/precious_metals_trade_data_source.dart';
+import 'package:finance/features/physical_assets/data/data_sources/precious_metals_price_data_source.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
-import 'package:finance/features/physical_assets/domain/models/precious_metals_trade_value_model.dart';
-import 'package:finance/features/physical_assets/domain/models/sp500_trade_value_model.dart';
+import 'package:finance/features/physical_assets/domain/models/precious_metals_price_model.dart';
+import 'package:finance/features/physical_assets/domain/models/sp500_price_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/precious_metals_trade_repository.g.dart';
 
 @riverpod
-PreciousMetalsTradeRepository preciousMetalsTradeRepository(Ref ref) {
-  return PreciousMetalsTradeRepository(ref);
+PreciousMetalsPriceRepository preciousMetalsPriceRepository(Ref ref) {
+  return PreciousMetalsPriceRepository(ref);
 }
 
-class PreciousMetalsTradeRepository {
-  PreciousMetalsTradeRepository(this._ref);
+class PreciousMetalsPriceRepository {
+  PreciousMetalsPriceRepository(this._ref);
 
   final Ref _ref;
 
-  PreciousMetalsTradeDataSource get _preciousMetalsTradeDataSource => _ref.read(preciousMetalsTradeDataSourceProvider);
+  PreciousMetalsPriceDataSource get _preciousMetalsPriceDataSource => _ref.read(preciousMetalsPriceDataSourceProvider);
 
-  Future<PreciousMetalTradeValueModel> getGoldTradeValue() async {
+  Future<PreciousMetalPriceModel> getGoldPrice() async {
     try {
-      final value = await _preciousMetalsTradeDataSource.getGoldValue();
+      final value = await _preciousMetalsPriceDataSource.getGoldPrice();
 
-      return PreciousMetalTradeValueModel.fromDto(value, PreciousMetalTypeModel.gold);
+      return PreciousMetalPriceModel.fromDto(value, PreciousMetalTypeModel.gold);
     } on DioException catch (e) {
       throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
   }
 
-  Future<PreciousMetalTradeValueModel> getSilverTradeValue() async {
+  Future<PreciousMetalPriceModel> getSilverPrice() async {
     try {
-      final value = await _preciousMetalsTradeDataSource.getSilverValue();
+      final value = await _preciousMetalsPriceDataSource.getSilverPrice();
 
-      return PreciousMetalTradeValueModel.fromDto(value, PreciousMetalTypeModel.silver);
+      return PreciousMetalPriceModel.fromDto(value, PreciousMetalTypeModel.silver);
     } on DioException catch (e) {
       throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }
   }
 
-  Future<SP500TradeValueModel> getSP500TradeValue() async {
+  Future<SP500PriceModel> getSP500Price() async {
     try {
-      final value = await _preciousMetalsTradeDataSource.getSP500Value();
+      final value = await _preciousMetalsPriceDataSource.getSP500Price();
 
-      return SP500TradeValueModel.fromDto(value);
+      return SP500PriceModel.fromDto(value);
     } on DioException catch (e) {
       throw CustomBackException.fromStatusCode(e.response?.statusCode);
     }

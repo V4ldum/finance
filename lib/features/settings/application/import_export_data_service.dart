@@ -19,7 +19,7 @@ class ImportExportDataService {
 
   ImportExportDataRepository get _importExportDataRepository => _ref.read(importExportDataRepositoryProvider);
   LocalStorageRepository get _localStorageRepository => _ref.read(localStorageRepositoryProvider);
-  PreciousMetalsTradeRepository get _preciousMetalsTradeRepository => _ref.read(preciousMetalsTradeRepositoryProvider);
+  PreciousMetalsPriceRepository get _preciousMetalsTradeRepository => _ref.read(preciousMetalsPriceRepositoryProvider);
   AppCacheController get _cacheController => _ref.read(appCacheControllerProvider.notifier);
 
   Future<void> export() async {
@@ -28,8 +28,8 @@ class ImportExportDataService {
 
   Future<void> import() async {
     final cache = await _importExportDataRepository.import(
-      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldTradeValue,
-      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverTradeValue,
+      goldTradePriceFuture: _preciousMetalsTradeRepository.getGoldPrice,
+      silverTradePriceFuture: _preciousMetalsTradeRepository.getSilverPrice,
     );
 
     if (cache == null) {

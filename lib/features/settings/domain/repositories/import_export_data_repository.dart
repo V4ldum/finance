@@ -5,7 +5,7 @@ import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:finance/features/authentication/data/data_sources/finary_authentication_data_source.dart';
-import 'package:finance/features/physical_assets/domain/models/precious_metals_trade_value_model.dart';
+import 'package:finance/features/physical_assets/domain/models/precious_metals_price_model.dart';
 import 'package:finance/features/settings/data/data_sources/file_picker_data_source.dart';
 import 'package:finance/shared/constants/app_string.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
@@ -49,8 +49,8 @@ class ImportExportDataRepository {
   }
 
   Future<AppCache?> import({
-    required Future<PreciousMetalTradeValueModel> Function() goldTradePriceFuture,
-    required Future<PreciousMetalTradeValueModel> Function() silverTradePriceFuture,
+    required Future<PreciousMetalPriceModel> Function() goldTradePriceFuture,
+    required Future<PreciousMetalPriceModel> Function() silverTradePriceFuture,
   }) async {
     final file = await _filePickerDataSource.openDialogReadFile(
       fileExtensionsFilter: ['json'],

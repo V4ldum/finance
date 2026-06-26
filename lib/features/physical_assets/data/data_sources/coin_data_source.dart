@@ -15,7 +15,7 @@ CoinDataSource coinDataSource(Ref ref) {
 
   final dio = Dio(
     BaseOptions(
-      baseUrl: AppString.preciousMetalTradeValueApi,
+      baseUrl: AppString.preciousMetalPriceApi,
       headers: {AppString.customBackHeader: cache.customBackApiKey},
     ),
   );

@@ -10,7 +10,7 @@ class AppString {
   static const finaryAppUrl = 'https://app.finary.com';
   static const finaryClerkApiUrl = 'https://clerk.finary.com';
 
-  static const preciousMetalTradeValueApi = 'https://finance.valdum.dev/api';
+  static const preciousMetalPriceApi = 'https://finance.valdum.dev/api';
   static const physicalAssetsApi = 'https://finance.valdum.dev/api';
   static const customBackHeader = 'X-API-KEY';
 }

@@ -1,18 +1,18 @@
-import 'package:finance/features/physical_assets/data/dtos/trade_values_dto.dart';
+import 'package:finance/features/physical_assets/data/dtos/prices_dto.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
 
-class PreciousMetalTradeValueModel {
-  PreciousMetalTradeValueModel({
+class PreciousMetalPriceModel {
+  PreciousMetalPriceModel({
     required this.metal,
     required this.grams,
     required this.troyOunces,
     required this.lastUpdated,
   });
 
-  factory PreciousMetalTradeValueModel.fromDto(TradeValueDto dto, PreciousMetalTypeModel type) {
+  factory PreciousMetalPriceModel.fromDto(PriceDto dto, PreciousMetalTypeModel type) {
     const troyOunceToGramsRatio = 0.032151;
 
-    return PreciousMetalTradeValueModel(
+    return PreciousMetalPriceModel(
       metal: type,
       grams: dto.price * troyOunceToGramsRatio,
       troyOunces: dto.price,
