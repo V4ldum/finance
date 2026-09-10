@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:finance/features/settings/presentation/pages/physical_assets_settings_page.dart';
 import 'package:finance/shared/data/data_sources/local_storage_data_source.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/local_storage_repository.g.dart';
@@ -33,7 +32,7 @@ class LocalStorageRepository {
   }
 
   Future<String?> readSessionId() async {
-    return _dataSource.read(_finarySessionIdKey);
+    return await _dataSource.read(_finarySessionIdKey);
   }
 
   Future<void> clearSessionId() async {
@@ -46,7 +45,7 @@ class LocalStorageRepository {
   }
 
   Future<String?> readCustomBackApiKey() async {
-    return _dataSource.read(_customBackApiKeyKey);
+    return await _dataSource.read(_customBackApiKeyKey);
   }
 
   /// Investment Stocks Symbols

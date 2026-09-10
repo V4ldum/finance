@@ -28,11 +28,11 @@ class PhysicalAssetDetailsPage extends ConsumerStatefulWidget {
 class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsPage> {
   bool isLoading = false;
 
-  void _onTapDetails(BuildContext context) {
-    context.pushNamed(AppRoutes.coinDetails, extra: ((widget.asset as PreciousMetalAssetModel).id, false));
+  Future<void> _onTapDetails(BuildContext context) async {
+    await context.pushNamed(AppRoutes.coinDetails, extra: ((widget.asset as PreciousMetalAssetModel).id, false));
   }
 
-  void _onTapEdit(BuildContext context) {
+  Future<void> _onTapEdit(BuildContext context) async {
     late final String route;
 
     if (widget.asset is! PreciousMetalAssetModel) {
@@ -45,7 +45,7 @@ class _PhysicalAssetDetailsPageState extends ConsumerState<PhysicalAssetDetailsP
       }
     }
 
-    context.pushNamed(route, extra: widget.asset);
+    await context.pushNamed(route, extra: widget.asset);
   }
 
   Future<void> _onTapDelete() async {

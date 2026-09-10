@@ -8,8 +8,8 @@ class CoinFaceImage extends StatelessWidget {
 
   final CoinFaceModel coinFace;
 
-  void _openCoinFaceImage(BuildContext context) {
-    showDialog<void>(
+  Future<void> _openCoinFaceImage(BuildContext context) async {
+    await showDialog<void>(
       context: context,
       builder:
           (context) => SimpleDialog(

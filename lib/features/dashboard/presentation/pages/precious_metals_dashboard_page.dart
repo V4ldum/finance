@@ -48,10 +48,12 @@ class PreciousMetalsDashboardPage extends ConsumerWidget {
                                 0,
                                 (prev, e) =>
                                     ref.watch(showPreciousMetalWeightControllerProvider)
-                                        ? prev +=
-                                            (e as PreciousMetalAssetModel).metalType == type ? e.totalWeight.toInt() : 0
-                                        : prev +=
-                                            (e as PreciousMetalAssetModel).metalType == type ? e.total.toInt() : 0,
+                                        ? prev +
+                                            ((e as PreciousMetalAssetModel).metalType == type
+                                                ? e.totalWeight.toInt()
+                                                : 0)
+                                        : prev +
+                                            ((e as PreciousMetalAssetModel).metalType == type ? e.total.toInt() : 0),
                               ),
                         ),
                       )

@@ -58,7 +58,7 @@ class DashboardChart extends ConsumerWidget {
       );
     }
 
-    final total = data.fold(0, (prev, e) => prev += e.value);
+    final total = data.fold(0, (prev, e) => prev + e.value);
 
     return SingleChildScrollView(
       physics: const AlwaysScrollableScrollPhysics(),
@@ -93,8 +93,8 @@ class DashboardChart extends ConsumerWidget {
                           child: FilterChip(
                             label: Text(p.toIntlString()),
                             selected: p == ref.watch(selectedPeriodControllerProvider),
-                            onSelected: (_) {
-                              ref.read(selectedPeriodControllerProvider.notifier).onSelected(p);
+                            onSelected: (_) async {
+                              await ref.read(selectedPeriodControllerProvider.notifier).onSelected(p);
                             },
                             showCheckmark: false,
                           ),

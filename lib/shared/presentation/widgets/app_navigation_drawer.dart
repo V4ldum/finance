@@ -4,6 +4,7 @@ import 'package:finance/shared/presentation/providers/app_version_controller.dar
 import 'package:finance/shared/utils/go_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 

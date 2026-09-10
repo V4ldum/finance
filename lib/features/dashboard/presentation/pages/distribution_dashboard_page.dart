@@ -36,7 +36,7 @@ class DistributionDashboardPage extends ConsumerWidget {
                           .map(
                             (category) => PieData(
                               title: category.toIntlString(),
-                              value: data.fold(0, (prev, e) => prev += e.category == category ? e.total.toInt() : 0),
+                              value: data.fold(0, (prev, e) => prev + (e.category == category ? e.total.toInt() : 0)),
                             ),
                           )
                           .toList()

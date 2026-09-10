@@ -3,7 +3,6 @@ import 'package:finance/features/authentication/data/data_sources/finary_authent
 import 'package:finance/features/authentication/domain/exceptions/finary_authentication_exception.dart';
 import 'package:finance/features/authentication/domain/models/finary_authentication_model.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/authentication_repository.g.dart';

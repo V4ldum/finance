@@ -33,12 +33,12 @@ class _SearchCoinPageState extends ConsumerState<SearchCoinPage> {
     setState(_controller.clear);
   }
 
-  void _search() {
+  Future<void> _search() async {
     if (_controller.text.isEmpty) {
       return;
     }
 
-    ref.read(searchCoinsControllerProvider.notifier).searchCoins(query: _controller.text);
+    await ref.read(searchCoinsControllerProvider.notifier).searchCoins(query: _controller.text);
   }
 
   @override

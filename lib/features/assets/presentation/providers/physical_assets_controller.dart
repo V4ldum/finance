@@ -7,9 +7,9 @@ part '_generated/physical_assets_controller.g.dart';
 @riverpod
 class PhysicalAssetsController extends _$PhysicalAssetsController {
   @override
-  Future<PhysicalAssetsModel> build() async => ref.read(assetsServiceProvider).getPhysicalAssets();
+  Future<PhysicalAssetsModel> build() async => await ref.read(assetsServiceProvider).getPhysicalAssets();
 
   Future<void> refreshAssets() async {
-    state = await AsyncValue.guard(() async => ref.read(assetsServiceProvider).refreshPhysicalAssets());
+    state = await AsyncValue.guard(() async => await ref.read(assetsServiceProvider).refreshPhysicalAssets());
   }
 }

@@ -7,5 +7,5 @@ part '_generated/get_coin_detail_controller.g.dart';
 @riverpod
 class GetCoinDetailController extends _$GetCoinDetailController {
   @override
-  Future<CoinModel> build(int coinId) async => ref.read(coinsRepositoryProvider).getCoin(id: coinId);
+  Future<CoinModel> build(int coinId) async => await ref.read(coinsRepositoryProvider).getCoin(id: coinId);
 }

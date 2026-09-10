@@ -72,12 +72,12 @@ class DashboardSettingsPage extends ConsumerWidget {
                         contentPadding: const EdgeInsets.only(left: AppPadding.l, right: AppPadding.m),
                         dense: true,
                         value: ref.watch(appCacheControllerProvider).investmentStocksSymbols.contains(stock.symbol),
-                        onChanged: (value) {
+                        onChanged: (value) async {
                           if (value case true) {
-                            ref.read(assetsServiceProvider).addInvestmentStockSymbol(stock.symbol);
+                            await ref.read(assetsServiceProvider).addInvestmentStockSymbol(stock.symbol);
                           }
                           if (value case false) {
-                            ref.read(assetsServiceProvider).removeInvestmentStockSymbol(stock.symbol);
+                            await ref.read(assetsServiceProvider).removeInvestmentStockSymbol(stock.symbol);
                           }
                         },
                         title: Text(stock.name, style: Theme.of(context).textTheme.bodyMedium),

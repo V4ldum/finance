@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:finance/features/assets/domain/exceptions/custom_back_exception.dart';
 import 'package:finance/features/physical_assets/data/data_sources/coin_data_source.dart';
 import 'package:finance/features/physical_assets/domain/models/coin_model.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/coins_repository.g.dart';

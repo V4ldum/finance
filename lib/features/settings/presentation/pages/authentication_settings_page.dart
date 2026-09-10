@@ -21,8 +21,8 @@ class AuthenticationSettingsPage extends ConsumerWidget {
     ref.read(finaryAuthenticationControllerProvider.notifier).logIn();
   }
 
-  void _logOutButtonTapped(WidgetRef ref) {
-    ref.read(finaryAuthenticationControllerProvider.notifier).logOut();
+  Future<void> _logOutButtonTapped(WidgetRef ref) async {
+    await ref.read(finaryAuthenticationControllerProvider.notifier).logOut();
   }
 
   @override

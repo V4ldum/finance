@@ -10,7 +10,6 @@ import 'package:finance/features/assets/domain/models/physical_assets_model.dart
 import 'package:finance/features/dashboard/presentation/providers/providers.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_repository.g.dart';

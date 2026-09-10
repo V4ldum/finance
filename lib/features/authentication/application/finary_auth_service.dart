@@ -2,7 +2,6 @@ import 'package:finance/features/authentication/domain/models/finary_authenticat
 import 'package:finance/features/authentication/domain/repositories/authentication_repository.dart';
 import 'package:finance/shared/domain/repositories/local_storage_repository.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/finary_auth_service.g.dart';

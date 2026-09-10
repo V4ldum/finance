@@ -55,7 +55,7 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
     return double.parse(_spgrGoldFavorableRatioController.text);
   }
 
-  void _onGSRGoldRatioFocusChanged(bool gotFocus) {
+  Future<void> _onGSRGoldRatioFocusChanged(bool gotFocus) async {
     if (!gotFocus) {
       setState(() {
         // default value if empty
@@ -70,11 +70,11 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
           }
         }
       });
-      ref.read(ratioServiceProvider).updateGSRGoldFavorableRatio(_gsrGoldFavorableRatio);
+      await ref.read(ratioServiceProvider).updateGSRGoldFavorableRatio(_gsrGoldFavorableRatio);
     }
   }
 
-  void _onGSRSilverRatioFocusChanged(bool gotFocus) {
+  Future<void> _onGSRSilverRatioFocusChanged(bool gotFocus) async {
     if (!gotFocus) {
       setState(() {
         // default value if empty
@@ -91,11 +91,11 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
         }
       });
 
-      ref.read(ratioServiceProvider).updateGSRSilverFavorableRatio(_gsrSilverFavorableRatio);
+      await ref.read(ratioServiceProvider).updateGSRSilverFavorableRatio(_gsrSilverFavorableRatio);
     }
   }
 
-  void _onSPGRSPRatioFocusChanged(bool gotFocus) {
+  Future<void> _onSPGRSPRatioFocusChanged(bool gotFocus) async {
     if (!gotFocus) {
       setState(() {
         // default value if empty
@@ -110,11 +110,11 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
           }
         }
       });
-      ref.read(ratioServiceProvider).updateSPGRSPFavorableRatio(_spgrSPFavorableRatio);
+      await ref.read(ratioServiceProvider).updateSPGRSPFavorableRatio(_spgrSPFavorableRatio);
     }
   }
 
-  void _onSPGRGoldRatioFocusChanged(bool gotFocus) {
+  Future<void> _onSPGRGoldRatioFocusChanged(bool gotFocus) async {
     if (!gotFocus) {
       setState(() {
         // default value if empty
@@ -129,7 +129,7 @@ class _PhysicalAssetsSettingsPageState extends ConsumerState<PhysicalAssetsSetti
           }
         }
       });
-      ref.read(ratioServiceProvider).updateSPGRGoldFavorableRatio(_spgrGoldFavorableRatio);
+      await ref.read(ratioServiceProvider).updateSPGRGoldFavorableRatio(_spgrGoldFavorableRatio);
     }
   }
 

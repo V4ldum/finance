@@ -44,17 +44,17 @@ sealed class StockAccountSecurityDto with _$StockAccountSecurityDto {
 
   factory StockAccountSecurityDto.fromLiquidityArray(Iterable<StockAccountSecurityDto> array) {
     return StockAccountSecurityDto(
-      total: array.fold(0, (prev, e) => prev += e.total),
-      evolution: array.fold<double>(0, (prev, e) => prev += e.evolution),
-      evolutionPercent: array.fold<double>(0, (prev, e) => prev += e.evolutionPercent) / array.length,
-      buyingPrice: array.fold(0, (prev, e) => prev += e.buyingPrice),
+      total: array.fold(0, (prev, e) => prev + e.total),
+      evolution: array.fold<double>(0, (prev, e) => prev + e.evolution),
+      evolutionPercent: array.fold<double>(0, (prev, e) => prev + e.evolutionPercent) / array.length,
+      buyingPrice: array.fold(0, (prev, e) => prev + e.buyingPrice),
       quantity: 1,
       security: StockAccountSecurityInformationDto(
         name: array.first.security.name,
         symbol: array.first.security.symbol,
         isin: array.first.security.isin,
         logoUrl: array.first.security.logoUrl,
-        unitPrice: array.fold(0, (prev, e) => prev += e.security.unitPrice),
+        unitPrice: array.fold(0, (prev, e) => prev + e.security.unitPrice),
         type: StockAccountSecurityTypeDto.unknown,
       ),
     );

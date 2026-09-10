@@ -3,7 +3,6 @@ import 'package:finance/features/physical_assets/data/dtos/coin_dto.dart';
 import 'package:finance/features/physical_assets/data/dtos/coins_search_dto.dart';
 import 'package:finance/shared/constants/app_string.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:meta_package/meta_package.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

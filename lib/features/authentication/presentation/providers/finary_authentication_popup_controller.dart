@@ -27,7 +27,7 @@ class FinaryAuthenticationProcessController extends _$FinaryAuthenticationProces
     });
 
     // No errors & OTP not required
-    if (!state.hasError && state.requireValue == false) {
+    if (!state.hasError && !state.requireValue) {
       _authenticationStatus = null;
     }
   }
@@ -46,7 +46,7 @@ class FinaryAuthenticationProcessController extends _$FinaryAuthenticationProces
     });
 
     // No errors & OTP not required
-    if (!state.hasError && state.requireValue == true) {
+    if (!state.hasError && state.requireValue) {
       _authenticationStatus = null;
     }
   }

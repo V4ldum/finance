@@ -73,9 +73,9 @@ class _LoginContentState extends ConsumerState<_LoginContent> {
     });
   }
 
-  void _logInTapped() {
+  Future<void> _logInTapped() async {
     if (formKey.isFormValid) {
-      ref
+      await ref
           .read(finaryAuthenticationProcessControllerProvider.notifier)
           .logInFinary(loginController.text, passwordController.text, onSuccess: widget.onLogInSuccess);
     }
@@ -176,9 +176,9 @@ class _OtpContentState extends ConsumerState<_OtpContent> {
     });
   }
 
-  void _logInTapped() {
+  Future<void> _logInTapped() async {
     if (formKey.isFormValid) {
-      ref
+      await ref
           .read(finaryAuthenticationProcessControllerProvider.notifier)
           .logInFinaryWithOtp(otpController.text, onSuccess: widget.onLogInSuccess);
     }

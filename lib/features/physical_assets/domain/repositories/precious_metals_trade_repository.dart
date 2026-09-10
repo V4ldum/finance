@@ -4,7 +4,6 @@ import 'package:finance/features/physical_assets/data/data_sources/precious_meta
 import 'package:finance/features/physical_assets/domain/models/precious_metal_type_model.dart';
 import 'package:finance/features/physical_assets/domain/models/precious_metals_price_model.dart';
 import 'package:finance/features/physical_assets/domain/models/sp500_price_model.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/precious_metals_trade_repository.g.dart';

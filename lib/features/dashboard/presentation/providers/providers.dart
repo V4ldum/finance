@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:finance/_l10n/_generated/l10n.dart';
 import 'package:finance/features/assets/data/dtos/period_dto.dart';
 import 'package:finance/features/assets/domain/models/asset_category_model.dart';
@@ -123,7 +125,7 @@ class DashboardTabController extends _$DashboardTabController {
         body: const PreciousMetalsDashboardPage(),
         actions: [
           Consumer(
-            builder: (BuildContext context, WidgetRef ref, Widget? child) {
+            builder: (context, ref, child) {
               return IconButton(
                 onPressed: ref.read(showPreciousMetalWeightControllerProvider.notifier).swap,
                 icon:
@@ -175,9 +177,9 @@ class SelectedPeriodController extends _$SelectedPeriodController {
     return PeriodDto.ytd;
   }
 
-  void onSelected(PeriodDto value) {
+  Future<void> onSelected(PeriodDto value) async {
     if (value != state) {
-      refreshIndicatorKey.currentState?.show();
+      unawaited(refreshIndicatorKey.currentState?.show());
       state = value;
     }
   }

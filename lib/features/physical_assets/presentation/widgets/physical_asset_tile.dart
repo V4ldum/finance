@@ -16,8 +16,8 @@ class PhysicalAssetTile extends StatelessWidget {
 
   final AssetModel asset;
 
-  void _onTap(BuildContext context) {
-    context.pushNamed(AppRoutes.physicalAssetDetails, extra: asset);
+  Future<void> _onTap(BuildContext context) async {
+    await context.pushNamed(AppRoutes.physicalAssetDetails, extra: asset);
   }
 
   @override

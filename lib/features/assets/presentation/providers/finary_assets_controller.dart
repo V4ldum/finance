@@ -7,9 +7,9 @@ part '_generated/finary_assets_controller.g.dart';
 @riverpod
 class FinaryAssetsController extends _$FinaryAssetsController {
   @override
-  Future<FinaryAssetsModel> build() async => ref.read(assetsServiceProvider).getFinaryAssets();
+  Future<FinaryAssetsModel> build() async => await ref.read(assetsServiceProvider).getFinaryAssets();
 
   Future<void> refreshAssets() async {
-    state = await AsyncValue.guard(() async => ref.read(assetsServiceProvider).refreshFinaryAssets());
+    state = await AsyncValue.guard(() async => await ref.read(assetsServiceProvider).refreshFinaryAssets());
   }
 }

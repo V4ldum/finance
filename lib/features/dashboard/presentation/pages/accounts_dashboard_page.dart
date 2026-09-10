@@ -39,11 +39,11 @@ class AccountsDashboardPage extends ConsumerWidget {
                   title: S.current.preciousMetals,
                   value: data
                       .where((e) => e.type == AssetTypeModel.preciousMetal)
-                      .fold(0, (prev, e) => prev += e.total.toInt()),
+                      .fold(0, (prev, e) => prev + e.total.toInt()),
                 );
                 final cash = PieData(
                   title: S.current.cash,
-                  value: data.where((e) => e.type == AssetTypeModel.cash).fold(0, (prev, e) => prev += e.total.toInt()),
+                  value: data.where((e) => e.type == AssetTypeModel.cash).fold(0, (prev, e) => prev + e.total.toInt()),
                 );
 
                 return [...accounts, if (preciousMetals.value > 0) preciousMetals, if (cash.value > 0) cash];

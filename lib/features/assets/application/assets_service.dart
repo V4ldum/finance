@@ -9,7 +9,6 @@ import 'package:finance/features/physical_assets/domain/models/precious_metal_ty
 import 'package:finance/features/physical_assets/domain/repositories/precious_metals_trade_repository.dart';
 import 'package:finance/shared/domain/repositories/local_storage_repository.dart';
 import 'package:finance/shared/presentation/providers/app_cache_controller.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_service.g.dart';
@@ -143,7 +142,7 @@ class AssetsService {
 
   /// Stocks Symbols
   Future<List<String>> getStocksSymbols() async {
-    return _localStorageRepository.readInvestmentStocksSymbols();
+    return await _localStorageRepository.readInvestmentStocksSymbols();
   }
 
   Future<void> _refreshStocksSymbol() async {

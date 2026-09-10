@@ -17,9 +17,9 @@ class _ApiKeyFieldState extends ConsumerState<ApiKeyField> {
   final formKey = GlobalKey<FormState>();
   final apiKeyController = TextEditingController();
 
-  void _clearField() {
+  Future<void> _clearField() async {
     setState(apiKeyController.clear);
-    _updateApiKey();
+    await _updateApiKey();
   }
 
   Future<void> _updateApiKey() async {
