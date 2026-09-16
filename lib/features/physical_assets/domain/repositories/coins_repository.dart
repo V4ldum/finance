@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/coins_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 CoinsRepository coinsRepository(Ref ref) {
   return CoinsRepository(ref);
 }

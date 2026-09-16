@@ -14,7 +14,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 AssetsRepository assetsRepository(Ref ref) {
   return AssetsRepository(ref);
 }

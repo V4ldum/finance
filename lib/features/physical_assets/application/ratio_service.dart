@@ -5,7 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/ratio_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 RatioService ratioService(Ref ref) {
   return RatioService(ref);
 }

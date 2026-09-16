@@ -8,7 +8,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/precious_metals_trade_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 PreciousMetalsPriceRepository preciousMetalsPriceRepository(Ref ref) {
   return PreciousMetalsPriceRepository(ref);
 }

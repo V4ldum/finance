@@ -13,7 +13,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/assets_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 AssetsService assetsService(Ref ref) {
   return AssetsService(ref);
 }

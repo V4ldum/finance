@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/local_storage_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 LocalStorageRepository localStorageRepository(Ref ref) {
   return LocalStorageRepository(ref);
 }

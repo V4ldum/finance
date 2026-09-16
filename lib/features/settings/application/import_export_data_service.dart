@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/import_export_data_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 ImportExportDataService importExportDataService(Ref ref) {
   return ImportExportDataService(ref);
 }

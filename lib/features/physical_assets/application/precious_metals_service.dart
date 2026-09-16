@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/precious_metals_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 PreciousMetalsService preciousMetalsService(Ref ref) {
   return PreciousMetalsService(ref);
 }

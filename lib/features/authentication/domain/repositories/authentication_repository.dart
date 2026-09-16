@@ -7,7 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/authentication_repository.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 FinaryAuthenticationRepository finaryAuthenticationRepository(Ref ref) {
   return FinaryAuthenticationRepository(ref);
 }

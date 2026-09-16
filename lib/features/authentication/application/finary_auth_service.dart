@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part '_generated/finary_auth_service.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 FinaryAuthService finaryAuthService(Ref ref) {
   return FinaryAuthService(ref);
 }
